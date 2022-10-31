@@ -7,12 +7,36 @@
   url = {https://www.R-project.org/},
 }
 
+@Manual{R-bcdata,
+  title = {bcdata: Search and Retrieve Data from the BC Data Catalogue},
+  author = {Andy Teucher and Sam Albers and Stephanie Hazlitt},
+  year = {2022},
+  note = {R package version 0.3.1},
+  url = {https://CRAN.R-project.org/package=bcdata},
+}
+
 @Manual{R-bookdown,
   title = {bookdown: Authoring Books and Technical Documents with R Markdown},
   author = {Yihui Xie},
   year = {2022},
   note = {R package version 0.27},
   url = {https://CRAN.R-project.org/package=bookdown},
+}
+
+@Manual{R-chron,
+  title = {chron: Chronological Objects which can Handle Dates and Times},
+  author = {David James and Kurt Hornik},
+  year = {2022},
+  note = {R package version 2.3-57},
+  url = {https://CRAN.R-project.org/package=chron},
+}
+
+@Manual{R-citr,
+  title = {citr: RStudio Add-in to Insert Markdown Citations},
+  author = {Frederik Aust},
+  year = {2019},
+  note = {R package version 0.3.2},
+  url = {https://github.com/crsh/citr},
 }
 
 @Manual{R-data.table,
@@ -43,7 +67,7 @@
   title = {dplyr: A Grammar of Data Manipulation},
   author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller},
   year = {2022},
-  note = {R package version 1.0.9},
+  note = {R package version 1.0.10},
   url = {https://CRAN.R-project.org/package=dplyr},
 }
 
@@ -95,6 +119,14 @@
   url = {https://CRAN.R-project.org/package=forcats},
 }
 
+@Manual{R-fpr,
+  title = {fpr: Fish Passage Reporting Functions},
+  author = {Al Irvine},
+  year = {2022},
+  note = {R package version 0.1.0.9003},
+  url = {https://github.com/NewGraphEnvironment/fpr},
+}
+
 @Manual{R-fwapgr,
   title = {fwapgr: Client for BC Freshwater Atlas fwapg API},
   author = {Sebastian Dalgarno and Joe Thorley},
@@ -131,7 +163,7 @@
   title = {httr: Tools for Working with URLs and HTTP},
   author = {Hadley Wickham},
   year = {2022},
-  note = {R package version 1.4.3},
+  note = {R package version 1.4.4},
   url = {https://CRAN.R-project.org/package=httr},
 }
 
@@ -192,6 +224,14 @@ Library},
   url = {https://CRAN.R-project.org/package=leaflet.extras},
 }
 
+@Manual{R-leafpop,
+  title = {leafpop: Include Tables, Images and Graphs in Leaflet Pop-Ups},
+  author = {Tim Appelhans and Florian Detsch},
+  year = {2021},
+  note = {R package version 0.1.0},
+  url = {https://github.com/r-spatial/leafpop},
+}
+
 @Manual{R-lubridate,
   title = {lubridate: Make Dealing with Dates a Little Easier},
   author = {Vitalie Spinu and Garrett Grolemund and Hadley Wickham},
@@ -208,12 +248,12 @@ Library},
   url = {https://CRAN.R-project.org/package=magick},
 }
 
-@Manual{R-magrittr,
-  title = {magrittr: A Forward-Pipe Operator for R},
-  author = {Stefan Milton Bache and Hadley Wickham},
-  year = {2022},
-  note = {R package version 2.0.3},
-  url = {https://CRAN.R-project.org/package=magrittr},
+@Manual{R-pacman,
+  title = {pacman: Package Management Tool},
+  author = {Tyler Rinker and Dason Kurkiewicz},
+  year = {2019},
+  note = {R package version 0.5.1},
+  url = {https://github.com/trinker/pacman},
 }
 
 @Manual{R-pagedown,
@@ -232,15 +272,6 @@ Library},
   url = {https://CRAN.R-project.org/package=pdftools},
 }
 
-@Manual{R-plotKML,
-  title = {plotKML: Visualization of Spatial and Spatio-Temporal Objects in Google
-Earth},
-  author = {Tomislav Hengl},
-  year = {2022},
-  note = {R package version 0.8-3},
-  url = {https://github.com/Envirometrix/plotKML},
-}
-
 @Manual{R-poisspatial,
   title = {poisspatial: Spatial Functions},
   author = {Joe Thorley and Seb Dalgarno},
@@ -252,8 +283,8 @@ Earth},
 @Manual{R-purrr,
   title = {purrr: Functional Programming Tools},
   author = {Lionel Henry and Hadley Wickham},
-  year = {2020},
-  note = {R package version 0.3.4},
+  year = {2022},
+  note = {R package version 0.3.5},
   url = {https://CRAN.R-project.org/package=purrr},
 }
 
@@ -349,7 +380,7 @@ Earth},
   title = {tibble: Simple Data Frames},
   author = {Kirill Müller and Hadley Wickham},
   year = {2022},
-  note = {R package version 3.1.7},
+  note = {R package version 3.1.8},
   url = {https://CRAN.R-project.org/package=tibble},
 }
 
@@ -377,12 +408,16 @@ Earth},
   url = {https://CRAN.R-project.org/package=tidyverse},
 }
 
-@Manual{R-xlsx,
-  title = {xlsx: Read, Write, Format Excel 2007 and Excel 97/2000/XP/2003 Files},
-  author = {Adrian Dragulescu and Cole Arendt},
-  year = {2020},
-  note = {R package version 0.6.5},
-  url = {https://github.com/colearendt/xlsx},
+@Article{bcdata2021,
+  doi = {10.21105/joss.02927},
+  year = {2021},
+  publisher = {The Open Journal},
+  volume = {6},
+  number = {61},
+  pages = {2927},
+  author = {Andrew C. Teucher and Sam J. Albers and Stephanie L. Hazlitt},
+  title = {bcdata: An R package for searching and retrieving data from the B.C. Data Catalogue},
+  journal = {Journal of Open Source Software},
 }
 
 @Book{bookdown2016,
@@ -437,15 +472,13 @@ Earth},
   url = {https://www.jstatsoft.org/v40/i03/},
 }
 
-@Article{plotKML2015,
-  title = {{plotKML}: Scientific Visualization of Spatio-Temporal Data},
-  author = {Tomislav Hengl and Pierre Roudier and Dylan Beaudette and Edzer Pebesma},
-  journal = {Journal of Statistical Software},
-  year = {2015},
-  volume = {63},
-  number = {5},
-  pages = {1--25},
-  url = {https://www.jstatsoft.org/v63/i05/},
+@Manual{pacman2018,
+  title = {{pacman}: {P}ackage Management for {R}},
+  author = {Tyler W. Rinker and Dason Kurkiewicz},
+  address = {Buffalo, New York},
+  note = {version 0.5.0},
+  year = {2018},
+  url = {http://github.com/trinker/pacman},
 }
 
 @Book{rmarkdown2018,

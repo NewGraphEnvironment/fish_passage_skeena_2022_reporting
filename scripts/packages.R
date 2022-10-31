@@ -1,7 +1,7 @@
-# # install.packages('pacman')
+# install.packages('pacman')
 
 package_list <- c(
-  'plotKML',  #plot kml needed to go ahead of other packages for some reason and wants to reinstall everytime.... not sure why. hash out for now
+  #'plotKML', #this takes forever to load so going to leave it out for now
   'raster', #load this dog before dplyr yo
   'tidyverse',
   'readwritesqlite',
@@ -16,7 +16,7 @@ package_list <- c(
   'RPostgreSQL',
   'DBI',
   'magick',
-  # 'bcdata',
+  'bcdata',
   'jpeg',
   'datapasta',
   'knitr',
@@ -28,33 +28,49 @@ package_list <- c(
   'tidyhydat',
   'elevatr',
   'rayshader',
-  'exifr',
+  'geojsonio',
   'english',
   'leaflet.extras',
   'ggdark',
-  'geojsonio',
+  'fwapgr',
+  'citr',
   'pdftools',
-  'xlsx',
-  'pagedown'
-  # 'analogsea',
-  # 'here'
+  'pacman',
+  'chron',
+  'leafpop',
+  'exifr',
+  'fpr'  #personal package available on github - see below
   # rgl,
   # geojsonsf,
   # bit64 ##to make integer column type for pg
   # gert  ##to track git moves
-  ##leafpop I think
 )
 
+lapply(package_list,
+       require,
+       character.only = TRUE)
+
+
+# for a fresh install of R
 # lapply(package_list,
-#        require,
+#        install.packages,
 #        character.only = TRUE)
 
-pacman::p_load(package_list,
-               character.only = TRUE)
+# we need the development version of pagedown as of 20200303 https://github.com/rstudio/pagedown/issues/265
+# remotes::install_github('rstudio/pagedown')
 
 
 pacman::p_load_gh("poissonconsulting/fwapgr",
                   'poissonconsulting/poisspatial',
-                  # "crsh/citr",
-                  # 'rstudio/pagedown',
-                  "poissonconsulting/fishbc")
+                  "crsh/citr",
+                  'rstudio/pagedown',
+                  "poissonconsulting/fishbc",
+                  "newgraphenvironment/fpr")
+# "poissonconsulting/subfoldr2")
+
+
+# custom package
+# devtools::install_github("NewGraphEnvironment/fpr"
+#                          ,ref="main"
+#                          ,auth_token = git_token
+# )

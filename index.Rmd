@@ -1,14 +1,18 @@
 --- 
-title: "My Report"
+title: "Skeena Watershed Fish Passage Restoration Planning 2022"
 author: |
  |
  | Prepared for
-
+ | Habitat Conservation Trust Foundation - CAT23-6-288
+ | BC Fish Passage Remediation Program
+ | Ministry of Transportation and Infrastructure
  |
  |
  | Prepared by
- | Al Irvine, B.Sc., R.P.Bio.
+ | Al Irvine, B.Sc., R.P.Bio. and Mateo Wintersheidt
  | New Graph Environment Ltd.
+ | on behalf of
+ | Society for Ecosytem Restoration in Northern British Columbia
 
 date: |
  |
@@ -20,13 +24,22 @@ output:
           includes:
             in_header: header.html
 nocite: |
+  @busch_etal2013LandscapeLevelModel, 
+  @woll_etal2017SalmonEcological,
+  @kirsch_etal2014Fishinventory,
+  @cooney_holzer2006AppendixInterior,
+  @roberge_etal2002LifeHistory,
+  @sloat_etal2017Streamnetworka,
+  @woll_etal2017SalmonEcological,
+  @porter_etal2008DevelopingFish,
+  @rosenfeld_etal2000Habitatfactorsa
 
 documentclass: book
 bibliography: [book.bib, packages.bib, references.bib]
 biblio-style: apalike
 link-citations: no
 github-repo: rstudio/bookdown-demo
-description: "My Description."
+description: "Skeena Fish Passage Planning 2022"
 
 
 ---
@@ -59,7 +72,6 @@ font_set <- 9
 
 ```{r}
 source('scripts/packages.R')
-source('scripts/functions.R')
 
 ```
 
@@ -80,6 +92,6 @@ Modern civilization has a long journey ahead to acknowledge and address the hist
 
 ```{js, logo-header, echo = FALSE, eval= T}
 title=document.getElementById('header');
-title.innerHTML = '<img src="fig/nge-full_white.png" alt="NewGraph">' + title.innerHTML
+title.innerHTML = '<img src="fig/logo_sern_hctf.png" alt="NewGraph">' + title.innerHTML
 ```
 

@@ -1,22 +1,29 @@
-
-
 # Introduction {#intro}
 
-`r if(identical(gitbook_on, FALSE))knitr::asis_output("This report is available as pdf and as an online [interactive report](https://newgraphenvironment.github.io/mybookdown-template/) at https://newgraphenvironment.github.io/mybookdown-template/. We recommend viewing online as the web-hosted html version contains more features and is more easily navigable.")` 
+`r if(identical(gitbook_on, FALSE))knitr::asis_output("This report is available as both a pdf and as an online interactive report at https://newgraphenvironment.github.io/fish_passage_skeena_2022_reporting/. We recommend viewing online as the web-hosted version contains more features and is more easily navigable. Please reference the website for the latest version number and download the latest pdf from https://github.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/raw/master/docs/skeena2022.pdf")` 
 
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("<br>")}`
 
+In April of 2020, the Society for Ecosystem Restoration Northern British Columbia (SERNbc) undertook an initiative to plan and conduct fish passage restoration planning activities in the Bulkley River and Morice River watershed groups which are sub-basins of the Skeena River watershed. The initiative was supported by a grant from the Habitat Conservation Trust Fund that leveraged funds committed in the fall of 2019 from the Provincial Fish Passage Remediation Program and the Canadian Wildlife Federation. New Graph Environment and Hillcrest Geographics were the project team subcontracted to devise the study plan, submit proposals and complete the work which included information gathering, updating/implementation of open source data analysis tools, fish passage assessments and habitat confirmation assessments. Although fish passage restoration planning was conducted for both the Morice River watershed group and the Bulkley River watershed group, on the ground surveys in 2020 focused primarily within Bulkley River tributaries. 
 
+<br>
+
+In August of 2020, following a province wide prioritization exercise and a series of workshops, the Canadian Wildlife Federation selected the Bulkley River watershed group as a target watershed for connectivity planning efforts supported by a grant from the British Columbia Salmon Restoration and Innovation Fund. A Fish Passage Working Group consisting of First Nations, non-profits, stakeholder groups and regulators was established for the Bulkley River watershed group in the fall of 2020 as documented in @mazany-wright_etal2021BulkleyRiver. Recognizing synergies between the two initiatives, select project activities of both initiatives became a collaboration between SERNbc and CWF with extensive input from numerous organizations and individuals connected to the watersheds.  
+
+<br>
+
+This report builds on reporting from field activities conducted in 2021 [@irvine2021BulkleyRiver] and 2022 which can be viewed interactively [here](https://newgraphenvironment.github.io/fish_passage_bulkley_2020_reporting/) and [here](https://newgraphenvironment.github.io/fish_passage_skeena_2021_reporting/).
+
+<br>
+
+Please note that at the time of reporting, this document was a living document changing over time.  Version numbers are logged for each release with modifications, enhancements and other changes tracked [here](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/blob/master/NEWS.md) with issues tracked [here](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/issues). 
 
 <br>
 
 
-## Header with no number {-}
+The health and viability of freshwater fish populations can depend on access to tributary and off channel areas which provide refuge during high flows, opportunities for foraging, overwintering habitat, spawning habitat and summer rearing habitat [@Bramblett_2002; @swalesRoleOffChannelPonds1989; @diebel_etal2015EffectsRoad].  Culverts can present barriers to fish migration due to low water depth, increased water velocity, turbulence, a vertical drop at the culvert outlet and/or maintenance issues [@slaneyFishHabitatRehabilitation1997; @cote_etal2005Fishpassage]. As road crossing structures are commonly upgraded or removed there are numerous opportunities to restore connectivity by ensuring that fish passage considerations are incorporated into repair, replacement, relocation and deactivation designs. 
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
+<br>
+
+Although remediation and replacement of stream crossing structures can have benefits to local fish populations, the costs of remedial works can be significant and the impacts of the work often complex to evaluate and quantify. Additionally, allocation of ecosystem restoration funding towards infrastructure upgrades on transportation right of ways are not always considered ethical under all circumstances from all perspectives. When funds are finite and invested groups are engaged in fund raising, cost benefits and the ethics of crossing replacements should be explored collaboratively alongside the cost benefits and ethics of alternative investment activities including transportation corridor relocation/deactivation, land procurement/covenant, cattle exclusion, riparian/floodplain restoration, habitat complexing, water conservation,  commercial/recreational fishing management, salt water interventions and research.
