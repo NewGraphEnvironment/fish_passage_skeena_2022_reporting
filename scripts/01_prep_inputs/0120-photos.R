@@ -208,7 +208,6 @@ test <- fpr::fpr_photo_time_prep() %>%
 
 
 ##lets pass it a list of folders to do the sorting on
-##we do not include nupqu becasue their photos are already sorted into folders
 ls_folders <- c("C:/Users/allan/OneDrive/New_Graph/Current/2021-034-hctf-bulkley-fish-passage/data/photos/AI",
                  "C:/Users/allan/OneDrive/New_Graph/Current/2021-034-hctf-bulkley-fish-passage/data/photos/KP"
 )
