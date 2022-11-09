@@ -36,7 +36,7 @@ form <- form_names_l %>%
   # name the data.frames so we can add it later as a "source" column - we use basename to leave the filepath behind
   purrr::set_names(nm = basename(form_names_l)) %>%
   bind_rows(.id = 'source') %>%
-  readr::write_csv(paste0('data/inputs_extracted/mergin_backups/form_fiss_site_raw_', format(lubridate::now(), "%Y%m%d")))
+  readr::write_csv(paste0('data/inputs_extracted/mergin_backups/form_fiss_site_raw_', format(lubridate::now(), "%Y%m%d", '.csv')))
 
 
 # see the names of our form
