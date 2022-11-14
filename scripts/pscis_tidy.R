@@ -8,91 +8,22 @@ source('scripts/packages.R')
 # use an absolute path if you have to but it is preferable to keep our relative paths the same so we can collab
 
 # name the project directory we are pulling from
-dir_project <- 'bcfishpass_skeena_20220823'
+dir_project <- 'bcfishpass_skeena_20220823-v229'
 
 # find all the pscis forms in the file
-list.files(path = paste0('../../gis/mergin/',
+form_names <- list.files(path = paste0('../../gis/mergin/',
                   dir_project),
            # ?glob2rx is a funky little unit
-           pattern = glob2rx('form_pscis_*.gpkg')
+           pattern = glob2rx('form_pscis_*.gpkg'),
+           full.names = T
            )
 
-# lets do multiple forms manually for the pars and then we will get into purrr functions
-# and read them all in at once for the skeena
-
-
-# name the first form we are reading
-form_id <- 'form_pscis_202208251308.gpkg'
-
-path <- paste0('../../gis/mergin/',
-               dir_project,
-               '/',
-               form_id)
-
-# read in the first form
-form1 <- sf::st_read(path)
-
-# name the second form we are reading
-form_id <- 'form_pscis_202208280808.gpkg'
-
-path <- paste0('../../gis/mergin/',
-               dir_project,
-               '/',
-               form_id)
-
-form2 <- sf::st_read(path)
-
-#name third form
-form_id <- 'form_pscis_202208282108.gpkg'
-
-path <- paste0('../../gis/mergin/',
-               dir_project,
-               '/',
-               form_id)
-
-form3 <- sf::st_read(path)
-
-# name fourth form
-form_id <- 'form_pscis_202209050809.gpkg'
-
-path <- paste0('../../gis/mergin/',
-               dir_project,
-               '/',
-               form_id)
-
-form4 <- sf::st_read(path)
-
-#name fifth form
-form_id <- 'form_pscis_202209060709.gpkg'
-
-path <- paste0('../../gis/mergin/',
-               dir_project,
-               '/',
-               form_id)
-
-# read in the first form
-form5 <- sf::st_read(path)
-
-# name sixth form
-form_id <- 'form_pscis_202209061414.gpkg'
-
-path <- paste0('../../gis/mergin/',
-               dir_project,
-               '/',
-               form_id)
-
-form6 <- sf::st_read(path)
-
-# join our forms together
-form_raw <- bind_rows(
-  form1,
-  form2,
-  form3,
-  form4,
-  form5,
-  form6
-)
-
+form <- form_names %>%
+  purrr::map(sf::st_read) %>%
+  purrr::map(plyr::colwise(type.convert)) %>%
+  # name the data.frames so we can add it later as a "source" column - we use basename to leave the filepath behind
+  purrr::set_names(nm = basename(form_names)) %>%
+  bind_rows(.id = 'source')
 
 # this is a table that cross references column names for pscis table and has the columns in the same order as the spreadsheet
 xref_names_pscis <- fpr::xref_names_pscis
@@ -126,12 +57,12 @@ setdiff(names(form_raw), name_pscis_sprd_ordered)
 
 form_prep1 <- form_raw %>%
   #split date time column into date and time
-
+  dplyr::mutate(date_time_start = lubridate::ymd_hms(date_time_start),
+                survey_date = lubridate::date(date_time_start),
+                time = hms::as_hms(date_time_start)) %>%
   # filter out to get only the records newly created
   filter(!is.na(date_time_start)) %>%
   # when necessary split your time into a date and time - skeena only
-  form_prep1$date <- as.Date(form_prep1$date_time_start)
-  form_prep1$time <- format(as.POSIXct(form_prep1$date_time_start),"%H:%M:%S") %>%
   # note the call to any of
   select(any_of(name_pscis_sprd_ordered)) %>%
   # we are better off leaving the coordinates as per the crossings layer of bcfishpass than moving them around if
@@ -151,7 +82,7 @@ template <- fpr::fpr_import_pscis() %>%
 form <- bind_rows(
   template,
 
-  form_raw %>%
+  form_prep1 %>%
     # we are better off leaving the coordinates as per the crossings layer of bcfishpass than moving them around if
     # the switch that utm_corrected is not hit.  If it was we can pull out the coordinates from the geom or use the ones that autopopulate
     # they should be the same but we should QA it
@@ -172,7 +103,7 @@ form %>%
   arrange(date) %>%
 
   readr::write_csv(paste0(
-    'data/skeena/survey_form_',
+    'data/dff/survey_form_',
     format(lubridate::now(), "%Y%m%d"),
     '.csv'))
 
