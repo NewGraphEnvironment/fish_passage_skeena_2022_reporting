@@ -1,5 +1,5 @@
 # Each section should stand on its own and you can navigate around using the control/command + shift + O
-
+source('scripts/packages.R')
 
 ##lets use magick to:
 ## back up original photos ont he d drive
@@ -15,7 +15,7 @@
 
 ##get the name of the folder we are in
 bname <- basename(dirname(dirname(getwd())))
-name_script_project <- 'fish_passage_skeena_2021_reporting'
+name_script_project <- 'fish_passage_skeena_2022_reporting'
 
 ##input the name of the file we want to copy.  We should get a list of files next time and then purrr::map the procedure
 filename = "al"
@@ -196,7 +196,6 @@ pscis_all <- fpr::fpr_import_pscis_all() %>%
 test <- pscis_all %>% filter(is.na(crew_members))
 
 
-
 # ensure you have a time for every crossing for all the people you are sorting for
 # we only exported fpr_photo_time_prep for this test
 test <- fpr::fpr_photo_time_prep() %>%
@@ -208,8 +207,9 @@ test <- fpr::fpr_photo_time_prep() %>%
 
 
 ##lets pass it a list of folders to do the sorting on
-ls_folders <- c("C:/Users/allan/OneDrive/New_Graph/Current/2021-034-hctf-bulkley-fish-passage/data/photos/AI",
-                 "C:/Users/allan/OneDrive/New_Graph/Current/2021-034-hctf-bulkley-fish-passage/data/photos/KP"
+ls_folders <- c("C:/Users/matwi/Projects/current/2022-049-sern-skeena-fish-passage/data/photos/photos_copy/AI",
+                 "C:/Users/matwi/Projects/current/2022-049-sern-skeena-fish-passage/data/photos/photos_copy/MW",
+                "C:/Users/matwi/Projects/current/2022-049-sern-skeena-fish-passage/data/photos/photos_copy/mergin"
 )
 
 
@@ -237,30 +237,30 @@ photo_meta <- ls_folders %>%
   tibble::rowid_to_column()
 
 # define surveyors
-ls_surveyors = c('AI', 'KP')
+ls_surveyors = c('AI', 'MW', 'mergin')
 
 
 ##we have a few special cases no lets make some conditions.  These are shots of the cards.
 # probably not worth doing this again as it is a bit time consuming and it doesn't really matter if the files move.
-photo_ids_dont_copy01 <- c(
-  paste0('KP_IMG_', 0262:0277, '.JPG'),
-  paste0('KP_IMG_', 0492:0515, '.JPG'),
-  paste0('KP_IMG_', 0678:0694, '.JPG'),
-  paste0('KP_IMG_', 0931:0947, '.JPG'),
-  paste0('KP_IMG_', 1171:1180, '.JPG'),
-  paste0('KP_IMG_', 1491:1498, '.JPG'),
-  paste0('KP_IMG_', 2148:2141, '.JPG'),
-  paste0('KP_IMG_', 2703:2714, '.JPG'),
-  paste0('AI_IMG_', 5300:5377, '.JPG'),
-  paste0('AI_IMG_', 5588:5595, '.JPG'),
-  paste0('AI_IMG_', 5680:5691, '.JPG'),
-  paste0('AI_IMG_', 5786:5801, '.JPG'),
-  paste0('AI_IMG_', 5908:5917, '.JPG'),
-  paste0('AI_IMG_', 6134:6152, '.JPG'),
-  paste0('AI_IMG_', 6329:6340, '.JPG'),
-  paste0('AI_IMG_', 6499:6509, '.JPG'),
-  paste0('AI_IMG_', 6539:6640, '.JPG')
-)
+# photo_ids_dont_copy01 <- c(
+#   paste0('KP_IMG_', 0262:0277, '.JPG'),
+#   paste0('KP_IMG_', 0492:0515, '.JPG'),
+#   paste0('KP_IMG_', 0678:0694, '.JPG'),
+#   paste0('KP_IMG_', 0931:0947, '.JPG'),
+#   paste0('KP_IMG_', 1171:1180, '.JPG'),
+#   paste0('KP_IMG_', 1491:1498, '.JPG'),
+#   paste0('KP_IMG_', 2148:2141, '.JPG'),
+#   paste0('KP_IMG_', 2703:2714, '.JPG'),
+#   paste0('AI_IMG_', 5300:5377, '.JPG'),
+#   paste0('AI_IMG_', 5588:5595, '.JPG'),
+#   paste0('AI_IMG_', 5680:5691, '.JPG'),
+#   paste0('AI_IMG_', 5786:5801, '.JPG'),
+#   paste0('AI_IMG_', 5908:5917, '.JPG'),
+#   paste0('AI_IMG_', 6134:6152, '.JPG'),
+#   paste0('AI_IMG_', 6329:6340, '.JPG'),
+#   paste0('AI_IMG_', 6499:6509, '.JPG'),
+#   paste0('AI_IMG_', 6539:6640, '.JPG')
+# )
 
 photos_to_transfer <- ls_surveyors %>%
   purrr::map(fpr::fpr_photo_sort_plan) %>%
