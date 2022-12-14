@@ -88,14 +88,19 @@ file.copy(from = 'data/pscis_phase1.xlsm',
 
 
 ## going to make a few notes here about the submission process
-## we need to work in microsoft edge and put sites in "Internet Explorer mode pages" and set exceptions for uploading to soft and esf
+## we need to work in microsoft edge and put the sites below in "Internet Explorer mode pages" and set exceptions for uploading to soft and esf
 ## https://www.env.gov.bc.ca/csd/imb/soft/soft.shtml
 ## https://logon7.gov.bc.ca/clp-cgi/capBceid/logon.cgi?flags=1111:1,8&TARGET=$SM$https%3a%2f%2fapps%2enrs%2egov%2ebc%2eca%2fext%2fesf%2fsubmissionWelcome%2edo
+## https://apps.nrs.gov.bc.ca/ext/esf/submissionWelcome.do?
+## Add a word file to the main directory called 'dummy_report' and make notes in there that the report and associated raw data
+## will be at the report website site url.
 
+## fill in soft url here:
+##
 
-# soft url
-# https://www.env.gov.bc.ca/perl/soft/dl.pl/20220331022839-14-gp-92bd0e96-9ff1-451a-9fa1-0d72e543?simple=y
-
-##check on your submission here https://apps.nrs.gov.bc.ca/ext/esf/submissionSearch.do?action=detail&submissionId=2142948
-# https://apps.nrs.gov.bc.ca/ext/esf/submissionSearch.do?action=detail&submissionId=2143131
-# https://apps.nrs.gov.bc.ca/ext/esf/submissionSearch.do?action=detail&submissionId=2143132
+## fill in where to check on your submission here (copy and paste url once file uploads)
+## take screenshot of final screen when submission is accepted
+## label the submission by the project_name_yyyymmdd, to distinguish it in case you have more than one submission
+# url:
+# user reference:
+# submission id:
