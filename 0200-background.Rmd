@@ -12,7 +12,7 @@ Wet'suwet'en hereditary territory covers an area of 22,000km^2^ including the Bu
 
 ## Gitxsan
 
-The Gitxsan Laxyip (traditional territories) covers an area of 33,000km^2^ within the Skeena River and Nass River watersheds. The Laxyip is governed by 60 Simgiigyet (Hereditary Chiefs), within the traditional hereditary system made up of Wilps (House groups). Anaat are fisheries tenures found throughout the Laxyip. Traditional governance within a matrilineal society operates under the principles of Ayookw (Gitxsan law) [@GitxsanHuwilpGovernment2021].
+The Gitxsan Laxyip (traditional territories) covers an area of 33,000km^2^ within the Skeena River and Nass River watersheds. The Laxyip is governed by 60 Simgiigyet (Hereditary Chiefs), within the traditional hereditary system made up of Wilps (House groups). Anaat are fisheries tenures found throughout the Laxyip. Traditional governance within a matrilineal society operates under the principles of Ayookw (Gitxsan law) [@GitxsanHuwilpGovernment2021]. Gitxsan means "People of the River Mist" in their native language. Its people reside in the communities of Hazelton, Kispiox and Glen Vowell (the Eastern Gitxsan bands) and Kitwanga, Kitwankool and Kitsegukla (the Western Gitxsan). The Gitxsan language is gradually being replaced by English, however some community schools still offer Gitxsan lessons. The original Gitxsan economy depended heavily on the trade of fish and other natural resources. The Gitxsan traded with neighbouring First Nations along "grease trails," which are routes named so because they carried the refined oil of the oolichan, a fish that resembles a smelt that is common in some areas of British Columbia and a major trading commodity among many First Nations, including the Gitxsan. They are also known for their range of traditional arts [@j_v_powelletal_GitxsanCanadian].
 
 ```{r}
 # Salmon is considered the source of life and always treated with high regard.  It was brought by the Raven who also taught people how to fish and hunt.
@@ -95,28 +95,26 @@ knitr::include_graphics("fig/hydrology_stats_08ED002.png")
 
 ### Zymoetz River
 
-The Zymoetz River watershed is a sixth order stream that drains an area of 3,028 km^2^ in a generally westerly direction. It is considered a major tributary of the Skeena River, as it contributes approximately 10% of the flow. The headwater lakes are located approximately 20km southwest of Smithers, and they include Aldrich, Dennis and McDonell Lakes. The upper and lower portions of the watershed are accessed via logging roads off of Highway 16 from Smithers. The Zymoetz River flows roughly 120km to the confluence of the Skeena River. Elevations in the watershed range from 120m at the confluence, to 2740m in the Howson Range. The lower end of the Zymoetz watershed has seen a significant reduction in riparian habitat due to fires, forest development practices, pipe line and road construction. [@gottesfeld_etal2002ConservingSkeena]. Snowmelt plays a big role in controlling the stream hydrology, with a mean annual discharge estimated at `r round(fasstr::calc_longterm_mean(station_number = "08EF006")$LTMAD,1)` m^3^/s at station 08EF006 located near Smithers. Peak discharge happens in May to early June, which is typical of a high elevation watershed like this (Figures \@ref(fig:hydrology-plot3) - \@ref(fig:hydrology-stats4)).
+The Zymoetz River (known locally as the Copper River) watershed is an eighth order stream that drains an area of 3,028 km^2^ in a generally westerly direction. It is considered a major tributary of the Skeena River, as it contributes approximately 10% of the flow. The headwater lakes are located approximately 20km southwest of Smithers, and they include Aldrich, Dennis and McDonell Lakes. The upper and lower portions of the watershed are accessed via logging roads off of Highway 16 from Smithers and Terrace, respectively. Access to the middle watershed is difficult due to road wash out. The Zymoetz River flows roughly 120km, starting just west of Hudson Bay mountain near Smithers and ending at the confluence of the Skeena River, approximately 8km north-east of Terrace. Elevations in the watershed range from 120m at the confluence, to 2740m in the Howson Range. The lower end of the Zymoetz watershed has seen a significant reduction in riparian habitat due to fires, forest development practices, pipe line and road construction [@gottesfeld_etal2002ConservingSkeena]. Snowmelt plays a big role in controlling the stream hydrology, with a mean annual discharge estimated at `r round(fasstr::calc_longterm_mean(station_number = "08EF005")$LTMAD,1)` m^3^/s at station 08EF005 located near Smithers. Peak discharge happens in May to early June, which is typical of a high elevation watershed like this (Figures \@ref(fig:hydrology-plot3) - \@ref(fig:hydrology-stats4)).
 
 <br>
 
-<br>
-
-```{r hydrology-plot3, fig.cap = 'Hydrograph for Zymoetz River near Smithers (Station #08EF006).', fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=T}
-knitr::include_graphics("fig/hydrograph_08EF006.png")
+```{r hydrology-plot3, fig.cap = 'Hydrograph for Zymoetz River (Station #08EF005).', fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=T}
+knitr::include_graphics("fig/hydrograph_08EF005.png")
 knitr::include_graphics("fig/pixel.png")
 ```
 
 <br>
 
-```{r hydrology-stats4, fig.cap = 'Summary of hydrology statistics for Zymoetz River near Smithers (Station #08EF006 - Lat 54.116829 Lon -127.426582). Available daily discharge data from 1997 to 2021.', eval=T}
+```{r hydrology-stats4, fig.cap = 'Summary of hydrology statistics for Zymoetz River (Station #08EF005 - Lat 54.116829 Lon -127.426582). Available daily discharge data from 1997 to 2021.', eval=T}
 
-knitr::include_graphics("fig/hydrology_stats_08EF006.png")
+knitr::include_graphics("fig/hydrology_stats_08EF005.png")
 
 ```
 
 ### Kispiox River
 
-The Kispiox River watershed is a fifth order stream that drains an area of 2,088km^2^ in a south east direction. It is a large tributary of the Skeena River, contributing approximately 9% of its flow. It flows 140km to the confluence of the Skeena River, located near Kispiox Village. Elevations in the watershed range from 200m at the mouth to as high as 2090m on Kispiox Mountain. The mainstream of the Kispiox is fed mainly by glacier melt and high elevation snow melt. Swan and Stephens Lakes (located in the upper watershed), are the most important high fish value lakes. These lakes drain into the mainstem of the Kispiox River. Some of the biggest threats to aquatic ecosystems in the Kispiox valley include erosion, obstructions, sedimentation, and altered water yield. Beaver dams are another problem that have a big impact on fish in this system. The upper third of the Kispiox watershed is well protected, containing few roads and forestry practices. [@gottesfeld_etal2002ConservingSkeena]. The Kispiox River has a mean annual discharge estimated at `r round(fasstr::calc_longterm_mean(station_number = "08EB004")$LTMAD,1)` m^3^/s at station 08EB004 located near Hazelton. Peak discharge happens in May and June as a result of the spring snowmelt. (Figures \@ref(fig:hydrology-plot4) - \@ref(fig:hydrology-stats5)).
+The Kispiox River watershed is a seventh order stream that drains an area of 2,088km^2^ in a south east direction. It is a large tributary of the Skeena River, contributing approximately 9% of its flow. It flows 140km to the confluence of the Skeena River, located near Kispiox Village. Elevations in the watershed range from 200m at the mouth to as high as 2090m on Kispiox Mountain. The mainstream of the Kispiox is fed mainly by glacier melt and high elevation snow melt. Swan and Stephens Lakes (located in the upper watershed), are the most important high fish value lakes. These lakes drain into the mainstem of the Kispiox River. Some of the biggest threats to aquatic ecosystems in the Kispiox valley include erosion, obstructions, sedimentation, and altered water yield. The upper third of the Kispiox watershed is well protected, containing few roads and forestry practices [@gottesfeld_etal2002ConservingSkeena]. The Kispiox River has a mean annual discharge estimated at `r round(fasstr::calc_longterm_mean(station_number = "08EB004")$LTMAD,1)` m^3^/s at station 08EB004 located near Hazelton. Peak discharge happens in May and June as a result of the spring snowmelt. (Figures \@ref(fig:hydrology-plot4) - \@ref(fig:hydrology-stats5)).
 
 ```{r hydrology-plot4, fig.cap = 'Hydrograph for Kispiox River near Hazelton (Station #08EB004).', fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=T}
 knitr::include_graphics("fig/hydrograph_08EB004.png")
@@ -145,13 +143,33 @@ Approximately 11.3 km downstream of the Bulkley Lake outlet and just upstream of
 
 <br>
 
-Renowned as a world class recreational steelhead and coho fishery, the Bulkley River receives some of the heaviest angling pressure in the province. In response to longstanding angler concerns with respect to overcrowding, quality of experience and conflict amongst anglers, an Angling Management Plan was drafted for the river following the initiation of the Skeena Quality Waters Strategy process in 2006 and an extensive multi-year consultation process. The plan introduces a number of regulatory measures with the intent to provide Canadian resident anglers with quality steelhead fishing opportunities. Regulatory measures introduced with the Angling Management Plan include prohibited angling for non-guided non-resident aliens on Saturdays and Sundays, Sept 1 - Oct 31 within the Bulkley River, angling prohibited for non-guided non-resident aliens on Saturdays and Sundays, all year within the Suskwa River and angling prohibited for non-guided non-resident aliens Sept 1 - Oct 31 in the Telkwa River. The Bukley River is considered Class II waterand there is no fshing permitted upstream of the Morice/Bulkley River Confluence [@flnro2013BulkleyRiver; @flnro2013OverviewAngling; @flnrord2019FreshwaterFishing].
+Renowned as a world class recreational steelhead and coho fishery, the Bulkley River receives some of the heaviest angling pressure in the province. In response to longstanding angler concerns with respect to overcrowding, quality of experience and conflict amongst anglers, an Angling Management Plan was drafted for the river following the initiation of the Skeena Quality Waters Strategy process in 2006 and an extensive multi-year consultation process. The plan introduces a number of regulatory measures with the intent to provide Canadian resident anglers with quality steelhead fishing opportunities. Regulatory measures introduced with the Angling Management Plan include prohibited angling for non-guided non-resident aliens on Saturdays and Sundays, Sept 1 - Oct 31 within the Bulkley River, angling prohibited for non-guided non-resident aliens on Saturdays and Sundays, all year within the Suskwa River and angling prohibited for non-guided non-resident aliens Sept 1 - Oct 31 in the Telkwa River. The Bulkley River is considered Class II water and there is no fishing permitted upstream of the Morice/Bulkley River Confluence [@flnro2013BulkleyRiver; @flnro2013OverviewAngling; @flnrord2019FreshwaterFishing].
 
 <br>
 
 ### Morice River
 
 Detailed reviews of Morice River watershed fisheries can be found in @bustard_schell2002ConservingMorice, @gottesfeld_etal2002ConservingSkeena, @schell2003BriefOverview, @gottesfeld_rabnett2007SkeenaFish, and @ilmb2007MoriceLand with a comprehensive review of water quality by @oliver2018Analysiswater. Overall, the Morice watershed contains high fisheries values as a major producer of chinook, pink, sockeye, coho and steelhead.
+
+<br>
+
+### Zymoetz River
+
+Within the Zymoetz Watershed, there are many areas with high fishery values. Steelhead are the most extensively documented fish species in the Zymoetz River watershed. Adults enter the river from JUly to November and then go on to spawn the following year in late spring to early summer. The Zymoetz River is a relatively steep system. Two canyons are located 6.4 and 19.6 kilometers upstream of the Skeena River confluence. These canyons make access to the Zymoetz difficult for pink and chum salmon [@gottesfeld_etal2002ConservingSkeena]. The Zymoetz River is renowned for its aggressive steelhead that have been known to take flies or lures. There is a 50km stretch upstream of Limonite Creek where the Zymoetz River is a designated Class I water. This section is remote and offers high quality fishing opportunities for anglers [@Zymoetz1_AMP.pdf].
+
+<br>
+
+Traditional First Nations use of the upper Zymoetz River watershed by the Gitxsan and Wet'suwet'en people differed between community sites, residences, and fish houses, and was large and diverse. From the upper to lower Zymoetz River and to the Skeena River, a significant ancient grease trail connected, with a branch track forking through Limonite Creek and flowing down the Telkwa River. The fishery used a weir at the mouth of McDonell Lake and spears at Six Mile Flats, near Dennis Lake. There is no information on native fisheries on the lower Zymoetz River. The Zymoetz is considered to be one of the top ten steelhead rivers in BC [@gottesfeld_etal2002ConservingSkeena].
+
+<br>
+
+### Kispiox River
+
+About 100 km of the mainstem and 300 km of the tributary streams in the Kispiox River Watershed are designated high value fish habitat. They serve as a migration route and support spawning and rearing for many salmonids and other fish species. This fish community supports both recreational and commercial fishing while also enhancing the ecology, nutrient regime, and structural diversity of the drainage. It also creates strong cultural, economic, and symbolic ties, particularly for First Nation peoples. Since 1992, sockeye and coho escapements from the Kispiox Watershed have been documented by the Gitxsan Watershed Authorities [@gottesfeld_etal2002ConservingSkeena].
+
+<br>
+
+Salmon are a significant food source and cultural symbol for the Gitxsan people. Sockeye and coho have historically been the two most significant species for First Nations tribes. Gitangwalk and Lax Didax, two significant villages that were both abandoned in the early 1900s, were situated in such a way as to block the sockeye and coho salmon's upstream migration to the Upper Kispiox River spawning grounds. The Gitxsan were provided with the chance to gather and preserve a significant amount of high-quality food in a reasonably short period of time through intense work due to the plentiful and reliable sockeye salmon populations[@gottesfeld_etal2002ConservingSkeena].
 
 <br>
 

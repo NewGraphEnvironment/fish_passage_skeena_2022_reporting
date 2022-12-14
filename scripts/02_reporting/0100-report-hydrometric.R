@@ -152,14 +152,14 @@ ggsave(plot = plot, file=paste0("./fig/hydrograph_", station, ".png"),
        h=3.4, w=5.11, units="in", dpi=300)
 
 ########Zymoetz River----------------------------------------------------------------------------------
-# hydrometrics for Zymoetz River, station is near Smithers (M3 Creek Station #08EF006)
+# hydrometrics for Zymoetz River, above O.K. Creek (#08EF005)
 
-station <- '08EF006'
+station <- '08EF005'
 
   flow_raw <- tidyhydat::hy_daily_flows(station)
 
 tidyhat_info <- search_stn_number(station)
-hy_stn_data_coll('08EF006')
+hy_stn_data_coll('08EF005')
 
 
 flow <- flow_raw %>%
