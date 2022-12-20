@@ -4,6 +4,10 @@ fig:hydrology-stats1
 fig:hydrology-stats2
 fig:hydrology-plot2
 fig:hydrology-stats3
+fig:hydrology-plot3
+fig:hydrology-stats4
+fig:hydrology-plot4
+fig:hydrology-stats5
 tab:fiss-species-table
 fig:fish-gantt-morice
 fig:fish-plot-grad
@@ -15,9 +19,13 @@ gitxsan
 project-location
 bulkley-river
 morice-river
+zymoetz-river
+kispiox-river
 fisheries
 bulkley-river-1
 morice-river-1
+zymoetz-river-1
+kispiox-river-1
 fish-species
 fish-passage-restoration-planning-and-implementation
 bulkley-river-2
