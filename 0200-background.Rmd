@@ -12,10 +12,12 @@ Wet'suwet'en hereditary territory covers an area of 22,000km^2^ including the Bu
 
 ## Gitxsan
 
-Gitxsan means "People of the River Mist". The Gitxsan Laxyip (traditional territories) covers an area of 33,000km^2^ within the Skeena River and Nass River watersheds. The Laxyip is governed by 60 Simgiigyet (Hereditary Chiefs), within the traditional hereditary system made up of Wilps (House groups). Anaat are fisheries tenures found throughout the Laxyip. Traditional governance within a matrilineal society operates under the principles of Ayookw (Gitxsan law) [@GitxsanHuwilpGovernment2021].  Its people reside in the communities of Hazelton, Kispiox and Glen Vowell (the Eastern Gitxsan bands) and Kitwanga, Kitwankool and Kitsegukla (the Western Gitxsan). The original Gitxsan economy depended heavily on the trade of fish and other natural resources with neighbouring First Nations along "grease trails," which are routes named so because they carried the refined oil of the oolichan, a fish that resembles a smelt that is common in some areas of British Columbia. They are also known for their range of traditional arts [@j_v_powelletal_GitxsanCanadian].
+Gitxsan means "People of the River Mist". The Gitxsan Laxyip (traditional territories) covers an area of 33,000km^2^ within the Skeena River and Nass River watersheds. The Laxyip is governed by 60 Simgiigyet (Hereditary Chiefs), within the traditional hereditary system made up of Wilps (House groups). Anaat are fisheries tenures found throughout the Laxyip. Traditional governance within a matrilineal society operates under the principles of Ayookw (Gitxsan law) [@GitxsanHuwilpGovernment2021].  Many band members live in  Hazelton, Kispiox and Glen Vowell (the Eastern Gitxsan) as well as within Kitwanga, Kitwankool and Kitsegukla (the Western Gitxsan) [@j_v_powelletal_GitxsanCanadian].
 
 ```{r}
 # Salmon is considered the source of life and always treated with high regard.  It was brought by the Raven who also taught people how to fish and hunt.
+
+ # The original Gitxsan economy depended heavily on the trade of fish and other natural resources with neighbouring First Nations along "grease trails," which are routes named so because they carried the refined oil of the oolichan, a fish that resembles a smelt that is common in some areas of British Columbia. They are also known for their range of traditional arts 
 
 ```
 
@@ -165,7 +167,7 @@ Traditional First Nations use of the upper Zymoetz River watershed by the Gitxsa
 
 ### Kispiox River
 
-Kispiox River salmon are a important food source and cultural symbol for the Gitxsan people with sockeye and coho historically the two most significant species. Gitangwalk and Lax Didax, two significant villages that were both abandoned in the early 1900s, were situated on the Kispiox in such a way as to block the sockeye and coho salmon's upstream migration to the Upper Kispiox River spawning grounds providing opportunities to gather and preserve a significant amount of high-quality food over relatively short time periods [@gottesfeld_etal2002ConservingSkeena]. About 100 km of the mainstem and 300 km of the tributary streams in the Kispiox River Watershed are considering high value fish habitat as they are a migration route and support spawning and rearing for many fish species. The Kispiox fisheries supports both recreational and commercial fishing while also enhancing the ecology, nutrient regime, and structural diversity of the drainage. Since 1992, sockeye and coho escapements from the Kispiox Watershed have been documented by the Gitxsan Watershed Authorities as they creates strong cultural, economic, and symbolic ties for the local communities [@gottesfeld_etal2002ConservingSkeena].
+Kispiox River salmon are a important food source and cultural symbol for the Gitxsan people with sockeye and coho historically the two most significant species. Gitangwalk and Lax Didax, two significant villages that were both abandoned in the early 1900s, were situated on the Kispiox in such a way as to block the sockeye and coho salmon's upstream migration to the Upper Kispiox River spawning grounds providing opportunities to gather and preserve a significant amount of high-quality food over relatively short time periods [@gottesfeld_etal2002ConservingSkeena]. The 100 km of mainstem and 300km of tributary streams in the Kispiox River Watershed are considering high value fish habitat supprting migration, spawning and rearing for many fish species. The Kispiox fisheries supports both recreational and commercial fishing while also enhancing the ecology, nutrient regime, and structural diversity of the drainage. Since 1992, sockeye and coho escapements from the Kispiox Watershed have been documented by the Gitxsan Watershed Authorities as they creates strong cultural, economic, and symbolic ties for the local communities [@gottesfeld_etal2002ConservingSkeena].
 
 
 
@@ -191,6 +193,8 @@ In the 1990's the Morice River watershed, @gottesfeld_rabnett2007SkeenaFish esti
 
 
 #It is estimated that Morice River coho comprise approximatley 4% of the Skeena escapement with a declining trend noted since the 1950 in @gottesfeld_rabnett2007SkeenaFish.  Coho spawn in major tributaries and small streams ideally at locations where downstream dispersal can result in seeding of prime off channel habitats including warm productive sloughs and side channels.  Of all the salmon species, coho rely on small tributaries the most [@bustard_schell2002ConservingMorice]. @bustard_schell2002ConservingMorice report that much of the distribution of coho into non-natal tributaries occurs during high flow periods of May - early July with road culverts blocking migration into these habitats.
+
+
 ```
 
 <br>
