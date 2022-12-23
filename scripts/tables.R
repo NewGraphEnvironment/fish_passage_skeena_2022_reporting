@@ -67,7 +67,10 @@ photo_metadata <- readwritesqlite::rws_read_table("photo_metadata", conn = conn)
 rws_disconnect(conn)
 
 
-# this doesn't work till our data loads to pscis
+# this doesn't work till our data loads to pscis soo
+# HACK!!!!
+pscis_all <- pscis_all_prep
+
 
 # pscis_all <- pscis_all_prep
 pscis_all <- left_join(
@@ -87,7 +90,7 @@ pscis_all <- left_join(
   arrange(pscis_crossing_id)
 
 
-pscis_all_sf <- pscis_all %>%
+pscis_all_sf <- pscis_all_prep %>%
   # distinct(.keep_all = T) %>%
   sf::st_as_sf(coords = c("easting", "northing"),
                crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
