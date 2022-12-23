@@ -644,6 +644,8 @@ rws_disconnect(conn)
 
 
 # xref my_crossings pscis --------------------------------------------
+# moved this to extract-bcfishpass in bulkley i think
+# once we have our data loaded this gives us a xref dataframe to pull in pscis ids and join to our  spreadsheet imports
 
 get_this <- bcdata::bcdc_tidy_resources('pscis-assessments') %>%
   filter(bcdata_available == T)  %>%
