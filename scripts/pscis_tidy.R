@@ -8,7 +8,7 @@ source('scripts/packages.R')
 # use an absolute path if you have to but it is preferable to keep our relative paths the same so we can collab
 
 # name the project directory we are pulling from
-dir_project <- 'bcfishpass_skeena_20220823-v229'
+dir_project <- 'bcfishpass_skeena_20220823-v225'
 
 # find all the pscis forms in the file
 form_names <- list.files(path = paste0('../../gis/mergin/',
@@ -20,10 +20,18 @@ form_names <- list.files(path = paste0('../../gis/mergin/',
 
 form <- form_names %>%
   purrr::map(sf::st_read) %>%
+  purrr::map(st_transform, crs = 3005) %>%
+  purrr::map(poisspatial::ps_sfc_to_coords, X = 'long', Y = 'lat') %>%
   purrr::map(plyr::colwise(type.convert)) %>%
   # name the data.frames so we can add it later as a "source" column - we use basename to leave the filepath behind
   purrr::set_names(nm = basename(form_names)) %>%
-  bind_rows(.id = 'source')
+  bind_rows(.id = 'source') %>%
+  # project specific - this is pscis sites 152 and 9999 which were fake with weird coordinates. See https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/issues/27
+  # filter(date != '2022-08-24' & date != '2022-08-25' & date != '2022-08-26') %>%
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 3005, remove = F) %>%
+    sf::st_write('data/inputs_extracted/mergin_backups/form_pscis_v225.gpkg', append=FALSE)
+
 
 # this is a table that cross references column names for pscis table and has the columns in the same order as the spreadsheet
 xref_names_pscis <- fpr::xref_names_pscis
