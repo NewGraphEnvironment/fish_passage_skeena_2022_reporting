@@ -239,9 +239,9 @@ pscis_reassessments_rd_tenure %>%
                    na = '')
 
 pscis2_rd_tenure <- left_join(
-  select(pscis_reassessments, rowid, pscis_crossing_id, road_tenure),
-  dat_joined4 %>% filter(source_wkb %ilike% 'phase2') %>% select(pscis_crossing_id, transport_line_structured_name_1, my_road_tenure),
-  by = 'pscis_crossing_id'
+  select(pscis_phase2, rowid, pscis_crossing_id, my_crossing_reference, road_tenure),
+  dat_joined4 %>% filter(source_wkb %ilike% 'phase2') %>% select(my_crossing_reference, transport_line_structured_name_1, my_road_tenure),
+  by = 'my_crossing_reference'
 )
 
 pscis2_rd_tenure %>%
