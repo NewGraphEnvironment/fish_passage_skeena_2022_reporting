@@ -22,7 +22,7 @@ rowid,aggregated_crossings_id,pscis_crossing_id,my_crossing_reference,source,bar
 25,1008300012,,8300012,pscis_phase1.xlsm,Passable,4.3,1,-2,,
 26,1008300917,,8300917,pscis_phase1.xlsm,Passable,2.1,0.7,-2.3,,
 27,1008300188,,8300188,pscis_phase1.xlsm,Potential,1.8,1.5,-1.5,Replace Structure with Streambed Simulation CBS,3
-28,1008300465,,8300465,pscis_phase1.xlsm,Potential,1.7,1.2,-1.8,Replace Structure with Streambed Simulation CBS,3
+28,2022090901,,2022090901,pscis_phase1.xlsm,Potential,1.7,1.2,-1.8,Replace Structure with Streambed Simulation CBS,3
 29,1008302421,,8302421,pscis_phase1.xlsm,Potential,15,0.5,-2.5,Replace with New Open Bottom Structure,20
 30,1008302065,,8302065,pscis_phase1.xlsm,Barrier,2.2,1.5,-1.5,Replace with New Open Bottom Structure,10
 31,1008300118,,8300118,pscis_phase1.xlsm,Barrier,2,1.5,-1.5,Replace with New Open Bottom Structure,10
@@ -46,7 +46,7 @@ rowid,aggregated_crossings_id,pscis_crossing_id,my_crossing_reference,source,bar
 49,1004601067,,4601067,pscis_phase1.xlsm,Barrier,1.45,1,-2,Replace Structure with Streambed Simulation CBS,3
 50,1008300128,,8300128,pscis_phase1.xlsm,Barrier,3.7,4,1,Replace with New Open Bottom Structure,13
 51,1004709789,,4709789,pscis_phase1.xlsm,Passable,,,,,
-52,1004709790,,4709790,pscis_phase1.xlsm,Passable,,,,,
+52,1024709790,,24709790,pscis_phase1.xlsm,Passable,,,,,
 53,1008302244,,8302244,pscis_phase1.xlsm,Passable,,,,,
 54,1008300390,,8300390,pscis_phase1.xlsm,Unknown,,,,,
 55,1008300108,,8300108,pscis_phase1.xlsm,Barrier,1.9,1,-2,Replace Structure with Streambed Simulation CBS,3
@@ -55,7 +55,8 @@ rowid,aggregated_crossings_id,pscis_crossing_id,my_crossing_reference,source,bar
 58,1008302779,,8302779,pscis_phase1.xlsm,Passable,,,,,
 59,1008301892,,8301892,pscis_phase1.xlsm,Passable,,,,,
 60,1008302212,,8302212,pscis_phase1.xlsm,Passable,,,,,
-61,1008301994,,8301994,pscis_phase1.xlsm,Barrier,5.6,1,-2,Replace with New Open Bottom Structure,10
+61,1008301994,,8301994,pscis_phase1.xlsm,Barrier,2.3,0.45,-2.55,Replace with New Open Bottom Structure,10
 62,1004600909,,4600909,pscis_phase1.xlsm,Passable,,,,,
 63,1004600907,,4600907,pscis_phase1.xlsm,Passable,,,,,
 64,1004742005,,4742005,pscis_phase1.xlsm,Passable,,,,,
+65,1008300090,,8300090,pscis_phase1.xlsm,Passable,2.6,2,-1,,

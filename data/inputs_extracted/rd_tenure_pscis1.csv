@@ -22,7 +22,7 @@ rowid,my_crossing_reference,road_tenure,transport_line_structured_name_1,my_road
 25,8300012,,Moore Rd,MoTi  Local
 26,8300917,,, Unclassified
 27,8300188,,Hwy 37,MoTi  Highway 
-28,8300465,,, Unclassified
+28,2022090901,,, Unclassified
 29,8302421,,,BCTS 8243
 30,8302065,,Helen Lake Rd,BCTS 8243
 31,8300118,,Helen Lake Rd,MoTi  Local
@@ -46,7 +46,7 @@ rowid,my_crossing_reference,road_tenure,transport_line_structured_name_1,my_road
 49,4601067,,Hankin FSR,MoF 7552
 50,8300128,,,MoF 4841
 51,4709789,,Babine Slide FSR,MoF 4841
-52,4709790,,,MoF 4841
+52,24709790,,,MoF 4841
 53,8302244,,,MoF 4841
 54,8300390,,, Unclassified
 55,8300108,,Kispiox Valley Rd,MoTi  Local
@@ -59,3 +59,4 @@ rowid,my_crossing_reference,road_tenure,transport_line_structured_name_1,my_road
 62,4600909,,McDonell Lake FSR,MoF 7552
 63,4600907,,McDonell Lake FSR,MoF 7552
 64,4742005,BCTS,,MoF 7552
+65,8300090,MoTi,Hwy 37,MoTi  Highway 
