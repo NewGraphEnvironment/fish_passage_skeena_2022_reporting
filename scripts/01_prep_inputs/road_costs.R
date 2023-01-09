@@ -1,3 +1,6 @@
+source('scripts/packages.R')
+source('scripts/tables.R')
+
 ##get the road info from the database
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
@@ -34,6 +37,7 @@ conn <- DBI::dbConnect(
 
 # test <- dbGetQuery(conn, "SELECT * FROM bcfishpass.waterfalls")
 
+# build pscis_all_sf with the first 100 lines of tables.R - # HACK!!!!!!!!!!! - replace pscis_all_prep with pscis_all there
 # add a unique id - we could just use the reference number
 pscis_all_sf$misc_point_id <- seq.int(nrow(pscis_all_sf))
 
