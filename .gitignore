@@ -17,10 +17,10 @@ scripts/pers_*
 *.gpkg-shm
 #data/raw_input
 #docs/Elk.tex
-docs/Skeena2021.html
-Skeena2021.html
+docs/Skeena2022.html
+Skeena2022.html
 *~$*
-*.sqlite
+#*.sqlite
 #hold
 *.Kmz
 *.kml
