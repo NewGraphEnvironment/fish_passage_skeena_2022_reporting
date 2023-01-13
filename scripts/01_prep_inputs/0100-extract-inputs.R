@@ -643,32 +643,6 @@ rws_list_tables(conn)
 rws_disconnect(conn)
 
 
-# xref my_crossings pscis --------------------------------------------
-# moved this to extract-bcfishpass in bulkley i think
-# once we have our data loaded this gives us a xref dataframe to pull in pscis ids and join to our  spreadsheet imports
-
-get_this <- bcdata::bcdc_tidy_resources('pscis-assessments') %>%
-  filter(bcdata_available == T)  %>%
-  pull(package_id)
-
-dat <- bcdata::bcdc_get_data(get_this)
-
-## xref_pscis_my_crossing_modelled ----------------
-xref_pscis_my_crossing_modelled <- dat %>%
-  purrr::set_names(nm = tolower(names(.))) %>%
-  dplyr::filter(funding_project_number == "bulkley_2021_Phase1") %>% ##funding_project_number == "Bulkley_6-288_Reassessments"
-  select(external_crossing_reference, stream_crossing_id) %>%
-  dplyr::mutate(external_crossing_reference = as.numeric(external_crossing_reference)) %>%
-  sf::st_drop_geometry()
-
-
-# conn <- rws_connect("data/bcfishpass.sqlite")
-# rws_list_tables(conn)
-# rws_drop_table("xref_pscis_my_crossing_modelled", conn = conn) ##now drop the table so you can replace it
-# rws_write(xref_pscis_my_crossing_modelled, exists = F, delete = TRUE,
-#           conn = conn, x_name = "xref_pscis_my_crossing_modelled")
-
-
 ## xref_hab_site_corrected----------------------
 habitat_confirmations <- fpr_import_hab_con()
 
@@ -702,6 +676,7 @@ xref_hab_site_corrected <- left_join(
 #           conn = conn, x_name = "xref_hab_site_corrected")
 
 ## xref_phase2_corrected------------------------------------
+# once we have our data loaded this gives us a xref dataframe to pull in pscis ids and join to our  spreadsheet imports
 pscis_all <- bind_rows(pscis_list)
 
 xref_phase2_corrected <- left_join(
