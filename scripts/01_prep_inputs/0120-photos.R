@@ -377,10 +377,10 @@ do_these_bud <- fpr::fpr_photo_qa()[
 ] %>%
   names(.) %>%
   unique(.)
-
+view(do_these_bud)
 # here is the test for missing individual photos
 test <- fpr::fpr_photo_qa() %>%
-  bind_rows()
+  bind_rows() %>%
   dplyr::filter(if_any(everything(), is.na))
 
 
