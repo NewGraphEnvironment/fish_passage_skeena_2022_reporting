@@ -6,7 +6,7 @@
 
 ##path to the photos on onedrive
 # path <- paste0(getwd(), '/data/photos')
-path <- "/Users/airvine/Library/CloudStorage/OneDrive-Personal/Projects/repo/fish_passage_bulkley_2022_reporting/data/"
+path <- "C:/Users/matwi/OneDrive/Projects/repo/fish_passage_skeena_2022_reporting/photos_sorted/"
 
 ##use the pscis spreadsheet to make the folders to copy the photos to
 d <- fpr::fpr_import_pscis(workbook_name = 'pscis_phase1.xlsm')
@@ -17,7 +17,7 @@ path_to_photos <- paste0(path, folderstocopy)
 
 
 ##########################here we transfer just the photos with labels over into the PSCIS directory where we will upload from to the gov interface ###################################################################
-targetdir = paste0("/Users/airvine/Library/CloudStorage/OneDrive-Personal/Projects/PSCIS/PSCIS_bulkley_2022_phase1/")
+targetdir = paste0("C:/Users/matwi/OneDrive/Projects/PSCIS/PSCIS_skeena_2022_phase1/")
 dir.create(targetdir)
 
 folderstocreate<- paste0(targetdir, folderstocopy)
@@ -86,6 +86,10 @@ file.copy(from = 'data/pscis_phase1.xlsm',
           to = paste0(targetdir, 'pscis_phase1.xlsm'),
           overwrite = T)
 
+#macros don't seem to work in one drive so copy the submission folder to a directory on my machine
+file.copy(from = 'C:/Users/matwi/OneDrive/Projects/PSCIS/PSCIS_skeena_2022_phase1/',
+          to = 'C:/Users/matwi/Projects/current/2022-049-sern-skeena-fish-passage/',
+          overwrite = T, recursive = T)
 # !!!!!!!READ!!!!!!! here I record the command to move everything into the repo via command line on linux.  Suggest moving to your repo using command line on windows (google copy all files and directories on command line with windows or something) as well because then it is easy to repeat when things change.
 # not quite sure how best to deal with sharing the photos yet and might end up being easiest to just work in onedrive and copy things over via command line into the repo (hope not though)
 # Mateo - write down the command to copy over with command line below the linux version
@@ -95,16 +99,17 @@ file.copy(from = 'data/pscis_phase1.xlsm',
 ## we need to work in microsoft edge and put sites in "Internet Explorer mode pages" and set exceptions for uploading to soft and esf
 
 # Make exceptions for these sites in setting to use "Internet Explorer mode pages"
+# NOTE: these mode pages only stay active for 30 days so you might have to re add them
 ## https://www.env.gov.bc.ca/csd/imb/soft/soft.shtml
 ## https://logon7.gov.bc.ca/clp-cgi/capBceid/logon.cgi?flags=1111:1,8&TARGET=$SM$https%3a%2f%2fapps%2enrs%2egov%2ebc%2eca%2fext%2fesf%2fsubmissionWelcome%2edo
 ## https://apps.nrs.gov.bc.ca/ext/esf/submissionWelcome.do?
 
 
 # fill in soft url here
-# https://www.env.gov.bc.ca/perl/soft/dl.pl/20221213184447-07-gp-aac61809-81a7-4ba5-8adc-b836a110?simple=y
+# https://www.env.gov.bc.ca/perl/soft/dl.pl/20230111171949-07-gp-03ff7bb7-ae59-4857-8584-e8a48a75?simple=y
 
 
 ##fill in where to check on your submission here (copy and paste url once file uploads)
 # https://apps.nrs.gov.bc.ca/ext/esf/submissionSearch.do?action=clear
-# user reference: 059_cwf_bulkley_20221213
-# submission id: 2214091
+# user reference: 049_sern_skeena_20230111
+# submission id: 221983
