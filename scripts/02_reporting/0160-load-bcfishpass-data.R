@@ -18,11 +18,11 @@ conn <- DBI::dbConnect(
 
 # conn <- DBI::dbConnect(
 #   RPostgres::Postgres(),
-#   dbname = dbname,
-#   host = host,
-#   port = port,
-#   user = user,
-#   password = password
+#   dbname = 'test',
+#   host = Sys.getenv('PG_HOST'),
+#   port = Sys.getenv('PG_PORT'),
+#   user = Sys.getenv('PG_USER'),
+#   password = Sys.getenv('PG_PASS')
 # )
 
 #
@@ -165,16 +165,17 @@ xref_pscis_my_crossing_modelled <- dat %>%
   sf::st_drop_geometry()
 
 
-##this is how we update our local db.
+
+# burn to sqlite------------------
 ##my time format format(Sys.time(), "%Y%m%d-%H%M%S")
-mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
+# mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
 conn <- rws_connect("data/bcfishpass.sqlite")
 rws_list_tables(conn)
 ##archive the last version for now
 bcfishpass_archive <- readwritesqlite::rws_read_table("bcfishpass", conn = conn)
 rws_drop_table("bcfishpass_archive", conn = conn) ##if it exists get rid of it - might be able to just change exists to T in next line
 rws_write(bcfishpass_archive, exists = F, delete = TRUE,
-          conn = conn, x_name = paste0("bcfishpass_archive_", format(Sys.time(), "%Y-%m-%d-%H%M")))
+          conn = conn, x_name = paste0("bcfishpass_archive_", format(Sys.time(), "%Y-%m-%d")))
 rws_drop_table("bcfishpass", conn = conn) ##now drop the table so you can replace it
 rws_write(bcfishpass, exists = F, delete = TRUE,
           conn = conn, x_name = "bcfishpass")
