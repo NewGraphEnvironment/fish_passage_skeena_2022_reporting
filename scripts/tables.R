@@ -4,7 +4,7 @@
 
 
 # add project specific variables ------------------------------------------
-filename_html <- 'Skeena2021'
+filename_html <- 'Skeena2022'
 maps_location <- 'https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/'
 maps_location_zip <- 'https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/bulkley_2022-05-02.zip'
 
@@ -34,21 +34,24 @@ pscis_all_prep <- pscis_list %>%
 # import data from sqlite -------------------------------------------------
 
 
-##this is our new db made from 0282-extract-bcfishpass2-crossing-corrections.R and 0290
-# conn <- rws_connect("data/bcfishpass.sqlite")
-# rws_list_tables(conn)
-# bcfishpass_phase2 <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
-#   filter(stream_crossing_id %in% (pscis_phase2 %>% pull(pscis_crossing_id)))
-# bcfishpass <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
-#   mutate(ch_co_sk_network_km = round(ch_co_sk_network_km,2))
-# # bcfishpass_archive <- readwritesqlite::rws_read_table("bcfishpass_archive_2022-03-02-1403", conn = conn)
-# bcfishpass_column_comments <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
-# # bcfishpass_archived <- readwritesqlite::rws_read_table("bcfishpass_morr_bulk_archive", conn = conn) %>%
-# #   mutate(downstream_route_measure = as.integer(downstream_route_measure))
-# # pscis_historic_phase1 <- readwritesqlite::rws_read_table("pscis_historic_phase1", conn = conn)
-# bcfishpass_spawn_rear_model <- readwritesqlite::rws_read_table("bcfishpass_spawn_rear_model", conn = conn)
-# tab_cost_rd_mult <- readwritesqlite::rws_read_table("rd_cost_mult", conn = conn)
-# rd_class_surface <- readwritesqlite::rws_read_table("rd_class_surface", conn = conn)
+#this is our new db made from 0282-extract-bcfishpass2-crossing-corrections.R and 0290
+conn <- rws_connect("data/bcfishpass.sqlite")
+rws_list_tables(conn)
+bcfishpass_phase2 <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
+  filter(stream_crossing_id %in%
+           (pscis_phase2 %>%
+              pull(pscis_crossing_id))) %>%
+  filter(!is.na(stream_crossing_id))
+bcfishpass <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
+  mutate(ch_co_sk_network_km = round(ch_co_sk_network_km,2))
+# bcfishpass_archive <- readwritesqlite::rws_read_table("bcfishpass_archive_2022-03-02-1403", conn = conn)
+bcfishpass_column_comments <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
+# bcfishpass_archived <- readwritesqlite::rws_read_table("bcfishpass_morr_bulk_archive", conn = conn) %>%
+#   mutate(downstream_route_measure = as.integer(downstream_route_measure))
+# pscis_historic_phase1 <- readwritesqlite::rws_read_table("pscis_historic_phase1", conn = conn)
+bcfishpass_spawn_rear_model <- readwritesqlite::rws_read_table("bcfishpass_spawn_rear_model", conn = conn)
+tab_cost_rd_mult <- readwritesqlite::rws_read_table("rd_cost_mult", conn = conn)
+rd_class_surface <- readwritesqlite::rws_read_table("rd_class_surface", conn = conn)
 # xref_pscis_my_crossing_modelled <- readwritesqlite::rws_read_table("xref_pscis_my_crossing_modelled", conn = conn)
 #
 # wshds <- readwritesqlite::rws_read_table("wshds", conn = conn) %>%
@@ -69,28 +72,27 @@ pscis_all_prep <- pscis_list %>%
 
 # this doesn't work till our data loads to pscis soo
 # HACK!!!!
-pscis_all <- pscis_all_prep
-
-
 # pscis_all <- pscis_all_prep
-# pscis_all <- left_join(
-#   pscis_all_prep,
-#   xref_pscis_my_crossing_modelled,
-#   by = c('my_crossing_reference' = 'external_crossing_reference')
-# ) %>%
-#   mutate(pscis_crossing_id = case_when(
-#     is.na(pscis_crossing_id) ~ as.numeric(stream_crossing_id),
-#     T ~ pscis_crossing_id
-#   )) %>%
-#   # mutate(amalgamated_crossing_id = case_when(
-#   #   !is.na(my_crossing_reference) ~ my_crossing_reference,
-#   #   T ~ pscis_crossing_id
-#   # )) %>%
-#   # select(-stream_crossing_id) %>%
-#   arrange(pscis_crossing_id)
+
+
+pscis_all <- left_join(
+  pscis_all_prep,
+  xref_pscis_my_crossing_modelled,
+  by = c('my_crossing_reference' = 'external_crossing_reference')
+) %>%
+  mutate(pscis_crossing_id = case_when(
+    is.na(pscis_crossing_id) ~ as.numeric(stream_crossing_id),
+    T ~ pscis_crossing_id
+  )) %>%
+  # mutate(amalgamated_crossing_id = case_when(
+  #   !is.na(my_crossing_reference) ~ my_crossing_reference,
+  #   T ~ pscis_crossing_id
+  # )) %>%
+  # select(-stream_crossing_id) %>%
+  arrange(pscis_crossing_id)
 
 # HACK!!!!!!!!!!! - replace pscis_all_prep with pscis_all
-pscis_all_sf <- pscis_all_prep %>%
+pscis_all_sf <- pscis_all %>%
   # distinct(.keep_all = T) %>%
   sf::st_as_sf(coords = c("easting", "northing"),
                crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
