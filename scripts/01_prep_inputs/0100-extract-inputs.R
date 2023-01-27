@@ -32,11 +32,11 @@ dat <- pscis_all %>%
 ##get the utm info from the database
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = dbname_wsl,
-  host = host_wsl,
-  port = port_wsl,
-  user = user_wsl,
-  password = password_wsl
+  dbname = Sys.getenv('PG_DB_BCBARRIERS'),
+  host = Sys.getenv('PG_HOST_BCBARRIERS'),
+  port = Sys.getenv('PG_PORT_BCBARRIERS'),
+  user = Sys.getenv('PG_USER_BCBARRIERS'),
+  password = Sys.getenv('PG_PASS_BCBARRIERS')
 )
 #
 # ##listthe schemas in the database
@@ -770,7 +770,7 @@ hab_priority_fish_hg <- left_join(
 # we need to summarize all our fish sizes
 
 ## fish collection data ----------------------------------------------------
-habitat_confirmations <- fpr::fpr_import_hab_con()
+habitat_confirmations <- fpr::fpr_import_hab_con(row_empty_remove = T)
 
 
 hab_fish_indiv_prep <- habitat_confirmations %>%
@@ -785,14 +785,16 @@ hab_loc <- habitat_confirmations %>%
 
 ##add the species code
 hab_fish_codes <- habitat_confirmations %>%
-  purrr::pluck("species_by_group") %>% ##changed from specie_by_common_name because BB burbot was wrong!!
+  purrr::pluck("species_by_common_name") %>% ##changed from specie_by_common_name because BB burbot was wrong!!
   select(-step)
 
 hab_fish_indiv_prep2 <- left_join(
   hab_fish_indiv_prep,
   hab_loc,
   by = 'reference_number'
-)
+) %>% mutate(
+  species = case_when(species == 'Fish Unidentified Species' ~ 'Unidentified Species',
+           T ~ species))
 
 
 hab_fish_indiv_prep3 <- left_join(
@@ -819,7 +821,11 @@ hab_fish_collect_prep <- habitat_confirmations %>%
   purrr::pluck("step_2_fish_coll_data") %>%
   dplyr::filter(!is.na(site_number)) %>%
   # select(-gazetted_name:-site_number) %>%
-  dplyr::distinct(reference_number, method_number, haul_number_pass_number, .keep_all = T) ##added method #
+  dplyr::distinct(reference_number, method_number, haul_number_pass_number, .keep_all = T) %>%
+  # distinct(reference_number, .keep_all = T) %>%
+  arrange(reference_number) %>%
+  mutate(across(c(date_in,date_out), janitor::excel_numeric_to_date)) %>%
+  mutate(across(c(time_in,time_out), chron::times))
 # hab_fish_collect_prep_mt <- habitat_confirmations %>%
 #   purrr::pluck("step_2_fish_coll_data") %>%
 #   dplyr::filter(!is.na(site_number)) %>%
@@ -862,7 +868,8 @@ hab_fish_indiv <- full_join(
   select(hab_fish_collect_prep,
          reference_number,
          local_name,
-         temperature_c:model, ##added date_in:time_out
+         temperature_c:model,
+         date_in:time_out, ##added date_in:time_out because we did minnow traps
          comments
   ),
   by = c(
@@ -884,16 +891,16 @@ hab_fish_indiv <- full_join(
     length_mm > 110 & length_mm <= 140 ~ 'juvenile',
     length_mm > 140 ~ 'adult',
     T ~ NA_character_
-  ),
-  life_stage = case_when(
-    species_code %in% c('L', 'SU', 'LSU') ~ NA_character_,
-    T ~ life_stage),
-  comments = case_when(
-    species_code %in% c('L', 'SU', 'LSU') & !is.na(comments) ~
-      paste0(comments, 'Not salmonids so no life stage specified.'),
-    species_code %in% c('L', 'SU', 'LSU') & is.na(comments) ~
-      'Not salmonids so no life stage specified.',
-    T ~ comments)
+    )
+  # life_stage = case_when(
+  #   species_code %in% c('L', 'SU', 'LSU') ~ NA_character_,
+  #   T ~ life_stage),
+  # comments = case_when(
+  #   species_code %in% c('L', 'SU', 'LSU') & !is.na(comments) ~
+  #     paste0(comments, 'Not salmonids so no life stage specified.'),
+  #   species_code %in% c('L', 'SU', 'LSU') & is.na(comments) ~
+  #     'Not salmonids so no life stage specified.',
+  #   T ~ comments)
   )%>%
   mutate(life_stage = fct_relevel(life_stage,
                                   'fry',
@@ -968,6 +975,7 @@ hab_fish_input <- left_join(
          temperature_c:turbidity,
          sampling_method:haul_number_pass_number,
          ef_seconds:model,
+         date_in:time_out,
          species = common_name,
          stage = life_stage,
          age,
@@ -977,13 +985,13 @@ hab_fish_input <- left_join(
          # a hack to get number of columns right
          fish_activity = age,
          comments) %>%
-  mutate(make = 'other',
-         model = 'halltech HT2000') %>%
+  mutate(model = case_when(local_name %like% 'ef' ~ 'halltech HT2000'),
+         make = case_when(local_name %like% 'ef' ~ 'other')) %>%
   mutate(total_number = case_when(
     species == 'No Fish Caught' ~ NA_integer_,
     T ~ total_number
-  )) %>%
-  janitor::adorn_totals()   ##use this to ensure you have the same number of fish in the summary as the individual fish sheet
+  )) #%>% ths was commented out because it was changing the character types of columns
+  #janitor::adorn_totals()   ##use this to ensure you have the same number of fish in the summary as the individual fish sheet
 
 ##burn to a csv so you can cut and paste into your fish submission
 hab_fish_input %>%
