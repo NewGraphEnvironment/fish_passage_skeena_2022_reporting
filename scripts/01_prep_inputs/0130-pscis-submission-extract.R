@@ -1,12 +1,13 @@
-
 ## QA to be sure that you have all 6 required photos for submission to PSCIS
 ## convert jpg (or other formats - need to code) to JPG for consistency and to avoid issues with submission/reporting
 ##move the photos and spreadsheet ready for submission to pscis
-
+stub_from <- 'C:/Users/matwi/OneDrive'
+name_repo <- 'fish_passage_skeena_2022_reporting'
 
 ##path to the photos on onedrive
-# path <- paste0(getwd(), '/data/photos')
-path <- "C:/Users/matwi/OneDrive/Projects/repo/fish_passage_skeena_2022_reporting/photos_sorted/"
+path <- paste0(stub_from, '/Projects/repo/', name_repo,
+               '/photos_sorted')
+#path <- "C:/Users/matwi/OneDrive/Projects/repo/fish_passage_skeena_2022_reporting/photos_sorted/"
 
 ##use the pscis spreadsheet to make the folders to copy the photos to
 d <- fpr::fpr_import_pscis(workbook_name = 'pscis_phase1.xlsm')
@@ -17,7 +18,7 @@ path_to_photos <- paste0(path, folderstocopy)
 
 
 ##########################here we transfer just the photos with labels over into the PSCIS directory where we will upload from to the gov interface ###################################################################
-targetdir = paste0("C:/Users/matwi/OneDrive/Projects/PSCIS/PSCIS_skeena_2022_phase1/")
+targetdir = paste0(stub_from, '/Projects/PSCIS/PSCIS_skeena_2022_phase1/')
 dir.create(targetdir)
 
 folderstocreate<- paste0(targetdir, folderstocopy)
@@ -87,7 +88,7 @@ file.copy(from = 'data/pscis_phase1.xlsm',
           overwrite = T)
 
 #macros don't seem to work in one drive so copy the submission folder to a directory on my machine
-file.copy(from = 'C:/Users/matwi/OneDrive/Projects/PSCIS/PSCIS_skeena_2022_phase1/',
+file.copy(from = stub_from, '/Projects/PSCIS/PSCIS_skeena_2022_phase1/',
           to = 'C:/Users/matwi/Projects/current/2022-049-sern-skeena-fish-passage/',
           overwrite = T, recursive = T)
 # !!!!!!!READ!!!!!!! here I record the command to move everything into the repo via command line on linux.  Suggest moving to your repo using command line on windows (google copy all files and directories on command line with windows or something) as well because then it is easy to repeat when things change.
