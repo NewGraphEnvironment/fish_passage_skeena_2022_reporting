@@ -493,7 +493,12 @@ hab_priority_prep <- left_join(
 # hab_priority_prep %>%
 #   readr::write_csv('data/habitat_confirmations_priorities_raw.csv', na = '')
 
+# separate local site names into site, location, and ef
 
+habitat_confirmations_priorities <- readr::read_csv(
+  file = "./data/habitat_confirmations_priorities.csv") %>%
+  separate(alias_local_name, c("site", "location", "ef"), sep = "_", remove = FALSE) %>%
+  readr::write_csv(file = "./data/habitat_confirmations_priorities.csv", na = "")
 
 
 # extract rd cost multiplier ----------------------------------------------
@@ -737,7 +742,7 @@ habitat_con_pri <- read_csv('data/habitat_confirmations_priorities.csv')
 
 hab_priority_fish_hg <- left_join(
   habitat_con_pri %>% select(reference_number, alias_local_name, site, location, ef),
-  bcfishpass %>% select(stream_crossing_id, observedspp_upstr, co_rearing_km),
+  bcfishpass %>% select(stream_crossing_id, observedspp_upstr, st_rearing_km),
   by = c('site' = 'stream_crossing_id')
 ) %>%
   mutate(observedspp_upstr = gsub("[{}]", "", observedspp_upstr)) %>%
@@ -746,14 +751,14 @@ hab_priority_fish_hg <- left_join(
       # ends in a number
       alias_local_name %like% '\\d$' ~ NA_character_,
     T ~ observedspp_upstr),
-    co_rearing_km = case_when(
+    st_rearing_km = case_when(
       alias_local_name %like% 'ds' |
         # ends in a number
         alias_local_name %like% '\\d$' ~ NA_real_,
-      T ~ co_rearing_km)) %>%
+      T ~ st_rearing_km)) %>%
   rename(species_codes = observedspp_upstr) %>%
   mutate(
-    upstream_habitat_length_m = co_rearing_km * 1000,
+    upstream_habitat_length_m = st_rearing_km * 1000,
     species_codes = stringr::str_replace_all(species_codes, c('CCT,|SST,|SP,'), ''),
     species_codes = case_when(
       site == 198090 ~ NA_character_,
@@ -1047,8 +1052,6 @@ rm(hab_site_prep,
    # hab_fish_indiv_prep2,
    hab_fish_collect_prep2,
    hab_loc2)
-
-
 
 # gps get coordinates -----------------------------------------------------
 
