@@ -26,7 +26,7 @@ Gitxsan means "People of the River Mist". The Gitxsan Laxyip (traditional territ
 ## Project Location
 
 ```{r overview-map, fig.cap = 'Overview map of Study Areas',eval=T}
-knitr::include_graphics("fig/BulkelyMoriceOverview2.jpeg")
+knitr::include_graphics("fig/fishpassage_overview.png")
 ```
 
 <br>
