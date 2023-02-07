@@ -366,7 +366,7 @@ hab_features <- left_join(
     select(reference_number,local_name, feature_type:utm_northing) %>%
     filter(!is.na(feature_type)),
 
-  xref_obstacle_names,
+  fpr::fpr_xref_obstacles,
 
   by = c('feature_type' = 'spreadsheet_feature_type')
 )
