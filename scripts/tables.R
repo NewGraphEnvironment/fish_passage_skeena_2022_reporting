@@ -50,12 +50,12 @@ bcfishpass_column_comments <- readwritesqlite::rws_read_table("bcfishpass_column
 #   mutate(downstream_route_measure = as.integer(downstream_route_measure))
 # pscis_historic_phase1 <- readwritesqlite::rws_read_table("pscis_historic_phase1", conn = conn)
 bcfishpass_spawn_rear_model <- readwritesqlite::rws_read_table("bcfishpass_spawn_rear_model", conn = conn)
-tab_cost_rd_mult <- readwritesqlite::rws_read_table("rd_cost_mult", conn = conn)
-rd_class_surface <- readwritesqlite::rws_read_table("rd_class_surface", conn = conn)
-# xref_pscis_my_crossing_modelled <- readwritesqlite::rws_read_table("xref_pscis_my_crossing_modelled", conn = conn)
+# tab_cost_rd_mult <- readwritesqlite::rws_read_table("rd_cost_mult", conn = conn)
+# rd_class_surface <- readwritesqlite::rws_read_table("rd_class_surface", conn = conn)
+xref_pscis_my_crossing_modelled <- readwritesqlite::rws_read_table("xref_pscis_my_crossing_modelled", conn = conn)
 #
-# wshds <- readwritesqlite::rws_read_table("wshds", conn = conn) %>%
-#   mutate(aspect = as.character(aspect)) %>%
+wshds <- readwritesqlite::rws_read_table("wshds", conn = conn) %>%
+   mutate(aspect = as.character(aspect))
 #   # issues with particular sites and the aws tiles
 #   mutate(elev_min = case_when(
 #     stream_crossing_id == 123770 ~ 375,
@@ -72,7 +72,7 @@ rd_class_surface <- readwritesqlite::rws_read_table("rd_class_surface", conn = c
 
 # this doesn't work till our data loads to pscis soo
 # HACK!!!!
-# pscis_all <- pscis_all_prep
+pscis_all <- pscis_all_prep
 
 
 pscis_all <- left_join(
@@ -133,202 +133,33 @@ pscis_all_sf <- pscis_all_sf %>%
 
 
 ####-----------report table--------------------
-tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
-  mutate(cost_m_1000s_bridge = cost_m_1000s_bridge * 10) %>%
-  rename(
-    Class = my_road_class,
-    Surface = my_road_surface,
-    `Class Multiplier` = road_class_mult,
-    `Surface Multiplier` = road_surface_mult,
-    `Bridge $K/10m` = cost_m_1000s_bridge,
-    `Streambed Simulation $K` = cost_embed_cv
-  ) %>%
-  filter(!is.na(Class)) %>%
-  mutate(Class = stringr::str_to_title(Class),
-         Surface = stringr::str_to_title(Surface)
-  )
-
-
-
-pscis_rd <- left_join(
-  rd_class_surface,
-  xref_pscis_my_crossing_modelled,
-  by = c('my_crossing_reference' = 'external_crossing_reference')
-) %>%
-  mutate(stream_crossing_id = as.numeric(stream_crossing_id)) %>% #should be able to remove this after we have the data in?
-  mutate(pscis_crossing_id = case_when(!is.na(stream_crossing_id) ~ stream_crossing_id,
-                                       T ~ pscis_crossing_id)) %>%
-  select(-stream_crossing_id)
-  # filter(distance < 100)
-
-
-
-
-
-
-
-
-#------------------make the tables for the methods----------
-tab_habvalue <- tibble::tibble(`Habitat Value` = c('High', 'Medium', 'Low'),
-                                `Fish Habitat Criteria` = c(
-                                  'The presence of high value spawning or rearing habitat (e.g., locations with abundance of suitably sized gravels, deep pools, undercut banks, or stable debris) which are critical to the fish population.',
-                                  'Important migration corridor. Presence of suitable spawning habitat. Habitat with moderate rearing potential for the fish species present.', 'No suitable spawning habitat, and habitat with low rearing potential (e.g., locations without deep pools, undercut banks, or stable debris, and with little or no suitably sized spawning gravels for the fish species present).'
-                                )
-)
-
-
-
-
-tab_barrier_scoring <- dplyr::tribble(
-  ~Risk,   ~Embedded,                                 ~Value,  ~`Outlet Drop (cm)`, ~Value, ~SWR,    ~Value, ~`Slope (%)`, ~Value, ~`Length (m)`, ~Value,
-  "LOW",  ">30cm or >20% of diameter and continuous",  "0",       "<15",              '0',  '<1.0',    '0',      '<1',      '0',     '<15',         '0',
-  "MOD",  "<30cm or 20% of diameter but continuous",   "5",       "15-30",            '5',  '1.0-1.3', '3',      '1-3',     '5',     '15-30',       '3',
-  "HIGH", "No embedment or discontinuous",             "10",      ">30",             '10',  '>1.3',    '6',       '>3',     '10',    '>30',         '6',
-)
-  # kable() %>%
-  # kable_styling(latex_options = c("striped", "scale_down")) %>%
-  # kableExtra::save_kable("fig/tab_barrier_scoring.png")
-
-tab_barrier_result <- dplyr::tribble(
-  ~`Cumlative Score`, ~Result,
-  '0-14',             'passable',
-  '15-19',            'potential barrier',
-  '>20',              'barrier'
-)
-
-##workflows to create these tables can be found at https://github.com/NewGraphEnvironment/fish_passage_elk_2020_reporting_cwf/blob/master/R/tables.R
-
-
-# ####---------make a table to cross reference column names for ---------------
-# xref_names <- tibble::tribble(
-#                           ~bcdata,                               ~spdsht,                 ~report, ~id_join, ~id_side,
-#                              "id",                                    NA,                      NA,       NA,       NA,
-#          "funding_project_number",                                    NA,                      NA,       NA,       NA,
-#                 "funding_project",                                    NA,                      NA,       NA,       NA,
-#                      "project_id",                                    NA,                      NA,       NA,       NA,
-#                  "funding_source",                                    NA,                      NA,       NA,       NA,
-#          "responsible_party_name",                                    NA,                      NA,       NA,       NA,
-#                 "consultant_name",                                    NA,                      NA,       NA,       NA,
-#                 "assessment_date",                                "date",                  "Date",       1L,       1L,
-#              "stream_crossing_id",                   "pscis_crossing_id",              "PSCIS ID",       2L,       1L,
-#                   "assessment_id",                                    NA,                      NA,       NA,       NA,
-#     "external_crossing_reference",               "my_crossing_reference",           "External ID",       3L,       1L,
-#                    "crew_members",                        "crew_members",                  "Crew",       5L,       1L,
-#                        "utm_zone",                            "utm_zone",              "UTM Zone",       6L,       1L,
-#                     "utm_easting",                             "easting",               "Easting",       7L,       1L,
-#                    "utm_northing",                            "northing",              "Northing",       8L,       1L,
-#         "location_confidence_ind",                                    NA,                      NA,       NA,       NA,
-#                     "stream_name",                         "stream_name",                "Stream",       9L,       1L,
-#                       "road_name",                           "road_name",                  "Road",      10L,       1L,
-#                    "road_km_mark",                        "road_km_mark",                      NA,       NA,       NA,
-#                     "road_tenure",                         "road_tenure",           "Road Tenure",      11L,       1L,
-#              "crossing_type_code",                       "crossing_type",         "Crossing Type",       NA,       NA,
-#              "crossing_type_desc",                                    NA,                      NA,       NA,       NA,
-#           "crossing_subtype_code",                    "crossing_subtype",     "Crossing Sub Type",       1L,       2L,
-#           "crossing_subtype_desc",                                    NA,                      NA,       NA,       NA,
-#                "diameter_or_span",             "diameter_or_span_meters",          "Diameter (m)",       2L,       2L,
-#                 "length_or_width",              "length_or_width_meters",            "Length (m)",       3L,       2L,
-#     "continuous_embeddedment_ind",      "continuous_embeddedment_yes_no",              "Embedded",       5L,       2L,
-#      "average_depth_embededdment",   "average_depth_embededdment_meters",    "Depth Embedded (m)",       6L,       2L,
-#            "resemble_channel_ind",             "resemble_channel_yes_no",      "Resemble Channel",       7L,       2L,
-#                 "backwatered_ind",                  "backwatered_yes_no",           "Backwatered",       8L,       2L,
-#          "percentage_backwatered",              "percentage_backwatered",   "Percent Backwatered",       9L,       2L,
-#                      "fill_depth",                   "fill_depth_meters",        "Fill Depth (m)",      10L,       2L,
-#                     "outlet_drop",                  "outlet_drop_meters",       "Outlet Drop (m)",      11L,       2L,
-#               "outlet_pool_depth",             "outlet_pool_depth_0_01m", "Outlet Pool Depth (m)",      12L,       2L,
-#                  "inlet_drop_ind",                   "inlet_drop_yes_no",            "Inlet Drop",      13L,       2L,
-#                   "culvert_slope",               "culvert_slope_percent",             "Slope (%)",      14L,       2L,
-#        "downstream_channel_width",     "downstream_channel_width_meters",     "Channel Width (m)",      12L,       1L,
-#                    "stream_slope",                        "stream_slope",      "Stream Slope (%)",      13L,       1L,
-#             "beaver_activity_ind",              "beaver_activity_yes_no",       "Beaver Activity",      14L,       1L,
-#               "fish_observed_ind",                "fish_observed_yes_no",          "Fish Sighted",       NA,       NA,
-#                "valley_fill_code",                         "valley_fill",           "Valley Fill",      15L,       2L,
-#           "valley_fill_code_desc",                                    NA,                      NA,       NA,       NA,
-#              "habitat_value_code",                       "habitat_value",         "Habitat Value",      15L,       1L,
-#              "habitat_value_desc",                                    NA,                      NA,       NA,       NA,
-#              "stream_width_ratio",                  "stream_width_ratio",                   "SWR",       NA,       NA,
-#        "stream_width_ratio_score",                                    NA,                 "Score",       NA,       NA,
-#            "culvert_length_score",                "culvert_length_score",                 "Score",       NA,       NA,
-#                     "embed_score",                         "embed_score",                 "Score",       NA,       NA,
-#               "outlet_drop_score",                   "outlet_drop_score",                 "Score",       NA,       NA,
-#             "culvert_slope_score",                 "culvert_slope_score",                 "Score",       NA,       NA,
-#                     "final_score",                         "final_score",           "Final score",      16L,       1L,
-#             "barrier_result_code",                      "barrier_result",        "Barrier Result",      16L,       2L,
-#      "barrier_result_description",                                    NA,                      NA,       NA,       NA,
-#               "crossing_fix_code",                                    NA,                      NA,       NA,       NA,
-#               "crossing_fix_desc",                        "crossing_fix",              "Fix type",      17L,       1L,
-#    "recommended_diameter_or_span", "recommended_diameter_or_span_meters",   "Fix Span / Diameter",      17L,       2L,
-#              "assessment_comment",                  "assessment_comment",               "Comment",       NA,       NA,
-#                      "ecocat_url",                                    NA,                      NA,       NA,       NA,
-#                  "image_view_url",                                    NA,                      NA,       NA,       NA,
-#            "current_pscis_status",                                    NA,                      NA,       NA,       NA,
-#      "current_crossing_type_code",                                    NA,                      NA,       NA,       NA,
-#      "current_crossing_type_desc",                                    NA,                      NA,       NA,       NA,
-#   "current_crossing_subtype_code",                                    NA,                      NA,       NA,       NA,
-#   "current_crossing_subtype_desc",                                    NA,                      NA,       NA,       NA,
-#     "current_barrier_result_code",                                    NA,                      NA,       NA,       NA,
-#     "current_barrier_description",                                    NA,                      NA,       NA,       NA,
-#                    "feature_code",                                    NA,                      NA,       NA,       NA,
-#                        "objectid",                                    NA,                      NA,       NA,       NA,
-#                "se_anno_cad_data",                                    NA,                      NA,       NA,       NA,
-#                        "geometry",                                    NA,                      NA,       NA,       NA
+# tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
+#   mutate(cost_m_1000s_bridge = cost_m_1000s_bridge * 10) %>%
+#   rename(
+#     Class = my_road_class,
+#     Surface = my_road_surface,
+#     `Class Multiplier` = road_class_mult,
+#     `Surface Multiplier` = road_surface_mult,
+#     `Bridge $K/10m` = cost_m_1000s_bridge,
+#     `Streambed Simulation $K` = cost_embed_cv
+#   ) %>%
+#   filter(!is.na(Class)) %>%
+#   mutate(Class = stringr::str_to_title(Class),
+#          Surface = stringr::str_to_title(Surface)
 #   )
 
 
-xref_structure_fix <- tibble::tribble(
-                        ~crossing_fix_code,                                ~crossing_fix_desc,                                     ~crossing_fix,
-                                      "RM",                    "Remove / Deactivate Crossing",                      "Remove/Deactivate Crossing",
-                                     "OBS",          "Replace with new open bottom structure",          "Replace with New Open Bottom Structure",
-                                  "SS-CBS", "Replace structure with streambed simulation CBS", "Replace Structure with Streambed Simulation CBS",
-                                      "EM",          "Add substrate to further imbed the CBS",          "Add Substrate to Further embed the CBS",
-                                      "BW",     "Install downstream weir(s) to backwater CBS",     "Install Downstream Weir(s) to Backwater CBS"
-                        )
 
-
-##this is made from load-obstacles-xref.R
-xref_obstacle_names <- tibble::tribble(
-                                                    ~fiss_obstacle_name, ~spreadsheet_feature_type,
-                                                          "Beaver Dams",                        NA,
-                                                     "Velocity barrier",                        NA,
-                                                                "Wedge",                        NA,
-                                                               "Bridge",                        NA,
-                                                            "Hydro Dam",                        NA,
-                                         "Water Management Storage Dam",                        NA,
-                                                        "Not Specified",                        NA,
-                                                                 "Bars",                        NA,
-                                                              "LWD Jam",                 "LWD Jam",
-                                                                "OTHER",                        NA,
-                                              "Irrigation District Dam",                        NA,
-                                                 "Dam - Unknown Origin",                        NA,
-                                                              "Cascade",                        NA,
-                                                                 "Pump",                        NA,
-                                                              "Log jam",                        NA,
-                                                     "Cascade or Chute",                        NA,
-                                                    "Persistent Debris",                        NA,
-                                                            "Hydro dam",                        NA,
-                                                                "Rocks",                        NA,
-                         "Persistent debris; present for several years",                        NA,
-                                                                 "Weir",                        NA,
-                                                                "Falls",                   "falls",
-                                                                 "Logs",                        NA,
-                                                              "Log Jam",                        NA,
-                                                              "Culvert",                        NA,
-                                                                 "Rock",                        NA,
-                                                               "Canyon",                        NA,
-                                                           "Beaver Dam",                        NA,
-                                                "Regional District Dam",                        NA,
-                                                          "Underground",                        NA,
-                                                         "Woody Debris",                        NA,
-                                                        "Cascade/Chute",        "cascade or Chute",
-                                                          "Private Dam",                        NA,
-                                                             "Gradient",                        NA,
-                                             "Fisheries Management Dam",                        NA,
-                                                           "BEAVER DAM",                        NA,
-                                          "Landslide or bank sloughing",                        NA,
-                                                     "Velocity Barrier",                        NA,
-                                                                  "Dam",                        NA
-                         )
-
+# pscis_rd <- left_join(
+#   rd_class_surface,
+#   xref_pscis_my_crossing_modelled,
+#   by = c('my_crossing_reference' = 'external_crossing_reference')
+# ) %>%
+#   mutate(stream_crossing_id = as.numeric(stream_crossing_id)) %>% #should be able to remove this after we have the data in?
+#   mutate(pscis_crossing_id = case_when(!is.na(stream_crossing_id) ~ stream_crossing_id,
+#                                        T ~ pscis_crossing_id)) %>%
+#   select(-stream_crossing_id)
+#   # filter(distance < 100)
 
 # priorities phase 1 ------------------------------------------------------
 ##uses habitat value to initially screen but then refines based on what are likely not barriers to most most the time
@@ -424,7 +255,7 @@ tabs_phase1_pdf <- mapply(
 # tabs_phase1_pdf <- mapply(fpr_print_tab_summary_all_pdf, tab_sum = tab_summary, comments = tab_summary_comments, photos = tab_photo_url)
 
 ####-------------- habitat and fish data------------------
-habitat_confirmations <- fpr_import_hab_con(col_filter_na = T)
+habitat_confirmations <- fpr_import_hab_con(col_filter_na = T, row_empty_remove = T)
 
 hab_site_prep <-  habitat_confirmations %>%
   purrr::pluck("step_4_stream_site_data") %>%
@@ -483,7 +314,7 @@ hab_fish_collect_map_prep2 <- left_join(
 
 ##add the species code
 hab_fish_codes <- habitat_confirmations %>%
-  purrr::pluck("species_by_group") %>% ##changed from specie_by_common_name because BB burbot was wrong!!
+  purrr::pluck("species_by_common_name") %>% ##changed from specie_by_common_name because BB burbot was wrong!!
   select(-step)
 
 # this is the table to burn to geojson for mapping
@@ -511,7 +342,7 @@ hab_fish_collect <- left_join(
   hab_fish_collect_map_prep3 %>%
     select(-species, -reference_number, -utm_zone:-utm_northing) %>%
     pivot_wider(names_from = 'site_id', values_from = "species_code") %>%
-    pivot_longer(cols = `197912ds`:`123770us`) %>%
+    pivot_longer(cols = `8530ds`:`197379us`) %>%
     rename(site_id = name,
            species_code = value),
 
@@ -621,6 +452,16 @@ hab_fish_indiv <- full_join(
                                   'adult')) %>%
   tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F) %>%
   mutate(site_id = paste0(site, '_', location))
+
+# make a summary table for fish sampling data
+
+tab_fish_summary <- hab_fish_indiv %>%
+  group_by(site_id,
+           ef,
+           sampling_method,
+           species_code) %>% ##added sampling method!
+  summarise(count_fish = n()) %>%
+  arrange(site_id, species_code, ef)
 
 # this will be joined to the abundance estimates and the confidence intervals
 fish_abund_prep <- hab_fish_indiv %>%
@@ -1155,6 +996,8 @@ rm(tab_overview_prep1, tab_overview_prep2)
 
 tab_hab_summary <- left_join(
   hab_site %>%
+    #filter out minnow trap sites because we did not do habitat surveys on these
+    filter(!alias_local_name %like% 'mt') %>%
     select(alias_local_name,
            site,
            location,
@@ -1197,237 +1040,237 @@ tab_hab_summary <- left_join(
 
 ## phase1 --------------------
 #make the cost estimates
-tab_cost_est_prep <- left_join(
-  pscis_rd %>%
-    arrange(aggregated_crossings_id) %>%
-    # Corya is messed up for some reason
-    mutate(my_road_class = case_when(pscis_crossing_id == 197960 ~ 'rail',
-                                     T ~ my_road_class),
-           my_road_surface = case_when(pscis_crossing_id == 197960 ~ 'rail',
-                                       T ~ my_road_surface)),
-  select(tab_cost_rd_mult, my_road_class, my_road_surface, cost_m_1000s_bridge, cost_embed_cv),
-  by = c('my_road_class','my_road_surface')
-) %>%
-  # station was entered wrong the first time so is messed in pscis_rd
-  mutate(recommended_diameter_or_span_meters = case_when(
-    pscis_crossing_id == 124420 ~ 30,
-    T ~ recommended_diameter_or_span_meters
-  ),
-  crossing_fix = case_when(
-    pscis_crossing_id == 197960 ~ 'Replace with New Open Bottom Structure',
-    T ~ crossing_fix
-  ))
-
-
-
-tab_cost_est_prep2 <- left_join(
-  tab_cost_est_prep,
-  select(xref_structure_fix, crossing_fix, crossing_fix_code),
-  by = c('crossing_fix')
-) %>%
-  mutate(cost_est_1000s = case_when(
-    crossing_fix_code == 'SS-CBS' ~ cost_embed_cv,
-    crossing_fix_code == 'OBS' ~ cost_m_1000s_bridge * recommended_diameter_or_span_meters)
-  ) %>%
-  mutate(cost_est_1000s = round(cost_est_1000s, 0))
-
-
-
-##add in the model data.  This is a good reason for the data to be input first so that we can use the net distance!!
-tab_cost_est_prep3 <- left_join(
-  tab_cost_est_prep2,
-  bcfishpass %>%
-    select(stream_crossing_id,
-           st_network_km,
-           st_belowupstrbarriers_network_km),
-  by = c('pscis_crossing_id' = 'stream_crossing_id')
-) %>%
-  mutate(cost_net = round(st_belowupstrbarriers_network_km * 1000/cost_est_1000s, 1),
-         cost_gross = round(st_network_km * 1000/cost_est_1000s, 1),
-         cost_area_net = round((st_belowupstrbarriers_network_km * 1000 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1), ##this is a triangle area!
-         cost_area_gross = round((st_network_km * 1000 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1)) ##this is a triangle area!
-
-
-# # ##add the xref stream_crossing_id
-# tab_cost_est_prep4 <- left_join(
-#   tab_cost_est_prep3,
-#   xref_pscis_my_crossing_modelled,
-#   by = c('my_crossing_reference' = 'external_crossing_reference')
+# tab_cost_est_prep <- left_join(
+#   pscis_rd %>%
+#     arrange(aggregated_crossings_id) %>%
+#     # Corya is messed up for some reason
+#     mutate(my_road_class = case_when(pscis_crossing_id == 197960 ~ 'rail',
+#                                      T ~ my_road_class),
+#            my_road_surface = case_when(pscis_crossing_id == 197960 ~ 'rail',
+#                                        T ~ my_road_surface)),
+#   select(tab_cost_rd_mult, my_road_class, my_road_surface, cost_m_1000s_bridge, cost_embed_cv),
+#   by = c('my_road_class','my_road_surface')
 # ) %>%
-#   mutate(stream_crossing_id = case_when(
-#     is.na(stream_crossing_id) ~ as.integer(pscis_crossing_id),
-#     T ~ stream_crossing_id
+#   # station was entered wrong the first time so is messed in pscis_rd
+#   mutate(recommended_diameter_or_span_meters = case_when(
+#     pscis_crossing_id == 124420 ~ 30,
+#     T ~ recommended_diameter_or_span_meters
+#   ),
+#   crossing_fix = case_when(
+#     pscis_crossing_id == 197960 ~ 'Replace with New Open Bottom Structure',
+#     T ~ crossing_fix
 #   ))
-
-##add the priority info
-tab_cost_est_phase1_prep <- left_join(
-  phase1_priorities %>% select(aggregated_crossings_id,
-         priority_phase1),
-  tab_cost_est_prep3, #not sure why this isn't prep4...
-  by = 'aggregated_crossings_id'
-) %>%
-  arrange(aggregated_crossings_id) %>%
-  select(pscis_crossing_id, my_crossing_reference, my_crossing_reference, stream_name, road_name,
-         barrier_result, habitat_value, downstream_channel_width_meters,
-         priority_phase1,
-         crossing_fix_code, cost_est_1000s, st_network_km,
-         cost_gross, cost_area_gross, source) %>%
-  filter(barrier_result != 'Unknown' & barrier_result != 'Passable')
-
-# too_far_away <- tab_cost_est %>% filter(distance > 100) %>% ##after review all crossing match!!!!! Baren rail is the hwy but that is fine. added source, distance, crossing_id above
-#   filter(source %like% 'phase2')
-
-tab_cost_est_phase1 <- tab_cost_est_phase1_prep %>%
-  rename(
-    `PSCIS ID` = pscis_crossing_id,
-    `External ID` = my_crossing_reference,
-    Priority = priority_phase1,
-    Stream = stream_name,
-    Road = road_name,
-    Result = barrier_result,
-    `Habitat value` = habitat_value,
-    `Stream Width (m)` = downstream_channel_width_meters,
-    Fix = crossing_fix_code,
-    `Cost Est ( $K)` =  cost_est_1000s,
-    `Habitat Upstream (km)` = st_network_km,
-    `Cost Benefit (m / $K)` = cost_gross,
-    `Cost Benefit (m2 / $K)` = cost_area_gross) %>%
-  filter(!is.na(Priority)) %>%
-  filter(!source %like% 'phase2') %>%
-  select(-source)
-
+#
+#
+#
+# tab_cost_est_prep2 <- left_join(
+#   tab_cost_est_prep,
+#   select(xref_structure_fix, crossing_fix, crossing_fix_code),
+#   by = c('crossing_fix')
+# ) %>%
+#   mutate(cost_est_1000s = case_when(
+#     crossing_fix_code == 'SS-CBS' ~ cost_embed_cv,
+#     crossing_fix_code == 'OBS' ~ cost_m_1000s_bridge * recommended_diameter_or_span_meters)
+#   ) %>%
+#   mutate(cost_est_1000s = round(cost_est_1000s, 0))
+#
+#
+#
+# ##add in the model data.  This is a good reason for the data to be input first so that we can use the net distance!!
+# tab_cost_est_prep3 <- left_join(
+#   tab_cost_est_prep2,
+#   bcfishpass %>%
+#     select(stream_crossing_id,
+#            st_network_km,
+#            st_belowupstrbarriers_network_km),
+#   by = c('pscis_crossing_id' = 'stream_crossing_id')
+# ) %>%
+#   mutate(cost_net = round(st_belowupstrbarriers_network_km * 1000/cost_est_1000s, 1),
+#          cost_gross = round(st_network_km * 1000/cost_est_1000s, 1),
+#          cost_area_net = round((st_belowupstrbarriers_network_km * 1000 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1), ##this is a triangle area!
+#          cost_area_gross = round((st_network_km * 1000 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1)) ##this is a triangle area!
+#
+#
+# # # ##add the xref stream_crossing_id
+# # tab_cost_est_prep4 <- left_join(
+# #   tab_cost_est_prep3,
+# #   xref_pscis_my_crossing_modelled,
+# #   by = c('my_crossing_reference' = 'external_crossing_reference')
+# # ) %>%
+# #   mutate(stream_crossing_id = case_when(
+# #     is.na(stream_crossing_id) ~ as.integer(pscis_crossing_id),
+# #     T ~ stream_crossing_id
+# #   ))
+#
+# ##add the priority info
+# tab_cost_est_phase1_prep <- left_join(
+#   phase1_priorities %>% select(aggregated_crossings_id,
+#          priority_phase1),
+#   tab_cost_est_prep3, #not sure why this isn't prep4...
+#   by = 'aggregated_crossings_id'
+# ) %>%
+#   arrange(aggregated_crossings_id) %>%
+#   select(pscis_crossing_id, my_crossing_reference, my_crossing_reference, stream_name, road_name,
+#          barrier_result, habitat_value, downstream_channel_width_meters,
+#          priority_phase1,
+#          crossing_fix_code, cost_est_1000s, st_network_km,
+#          cost_gross, cost_area_gross, source) %>%
+#   filter(barrier_result != 'Unknown' & barrier_result != 'Passable')
+#
+# # too_far_away <- tab_cost_est %>% filter(distance > 100) %>% ##after review all crossing match!!!!! Baren rail is the hwy but that is fine. added source, distance, crossing_id above
+# #   filter(source %like% 'phase2')
 #
 # tab_cost_est_phase1 <- tab_cost_est_phase1_prep %>%
+#   rename(
+#     `PSCIS ID` = pscis_crossing_id,
+#     `External ID` = my_crossing_reference,
+#     Priority = priority_phase1,
+#     Stream = stream_name,
+#     Road = road_name,
+#     Result = barrier_result,
+#     `Habitat value` = habitat_value,
+#     `Stream Width (m)` = downstream_channel_width_meters,
+#     Fix = crossing_fix_code,
+#     `Cost Est ( $K)` =  cost_est_1000s,
+#     `Habitat Upstream (km)` = st_network_km,
+#     `Cost Benefit (m / $K)` = cost_gross,
+#     `Cost Benefit (m2 / $K)` = cost_area_gross) %>%
+#   filter(!is.na(Priority)) %>%
 #   filter(!source %like% 'phase2') %>%
 #   select(-source)
-
-## phase2 --------------------
-tab_cost_est_prep4 <- left_join(
-  tab_cost_est_prep3,
-  select(
-    filter(habitat_confirmations_priorities, location == 'us'),
-    site, upstream_habitat_length_m),
-  by = c('pscis_crossing_id' = 'site')
-)
-
-# tab_cost_est_prep4 %>% filter(stream_name %ilike% 'parker')
-
-
-tab_cost_est_prep5 <- left_join(
-  tab_cost_est_prep4,
-  select(hab_site %>% filter(
-    !alias_local_name %like% 'ds' &
-      !alias_local_name %like% 'ef' &
-    !alias_local_name %like% '\\d$'),
-    site,
-    avg_channel_width_m),
-  by = c('pscis_crossing_id' = 'site')
-) %>%
-  ##intervention for Robert Hatch to reflect the bridge removal.
-  mutate(cost_est_1000s = case_when(pscis_crossing_id == 197912 ~ 30, T ~ cost_est_1000s)) %>%
-  mutate(cost_net = round(upstream_habitat_length_m/cost_est_1000s, 1),
-         cost_area_net = round((upstream_habitat_length_m * avg_channel_width_m)/cost_est_1000s, 1)) #downstream_channel_width_meters
-
-
-##add the priority info
-tab_cost_est_phase2 <- tab_cost_est_prep5 %>%
-  filter(source %like% 'phase2') %>%
-  select(pscis_crossing_id, stream_name, road_name, barrier_result, habitat_value, avg_channel_width_m,
-         crossing_fix_code, cost_est_1000s, upstream_habitat_length_m,
-         cost_net, cost_area_net, source) %>%
-  mutate(upstream_habitat_length_m = round(upstream_habitat_length_m,0))
-  ##we have a hickup in the dry creek estimate.  Lets just fix it here
-  # mutate(cost_est_1000s = case_when(pscis_crossing_id == 62182 ~ 7200,
-  #                                   T ~ cost_est_1000s))
-
-tab_cost_est_phase2_report <- tab_cost_est_phase2 %>%
-  dplyr::arrange(pscis_crossing_id) %>%
-  # filter(source %like% 'phase2') %>%
-  rename(`PSCIS ID` = pscis_crossing_id,
-         Stream = stream_name,
-         Road = road_name,
-         Result = barrier_result,
-         `Habitat value` = habitat_value,
-         `Stream Width (m)` = avg_channel_width_m,
-         Fix = crossing_fix_code,
-         `Cost Est (in $K)` =  cost_est_1000s,
-         `Habitat Upstream (m)` = upstream_habitat_length_m,
-         `Cost Benefit (m / $K)` = cost_net,
-         `Cost Benefit (m2 / $K)` = cost_area_net) %>%
-  select(-source)
-
-
-rm(tab_cost_est_prep, tab_cost_est_prep2,
-   tab_cost_est_prep3, tab_cost_est_prep4, tab_cost_est_prep5)
+#
+# #
+# # tab_cost_est_phase1 <- tab_cost_est_phase1_prep %>%
+# #   filter(!source %like% 'phase2') %>%
+# #   select(-source)
+#
+# ## phase2 --------------------
+# tab_cost_est_prep4 <- left_join(
+#   tab_cost_est_prep3,
+#   select(
+#     filter(habitat_confirmations_priorities, location == 'us'),
+#     site, upstream_habitat_length_m),
+#   by = c('pscis_crossing_id' = 'site')
+# )
+#
+# # tab_cost_est_prep4 %>% filter(stream_name %ilike% 'parker')
+#
+#
+# tab_cost_est_prep5 <- left_join(
+#   tab_cost_est_prep4,
+#   select(hab_site %>% filter(
+#     !alias_local_name %like% 'ds' &
+#       !alias_local_name %like% 'ef' &
+#     !alias_local_name %like% '\\d$'),
+#     site,
+#     avg_channel_width_m),
+#   by = c('pscis_crossing_id' = 'site')
+# ) %>%
+#   ##intervention for Robert Hatch to reflect the bridge removal.
+#   mutate(cost_est_1000s = case_when(pscis_crossing_id == 197912 ~ 30, T ~ cost_est_1000s)) %>%
+#   mutate(cost_net = round(upstream_habitat_length_m/cost_est_1000s, 1),
+#          cost_area_net = round((upstream_habitat_length_m * avg_channel_width_m)/cost_est_1000s, 1)) #downstream_channel_width_meters
+#
+#
+# ##add the priority info
+# tab_cost_est_phase2 <- tab_cost_est_prep5 %>%
+#   filter(source %like% 'phase2') %>%
+#   select(pscis_crossing_id, stream_name, road_name, barrier_result, habitat_value, avg_channel_width_m,
+#          crossing_fix_code, cost_est_1000s, upstream_habitat_length_m,
+#          cost_net, cost_area_net, source) %>%
+#   mutate(upstream_habitat_length_m = round(upstream_habitat_length_m,0))
+#   ##we have a hickup in the dry creek estimate.  Lets just fix it here
+#   # mutate(cost_est_1000s = case_when(pscis_crossing_id == 62182 ~ 7200,
+#   #                                   T ~ cost_est_1000s))
+#
+# tab_cost_est_phase2_report <- tab_cost_est_phase2 %>%
+#   dplyr::arrange(pscis_crossing_id) %>%
+#   # filter(source %like% 'phase2') %>%
+#   rename(`PSCIS ID` = pscis_crossing_id,
+#          Stream = stream_name,
+#          Road = road_name,
+#          Result = barrier_result,
+#          `Habitat value` = habitat_value,
+#          `Stream Width (m)` = avg_channel_width_m,
+#          Fix = crossing_fix_code,
+#          `Cost Est (in $K)` =  cost_est_1000s,
+#          `Habitat Upstream (m)` = upstream_habitat_length_m,
+#          `Cost Benefit (m / $K)` = cost_net,
+#          `Cost Benefit (m2 / $K)` = cost_area_net) %>%
+#   select(-source)
+#
+#
+# rm(tab_cost_est_prep, tab_cost_est_prep2,
+#    tab_cost_est_prep3, tab_cost_est_prep4, tab_cost_est_prep5)
 
 
 # map tables --------------------------------------------------------------
-hab_loc_prep <- left_join(
-  hab_loc %>%
-    tidyr::separate(alias_local_name, into = c('site', 'location', 'ef'), remove = F) %>%
-    filter(!alias_local_name %ilike% 'ef' &
-             location == 'us') %>%
-    mutate(site = as.integer(site)),
-  select(filter(habitat_confirmations_priorities, location == 'us'),
-         site, priority, comments),
-  by = 'site'
-)
-
-
-#need to populate the coordinates before this will work
-###please note that the photos are only in those files ecause they are referenced in other parts
-#of the document
-tab_hab_map <- left_join(
-  tab_cost_est_phase2 %>% filter(source %like% 'phase2'),
-  hab_loc_prep %>% select(site, priority, utm_easting, utm_northing, comments),
-  by = c('pscis_crossing_id' = 'site')
-)  %>%
-  sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
-               crs = 26909, remove = F) %>%
-  sf::st_transform(crs = 4326) %>%
-  ##changed this to docs .html from fig .png
-  # mutate(data_link = paste0('<a href =',
-  #                           'https://github.com/NewGraphEnvironment/fish_passage_bulkley_2020_reporting/tree/master/docs/sum/', pscis_crossing_id,
-  #                           '.html', '>', 'data link', '</a>')) %>%
-  mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
-  # mutate(photo_link = paste0('<a href =', 'data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
-  #                            'target="_blank">Culvert Photos</a>')) %>%
-  mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
-  # mutate(photo_link = paste0('<a href =',
-  #                            'https://github.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/tree/master/data/photos/', pscis_crossing_id,
-  #                            '/crossing_all.JPG', '>', 'photo link', '</a>')) %>%
-  mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/master/data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
-                             'target="_blank">Culvert Photos</a>'))
-
-
-#--------------need to review if this is necessary
-tab_map_prep <- left_join(
-  pscis_all %>%
-    sf::st_as_sf(coords = c("easting", "northing"),
-                 crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
-    sf::st_transform(crs = 4326), ##convert to match the bcfishpass format,
-  phase1_priorities %>% select(-utm_zone:utm_northing, -my_crossing_reference, priority_phase1, -habitat_value, -barrier_result), # %>% st_drop_geometry()
-  by = 'pscis_crossing_id'
-)
-
-
-tab_map <- tab_map_prep %>%
-  # mutate(pscis_crossing_id = as.character(pscis_crossing_id),
-  #        my_crossing_reference = as.character(my_crossing_reference)) %>%
-  # mutate(ID = case_when(
-  #   !is.na(pscis_crossing_id) ~ pscis_crossing_id,
-  #   T ~ paste0('*', my_crossing_reference
-  #   ))) %>%
-  # sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
-  #              crs = 26911, remove = F) %>%
-  # sf::st_transform(crs = 4326) %>%
-  mutate(priority_phase1 = case_when(priority_phase1 == 'mod' ~ 'moderate',
-                                     T ~ priority_phase1)) %>%
-  mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
-  mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/master/data/photos/', my_crossing_reference, '/crossing_all.JPG ',
-                             'target="_blank">Culvert Photos</a>')) %>%
-  mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
-  dplyr::distinct(site_id, .keep_all = T) #just for now
+# hab_loc_prep <- left_join(
+#   hab_loc %>%
+#     tidyr::separate(alias_local_name, into = c('site', 'location', 'ef'), remove = F) %>%
+#     filter(!alias_local_name %ilike% 'ef' &
+#              location == 'us') %>%
+#     mutate(site = as.integer(site)),
+#   select(filter(habitat_confirmations_priorities, location == 'us'),
+#          site, priority, comments),
+#   by = 'site'
+# )
+#
+#
+# #need to populate the coordinates before this will work
+# ###please note that the photos are only in those files ecause they are referenced in other parts
+# #of the document
+# tab_hab_map <- left_join(
+#   tab_cost_est_phase2 %>% filter(source %like% 'phase2'),
+#   hab_loc_prep %>% select(site, priority, utm_easting, utm_northing, comments),
+#   by = c('pscis_crossing_id' = 'site')
+# )  %>%
+#   sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
+#                crs = 26909, remove = F) %>%
+#   sf::st_transform(crs = 4326) %>%
+#   ##changed this to docs .html from fig .png
+#   # mutate(data_link = paste0('<a href =',
+#   #                           'https://github.com/NewGraphEnvironment/fish_passage_bulkley_2020_reporting/tree/master/docs/sum/', pscis_crossing_id,
+#   #                           '.html', '>', 'data link', '</a>')) %>%
+#   mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
+#   # mutate(photo_link = paste0('<a href =', 'data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
+#   #                            'target="_blank">Culvert Photos</a>')) %>%
+#   mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
+#   # mutate(photo_link = paste0('<a href =',
+#   #                            'https://github.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/tree/master/data/photos/', pscis_crossing_id,
+#   #                            '/crossing_all.JPG', '>', 'photo link', '</a>')) %>%
+#   mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/master/data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
+#                              'target="_blank">Culvert Photos</a>'))
+#
+#
+# #--------------need to review if this is necessary
+# tab_map_prep <- left_join(
+#   pscis_all %>%
+#     sf::st_as_sf(coords = c("easting", "northing"),
+#                  crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
+#     sf::st_transform(crs = 4326), ##convert to match the bcfishpass format,
+#   phase1_priorities %>% select(-utm_zone:utm_northing, -my_crossing_reference, priority_phase1, -habitat_value, -barrier_result), # %>% st_drop_geometry()
+#   by = 'pscis_crossing_id'
+# )
+#
+#
+# tab_map <- tab_map_prep %>%
+#   # mutate(pscis_crossing_id = as.character(pscis_crossing_id),
+#   #        my_crossing_reference = as.character(my_crossing_reference)) %>%
+#   # mutate(ID = case_when(
+#   #   !is.na(pscis_crossing_id) ~ pscis_crossing_id,
+#   #   T ~ paste0('*', my_crossing_reference
+#   #   ))) %>%
+#   # sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
+#   #              crs = 26911, remove = F) %>%
+#   # sf::st_transform(crs = 4326) %>%
+#   mutate(priority_phase1 = case_when(priority_phase1 == 'mod' ~ 'moderate',
+#                                      T ~ priority_phase1)) %>%
+#   mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
+#   mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/master/data/photos/', my_crossing_reference, '/crossing_all.JPG ',
+#                              'target="_blank">Culvert Photos</a>')) %>%
+#   mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
+#   dplyr::distinct(site_id, .keep_all = T) #just for now
 # mutate(data_link = paste0('<a href =',
 #                           'https://github.com/NewGraphEnvironment/fish_passage_bulkley_2020_reporting/tree/master/fig/sum/', pscis_crossing_id,
 #                           '.png', '>', 'data link', '</a>')) %>%
