@@ -181,7 +181,7 @@ rws_write(bcfishpass, exists = F, delete = TRUE,
           conn = conn, x_name = "bcfishpass")
 # write in the xref
 rws_drop_table("xref_pscis_my_crossing_modelled", conn = conn) ##now drop the table so you can replace it
-rws_write(my_pscis_modelledcrossings_streams_xref, exists = F, delete = TRUE,
+rws_write(xref_pscis_my_crossing_modelled, exists = F, delete = TRUE,
           conn = conn, x_name = "xref_pscis_my_crossing_modelled")
 # add the comments
 # bcfishpass_column_comments_archive <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
