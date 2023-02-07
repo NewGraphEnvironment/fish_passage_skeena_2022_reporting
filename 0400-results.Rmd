@@ -4,7 +4,8 @@
 
 <br>
 
-```{r map-interactive, eval= gitbook_on, fig.cap='Map of fish passage and habitat confirmation results'}
+```{r map-interactive, eval= F, fig.cap='Map of fish passage and habitat confirmation results'}
+##turned map off for now, change to eval=gitbook_on when ready to build
 ##make colors for the priorities
 pal <- 
    colorFactor(palette = c("red", "yellow", "grey", "black"), 
@@ -49,21 +50,7 @@ map <- leaflet(height=500, width=780) %>%
     colors = c("red", "yellow", "grey", "black"),
     labels = c("High", "Moderate", "Low", 'No fix'), opacity = 1,
     title = "Fish Passage Priorities") %>% 
-#   # addCircleMarkers(
-#   # data=tab_plan_sf,
-#   # label = tab_plan_sf$Comments,
-#   # labelOptions = labelOptions(noHide = F, textOnly = F),
-#   # popup = leafpop::popupTable(x = tab_plan_sf %>% st_drop_geometry(),
-#   #                             feature.id = F,
-#   #                             row.numbers = F),
-#   # radius = 9,
-#   # fillColor = ~pal_phase1(tab_plan_sf$Priority),
-#   # color= "#ffffff",
-#   # stroke = TRUE,
-#   # fillOpacity = 1.0,
-# # weight = 2,
-# # opacity = 1.0,
-# # group = "Planning") %>% 
+  
 addCircleMarkers(data=tab_map %>%
                    filter(source %like% 'phase1' | source %like% 'pscis_reassessments'),
                  label = tab_map %>% filter(source %like% 'phase1' | source %like% 'pscis_reassessments') %>% pull(pscis_crossing_id),
@@ -85,12 +72,13 @@ addCircleMarkers(data=tab_map %>%
                opacity=0.75, color = '#e216c4',
                fillOpacity = 0.75, weight=5, group = "Phase 2") %>%
 
-addAwesomeMarkers(
-    lng = as.numeric(photo_metadata$gps_longitude),
-    lat = as.numeric(photo_metadata$gps_latitude),
-    popup = leafpop::popupImage(photo_metadata$url, src = "remote"),
-    clusterOptions = markerClusterOptions(),
-    group = "Phase 2") %>%
+# turned off because haven't built photo_metadata object yet
+# addAwesomeMarkers(
+#     lng = as.numeric(photo_metadata$gps_longitude),
+#     lat = as.numeric(photo_metadata$gps_latitude),
+#     popup = leafpop::popupImage(photo_metadata$url, src = "remote"),
+#     clusterOptions = markerClusterOptions(),
+#     group = "Phase 2") %>%
 
   addCircleMarkers(
     data=tab_hab_map,
@@ -152,7 +140,7 @@ Field assessments were conducted between `r format(min(pscis_phase1$date), forma
 <br>
 
 
-```{r cost-est-phase-1}
+```{r cost-est-phase-1, eval=F}
 
  tab_cost_est_phase1 %>%
   select(`PSCIS ID`:`Cost Est ( $K)`) %>% 
@@ -163,11 +151,11 @@ Field assessments were conducted between `r format(min(pscis_phase1$date), forma
 <br>
 
 ## Phase 2
-During 2022 field assessments, habitat confirmation assessments were conducted at `r hab_site_priorities %>% nrow()` sites in the Bulkley River watershed.  A total of approximately `r habitat_confirmations_priorities %>% pull(length_surveyed) %>% sum(na.rm = T) %>% round(-3)/1000`km of stream was assessed, fish sampling utilizing electrofishing surveys were conducted at one stream. Georeferenced field maps are presented in `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/bulkley_2022-05-02.zip).")} else knitr::asis_output("[Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/bulkley_2022-05-02.zip).")`
+During 2022 field assessments, habitat confirmation assessments were conducted at `r hab_site_priorities %>% nrow()` sites in the Bulkley River watershed.  A total of approximately `r habitat_confirmations_priorities %>% pull(length_surveyed) %>% sum(na.rm = T) %>% round(-3)/1000`km of stream was assessed, fish sampling utilizing electrofishing surveys were conducted at two streams. Georeferenced field maps are presented in `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/bulkley_2022-05-02.zip).")} else knitr::asis_output("[Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/bulkley_2022-05-02.zip).")`
 
 <br>
 
-As collaborative decision making was ongoing at the time of reporting, site prioritization can be considered preliminary.  In total, `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english() %>% str_to_title()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english()` crossings were rated as moderate priorities, and `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as low priorities. Results are summarized in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:map-interactive) and ")}`Tables \@ref(tab:tab-overview) - \@ref(fig:plot-fish-all) with raw habitat and fish sampling data included in digital format as [Attachment 3](https://github.com/NewGraphEnvironment/fish_passage_bulkley_2022_reporting/raw/master/data/habitat_confirmations.xls).  A summary of preliminary modelling results illustrating the quantity of chinook, coho and steelhead spawning and rearing habitat potentially available upstream of each crossing as estimated by measured/modelled channel width and upstream accessible stream length are presented in Figure \@ref(fig:plot-model-all). Detailed information for each site assessed with Phase 2 assessments (including maps) are presented within site specific appendices to this document.
+As collaborative decision making was ongoing at the time of reporting, site prioritization can be considered preliminary.  In total, `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english()` crossings were rated as moderate priorities, and `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as low priorities. Results are summarized in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:map-interactive) and ")}`Tables \@ref(tab:tab-overview) - \@ref(fig:plot-fish-all) with raw habitat and fish sampling data included in digital format as [Attachment 3](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/blob/main/data/habitat_confirmations.xls).  A summary of preliminary modelling results illustrating the quantity of chinook, coho and steelhead spawning and rearing habitat potentially available upstream of each crossing as estimated by measured/modelled channel width and upstream accessible stream length are presented in Figure \@ref(fig:plot-model-all). Detailed information for each site assessed with Phase 2 assessments (including maps) are presented within site specific appendices to this document.
 
 `r if(gitbook_on){knitr::asis_output("")} else knitr::asis_output("<br><br><br><br>")`
 
@@ -210,7 +198,7 @@ fpr::fpr_table_cv_summary(dat = pscis_phase2) %>%
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
 
-```{r cost-est-phase-2}
+```{r cost-est-phase-2, eval = F}
 tab_cost_est_phase2_report %>%
   fpr::fpr_kable(caption_text = 'Cost benefit analysis for Phase 2 assessments. Steelhead rearing model used (total length of stream segments <7.5% gradient)',
                  scroll = gitbook_on)
@@ -286,7 +274,7 @@ bcfishpass_phase2_plot_prep <- bcfishpass %>%
 
 ### Fish Sampling
 
-Fish sampling was conducted at `r tab_fish_sites_sum %>% n_distinct()` sites with a total of `r hab_fish_indiv %>% filter(species_code != 'NFC') %>% nrow()` rainbow trout captured. Fork length data was used to delineate salmonids based on life stages: fry (0 to 65mm), parr (>65 to 110mm), juvenile (>110mm to 140mm) and adult (>140mm) by visually assessing the histograms presented in Figure \@ref(fig:fish-histogram).  A summary of sites assessed are included in Table \@ref(tab:tab-fish-site-summary) and raw data is provided in [Attachment 3](https://github.com/NewGraphEnvironment/fish_passage_bulkley_2022_reporting/raw/main/data/habitat_confirmations.xls). A summary of density results for all life stages combined of select species is also presented in Figure \@ref(fig:plot-fish-all). Results are presented in greater detail within individual habitat confirmation site appendices.
+Fish sampling was conducted at `r tab_fish_sites_sum %>% n_distinct()` sites with a total of `r hab_fish_indiv %>% filter(species_code != 'NFC') %>% nrow()` fish captured. Fork length data was used to delineate salmonids based on life stages: fry (0 to 65mm), parr (>65 to 110mm), juvenile (>110mm to 140mm) and adult (>140mm) by visually assessing the histograms presented in Figure \@ref(fig:fish-histogram).  A summary of sites assessed are included in Table \@ref(tab:tab-fish-site-summary) and raw data is provided in [Attachment 3](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/blob/main/data/habitat_confirmations.xls). A summary of density results for all life stages combined of select species is also presented in Figure \@ref(fig:plot-fish-all). Results are presented in greater detail within individual habitat confirmation site appendices.
 
 <br>
 
