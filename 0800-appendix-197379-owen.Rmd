@@ -1,0 +1,143 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r setup-197379, eval = F}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+source('scripts/packages.R')
+source('scripts/tables.R')
+
+```
+
+```{r  load-data-197379}
+my_site <- 197379
+
+```
+
+`r fpr::fpr_appendix_title()`
+
+## Site Location {.unnumbered}
+
+PSCIS crossing `r as.character(my_site)` is located on
+`r fpr::fpr_my_pscis_info()` approximately 5km west of the town of
+Smithers. PSCIS crossing `r as.character(my_site)` is located on
+`r fpr_my_pscis_info(col_pull = road_name)`. Crossing
+`r as.character(my_site)` was located
+`r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
+upstream from the confluence with the Zymoetz River and is the
+responsibility of the Ministry of Transportation and Infrastructure.
+
+<br>
+
+## Background {.unnumbered}
+
+At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
+`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
+watershed area upstream of the crossing of approximately
+`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
+a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
+`r fpr::fpr_my_wshd(col = 'elev_site')`m at the crossing (Table
+\@ref(tab:tab-wshd-197379)). Upstream of crossing
+`r as.character(my_site)`, `r fpr::fpr_my_fish_sp()` have previously
+been recorded [@moe2020KnownBC; @norris2020bcfishobs].
+
+<br>
+
+```{r tab-wshd-197379, eval = T}
+fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
+  select(-'Elev Min') %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
+           footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
+           scroll = F)
+
+```
+
+<br>
+
+PSCIS stream crossing `r as.character(my_site)` was ranked as a high
+priority for follow up by the Society for Ecosystem Restoration in
+Northern BC because of
+significant amounts of habitat modelled upstream of the crossing. A summary of habitat modelling outputs is
+presented in Table \@ref(tab:tab-culvert-bcfp-197379). A map of the
+watershed is provided in map attachment
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet()).
+
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
+
+<br>
+
+```{r tab-culvert-bcfp-197379, eval = T}
+fpr::fpr_table_bcfp(scroll = gitbook_on) 
+```
+
+<br>
+
+## Aerial Imagery {.unnumbered}
+
+Surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model. 
+
+<br>
+
+## Fish Sampling {.unnumbered}
+
+Electrofishing was conducted with results summarised in Tables
+\@ref(tab:tab-fish-site-197379) - \@ref(tab:tab-fish-dens-197379) and Figure
+\@ref(fig:plot-fish-box-197379).
+
+<br>
+
+## Conclusion {.unnumbered}
+
+There was
+`r fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_km)`km of
+habitat modelled upstream of crossing `r as.character(my_site)` with
+areas surveyed rated as
+`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
+value for salmonid rearing and spawning. Crossing
+`r as.character(my_site)` was ranked as a
+`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
+proceeding to design for replacement. Sandstone Creek is a
+large system with habitat suitable for numerous species including cutthroat
+and dolly varden. Development of a plan to replace the crossing with
+a bridge would be a key step in eliminating an outlet drop and reducing
+flow velocities at the highway crossing.
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+<br>
+
+```{r tab-habitat-summary-197379}
+tab_hab_summary %>% 
+  filter(Site  == my_site) %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of habitat details for PSCIS crossing ', my_site, '.'),
+                 scroll = F) 
+
+```
+
+<br>
+
+```{r tab-fish-site-197379, eval=T}
+fpr_table_fish_site()
+
+```
+
+<br>
+
+```{r tab-fish-dens-197379, eval=T}
+fpr_table_fish_density()
+
+```
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+```{r plot-fish-box-197379, fig.cap= my_caption, eval=T}
+my_caption <- paste0('Densites of fish (fish/100m2) captured upstream of PSCIS crossing ', my_site, '.')
+
+fpr_plot_fish_box() 
+
+```
+/
