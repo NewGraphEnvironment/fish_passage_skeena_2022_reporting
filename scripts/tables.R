@@ -43,7 +43,7 @@ bcfishpass_phase2 <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) 
               pull(pscis_crossing_id))) %>%
   filter(!is.na(stream_crossing_id))
 bcfishpass <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
-  mutate(ch_co_sk_network_km = round(ch_co_sk_network_km,2))
+  mutate(ch_cm_co_pk_sk_network_km = round(ch_cm_co_pk_sk_network_km,2))
 # bcfishpass_archive <- readwritesqlite::rws_read_table("bcfishpass_archive_2022-03-02-1403", conn = conn)
 bcfishpass_column_comments <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
 # bcfishpass_archived <- readwritesqlite::rws_read_table("bcfishpass_morr_bulk_archive", conn = conn) %>%
@@ -56,25 +56,13 @@ xref_pscis_my_crossing_modelled <- readwritesqlite::rws_read_table("xref_pscis_m
 #
 wshds <- readwritesqlite::rws_read_table("wshds", conn = conn) %>%
    mutate(aspect = as.character(aspect))
-#   # issues with particular sites and the aws tiles
-#   mutate(elev_min = case_when(
-#     stream_crossing_id == 123770 ~ 375,
-#     T ~ elev_min),
-#     aspect = case_when(
-#       stream_crossing_id == 124420 ~ 'NNE',
-#       T ~ aspect)
-#   )
-#
+
 # photo_metadata <- readwritesqlite::rws_read_table("photo_metadata", conn = conn)
 # # fiss_sum <- readwritesqlite::rws_read_table("fiss_sum", conn = conn)
-# rws_disconnect(conn)
+rws_disconnect(conn)
 
 
-# this doesn't work till our data loads to pscis soo
-# HACK!!!!
-pscis_all <- pscis_all_prep
-
-
+# this doesn't work till our data loads to pscis
 pscis_all <- left_join(
   pscis_all_prep,
   xref_pscis_my_crossing_modelled,
