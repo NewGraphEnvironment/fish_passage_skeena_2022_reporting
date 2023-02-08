@@ -113,19 +113,19 @@ wshds <- fpr::fpr_sp_wshd_stats(dat = wshds) %>%
   arrange(stream_crossing_id)
 
 
-# ##add to the geopackage
-# wshds %>%
-#   sf::st_write(paste0("./data/fishpass_mapping/", 'fishpass_mapping', ".gpkg"), 'hab_wshds',
-#                delete_layer = T, append = F) ##might want to f the append....
-#
-#
-# #burn to kml as well so we can see elevations
-# st_write(wshds %>%
-#            rename(name = stream_crossing_id),
-#          append = F,
-#          delete_layer = T,
-#          driver = 'kml',
-#          dsn = "data/inputs_extracted/wshds.kml")
+##add to the geopackage
+wshds %>%
+  sf::st_write(paste0("./data/fishpass_mapping/", 'fishpass_mapping', ".gpkg"), 'hab_wshds',
+               delete_layer = T, append = F) ##might want to f the append....
+
+
+#burn to kml as well so we can see elevations
+st_write(wshds %>%
+           rename(name = stream_crossing_id),
+         append = F,
+         delete_layer = T,
+         driver = 'kml',
+         dsn = "data/inputs_extracted/wshds.kml")
 
 
 conn <- rws_connect("data/bcfishpass.sqlite")
