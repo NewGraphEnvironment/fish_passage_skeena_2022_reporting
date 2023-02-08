@@ -7,23 +7,24 @@ source('scripts/packages.R')
 
 # thinking we better use the remote database since my local version is outdated and not willing to risk a week of time to rebuild (might be fine in a day but never really know till we climb in)
 
-conn <- DBI::dbConnect(
-  RPostgres::Postgres(),
-  dbname = Sys.getenv('PG_DB_BCBARRIERS'),
-  host = Sys.getenv('PG_HOST_BCBARRIERS'),
-  port = Sys.getenv('PG_PORT_BCBARRIERS'),
-  user = Sys.getenv('PG_USER_BCBARRIERS'),
-  password = Sys.getenv('PG_PASS_BCBARRIERS')
-)
-
 # conn <- DBI::dbConnect(
 #   RPostgres::Postgres(),
-#   dbname = 'test',
-#   host = Sys.getenv('PG_HOST'),
-#   port = Sys.getenv('PG_PORT'),
-#   user = Sys.getenv('PG_USER'),
-#   password = Sys.getenv('PG_PASS')
+#   dbname = Sys.getenv('PG_DB_BCBARRIERS'),
+#   host = Sys.getenv('PG_HOST_BCBARRIERS'),
+#   port = Sys.getenv('PG_PORT_BCBARRIERS'),
+#   user = Sys.getenv('PG_USER_BCBARRIERS'),
+#   password = Sys.getenv('PG_PASS_BCBARRIERS')
 # )
+
+# these are the new server params.  they could change but we may as well use the same env variable names
+conn <- DBI::dbConnect(
+  RPostgres::Postgres(),
+  dbname = Sys.getenv('PG_DB_DO'),
+  host = Sys.getenv('PG_HOST_DO'),
+  port = Sys.getenv('PG_PORT'),
+  user = Sys.getenv('PG_USER_DO'),
+  password = Sys.getenv('PG_PASS_DO')
+)
 
 #
 # ##listthe schemas in the database
@@ -77,13 +78,13 @@ dat$misc_point_id <- seq.int(nrow(dat))
 
 # dbSendQuery(conn, paste0("CREATE SCHEMA IF NOT EXISTS ", "test_hack",";"))
 # load to database
-sf::st_write(obj = dat, dsn = conn, Id(schema= "ali", table = "misc"))
+sf::st_write(obj = dat, dsn = conn, Id(schema= "working", table = "misc"))
 
 
 # sf doesn't automagically create a spatial index or a primary key
-res <- dbSendQuery(conn, "CREATE INDEX ON ali.misc USING GIST (geometry)")
+res <- dbSendQuery(conn, "CREATE INDEX ON working.misc USING GIST (geometry)")
 dbClearResult(res)
-res <- dbSendQuery(conn, "ALTER TABLE ali.misc ADD PRIMARY KEY (misc_point_id)")
+res <- dbSendQuery(conn, "ALTER TABLE working.misc ADD PRIMARY KEY (misc_point_id)")
 dbClearResult(res)
 
 dat_info <- dbGetQuery(conn, "SELECT
@@ -91,7 +92,7 @@ dat_info <- dbGetQuery(conn, "SELECT
   b.*,
   ST_Distance(ST_Transform(a.geometry,3005), b.geom) AS distance
 FROM
-  ali.misc AS a
+  working.misc AS a
 CROSS JOIN LATERAL
   (SELECT *
    FROM bcfishpass.crossings
