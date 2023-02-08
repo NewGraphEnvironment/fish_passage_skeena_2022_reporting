@@ -1,11 +1,11 @@
 reference_number,gazetted_names,local_name,waterbody_id,reach_number,site_number,sampling_method,method_number,haul_number_pass_number,species,length_mm,weight_g,sex,maturity,age_structure,age_sample_number,age,genetic_structure,genetic_sample_number,comments
-9,Pinenut Creek,8300238_ds,0,0,9,minnow trapping,1,1,Dolly Varden,115,,,,,,,,,photo MW
-9,Pinenut Creek,8300238_ds,0,0,9,minnow trapping,1,1,Dolly Varden,108,,,,,,,,,photo MW
-9,Pinenut Creek,8300238_ds,0,0,9,minnow trapping,2,1,Dolly Varden,124,,,,,,,,,photo MW
-9,Pinenut Creek,8300238_ds,0,0,9,minnow trapping,2,1,Dolly Varden,109,,,,,,,,,photo MW
-9,Pinenut Creek,8300238_ds,0,0,9,minnow trapping,2,1,Dolly Varden,135,,,,,,,,,photo MW
-9,Pinenut Creek,8300238_ds,0,0,9,minnow trapping,2,1,Dolly Varden,105,,,,,,,,,photo MW
-10,Pinenut Creek,8302257_us,0,0,10,minnow trapping,1,1,Dolly Varden,133,,,,,,,,,photo MW
+9,Pinenut Creek,198222_ds,0,0,9,minnow trapping,1,1,Dolly Varden,115,,,,,,,,,photo MW
+9,Pinenut Creek,198222_ds,0,0,9,minnow trapping,1,1,Dolly Varden,108,,,,,,,,,photo MW
+9,Pinenut Creek,198222_ds,0,0,9,minnow trapping,2,1,Dolly Varden,124,,,,,,,,,photo MW
+9,Pinenut Creek,198222_ds,0,0,9,minnow trapping,2,1,Dolly Varden,109,,,,,,,,,photo MW
+9,Pinenut Creek,198222_ds,0,0,9,minnow trapping,2,1,Dolly Varden,135,,,,,,,,,photo MW
+9,Pinenut Creek,198222_ds,0,0,9,minnow trapping,2,1,Dolly Varden,105,,,,,,,,,photo MW
+10,Pinenut Creek,198222_us,0,0,10,minnow trapping,1,1,Dolly Varden,133,,,,,,,,,photo MW
 16,Sandstone Creek,8530_ds_ef1,0,0,16,electrofishing,1,1,Cutthroat Trout (General),76,7.3,,,,,,,,3DD.003E1929EE. Row ID 1.
 16,Sandstone Creek,8530_ds_ef1,0,0,16,electrofishing,1,1,Cutthroat Trout (General),55,5.4,,,,,,,,
 16,Sandstone Creek,8530_ds_ef1,0,0,16,electrofishing,1,1,Cutthroat Trout (General),48,4.8,,,,,,,,Photo 12:56 AI
@@ -21,20 +21,20 @@ reference_number,gazetted_names,local_name,waterbody_id,reach_number,site_number
 7,Sandstone Creek,8530_ds_ef2,0,0,7,electrofishing,1,1,Cutthroat Trout (General),98,12.6,,,,,,,,3DD.003E1929EF. Row ID 7.
 7,Sandstone Creek,8530_ds_ef2,0,0,7,electrofishing,1,1,Cutthroat Trout (General),52,4.8,,,,,,,,
 7,Sandstone Creek,8530_ds_ef2,0,0,7,electrofishing,1,1,Cutthroat Trout (General),41,3.6,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Dolly Varden,115,19.9,,,,,,,,3DD.003E1929EC. Row ID 8.
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),78,5.1,,,,,,,,3DD.003E1929D0. Row ID 9.
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),44,2.2,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),48,2.6,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),41,3,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),42,2.2,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),52,2.9,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),51,3.3,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),47,1.4,,,,,,,,Mortality
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),43,2.3,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),54,2.6,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),55,2.3,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),39,1.5,,,,,,,,
-8,Sandstone Creek,8530__ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),106,,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Dolly Varden,115,19.9,,,,,,,,3DD.003E1929EC. Row ID 8.
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),78,5.1,,,,,,,,3DD.003E1929D0. Row ID 9.
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),44,2.2,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),48,2.6,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),41,3,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),42,2.2,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),52,2.9,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),51,3.3,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),47,1.4,,,,,,,,Mortality
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),43,2.3,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),54,2.6,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),55,2.3,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),39,1.5,,,,,,,,
+8,Sandstone Creek,8530_ds_ef3,0,0,8,electrofishing,1,1,Cutthroat Trout (General),106,,,,,,,,,
 18,Sandstone Creek,8530_us_ef1,0,0,18,electrofishing,1,1,Rainbow Trout,136,30.9,,,,,,,,3DD.003E1929EA. Photo. Row ID 10.
 18,Sandstone Creek,8530_us_ef1,0,0,18,electrofishing,1,1,Cutthroat Trout (General),119,15,,,,,,,,3DD.003E1929BF. Photo. Row ID 11.
 18,Sandstone Creek,8530_us_ef1,0,0,18,electrofishing,1,1,Cutthroat Trout (General),104,9.8,,,,,,,,3DD.003E1929A4. Photo. Row ID 12.
@@ -141,15 +141,15 @@ reference_number,gazetted_names,local_name,waterbody_id,reach_number,site_number
 27,Tributary to Zymoetz River,8527_ds_mt,0,0,27,minnow trapping,1,1,No Fish Caught,,,,,,,,,,
 27,Tributary to Zymoetz River,8527_ds_mt,0,0,27,minnow trapping,2,1,No Fish Caught,,,,,,,,,,
 27,Tributary to Zymoetz River,8527_ds_mt,0,0,27,minnow trapping,3,1,No Fish Caught,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,1,1,Dolly Varden,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,1,1,Dolly Varden,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,1,1,Dolly Varden,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,,,,,,,,,,
-28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,1,1,Dolly Varden,55,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,1,1,Dolly Varden,51,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,1,1,Dolly Varden,55,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,61,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,59,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,58,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,57,,,,,,,,,
+28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,2,1,Dolly Varden,53,,,,,,,,,
 28,Tributary to Coal Creek,8525_us_mt,0,0,28,minnow trapping,3,1,No Fish Caught,,,,,,,,,,Dead shrew
-29,Tributary to Coal Creek,8525_ds_mt,0,0,29,minnow trapping,1,1,Dolly Varden,,,,,,,,,,
+29,Tributary to Coal Creek,8525_ds_mt,0,0,29,minnow trapping,1,1,Dolly Varden,119,,,,,,,,,
 29,Tributary to Coal Creek,8525_ds_mt,0,0,29,minnow trapping,2,1,No Fish Caught,,,,,,,,,,
-29,Tributary to Coal Creek,8525_ds_mt,0,0,29,minnow trapping,3,1,Dolly Varden,,,,,,,,,,
+29,Tributary to Coal Creek,8525_ds_mt,0,0,29,minnow trapping,3,1,Dolly Varden,126,,,,,,,,,
