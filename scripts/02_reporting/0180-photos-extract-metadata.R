@@ -1,22 +1,70 @@
 ##here we need to pull all the metadata from all the marked photos so we can use it to have our photos show on the leaflet map
+## NOTE: this script needs to be re run if photos are deleted or new ones added
 # source('R/packages.R')
 
+# define your project repo name
+repo_name <- 'fish_passage_skeena_2022_reporting'
 
-photo_metadata <- exifr::read_exif('data/photos',recursive=T)  %>%
+photo_metadata_prep <- exifr::read_exif('data/photos',recursive=T)  %>%
   janitor::clean_names() %>%
-  select(file_name, source_file, gps_latitude, gps_longitude) %>%
-  mutate(url  = paste0('https://github.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/raw/master/',
+  select(file_name, source_file, create_date, gps_latitude, gps_longitude) %>%
+  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/master/',
                        source_file)) %>%
-  # base = tools::file_path_sans_ext(filename)) %>%
   filter(
-    file_name %like% '_k_' &
-      # here is a hack so that we don't get doubles of the photos from the google flip phone
-      !file_name %like% 'rotated' &
-      # for some reason some of kyle's photos have no coords so need to filter them out
-      !is.na(gps_longitude)
-  )
+    file_name %like% '_k_'
+  ) %>%
+  mutate(create_date = lubridate::as_datetime(create_date, tz="America/Vancouver"))
 
-# 'https://newgraphenvironment.github.io/fish_passage_elk_2021_reporting/fish_passage_elk_2021_reporting/'
+# MW photos aren't georeferenced so link them to tracks
+# read in tracks
+track_points_prep = read_sf('data/habitat_confirmation_tracks.gpx', layer = "track_points")
+
+track_points <- track_points_prep %>%
+  st_coordinates() %>%
+  as_tibble() %>%
+  setNames(c("gps_latitude","gps_longitude")) %>%
+  rowid_to_column()
+
+mw_photos <- photo_metadata_prep %>%
+  filter(source_file %like% 'TimePhoto') %>%
+  select(file_name, source_file, create_date) %>%
+  mutate(create_date = lubridate::as_datetime(create_date, tz="America/Vancouver"))
+
+#find the track point that is closest in time to the CreateDate stamp of the photo..
+#https://stackoverflow.com/questions/21607247/searching-for-nearest-date-in-data-frame
+get_closest_line_in_history <- function(x, history){
+  time_diffs <- difftime(x, history)
+  time_diffs[time_diffs<0] <- NA
+
+  res <- which.min(time_diffs)
+  if (length(res) != 1){
+    return(NA)  ##return a NA as in the post
+  }else{
+    return(res)
+  }
+}
+
+indx_closest_point <- sapply(mw_photos$create_date,
+                             get_closest_line_in_history,
+                             track_points_prep$time) %>%
+  as_tibble()
+
+# closest point corresponds to row id in track points so join dataframes
+joined_tracks <- left_join(indx_closest_point, track_points, by = c('value' = 'rowid')) %>%
+  mutate(gps_latitude = as.character(gps_latitude)) %>%
+  mutate(gps_longitude = as.character(gps_longitude))
+
+# tracks are now matched up to photos indexes so bind columns and drop value column
+photo_metadata_processed <- bind_cols(mw_photos, joined_tracks) %>%
+  select(-value) %>%
+  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/master/',
+                       source_file))
+
+photo_metadata <- filter(photo_metadata_prep, !source_file %like% 'TimePhoto') %>%
+  bind_rows(photo_metadata_processed) %>%
+  select(-create_date)
+
+
 
 
 conn <- rws_connect("data/bcfishpass.sqlite")
