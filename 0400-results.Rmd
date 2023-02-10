@@ -4,8 +4,7 @@
 
 <br>
 
-```{r map-interactive, eval= F, fig.cap='Map of fish passage and habitat confirmation results'}
-##turned map off for now, change to eval=gitbook_on when ready to build
+```{r map-interactive, eval=gitbook_on, fig.cap='Map of fish passage and habitat confirmation results'}
 ##make colors for the priorities
 pal <- 
    colorFactor(palette = c("red", "yellow", "grey", "black"), 
@@ -32,7 +31,7 @@ map <- leaflet(height=500, width=780) %>%
   # addProviderTiles(providers$"Esri.DeLorme") %>% 
   addProviderTiles("Esri.WorldTopoMap", group = "Topo") %>%
   addProviderTiles("Esri.WorldImagery", group = "ESRI Aerial") %>% 
-  addPolygons(data = wshd_study_areas %>% filter(watershed_group_code == 'BULK'), color = "#F29A6E", weight = 1, smoothFactor = 0.5,
+  addPolygons(data = wshd_study_areas, color = "#F29A6E", weight = 1, smoothFactor = 0.5,
               opacity = 1.0, fillOpacity = 0,
               fillColor = "#F29A6E", label = 'Bulkley River') %>%
   addPolygons(data = wshds, color = "#0859C6", weight = 1, smoothFactor = 0.5,
@@ -72,39 +71,39 @@ addCircleMarkers(data=tab_map %>%
                opacity=0.75, color = '#e216c4',
                fillOpacity = 0.75, weight=5, group = "Phase 2") %>%
 
-# turned off because haven't built photo_metadata object yet
-# addAwesomeMarkers(
-#     lng = as.numeric(photo_metadata$gps_longitude),
-#     lat = as.numeric(photo_metadata$gps_latitude),
-#     popup = leafpop::popupImage(photo_metadata$url, src = "remote"),
-#     clusterOptions = markerClusterOptions(),
-#     group = "Phase 2") %>%
+addAwesomeMarkers(
+    lng = as.numeric(photo_metadata$gps_longitude),
+    lat = as.numeric(photo_metadata$gps_latitude),
+    popup = leafpop::popupImage(photo_metadata$url, src = "remote"),
+    clusterOptions = markerClusterOptions(),
+    group = "Phase 2") %>%
 
-  addCircleMarkers(
-    data=tab_hab_map,
-    label = tab_hab_map$pscis_crossing_id,
-    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
-    popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
-                                           Site = pscis_crossing_id,
-                                           Priority = priority,
-                                           Stream = stream_name,
-                                           Road = road_name,
-                                           `Habitat (m)`= upstream_habitat_length_m,
-                                           Comments = comments,
-                                           `Culvert data` = data_link,
-                                           `Culvert photos` = photo_link,
-                                           `Model data` = model_link),
-                                feature.id = F,
-                                row.numbers = F),
-    radius = 9,
-    fillColor = ~pal(priority),
-    color= "#ffffff",
-    stroke = TRUE,
-    fillOpacity = 1.0,
-    weight = 2,
-    opacity = 1.0,
-    group = "Phase 2"
-    ) %>%
+  #commented out this section for now until tab_hab_map object is built from cost estimate table
+  # addCircleMarkers(
+  #   data=tab_hab_map,
+  #   label = tab_hab_map$pscis_crossing_id,
+  #   labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+  #   popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
+  #                                          Site = pscis_crossing_id,
+  #                                          Priority = priority,
+  #                                          Stream = stream_name,
+  #                                          Road = road_name,
+  #                                          `Habitat (m)`= upstream_habitat_length_m,
+  #                                          Comments = comments,
+  #                                          `Culvert data` = data_link,
+  #                                          `Culvert photos` = photo_link,
+  #                                          `Model data` = model_link),
+  #                               feature.id = F,
+  #                               row.numbers = F),
+  #   radius = 9,
+  #   fillColor = ~pal(priority),
+  #   color= "#ffffff",
+  #   stroke = TRUE,
+  #   fillOpacity = 1.0,
+  #   weight = 2,
+  #   opacity = 1.0,
+  #   group = "Phase 2"
+  #   ) %>%
 
   addLayersControl(
     baseGroups = c(
