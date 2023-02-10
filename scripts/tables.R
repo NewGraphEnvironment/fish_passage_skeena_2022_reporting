@@ -5,6 +5,7 @@
 
 # add project specific variables ------------------------------------------
 filename_html <- 'Skeena2022'
+repo_name <- 'fish_passage_skeena_2022_reporting'
 maps_location <- 'https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/'
 maps_location_zip <- 'https://hillcrestgeo.ca/outgoing/fishpassage/projects/bulkley/archive/2022-05-02/bulkley_2022-05-02.zip'
 
@@ -57,7 +58,7 @@ xref_pscis_my_crossing_modelled <- readwritesqlite::rws_read_table("xref_pscis_m
 wshds <- readwritesqlite::rws_read_table("wshds", conn = conn) %>%
    mutate(aspect = as.character(aspect))
 
-# photo_metadata <- readwritesqlite::rws_read_table("photo_metadata", conn = conn)
+photo_metadata <- readwritesqlite::rws_read_table("photo_metadata", conn = conn)
 # # fiss_sum <- readwritesqlite::rws_read_table("fiss_sum", conn = conn)
 rws_disconnect(conn)
 
@@ -611,6 +612,7 @@ rm(
   fish_nfc_tag
 )
 
+
 # # table to summarize ef passes done in a site
 # tab_fish_sites <- hab_fish_collect_info %>%
 #   select(local_name, haul_number_pass_number, ef_seconds:enclosure) %>%
@@ -656,8 +658,8 @@ hab_site_priorities_prep <- left_join(
   filter(!local_name %like% '_ds' &
            # ends in a number
            !local_name %like% '\\d$') %>%
-  select(-local_name)
-# filter(!is.na(priority))  ##this is how we did it before.  changed it to get a start on it
+  select(-local_name) %>%
+  filter(!is.na(priority))  ##this is how we did it before.  changed it to get a start on it
 
 hab_site_priorities <- left_join(
   hab_site_priorities_prep %>%
@@ -1232,39 +1234,24 @@ tab_hab_summary <- left_join(
 #
 #
 # #--------------need to review if this is necessary
-# tab_map_prep <- left_join(
-#   pscis_all %>%
-#     sf::st_as_sf(coords = c("easting", "northing"),
-#                  crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
-#     sf::st_transform(crs = 4326), ##convert to match the bcfishpass format,
-#   phase1_priorities %>% select(-utm_zone:utm_northing, -my_crossing_reference, priority_phase1, -habitat_value, -barrier_result), # %>% st_drop_geometry()
-#   by = 'pscis_crossing_id'
-# )
-#
-#
-# tab_map <- tab_map_prep %>%
-#   # mutate(pscis_crossing_id = as.character(pscis_crossing_id),
-#   #        my_crossing_reference = as.character(my_crossing_reference)) %>%
-#   # mutate(ID = case_when(
-#   #   !is.na(pscis_crossing_id) ~ pscis_crossing_id,
-#   #   T ~ paste0('*', my_crossing_reference
-#   #   ))) %>%
-#   # sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
-#   #              crs = 26911, remove = F) %>%
-#   # sf::st_transform(crs = 4326) %>%
-#   mutate(priority_phase1 = case_when(priority_phase1 == 'mod' ~ 'moderate',
-#                                      T ~ priority_phase1)) %>%
-#   mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
-#   mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/master/data/photos/', my_crossing_reference, '/crossing_all.JPG ',
-#                              'target="_blank">Culvert Photos</a>')) %>%
-#   mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
-#   dplyr::distinct(site_id, .keep_all = T) #just for now
-# mutate(data_link = paste0('<a href =',
-#                           'https://github.com/NewGraphEnvironment/fish_passage_bulkley_2020_reporting/tree/master/fig/sum/', pscis_crossing_id,
-#                           '.png', '>', 'data link', '</a>')) %>%
-# dplyr::mutate(photo_link = paste0('<a href =',
-#                                   'https://github.com/NewGraphEnvironment/fish_passage_bulkley_2020_reporting/tree/master/data/photos/', amalgamated_crossing_id,
-#                                   '/crossing_all.JPG', '>', 'photo link', '</a>'))
+tab_map_prep <- left_join(
+  pscis_all %>%
+    sf::st_as_sf(coords = c("easting", "northing"),
+                 crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
+    sf::st_transform(crs = 4326), ##convert to match the bcfishpass format,
+  phase1_priorities %>% select(-utm_zone:utm_northing, -my_crossing_reference, priority_phase1, -habitat_value, -barrier_result), # %>% st_drop_geometry()
+  by = 'pscis_crossing_id'
+)
+
+
+tab_map <- tab_map_prep %>%
+  mutate(priority_phase1 = case_when(priority_phase1 == 'mod' ~ 'moderate',
+                                     T ~ priority_phase1)) %>%
+  mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
+  mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/', repo_name, '/master/data/photos/', my_crossing_reference, '/crossing_all.JPG ',
+                             'target="_blank">Culvert Photos</a>')) %>%
+  mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
+  dplyr::distinct(site_id, .keep_all = T) #just for now
 
 
 
