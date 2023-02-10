@@ -28,8 +28,7 @@ Smithers. PSCIS crossing `r as.character(my_site)` is located on
 `r fpr_my_pscis_info(col_pull = road_name)`. Crossing
 `r as.character(my_site)` was located
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Zymoetz River and is the
-responsibility of the Ministry of Transportation and Infrastructure.
+upstream from the confluence with the Zymoetz River. A phase 1 and phase 2 assessment was conducted on this site in 2021, and electrofishing was conducted in 2022. 
 
 <br>
 
@@ -58,13 +57,17 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 <br>
 
+A total of `r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland is modelled upstream. This crossing was listed as a barrier at the time of survey by @gollner2013 in 2012. Comments indicate that fish were observed downstream, and good habitat was present upstream. 
+
+<br>
+
 PSCIS stream crossing `r as.character(my_site)` was ranked as a high
 priority for follow up by the Society for Ecosystem Restoration in
 Northern BC because of
 significant amounts of habitat modelled upstream of the crossing. A summary of habitat modelling outputs is
 presented in Table \@ref(tab:tab-culvert-bcfp-197379). A map of the
 watershed is provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet()).
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "morr", archive_date = "2022-09-06")`).
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
 
@@ -76,17 +79,55 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 <br>
 
-## Aerial Imagery {.unnumbered}
+## Stream Characteristics at Crossing {.unnumbered}
 
-Surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model. 
+At the time of the survey, PSCIS crossing `r as.character(my_site)` was
+un-embedded, non-backwatered and ranked as a
+`r fpr::fpr_my_pscis_info(col_pull = barrier_result)` to upstream fish
+passage according to the provincial protocol [@moe2011Fieldassessment]
+(Table \@ref(tab:tab-culvert-197379)). Water temperature was
+`r fpr::fpr_my_habitat_info(col_pull = 'temperature_c')`$^\circ$C, pH
+was `r fpr::fpr_my_habitat_info(col_pull = 'p_h')` and conductivity was
+`r fpr::fpr_my_habitat_info(col_pull = 'conductivity_m_s_cm')`uS/cm.
+
+<br>
+
+```{r tab-culvert-197379, eval = T}
+fpr::fpr_table_cv_summary_memo()
+
+```
+
+```{r eval=F}
+##this is useful to get some comments for the report
+hab_site %>% filter(site == my_site & location == 'us') %>% pull(comments)
+hab_site %>% filter(site == my_site & location == 'ds') %>% pull(comments)
+
+```
+
+## Stream Characteristics Downstream {.unnumbered}
+
+`r fpr::fpr_my_survey_dist(loc = 'ds')`
+`r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-197379-01) - \\@ref(fig:photo-197379-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-197379-d01))."))`
+`r fpr_my_habitat_paragraph(loc = 'ds')` The stream had signs of high flow due to the eroded steep sided banks. However, there was still a nice mix of habitat available including periodic undercut banks and lots of overhanging vegetation. Gradient was relatively stable at 4 degrees although there were some woody debris jams which could impede upstream migration, depending on flows. One fish sighted was sighted in the outlet pool. The habitat
+was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
+salmonid rearing and spawning.
+
+## Stream Characteristics Upstream {.unnumbered}
+
+`r fpr_my_survey_dist(loc = 'us')` to a waterfall that was approximately 8m in height
+`r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-197379-03) - \\@ref(fig:photo-197379-06)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-197379-d02))."))`
+`r fpr_my_habitat_paragraph(loc = 'us')` Bedrock dominated the stream substrate. Lots of undercut banks were present with some pools. Healthy riparian vegetation providing cover. Functional woody debris habitat with good flow. There was a large woody debris jam but there was running water underneath. The stream was  steep below the falls, cascading with pools. The habitat was rated as
+`r fpr::fpr_my_priority_info(loc = 'us')` value as an important
+migration corridor containing suitable spawning habitat and having
+moderate rearing potential.
 
 <br>
 
 ## Fish Sampling {.unnumbered}
 
-Electrofishing was conducted with results summarised in Tables
+Electrofishing was conducted in 2022 with results summarised in Tables
 \@ref(tab:tab-fish-site-197379) - \@ref(tab:tab-fish-dens-197379) and Figure
-\@ref(fig:plot-fish-box-197379).
+\@ref(fig:plot-fish-box-197379). Coho were captured downstream of the crossings but not upstream. There appeared to be some rainbow and cutthroat hybrids. The stream was mostly dry at the time of electrofishing, with fish concentrated in pools. 
 
 <br>
 
@@ -100,11 +141,7 @@ areas surveyed rated as
 value for salmonid rearing and spawning. Crossing
 `r as.character(my_site)` was ranked as a
 `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement. Sandstone Creek is a
-large system with habitat suitable for numerous species including cutthroat
-and dolly varden. Development of a plan to replace the crossing with
-a bridge would be a key step in eliminating an outlet drop and reducing
-flow velocities at the highway crossing.
+proceeding to design for replacement in 2021. A design is currently underway by Mark Dewit from MoF. 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
@@ -139,4 +176,106 @@ my_caption <- paste0('Densites of fish (fish/100m2) captured upstream of PSCIS c
 
 fpr_plot_fish_box() 
 
+```
+
+<br>
+
+```{r photo-197379-01-prep, eval=T}
+my_photo1 = fpr::fpr_photo_pull_by_str(str_to_pull = '_d1_')
+
+my_caption1 = paste0('Typical habitat downstream of PSCIS crossing ', my_site, '.')
+
+
+```
+
+```{r photo-197379-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197379-02-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_d2_')
+
+my_caption2 = paste0('Typical habitat downstream of PSCIS crossing ', my_site, '.')
+```
+
+```{r photo-197379-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+
+```
+
+<br>
+
+```{r photo-197379-d01, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+```{r photo-197379-03-prep}
+my_photo1 = fpr::fpr_photo_pull_by_str(str_to_pull = '_u1_')
+
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')
+```
+
+```{r photo-197379-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197379-04-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_u2_')
+
+my_caption2 = paste0('Large woody debris jam upstream of PSCIS crossing ', my_site, '.')
+
+```
+
+```{r photo-197379-04, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197379-d02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+```{r photo-197379-05-prep}
+my_photo1 = fpr::fpr_photo_pull_by_str(str_to_pull = '_u3_')
+
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')
+```
+
+```{r photo-197379-05, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197379-06-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_u4_')
+
+my_caption2 = paste0('Waterfall upstream of PSCIS crossing ', my_site, '.')
+
+```
+
+```{r photo-197379-06, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197379-d03, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
 ```

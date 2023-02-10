@@ -67,11 +67,11 @@ Northern BC due to the large size of the stream, with many species
 confirmed upstream. A summary of habitat modelling outputs is presented
 in Table \@ref(tab:tab-culvert-bcfp-198220). A map of the watershed is
 provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](%60r%20fpr::fpr_my_mapsheet()%60).
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "kisp", archive_date = "2022-09-06")`).
 
 <br>
 
-```{r tab-culvert-bcfp-198220, eval = F}
+```{r tab-culvert-bcfp-198220, eval = T}
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
 ```
 
@@ -135,6 +135,8 @@ fpr::fpr_table_cv_summary_memo(dat = pscis_phase1, site = my_site2, site_photo_i
 ```
 
 ## Structure Remediation and Cost Estimate {.unnumbered}
+
+<br>
 
 ## Conclusion {.unnumbered}
 

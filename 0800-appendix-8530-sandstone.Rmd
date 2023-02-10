@@ -76,11 +76,15 @@ crossing `r as.character(my_site)` in 1997.
 <br>
 
 PSCIS stream crossing `r as.character(my_site)` was ranked as a high
-priority for follow up by the Society for Ecosystem Restoration in Northern BC because of
-significant amounts of habitat modelled upstream of the crossing. [@viveiros2011] assessed crossing `r as.character(my_site)` in 2010. At the time of survey, it was recommended to embed the material in the pipe due to its size to reduce water velocity. A summary of habitat modelling outputs is
-presented in Table \@ref(tab:tab-culvert-bcfp-8530). A map of the
-watershed is provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet()).
+priority for follow up by the Society for Ecosystem Restoration in
+Northern BC because of significant amounts of habitat modelled upstream
+of the crossing. [@viveiros2011] assessed crossing
+`r as.character(my_site)` in 2010. At the time of survey, it was
+recommended to embed the material in the pipe due to its size to reduce
+water velocity. A summary of habitat modelling outputs is presented in
+Table \@ref(tab:tab-culvert-bcfp-8530). A map of the watershed is
+provided in map attachment
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "zymo", archive_date = "2022-09-06")`).
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
 
