@@ -28,4 +28,5 @@ reference_number,gazetted_name,alias_local_name,waterbody_type,waterbody_id_iden
 27,Tributary to Zymoetz River,8527_ds_mt,stream,,,,,27,44817,geographic information system (GIS),9,582174,6074180,visible channel,
 28,Tributary to Coal Creek,8525_us_mt,stream,,,,,28,44817,geographic information system (GIS),9,581000,6074698,visible channel,
 29,Tributary to Coal Creek,8525_ds_mt,stream,,,,,29,44817,geographic information system (GIS),9,580998,6074665,visible channel,
-30,Tributary to Owen Creek,197370_us,stream,,,,,31,44446,geographic information system (GIS),9,639970,6008561,visible channel,
+30,Tributary to Owen Creek,197379_us,stream,,,,,30,44446,GPS general,9,640963,6005924,visible channel,
+31,Tributary to Owen Creek,197379_ds,stream,,,,,31,44446,GPS general,9,640812.475164804,6005835.01289482,visible channel,

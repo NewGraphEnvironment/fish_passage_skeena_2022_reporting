@@ -1,6 +1,6 @@
 # install.packages('pacman')
 
-package_list <- c(
+pacman::p_load(
   #'plotKML', #this takes forever to load so going to leave it out for now
   'raster', #load this dog before dplyr yo
   'tidyverse',
@@ -39,17 +39,12 @@ package_list <- c(
   'chron',
   'leafpop',
   'exifr',
-  'fpr'  #personal package available on github - see below
-  # rgl,
+  'chron',
+  'pagedown'
   # geojsonsf,
   # bit64 ##to make integer column type for pg
   # gert  ##to track git moves
 )
-
-lapply(package_list,
-       require,
-       character.only = TRUE)
-
 
 # for a fresh install of R
 # lapply(package_list,
@@ -63,7 +58,6 @@ lapply(package_list,
 pacman::p_load_gh("poissonconsulting/fwapgr",
                   'poissonconsulting/poisspatial',
                   "crsh/citr",
-                  'rstudio/pagedown',
                   "poissonconsulting/fishbc",
                   "newgraphenvironment/fpr")
 # "poissonconsulting/subfoldr2")
