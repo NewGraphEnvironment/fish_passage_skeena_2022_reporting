@@ -9,7 +9,7 @@ author: |
  |
  |
  | Prepared by
- | Al Irvine, B.Sc., R.P.Bio. and Mateo Wintersheidt
+ | Al Irvine, B.Sc., R.P.Bio. and Mateo Wintersheidt, B.Sc.
  | New Graph Environment Ltd.
  | on behalf of
  | Society for Ecosytem Restoration in Northern British Columbia

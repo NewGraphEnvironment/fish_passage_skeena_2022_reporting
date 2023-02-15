@@ -45,9 +45,7 @@ conn <- DBI::dbConnect(
 ##here is the study area watersheds
 wshd_study_areas <- st_read(conn,
                            query = "SELECT * FROM whse_basemapping.fwa_watershed_groups_poly a
-                               WHERE a.watershed_group_code  = 'ZYMO'
-                           OR a.watershed_group_code  = 'MORR'
-                           OR a.watershed_group_code  = 'KISP'"
+                               WHERE a.watershed_group_code IN ('ZYMO','MORR','KISP')"
 )
 
 wshd_study_areas %>%
