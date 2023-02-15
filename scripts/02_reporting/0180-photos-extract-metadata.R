@@ -8,7 +8,7 @@ repo_name <- 'fish_passage_skeena_2022_reporting'
 photo_metadata_prep <- exifr::read_exif('data/photos',recursive=T)  %>%
   janitor::clean_names() %>%
   select(file_name, source_file, create_date, gps_latitude, gps_longitude) %>%
-  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/master/',
+  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/main/',
                        source_file)) %>%
   filter(
     file_name %like% '_k_'
@@ -22,7 +22,7 @@ track_points_prep = read_sf('data/habitat_confirmation_tracks.gpx', layer = "tra
 track_points <- track_points_prep %>%
   st_coordinates() %>%
   as_tibble() %>%
-  setNames(c("gps_latitude","gps_longitude")) %>%
+  setNames(c("gps_longitude","gps_latitude")) %>%
   rowid_to_column()
 
 mw_photos <- photo_metadata_prep %>%
@@ -57,7 +57,7 @@ joined_tracks <- left_join(indx_closest_point, track_points, by = c('value' = 'r
 # tracks are now matched up to photos indexes so bind columns and drop value column
 photo_metadata_processed <- bind_cols(mw_photos, joined_tracks) %>%
   select(-value) %>%
-  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/master/',
+  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/main/',
                        source_file))
 
 photo_metadata <- filter(photo_metadata_prep, !source_file %like% 'TimePhoto') %>%
