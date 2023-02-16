@@ -134,7 +134,7 @@ There was
 habitat modelled upstream of crossing `r as.character(my_site)` with
 areas surveyed rated as
 `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
-value for salmonid rearing and spawning. As the culvert outlet drop was small, and because the relatively low elevation of the watershed may result in low flows in typical years (see assessment photos from @gollner2013 [here](https://a100.gov.bc.ca/pub/pscismap/imageViewer.do?assessmentId=57833)), `r as.character(my_site)` was ranked as a
+value for salmonid rearing and spawning. `r as.character(my_site)` was ranked as a
 `r fpr::fpr_my_priority_info(col_pull = priority)` priority for proceeding to design for replacement. Electrofishing upstream and downstream of the culvert is recommended to provide insight into fish community
 composition and density which may justify a higher priority for site remediation.
 
