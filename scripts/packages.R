@@ -40,7 +40,8 @@ pacman::p_load(
   'leafpop',
   'exifr',
   'chron',
-  'pagedown'
+  'pagedown',
+  'devtools'
   # geojsonsf,
   # bit64 ##to make integer column type for pg
   # gert  ##to track git moves
