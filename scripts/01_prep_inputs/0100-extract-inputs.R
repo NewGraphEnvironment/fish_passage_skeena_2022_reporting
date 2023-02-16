@@ -503,116 +503,30 @@ habitat_confirmations_priorities <- readr::read_csv(
 
 # extract rd cost multiplier ----------------------------------------------
 
-# pscis_rd is not a good way to do this because it keeps to much from the spreadsheet
-# plus it pulls from an old db. Need to ditch this method next time
-
-source('scripts/packages.R')
-source('scripts/private_info.R')
-
-pscis_all <- bind_rows(fpr_import_pscis_all())
-
-# n_distinct(pscis_all$aggregated_crossings_id)
-
-dat <- pscis_all %>%
-  sf::st_as_sf(coords = c("easting", "northing"),
-               crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
-  sf::st_transform(crs = 3005) ##get the crs same as the layers we want to hit up
-
-
-##get the road info from the database
-conn <- DBI::dbConnect(
-  RPostgres::Postgres(),
-  dbname = dbname,
-  host = host,
-  port = port,
-  user = user,
-  password = password
-)
-#
-# ##listthe schemas in the database
-# dbGetQuery(conn,
-#            "SELECT schema_name
-#            FROM information_schema.schemata")
-
-##list tables in a schema
-dbGetQuery(conn,
-           "SELECT table_name
-           FROM information_schema.tables
-           WHERE table_schema='bcfishpass'")
-##list column names in a table
-dbGetQuery(conn,
-           "SELECT column_name,data_type
-           FROM information_schema.columns
-           WHERE table_name='crossings'") #modelled_stream_crossings #modelled_crossings_closed_bottom
-
-
-# add a unique id - we could just use the reference number
-dat$misc_point_id <- seq.int(nrow(dat))
-
-# dbSendQuery(conn, paste0("CREATE SCHEMA IF NOT EXISTS ", "test_hack",";"))
-# load to database
-sf::st_write(obj = dat, dsn = conn, Id(schema= "ali", table = "misc"))
-
-# we are using fish_passage.modelled_crossings_closed_bottom but this table is deprecated. Should revise to pull from files raw but that's lots of work
-# and this data should be fine so whatever
-# sf doesn't automagically create a spatial index or a primary key
-res <- dbSendQuery(conn, "CREATE INDEX ON ali.misc USING GIST (geometry)")
-dbClearResult(res)
-res <- dbSendQuery(conn, "ALTER TABLE ali.misc ADD PRIMARY KEY (misc_point_id)")
-dbClearResult(res)
-# swapped out fish_passage.modelled_crossings_closed_bottom
-dat_info <- dbGetQuery(conn, "SELECT
-  a.misc_point_id,
-  b.*,
-  ST_Distance(ST_Transform(a.geometry,3005), b.geom) AS distance
-FROM
-  ali.misc AS a
-CROSS JOIN LATERAL
-  (SELECT *
-   FROM fish_passage.modelled_crossings_closed_bottom
-   ORDER BY
-     a.geometry <-> geom
-   LIMIT 1) AS b")
-
-##join the modelling data to our pscis submission info
-dat_joined <- left_join(
-  select(dat, misc_point_id,
-         pscis_crossing_id,
-         my_crossing_reference,
-         aggregated_crossings_id,
-         stream_name,
-         road_name,
-         downstream_channel_width_meters,
-         barrier_result,
-         fill_depth_meters,
-         crossing_fix,
-         habitat_value,
-         recommended_diameter_or_span_meters,
-         source), ##traded pscis_crossing_id for my_crossing_reference
-  select(dat_info,
-         misc_point_id:utm_northing,
-         distance, geom), ##keep only the road info and the distance to nearest point from here
-  by = "misc_point_id"
-)
-
-dbDisconnect(conn = conn)
-
-pscis_rd <- dat_joined %>%
-  sf::st_drop_geometry() %>%
-  dplyr::mutate(my_road_class = case_when(is.na(road_class) & !is.na(file_type_description) ~
-                                            file_type_description,
-                                          T ~ road_class)) %>%
-  dplyr::mutate(my_road_class = case_when(is.na(my_road_class) & !is.na(owner_name) ~
+# rebuild using bcfishpass object
+rd_class_surface <- bcfishpass %>%
+  filter(stream_crossing_id %in% (
+    pscis_all %>% pull(pscis_crossing_id))
+  ) %>%
+  select(stream_crossing_id, transport_line_structured_name_1:dam_operating_status) %>%
+  dplyr::mutate(my_road_class = ften_file_type_description) %>%
+  dplyr::mutate(my_road_class = case_when(is.na(my_road_class) & !is.na(transport_line_type_description) ~
+                                            transport_line_type_description,
+                                          T ~ my_road_class)) %>%
+  mutate(my_road_class = stringr::str_replace_all(my_road_class, 'Forest Service Road', 'fsr'),
+         my_road_class = stringr::str_replace_all(my_road_class, 'Road ', '')) %>%
+  dplyr::mutate(my_road_class = case_when(is.na(my_road_class) & !is.na(rail_owner_name) ~
                                             'rail',
                                           T ~ my_road_class)) %>%
-  dplyr::mutate(my_road_surface = case_when(is.na(road_surface) & !is.na(file_type_description) ~
+  dplyr::mutate(my_road_surface = case_when(is.na(transport_line_surface_description) & !is.na(ften_file_type_description) ~
                                               'loose',
-                                            T ~ road_surface)) %>%
-  dplyr::mutate(my_road_surface = case_when(is.na(my_road_surface) & !is.na(owner_name) ~
+                                            T ~ transport_line_surface_description)) %>%
+  dplyr::mutate(my_road_surface = case_when(is.na(my_road_surface) & !is.na(rail_owner_name) ~
                                               'rail',
                                             T ~ my_road_surface)) %>%
-  select(-geom)
-
+    # shorten class to just 1 word to fit the xref price table
+  dplyr::mutate(my_road_class = stringr::word(my_road_class, 1),
+                my_road_class = stringr::str_to_lower(my_road_class))
 
 
 conn <- rws_connect("data/bcfishpass.sqlite")
