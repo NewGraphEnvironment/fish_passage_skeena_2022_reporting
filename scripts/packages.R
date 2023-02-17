@@ -60,7 +60,8 @@ pacman::p_load_gh("poissonconsulting/fwapgr",
                   'poissonconsulting/poisspatial',
                   "crsh/citr",
                   "poissonconsulting/fishbc",
-                  "newgraphenvironment/fpr")
+                  "newgraphenvironment/fpr",
+                  "paleolimbot/rbbt")
 # "poissonconsulting/subfoldr2")
 
 
