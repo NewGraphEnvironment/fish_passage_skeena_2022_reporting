@@ -65,9 +65,8 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 <br>
 
-A summary of habitat modelling outputs are presented in Tables
-\@ref(tab:tab-culvert-bcfp-198216) and
-\@ref(tab:tab-culvert-bcfp-198217). A map of the watershed is provided
+A summary of habitat modelling outputs is presented in Table
+\@ref(tab:tab-culvert-bcfp-198216). A map of the watershed is provided
 in map attachment
 [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "kisp", archive_date = "2022-09-06")`).
 
@@ -79,7 +78,7 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 <br>
 
-```{r tab-culvert-bcfp-198217, eval = T}
+```{r tab-culvert-bcfp-198217, eval = F}
 fpr::fpr_table_bcfp(site = my_site2, scroll = gitbook_on) 
 ```
 
