@@ -41,7 +41,7 @@ a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 `r fpr::fpr_my_wshd(col = 'elev_site')`m at the crossing (Table
 \@ref(tab:tab-wshd-197379)). Upstream of crossing
 `r as.character(my_site)`, `r fpr::fpr_my_fish_sp()` have previously
-been recorded [@norris2020bcfishobs].
+been recorded [@norris2022smnorrisbcfishobs].
 
 <br>
 
@@ -57,9 +57,6 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 <br>
 
 A total of `r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland is modelled upstream.
-
-<br>
-
 PSCIS stream crossing `r as.character(my_site)` was ranked as a high
 priority for follow up by the Society for Ecosystem Restoration in
 Northern BC because of
