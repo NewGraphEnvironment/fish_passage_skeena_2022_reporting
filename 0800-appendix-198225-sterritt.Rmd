@@ -123,7 +123,18 @@ suitable for spawning resident species. The habitat was rated as
 migration corridor containing suitable spawning habitat and having
 moderate rearing potential.
 
+<br>
+
 ## Structure Remediation and Cost Estimate {.unnumbered}
+
+Should restoration/maintenance activities proceed, replacement of PSCIS
+crossing `r as.character(my_site)` with a bridge
+(`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m
+span) is recommended. The cost of the work is estimated at
+\$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost
+benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear
+m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)`
+m^2^/\$1000.
 
 <br>
 

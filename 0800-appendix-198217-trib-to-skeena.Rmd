@@ -66,7 +66,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 <br>
 
 A summary of habitat modelling outputs is presented in Table
-\@ref(tab:tab-culvert-bcfp-198216). A map of the watershed is provided
+\@ref(tab:tab-culvert-bcfp-198216). Note that the BC freshwater atlas does not capture the upstream watershed, therefore the modelling is likely inaccurate. A map of the watershed is provided
 in map attachment
 [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "kisp", archive_date = "2022-09-06")`).
 
@@ -240,7 +240,18 @@ knitr::include_graphics(my_photo, dpi = NA)
 
 <br>
 
-<!-- ## Structure Remediation and Cost Estimate {.unnumbered} -->
+## Structure Remediation and Cost Estimate {.unnumbered}
+
+Should restoration/maintenance activities proceed, replacement of PSCIS
+crossing `r as.character(my_site2)` with a bridge
+(`r fpr::fpr_my_pscis_info(site = my_site2, col_pull = recommended_diameter_or_span_meters)`m
+span) is recommended. The cost of the work is estimated at
+\$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost
+benefit of `r fpr::fpr_my_cost_estimate(site = my_site2, col_pull = cost_net)` linear
+m/\$1000 and `r fpr::fpr_my_cost_estimate(site = my_site2, col_pull = cost_area_net)`
+m^2^/\$1000.
+
+<br>
 
 ## Conclusion {.unnumbered}
 
