@@ -198,7 +198,7 @@ rws_disconnect(conn)
 match_this <- dat_joined %>%
   st_drop_geometry() %>%
   select(pscis_crossing_id, stream_crossing_id, modelled_crossing_id, linear_feature_id, watershed_group_code) %>%
-  mutate(reviewer = 'AI',
+  mutate(reviewer = 'MW',
          notes = "Matched to closest stream model") %>%
   filter(!is.na(pscis_crossing_id) &
            is.na(stream_crossing_id))
