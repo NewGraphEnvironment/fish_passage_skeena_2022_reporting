@@ -10,7 +10,7 @@ editor_options:
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
 source('scripts/packages.R')
 source('scripts/tables.R')
-
+source('scripts/functions.R')
 ```
 
 ```{r  load-data-198222}
@@ -122,9 +122,29 @@ migration corridor containing habitat suitable for spawning with moderate rearin
 
 ## Fish Sampling {.unnumbered}
 
-To assess potential impacts of the culvert on fisheries values in the stream, minnowtrapping was conducted upstream and downstream of the crossing.  A total of `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured upstream with `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish captured downstream. Only Dolly Varden were captured.
+To assess potential impacts of the culvert on fisheries values in the stream, minnowtrapping was conducted upstream and downstream of the crossing.  One `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish was captured upstream with `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish captured downstream. Only Dolly Varden were captured.
+
+<br>
+
+```{r tab-fish-dens-198222, eval=T}
+my_caption <- paste0('Fish captured in minnowtraps set overnight upstream and downstream of PSCIS crossing ', my_site, '.')
+
+tab_fish_mt() %>% 
+  fpr::fpr_kable(caption_text = my_caption)
+```
+
+<br>
 
 ## Structure Remediation and Cost Estimate {.unnumbered}
+
+Should restoration/maintenance activities proceed, replacement of PSCIS
+crossing `r as.character(my_site)` with a bridge
+(`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m
+span) is recommended. The cost of the work is estimated at
+\$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost
+benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear
+m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)`
+m^2^/\$1000.
 
 <br>
 
