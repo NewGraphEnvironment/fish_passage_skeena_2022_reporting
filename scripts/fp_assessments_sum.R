@@ -99,6 +99,15 @@ sum <- left_join(
 )
 
 # aha - looks like some sort of double submission for Parsnip phase2s in 2019.  I can't remember what happened at all
+test <- xref_pscis_my_crossing_modelled %>%
+  filter(str_detect(funding_project, 'Parsnip River Watershed – Fish Habitat Confirmations'))
+
+n_distinct(test$stream_crossing_id)
+# hmm - coming back to me...
+unique(xref_pscis_my_crossing_modelled$funding_project)
+
+# right - so there was no submission named phase 1
+
 # a couple descrepencies with 2019 parsnip and 2020 elk where there maybe should be one more site... weird as I am pretty sure those
 # are both fully submitted and I am surprised it allowed be to finish. Maybe - I haveent actually fully finished the submsissions and
 # things are dangling
