@@ -79,31 +79,31 @@ addAwesomeMarkers(
     group = "Phase 2") %>%
 
   #commented out this section for now until tab_hab_map object is built from cost estimate table
-  # addCircleMarkers(
-  #   data=tab_hab_map,
-  #   label = tab_hab_map$pscis_crossing_id,
-  #   labelOptions = labelOptions(noHide = T, textOnly = TRUE),
-  #   popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
-  #                                          Site = pscis_crossing_id,
-  #                                          Priority = priority,
-  #                                          Stream = stream_name,
-  #                                          Road = road_name,
-  #                                          `Habitat (m)`= upstream_habitat_length_m,
-  #                                          Comments = comments,
-  #                                          `Culvert data` = data_link,
-  #                                          `Culvert photos` = photo_link,
-  #                                          `Model data` = model_link),
-  #                               feature.id = F,
-  #                               row.numbers = F),
-  #   radius = 9,
-  #   fillColor = ~pal(priority),
-  #   color= "#ffffff",
-  #   stroke = TRUE,
-  #   fillOpacity = 1.0,
-  #   weight = 2,
-  #   opacity = 1.0,
-  #   group = "Phase 2"
-  #   ) %>%
+  addCircleMarkers(
+    data=tab_hab_map,
+    label = tab_hab_map$pscis_crossing_id,
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+    popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
+                                           Site = pscis_crossing_id,
+                                           Priority = priority,
+                                           Stream = stream_name,
+                                           Road = road_name,
+                                           `Habitat (m)`= upstream_habitat_length_m,
+                                           Comments = comments,
+                                           `Culvert data` = data_link,
+                                           `Culvert photos` = photo_link,
+                                           `Model data` = model_link),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = ~pal(priority),
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Phase 2"
+    ) %>%
 
   addLayersControl(
     baseGroups = c(
@@ -139,7 +139,7 @@ Field assessments were conducted between `r format(min(pscis_phase1$date), forma
 <br>
 
 
-```{r cost-est-phase-1, eval=F}
+```{r cost-est-phase-1}
 
  tab_cost_est_phase1 %>%
   select(`PSCIS ID`:`Cost Est ( $K)`) %>% 

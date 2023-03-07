@@ -36,7 +36,7 @@ Gradient, channel size and stream discharge are key determinants of channel morp
 
 
 
-`bcfishpass` and associated tools have been designed to be flexible in analysis, accepting user defined gradient, channel width and stream discharge categories [@moeStreamInventorySample].  Although currently in draft form, and subject to development revisions, gradient and channel width thresholds for habitat with the highest intrinsic value for a number of fish species in the Bulkley River watershed group have been specified and applied to model habitat upstream of stream crossing locations with the highest intrinsic value (Table \@ref(tab:tab-fish-spawning-rearing)).  Thresholds were derived based on a literature review with references provided in Table \@ref(tab:tab-fish-spawning-rearing-references). Output parameters for modelling are presented in Table \@ref(tab:tab-bcfp-def).
+`bcfishpass` and associated tools have been designed to be flexible in analysis, accepting user defined gradient, channel width and stream discharge categories [@moeStreamInventorySample].  Although currently in draft form, and subject to development revisions, gradient and channel width thresholds for habitat with the highest intrinsic value for a number of fish species in the Skeena watershed groups have been specified and applied to model habitat upstream of stream crossing locations with the highest intrinsic value (Table \@ref(tab:tab-fish-spawning-rearing)).  Thresholds were derived based on a literature review with references provided in Table \@ref(tab:tab-fish-spawning-rearing-references). Output parameters for modelling are presented in Table \@ref(tab:tab-bcfp-def).
 
 
 
@@ -226,8 +226,7 @@ Base costs for installation of bridges on forest service roads and permit roads 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
-```{r tab-cost-mult, eval = F}
-# print_tab_cost_mult(caption_text = 'Cost multiplier table based on road class and surface type.')
+```{r tab-cost-mult, eval = T}
 tab_cost_rd_mult_report %>%
   fpr::fpr_kable(caption_text = 'Cost multiplier table based on road class and surface type.', scroll = F)
 ```
