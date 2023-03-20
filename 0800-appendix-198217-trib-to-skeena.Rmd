@@ -68,7 +68,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 A summary of habitat modelling outputs is presented in Table
 \@ref(tab:tab-culvert-bcfp-198216). Note that the BC freshwater atlas does not capture the upstream watershed, therefore the modelling is likely inaccurate. A map of the watershed is provided
 in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "kisp", archive_date = "2022-09-06")`).
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "kisp", archive_date = "2022-09-06")`). A digital elevation model of the area is presented in Figure \@ref(fig:fig-dem-198217) [@bcgovernment2022LidarBC].
 
 <br>
 
@@ -80,6 +80,12 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 ```{r tab-culvert-bcfp-198217, eval = F}
 fpr::fpr_table_bcfp(site = my_site2, scroll = gitbook_on) 
+```
+
+<br>
+
+```{r fig-dem-198217, eval = T, fig.cap= 'Digital elevation model of the watershed outside the community of Sik-E-Dakh.'}
+knitr::include_graphics("fig/lidar_198217_sik-e-dakh.png")
 ```
 
 <br>
@@ -253,15 +259,37 @@ m^2^/\$1000.
 
 <br>
 
-## Conclusion {.unnumbered}
+## Conclusion and Recommendations {.unnumbered}
 
 There was
 `r fpr::fpr_my_priority_info(sit = my_site2, col_pull= upstream_habitat_length_km)`km of
 habitat modelled upstream of crossing `r as.character(my_site2)` with
 areas surveyed rated as
 `r fpr::fpr_my_priority_info(sit = my_site2, loc = 'us', col_pull = hab_value)`
-value for coho rearing and spawning. Electrofishing upstream of crossing `r as.character(my_site2)` and within the north tributary is recommended to provide insight into fish
-community composition and density. Beaver management and riparian restoration are important steps to the conservation of this system. A plan to conserve and rehabilitate this system is being layed out by the Gitxsan Watershed Authority, in collaboration with the local community.   
+value for coho rearing and spawning. Beaver management and riparian restoration are important steps to the conservation of this system. A plan to conserve and rehabilitate this system is being layed out by the Gitxsan Watershed Authority, in collaboration with the local community.   
+
+<br>
+
+Recommendations going forward include:
+
+* Electrofishing and PIT tagging upstream of crossing `r as.character(my_site2)` and within the northern tributary is recommended to provide insight into fish
+community composition and density.
+
+* Acquisition of lidar data for areas to the west of current data available on LidarBC (includes area of water intake facilities) to help inform about the remnant channel locations
+
+* Acquisition of temperature data at points likely to contain water all year long (ex. outlet of culverts and upstream of culvert on water tower road). Acquire data for the entire growing season and include areas from main north channel to elevations where coho are expected to populate. We define the growing season as per @coleman_fausch2007ColdSummer, which delineate it as the beginning of the first week that average stream temperatures exceed and remain above 5$^\circ$C in the spring and the end of the growing season as the last day of the first week that average stream temperature drops below 4$^\circ$C. We specified Monday as the first day of the week and identified the week of the year based on the number of 7 day periods from January 1 plus 1.  Celsius degree-days were calculated as the mean daily temperature (ex. 2 days with average temperatures of 7$^\circ$C with sum to 14 Celsius degree-days).
+
+* Delineation of reaches and acquisition of FHAP data developed by @johnston_slaney1996FishHabitat within all reaches expected to be populated by coho.
+
+* Acquire high resolution RGB imagery for the entire area from the confluence to above the water intake infrastructure. Include areas on the west side of the highway where there is the remnant channel on the south of water tower culverts and wetland areas to the north.
+
+* Coho spawner surveys to coincide with known spawning timing in neighbouring systems
+
+* Snorkel and/or gopro surveys of plunge pool areas below culverts at times of steelhead and coho migrations to scope for adults attempting to ascend the watershed.
+
+* Overall outreach program to educate Kispiox residents about the role of beavers in watershed health and the history of impacts to aquatic values due to road, community, and ranch development in the valley
+
+* Acquisition of sufficient hydrometric information in accordance with the Manual of British Columbia Hydrometric Standards [@resourcesinformationstandardscommittee2018ManualBritish] to build stage discharge curves for the watershed so the relationships between fish life history timings, physical habitat suitability, temperature and flows can be understood
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
