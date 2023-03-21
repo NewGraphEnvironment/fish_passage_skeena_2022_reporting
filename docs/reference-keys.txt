@@ -18,7 +18,9 @@ tab:tab-bcfp-def
 tab:tab-hab-value
 tab:tab-barrier-scoring
 tab:tab-barrier-result
+tab:tab-cost-mult
 fig:map-interactive
+tab:cost-est-phase-1
 tab:tab-overview
 tab:unnamed-chunk-9
 tab:tab-habitat-summary
@@ -52,6 +54,7 @@ fig:photo-198215-05
 fig:photo-198215-06
 tab:tab-wshd-198217
 tab:tab-culvert-bcfp-198216
+fig:fig-dem-198217
 tab:tab-culvert-198216
 tab:tab-culvert-198217
 fig:photo-198216-rack
@@ -78,6 +81,7 @@ fig:photo-198220-06
 tab:tab-wshd-198222
 tab:tab-culvert-bcfp-198222
 tab:tab-culvert-198222
+tab:tab-fish-dens-198222
 tab:tab-habitat-summary-198222
 fig:photo-198222-01
 fig:photo-198222-02

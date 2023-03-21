@@ -263,7 +263,7 @@ div.csl-indent {
 <p><br></p>
 <p>Gradient, channel size and stream discharge are key determinants of channel morphology and subsequently fish distribution. High value rearing, overwintering and spawning habitat preferred by numerous species/life stages of fish are often located within channel types that have relatively low gradients and large channel widths (also quantified by the amount of flow in the stream). Following delineation of “potentially accessible habitat”, the average gradient of each stream segment within habitat classified as below the 15% and 20% thresholds was calculated and summed within species and life stage specific gradient categories. Average gradient of stream line segments can be calculated from elevations contained in the provincial freshwater atlas streamline dataset. To obtain estimates of channel width upstream of crossing locations, Where available, <code>bcfishpass</code> was utilized to pull average channel gradients from Fisheries Information Summary System (FISS) site assessment data <span class="citation">(MoE 2020d)</span> or PSCIS assessment data <span class="citation">(MoE 2021a)</span> and associate with stream segment lines. When both FISS and PSCIS values were associated with a particular stream segment, FISS channel width was used. When multiple FISS sites were associated with a particular stream segment a mean of the average channel widths was taken. To model channel width for 2nd order and above stream segments without associated FISS or PSCIS sites, first <code>fwapg</code> was used to estimate the drainage area upstream of the segment. Then, rasters from ClimateBC <span class="citation">(Wang et al. 2012)</span> were sampled for each stream segments and a mean annual precipitation weighted by upstream watershed area was calculated. Mean annual precipitation was then combined with the channel widths and BEC zone information (gathered through a spatial query tied to the bottom of the stream segment) into a dataset (n = 22990) for analysis fo the relationship between these variables. The details of this analysis and resulting formula used to estimate channel width on stream segments in the Skeena Watershed is included as a technical appendix <a href="https://www.poissonconsulting.ca/f/859859031">here</a>.</p>
 <p><br></p>
-<p><code>bcfishpass</code> and associated tools have been designed to be flexible in analysis, accepting user defined gradient, channel width and stream discharge categories <span class="citation">(MoE 2020d)</span>. Although currently in draft form, and subject to development revisions, gradient and channel width thresholds for habitat with the highest intrinsic value for a number of fish species in the Bulkley River watershed group have been specified and applied to model habitat upstream of stream crossing locations with the highest intrinsic value (Table <a href="methods.html#tab:tab-fish-spawning-rearing">3.1</a>). Thresholds were derived based on a literature review with references provided in Table <a href="methods.html#tab:tab-fish-spawning-rearing-references">3.2</a>. Output parameters for modelling are presented in Table <a href="methods.html#tab:tab-bcfp-def">3.3</a>.</p>
+<p><code>bcfishpass</code> and associated tools have been designed to be flexible in analysis, accepting user defined gradient, channel width and stream discharge categories <span class="citation">(MoE 2020d)</span>. Although currently in draft form, and subject to development revisions, gradient and channel width thresholds for habitat with the highest intrinsic value for a number of fish species in the Skeena watershed groups have been specified and applied to model habitat upstream of stream crossing locations with the highest intrinsic value (Table <a href="methods.html#tab:tab-fish-spawning-rearing">3.1</a>). Thresholds were derived based on a literature review with references provided in Table <a href="methods.html#tab:tab-fish-spawning-rearing-references">3.2</a>. Output parameters for modelling are presented in Table <a href="methods.html#tab:tab-bcfp-def">3.3</a>.</p>
 <p><br></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="methods.html#cb27-1" tabindex="-1"></a><span class="co">#`r if(identical(gitbook_on, FALSE)){knitr::asis_output(&quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;&quot;)}`</span></span>
 <span id="cb27-2"><a href="methods.html#cb27-2" tabindex="-1"></a>bcfishpass_spawn_rear_model <span class="sc">%&gt;%</span> </span>
@@ -990,11 +990,279 @@ barrier
 <p><br></p>
 <p>Cost estimates for structure replacement with bridges and embedded culverts were generated based on the channel width, slope of the culvert, depth of fill, road class and road surface type. Road details were sourced from <span class="citation">FLNRORD (2020b)</span> and <span class="citation">FLNRORD (2020a)</span> through <code>bcfishpass</code>. Interviews with Phil MacDonald, Engineering Specialist FLNR - Kootenay, Steve Page, Area Engineer - FLNR - Northern Engineering Group and Matt Hawkins - MoTi - Design Supervisor for Highway Design and Survey - Nelson were utilized to helped refine estimates.</p>
 <p><br></p>
-<p>Base costs for installation of bridges on forest service roads and permit roads with surfaces specified in provincial GIS road layers as rough and loose was estimated at $12500/linear m and assumed that the road could be closed during construction and a minimum bridge span of 10m. For streams with channel widths &lt;2m, embedded culverts were reported as an effective solution with total installation costs estimated at $25k/crossing (pers. comm. Phil MacDonald, Steve Page). For larger streams (&gt;6m), span width increased proportionally to the size of the stream (ex. for an 8m wide stream a 12m wide span was prescribed). For crossings with large amounts of fill (&gt;3m), the replacement bridge span was increased by an additional 3m for each 1m of fill &gt;3m to account for cutslopes to the stream at a 1.5:1 ratio. To account for road type, a multiplier table was also generated to estimate incremental cost increases with costs estimated for structure replacement on paved surfaces, railways and arterial/highways costing up to 20 times more than forest service roads due to expenses associate with design/engineering requirements, traffic control and paving. The cost multiplier table (Table <a href="#tab:tab-cost-mult"><strong>??</strong></a>) should be considered very approximate with refinement recommended for future projects.</p>
+<p>Base costs for installation of bridges on forest service roads and permit roads with surfaces specified in provincial GIS road layers as rough and loose was estimated at $12500/linear m and assumed that the road could be closed during construction and a minimum bridge span of 10m. For streams with channel widths &lt;2m, embedded culverts were reported as an effective solution with total installation costs estimated at $25k/crossing (pers. comm. Phil MacDonald, Steve Page). For larger streams (&gt;6m), span width increased proportionally to the size of the stream (ex. for an 8m wide stream a 12m wide span was prescribed). For crossings with large amounts of fill (&gt;3m), the replacement bridge span was increased by an additional 3m for each 1m of fill &gt;3m to account for cutslopes to the stream at a 1.5:1 ratio. To account for road type, a multiplier table was also generated to estimate incremental cost increases with costs estimated for structure replacement on paved surfaces, railways and arterial/highways costing up to 20 times more than forest service roads due to expenses associate with design/engineering requirements, traffic control and paving. The cost multiplier table (Table <a href="methods.html#tab:tab-cost-mult">3.7</a>) should be considered very approximate with refinement recommended for future projects.</p>
 <p><br></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="methods.html#cb34-1" tabindex="-1"></a><span class="co"># print_tab_cost_mult(caption_text = &#39;Cost multiplier table based on road class and surface type.&#39;)</span></span>
-<span id="cb34-2"><a href="methods.html#cb34-2" tabindex="-1"></a>tab_cost_rd_mult_report <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="methods.html#cb34-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="st">&#39;Cost multiplier table based on road class and surface type.&#39;</span>, <span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="methods.html#cb34-1" tabindex="-1"></a>tab_cost_rd_mult_report <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="methods.html#cb34-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="st">&#39;Cost multiplier table based on road class and surface type.&#39;</span>, <span class="at">scroll =</span> F)</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab-cost-mult">Table 3.7: </span>Cost multiplier table based on road class and surface type.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Surface
+</th>
+<th style="text-align:right;">
+Class Multiplier
+</th>
+<th style="text-align:right;">
+Surface Multiplier
+</th>
+<th style="text-align:right;">
+Bridge $K/10m
+</th>
+<th style="text-align:right;">
+Streambed Simulation $K
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+FSR
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resource
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Permit
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Rough
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+500
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Unknown
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+500
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Local
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1000
+</td>
+<td style="text-align:right;">
+200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Local
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+400
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arterial
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7500
+</td>
+<td style="text-align:right;">
+1500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Highway
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7500
+</td>
+<td style="text-align:right;">
+1500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rail
+</td>
+<td style="text-align:left;">
+Rail
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7500
+</td>
+<td style="text-align:right;">
+1500
+</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </div>
 </div>
