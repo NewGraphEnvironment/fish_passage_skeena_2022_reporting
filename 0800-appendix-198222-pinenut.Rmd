@@ -127,6 +127,7 @@ To assess potential impacts of the culvert on fisheries values in the stream, mi
 <br>
 
 ```{r tab-fish-dens-198222, eval=T}
+source('scripts/functions.R')
 my_caption <- paste0('Fish captured in minnowtraps set overnight upstream and downstream of PSCIS crossing ', my_site, '.')
 
 tab_fish_mt() %>% 
