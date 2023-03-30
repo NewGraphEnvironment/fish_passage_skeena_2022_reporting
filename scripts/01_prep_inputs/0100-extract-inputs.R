@@ -718,7 +718,8 @@ hab_loc <- habitat_confirmations %>%
 ##add the species code
 hab_fish_codes <- fishbc::freshwaterfish %>%
   select(species_code = Code, common_name = CommonName) %>%
-  tibble::add_row(species_code = 'NFC', common_name = 'No Fish Caught')
+  tibble::add_row(species_code = 'NFC', common_name = 'No Fish Caught') %>%
+  mutate(common_name = case_when(common_name == 'Cutthroat Trout' ~ 'Cutthroat Trout (General)', T ~ common_name))
 
 hab_fish_indiv_prep2 <- left_join(
   hab_fish_indiv_prep,
