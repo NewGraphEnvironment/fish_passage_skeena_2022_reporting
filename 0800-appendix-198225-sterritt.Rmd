@@ -23,9 +23,7 @@ my_site <- 198225
 ## Site Location {.unnumbered}
 
 PSCIS crossing `r as.character(my_site)` is located on
-`r fpr::fpr_my_pscis_info()`. The site is located on `r fpr_my_pscis_info(col_pull = road_name)`.
-Crossing `r as.character(my_site)` was located
-`r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
+`r fpr::fpr_my_pscis_info()`. This site is located on `r fpr_my_pscis_info(col_pull = road_name)`, approximately `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
 upstream from the confluence with the Skeena River.
 
 <br>
@@ -38,9 +36,7 @@ watershed area upstream of the crossing of approximately
 `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
 a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 `r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
-\@ref(tab:tab-wshd-198225)). Upstream of crossing
-`r as.character(my_site)`, `r fpr::fpr_my_fish_sp()` have previously
-been recorded [@moe2020KnownBC; @norris2022smnorrisbcfishobs].
+\@ref(tab:tab-wshd-198225)). At the time of reporting, there was no fisheries information available for the areas upstream of crossing `r as.character(my_site)`.
 
 <br>
 
@@ -72,11 +68,10 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 At the time of the survey, PSCIS crossing `r as.character(my_site)` was
 un-embedded, non-backwatered and ranked as a
-`r fpr::fpr_my_pscis_info(col_pull = barrier_result) %>% stringr::str_to_lower()`
-barrier to upstream fish passage according to the provincial protocol
+`r fpr::fpr_my_pscis_info(col_pull = barrier_result) %>% stringr::str_to_lower()` to upstream fish passage according to the provincial protocol
 [@moe2011Fieldassessment] (Table \@ref(tab:tab-culvert-198225)). There
-was low flow through the culvert at the time of survey. However, a deep
-outlet pool was present indicating high flows do occur and that the
+was high flow through the culvert at the time of survey. A deep
+outlet pool (2m) and a large outlet drop (2m) indicate that the
 culvert may be undersized. Water temperature was
 `r fpr::fpr_my_habitat_info(loc = "ds", col_pull = 'temperature_c')`$^\circ$C,
 pH was `r fpr::fpr_my_habitat_info(loc = "ds", col_pull = 'p_h')` and
@@ -102,26 +97,17 @@ hab_site %>% filter(site == my_site & location == 'us') %>% pull(comments)
 
 `r fpr_my_survey_dist(loc = 'ds')`
 `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198225-01) - \\@ref(fig:photo-198225-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198225-d01))."))`
-`r fpr_my_habitat_paragraph(loc = 'ds')` There were undercut banks and
-abundant riparian vegetation throughout providing good cover for fish.
-Some gravels were present that could be suitable for spawning.
-Functional large woody debris was present throughout the stream.The
+`r fpr_my_habitat_paragraph(loc = 'ds')` There was an abundance of large woody debris that created deep pools, diverted water flow, and created natural steps. The
 habitat was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
-salmonid rearing and spawning.
+salmonid rearing.
 
 ## Stream Characteristics Upstream {.unnumbered}
 
 `r fpr_my_survey_dist(loc = 'us')`
 `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198225-03) - \\@ref(fig:photo-198225-06)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198225-d02))."))`
-`r fpr_my_habitat_paragraph(loc = 'us')` The data for the upstream
-survey was misplaced and stream characteristics and measurements were
-obtained by reviewing photos. The habitat quality was excellent. There
-were abundant undercut banks and healthy mixed riparian vegetation
-throughout. The stream was wide and contained some pockets of gravel
-suitable for spawning resident species. The habitat was rated as
+`r fpr_my_habitat_paragraph(loc = 'us')` This stream has the potential to be fish bearing but the gradient is steep. The bank full depth is very high, with a measured average of 0.8m. There was an abundance of large woody debris that provided functionality to the stream habitat by diverting flow and providing cover. The habitat was rated as
 `r fpr::fpr_my_priority_info(loc = 'us')` value as an important
-migration corridor containing suitable spawning habitat and having
-moderate rearing potential.
+migration corridor containing suitable rearing habitat.
 
 <br>
 

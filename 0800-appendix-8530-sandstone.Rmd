@@ -24,12 +24,7 @@ my_site <- 8530
 
 PSCIS crossing `r as.character(my_site)` is located on
 `r fpr::fpr_my_pscis_info()` approximately 5km west of the town of
-Smithers. PSCIS crossing `r as.character(my_site)` is located on
-`r fpr_my_pscis_info(col_pull = road_name)`. Crossing
-`r as.character(my_site)` was located
-`r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Zymoetz River and is the
-responsibility of the Ministry of Transportation and Infrastructure.
+Smithers, on `r fpr_my_pscis_info(col_pull = road_name)`. This crossing is located approximately 650m upstream from the confluence with the Zymoetz River.
 
 <br>
 
@@ -42,8 +37,11 @@ watershed area upstream of the crossing of approximately
 a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 `r fpr::fpr_my_wshd(col = 'elev_site')`m at the crossing (Table
 \@ref(tab:tab-wshd-8530)). Upstream of crossing
-`r as.character(my_site)`, `r fpr::fpr_my_fish_sp()` have previously
-been recorded [@moe2020KnownBC; @norris2022smnorrisbcfishobs].
+`r as.character(my_site)`, dolly varden, rainbow trout, and cutthroat trout have previously
+been recorded [@moe2020KnownBC; @norris2022smnorrisbcfishobs]. The mainstem of Sandstone Creek is 9.8km in length and is fed by 13 tributaries. Sandstone Lake is located approximately 4km
+upstream of crossing `r as.character(my_site)`, and has an area of 67ha.
+According to historical records, dolly varden and cutthroat trout have
+been known to reside in Sandstone Lake.
 
 <br>
 
@@ -58,29 +56,20 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 <br>
 
-[@tritonenvironmentalconsultantsltd.1998] conducted a reconnaissance
-level fish and fish habitat inventory on Sandstone Creek. The mainstem
-is 9.8km in length and is fed by 13 tributaries. A total of
-`r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake
-and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland
-is modelled upstream. Sandstone Lake is located approximately 4km
-upstream of crossing `r as.character(my_site)`, and has an area of 67ha.
-According to historical records, Dolly Varden and cutthroat trout have
-been known to reside in Sandstone Lake.
-[@tritonenvironmentalconsultantsltd.1998] fished two sites in 1996
-located before the lake on the mainstem and caught cutthroat trout.
-Rainbow trout were caught upstream of Sandstone Lake and cutthroat trout
-were caught in a tributary located approximately 800m upstream of
-crossing `r as.character(my_site)` in 1997.
+@tritonenvironmentalconsultantsltd.1998 conducted a reconnaissance
+level fish and fish habitat inventory on Sandstone Creek. In 1996, they conducted fish sampling at two sites located downstream of crossing `r as.character(my_site)` and caught cutthroat trout.
+In 1997, Rainbow trout were caught by electrofishing upstream of Sandstone Lake and cutthroat trout
+were caught by electrofishing in a tributary located approximately 800m upstream of
+crossing `r as.character(my_site)`. At that time, Sandstone Creek was generally a low gradient stream with areas of moderate confinement. Upstream of Sandstone Lake, the stream flows for approximately 2.5km through an area of fisheries sensitive wetlands before draining a small unnamed lake.
 
 <br>
 
 PSCIS stream crossing `r as.character(my_site)` was ranked as a high
 priority for follow up by the Society for Ecosystem Restoration in
 Northern BC because of significant amounts of habitat modelled upstream
-of the crossing. [@viveiros2011] assessed crossing
+of the crossing. @viveiros2011 assessed crossing
 `r as.character(my_site)` in 2010. At the time of survey, it was
-recommended to embed the material in the pipe due to its size to reduce
+recommended that the material in the pipe be embedded to reduce
 water velocity. A summary of habitat modelling outputs is presented in
 Table \@ref(tab:tab-culvert-bcfp-8530). A map of the watershed is
 provided in map attachment
@@ -129,13 +118,12 @@ hab_site %>% filter(site == my_site & location == 'ds') %>% pull(comments)
 `r fpr_my_habitat_paragraph(loc = 'ds')` There was good flow at the time
 of survey. Riparian vegetation was healthy, providing plenty of shade
 and cover. There were small packets of gravel suitable for spawning.
-Features such as large woody debris jams and cascades were present that
-could act as a natural barrier to fish passage, although during high
-flow there's a good chance strong fish can make it up. Plenty of pools
-were available for fish rearing. Functional large and small woody debris
-as well as boulders were present and add complexity into the stream.
-Stream was confined in a bed rock canyon, with overhanging vegetation
-and shrubs taking up about 2 m on either side of the bank. The habitat
+Large woody debris jams and cascades were present that
+could act as a natural barrier to fish passage. However, during periods of high
+flow there's a good chance that strong fish can traverse these barriers. Plenty of pools
+were available for fish rearing. There was abundant functional  woody debris
+and boulders present that added complexity to the stream habitat. The stream was confined in a bed rock canyon, with overhanging vegetation
+and shrubs dominating the riparian zone. The habitat
 was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
 salmonid rearing and spawning.
 
@@ -146,9 +134,9 @@ salmonid rearing and spawning.
 `r fpr_my_habitat_paragraph(loc = 'us')` There was abundant cover from
 woody debris, overhanging veg and undercut banks at the time of survey.
 The channel was wide throughout with graveled areas suitable for
-spawning. There was trace distribution of deep pools suitable for
+spawning. There was trace amounts of deep pools suitable for
 rearing. A couple smaller cascades (\<1m in height) were present that
-may block smaller fish. The habitat was rated as
+may block the upstream migration of smaller fish. The habitat was rated as
 `r fpr::fpr_my_priority_info(loc = 'us')` value as an important
 migration corridor containing suitable spawning habitat and having
 moderate rearing potential.
@@ -159,7 +147,7 @@ moderate rearing potential.
 
 Electrofishing was conducted with results summarised in Tables
 \@ref(tab:tab-fish-site-8530) - \@ref(tab:tab-fish-dens-8530) and Figure
-\@ref(fig:plot-fish-box-8530).
+\@ref(fig:plot-fish-box-8530). Dolly varden and cutthroat trout were caught both downstream and upstream of the culvert, while rainbow trout were only caught upstream. 
 
 <br>
 
@@ -280,7 +268,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-8530-04-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_u2_')
 
-my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')
+my_caption2 = paste0('Area with suitable spawning gravels, upstream of PSCIS crossing ', my_site, '.')
 
 ```
 
