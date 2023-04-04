@@ -30,7 +30,7 @@ PSCIS crossing `r as.character(my_site)` is located on
 upstream from the confluence with the Kitwanga River. PSCIS
 crossing 198200 located approximately 200m upstream from 198220, on
 Moore Road, was also assessed and is
-discussed below. Both crossings are the responsibility of the Ministry of Transportation and Infrastructure. The highway crossing has a `chris_culvert_id` of 1528423, and the Moore Road `chris_culvert_id` is 1528424. Additionally, PSCIS crossing 198201 located on a tributary to Tea Creek on Moore Road was assessed.  
+discussed below. Both crossings are the responsibility of the Ministry of Transportation and Infrastructure. The Moore Road crossing has a `chris_culvert_id` of 1528424. Additionally, PSCIS crossing 198201 located on a tributary to Tea Creek on Moore Road was assessed.  
 
 <br>
 
@@ -44,7 +44,7 @@ a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 `r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
 \@ref(tab:tab-wshd-198220)). Upstream of crossing
 `r as.character(my_site)`, `r fpr::fpr_my_fish_sp()` have previously
-been recorded [@moe2020KnownBC; @norris2022smnorrisbcfishobs]. Tea Creek is a known steelhead stream, this was confirmed by a local landowner who reported historic spawning in tributaries of the highway.
+been recorded [@moe2020KnownBC; @norris2022smnorrisbcfishobs]. Tea Creek is a known steelhead stream, this was confirmed by a local landowner who reported historic spawning in Tea Creek's tributaries.
 
 <br>
 
