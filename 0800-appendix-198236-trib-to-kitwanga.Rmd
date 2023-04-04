@@ -25,7 +25,7 @@ my_site <- 198236
 PSCIS crossing `r as.character(my_site)` is located on
 `r fpr::fpr_my_pscis_info()`, on the `r fpr_my_pscis_info(col_pull = road_name)`. This crossing was located
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Kitwanga River. This river drains into Kitwanga Lake (a.k.a Kitwancool Lake or Gitanyow Lake). The underlying territory of this area belongs to the Gitanyow, an Indian reserve community of the Gitxsan first nations.  
+upstream from the confluence with the Kitwanga River. This river drains into Kitwanga Lake (a.k.a Kitwancool Lake or Gitanyow Lake). The underlying territory of this area belongs to the Gitanyow Nation, a First Nations community of the Gitxsan.  
 
 <br>
 
@@ -51,7 +51,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 <br>
 
-This tributary joins with the Kitwanga River before draining into Kitwanga Lake. This lake has an important value to fisheries in the area. Using salmon enumeration facilities to trap and count upstream migrating salmon, the Gitanyow Fisheries Authorities have proven that Kitwanga Lake is one of the most productive sockeye nursery lakes for its size in all of BC [@gitanyowfisheriesauthority2023KitwangaRiver]. The Kitwanga River salmon enumeration facility is located approximately 4km north of the confluence with the Skeena river. This facility provides counts of five species of salmon: sockeye, chinook, coho, chum, and pink. In response to rapid declines in sockeye stocks in recent years, the Kitwanga Lake Sockeye Restoration project was started in 2006.  Restoration efforts include: environmental monitoring of the lake, assessment of sockeye spawning and rearing habitat, and hatchery rearing [@gottesfeld_etal2009CaseHistory]. 
+This tributary joins with the Kitwanga River before draining into Kitwanga Lake. This lake has an important value to fisheries in the area. Using salmon enumeration facilities to trap and count upstream migrating salmon, the Gitanyow Fisheries Authorities have proven that Kitwanga Lake is one of the most productive sockeye nursery lakes for its size in all of BC [@gitanyowfisheriesauthority2023KitwangaRiver]. The Kitwanga River salmon enumeration facility is located approximately 4km north of the confluence with the Skeena river. This facility provides counts of five species of salmon: sockeye, chinook, coho, chum, and pink. In response to rapid declines in sockeye stocks, the Kitwanga Lake Sockeye Restoration project was started in 2006.  Restoration efforts include environmental monitoring of the lake, assessment of sockeye spawning and rearing habitat, and hatchery rearing [@gottesfeld_etal2009CaseHistory]. 
 
 <br>
 
