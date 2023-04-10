@@ -249,7 +249,7 @@ div.csl-indent {
 <div id="site-location-4" class="section level2 unnumbered hasAnchor">
 <h2>Site Location<a href="pinenut-creek---198222---appendix.html#site-location-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>PSCIS crossing 198222 is located on
-Babine Slide FSR on
+Babine Slide FSR, on
 Pinenut Creek, approximately 15km north east of the small community of Glen Vowell, BC.
 Crossing 198222 was located
 0.6km
@@ -264,16 +264,16 @@ watershed area upstream of the crossing of approximately
 21.5km<sup>2</sup>. The elevation of the watershed ranges from
 a maximum of 1964m to
 420m near the crossing (Table
-<a href="pinenut-creek---198222---appendix.html#tab:tab-wshd-198222">5.21</a>). At the time of reporting, there was no fisheries information available
+<a href="pinenut-creek---198222---appendix.html#tab:tab-wshd-198222">5.22</a>). At the time of reporting, there was no fisheries information available
 for the area upstream of crossing 198222<span class="citation">(MoE 2020b; Norris 2022)</span>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="pinenut-creek---198222---appendix.html#cb150-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb150-2"><a href="pinenut-creek---198222---appendix.html#cb150-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb150-3"><a href="pinenut-creek---198222---appendix.html#cb150-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb150-4"><a href="pinenut-creek---198222---appendix.html#cb150-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="pinenut-creek---198222---appendix.html#cb151-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-2"><a href="pinenut-creek---198222---appendix.html#cb151-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb151-3"><a href="pinenut-creek---198222---appendix.html#cb151-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb151-4"><a href="pinenut-creek---198222---appendix.html#cb151-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-wshd-198222">Table 5.21: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198222.
+<span id="tab:tab-wshd-198222">Table 5.22: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198222.
 </caption>
 <thead>
 <tr>
@@ -344,15 +344,15 @@ SW
 priority for follow up by the Society for Ecosystem Restoration in Northern BC due to significant quantities of habitat
 upstream modelled by <code>bcfishpass</code> as likely suitable for salmon rearing.
 A summary of habitat modelling outputs is presented in Table
-<a href="pinenut-creek---198222---appendix.html#tab:tab-culvert-bcfp-198222">5.22</a> and a map of the watershed is
+<a href="pinenut-creek---198222---appendix.html#tab:tab-culvert-bcfp-198222">5.23</a> and a map of the watershed is
 provided in map attachment
 <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/kisp/archive/2022-09-06/FishPassage_093M.106.pdf">093M.106</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="pinenut-creek---198222---appendix.html#cb151-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="pinenut-creek---198222---appendix.html#cb152-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-bcfp-198222">Table 5.22: </span>Summary of fish habitat modelling for PSCIS crossing 198222.
+<span id="tab:tab-culvert-bcfp-198222">Table 5.23: </span>Summary of fish habitat modelling for PSCIS crossing 198222.
 </caption>
 <thead>
 <tr>
@@ -669,22 +669,16 @@ All Spawning Rearing (km)
 un-embedded, non-backwatered and ranked as a
 barrier
 to upstream fish passage according to the provincial protocol
-<span class="citation">(MoE 2011b)</span> (Table <a href="pinenut-creek---198222---appendix.html#tab:tab-culvert-198222">5.23</a>). The
-culvert was considered a complete barrier to all species and all life
-stages at all flows due to an outlet drop measured at
-0.45m high. The
-deep and large outlet pool indicated that the culvert was significantly
-undersized. Condition of the pipe was noted as poor with extensive
-corrosion present and some collapsing in the middle of the pipe. Water
+<span class="citation">(MoE 2011b)</span> (Table <a href="pinenut-creek---198222---appendix.html#tab:tab-culvert-198222">5.24</a>). This crossing was replaced in 1985. Water
 temperature was
 9.7<span class="math inline">\(^\circ\)</span>C, pH
 was 8.2 and conductivity was
 75uS/cm.</p>
 <p><br></p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="pinenut-creek---198222---appendix.html#cb152-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="pinenut-creek---198222---appendix.html#cb153-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
 <table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-198222">Table 5.23: </span>Summary of fish passage assessment for PSCIS crossing 198222.
+<span id="tab:tab-culvert-198222">Table 5.24: </span>Summary of fish passage assessment for PSCIS crossing 198222.
 </caption>
 <thead>
 <tr>
@@ -944,52 +938,51 @@ Fix Span / Diameter
 </tfoot>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="pinenut-creek---198222---appendix.html#cb153-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
-<span id="cb153-2"><a href="pinenut-creek---198222---appendix.html#cb153-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
-<span id="cb153-3"><a href="pinenut-creek---198222---appendix.html#cb153-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="pinenut-creek---198222---appendix.html#cb154-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
+<span id="cb154-2"><a href="pinenut-creek---198222---appendix.html#cb154-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
+<span id="cb154-3"><a href="pinenut-creek---198222---appendix.html#cb154-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
 </div>
 <div id="stream-characteristics-downstream-3" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Downstream<a href="pinenut-creek---198222---appendix.html#stream-characteristics-downstream-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The stream was surveyed downstream from crossing 198222 for NAm
+<p>The stream was surveyed downstream from crossing 198222 for 150m
 (Figures <a href="pinenut-creek---198222---appendix.html#fig:photo-198222-01">5.30</a> - <a href="pinenut-creek---198222---appendix.html#fig:photo-198222-02">5.31</a>).
-Total cover amount was rated as trace with boulders dominant. Cover was also present as undercut banks.The average channel width was 8.1m, the average wetted width was NAm, and the average gradient was 4.5%.The dominant substrate was cobbles with gravels sub-dominant. The habitat
-was rated as NA value for
+The dominant substrate was cobbles with gravels sub-dominant.Total cover amount was rated as trace with boulders dominant. Cover was also present as undercut banks.The average channel width was 8.1m, the average wetted width was 5.4m, and the average gradient was 4.5%. The habitat
+was rated as medium value for
 salmonid rearing and spawning.</p>
 </div>
 <div id="stream-characteristics-upstream-3" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Upstream<a href="pinenut-creek---198222---appendix.html#stream-characteristics-upstream-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed upstream from crossing 198222 for 650m (Figures <a href="pinenut-creek---198222---appendix.html#fig:photo-198222-03">5.32</a> - <a href="pinenut-creek---198222---appendix.html#fig:photo-198222-06">5.35</a>).
-The dominant substrate was cobbles with boulders sub-dominant.The average channel width was 13.1m, the average wetted width was NAm, and the average gradient was 3.6%.Total cover amount was rated as trace with boulders dominant. Cover was also present as undercut banks. There was a large woody debris jam 1.3m in height located approximately 500m upstream of the crossing. This obstacle would be passable for adult salmonids but dependent on flow conditions it is likely a fish passage issue for the upstream migration of all life stages of resident populations as well as non-adult salmonids. This is a high energy system with numerous areas of multiple channel, islands and elevated bars. High flows were pushing most large woody debris out of the main channel resulting in lower complexity and most cover was available as boulders. There were rare pockets of gravel suitable for spawning. Overall, the habitat surveyed upstream of the crossing was
+Total cover amount was rated as trace with boulders dominant. Cover was also present as undercut banks.The average channel width was 13.1m, the average wetted width was 5.7m, and the average gradient was 3.6%.The dominant substrate was cobbles with boulders sub-dominant. There is a collapsed bridge approximately 200m from crossing 198222. Some erosion was present along the sides of the bridge but there was no fish passage issue at the time of survey. This was a high energy system with numerous areas of multiple channels, islands and elevated bars. High flows were pushing most of the large woody debris out of the main channel, resulting in lower complexity. There were rare pockets of gravel suitable for spawning. Overall, the habitat surveyed upstream of the crossing was
 rated as medium value as an important
-migration corridor containing habitat suitable for spawning with moderate rearing potential.</p>
+migration corridor containing habitat suitable for spawning and rearing.</p>
 <p><br></p>
 </div>
 <div id="fish-sampling-2" class="section level2 unnumbered hasAnchor">
 <h2>Fish Sampling<a href="pinenut-creek---198222---appendix.html#fish-sampling-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To assess potential impacts of the culvert on fisheries values in the stream, minnowtrapping was conducted upstream and downstream of the crossing. One 1 fish was captured upstream with 6 fish captured downstream. Only Dolly Varden were captured.</p>
 <p><br></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="pinenut-creek---198222---appendix.html#cb154-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/functions.R&#39;</span>)</span>
-<span id="cb154-2"><a href="pinenut-creek---198222---appendix.html#cb154-2" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Fish captured in minnowtraps set overnight upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
-<span id="cb154-3"><a href="pinenut-creek---198222---appendix.html#cb154-3" tabindex="-1"></a></span>
-<span id="cb154-4"><a href="pinenut-creek---198222---appendix.html#cb154-4" tabindex="-1"></a><span class="fu">tab_fish_mt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb154-5"><a href="pinenut-creek---198222---appendix.html#cb154-5" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption)</span></code></pre></div>
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="pinenut-creek---198222---appendix.html#cb155-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/functions.R&#39;</span>)</span>
+<span id="cb155-2"><a href="pinenut-creek---198222---appendix.html#cb155-2" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Fish captured in minnowtraps set overnight upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
+<span id="cb155-3"><a href="pinenut-creek---198222---appendix.html#cb155-3" tabindex="-1"></a></span>
+<span id="cb155-4"><a href="pinenut-creek---198222---appendix.html#cb155-4" tabindex="-1"></a><span class="fu">tab_fish_mt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb155-5"><a href="pinenut-creek---198222---appendix.html#cb155-5" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption, <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-fish-dens-198222">Table 5.24: </span>Fish captured in minnowtraps set overnight upstream and downstream of PSCIS crossing 198222.
+<span id="tab:tab-fish-dens-198222">Table 5.25: </span>Fish captured in minnowtraps set overnight upstream and downstream of PSCIS crossing 198222.
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 Location
 </th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 Species
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 parr
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 juvenile
 </th>
 </tr>
@@ -1025,7 +1018,6 @@ DV
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
 </div>
 <div id="structure-remediation-and-cost-estimate-3" class="section level2 unnumbered hasAnchor">
@@ -1042,9 +1034,9 @@ m<sup>2</sup>/$1000.</p>
 </div>
 <div id="conclusion-3" class="section level2 unnumbered hasAnchor">
 <h2>Conclusion<a href="pinenut-creek---198222---appendix.html#conclusion-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Modelling indicates
+<p>Modelling indicates there is
 3.9km of
-habitat upstream of crossing 198222 suitable for steelhead rearing with
+habitat upstream of crossing 198222 suitable for steelhead rearing, with
 areas surveyed rated as
 medium
 value for rearing and spawning. Crossing
@@ -1053,14 +1045,14 @@ high priority for
 proceeding to design for replacement.</p>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="pinenut-creek---198222---appendix.html#cb155-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb155-2"><a href="pinenut-creek---198222---appendix.html#cb155-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb155-3"><a href="pinenut-creek---198222---appendix.html#cb155-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
-<span id="cb155-4"><a href="pinenut-creek---198222---appendix.html#cb155-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb155-5"><a href="pinenut-creek---198222---appendix.html#cb155-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="pinenut-creek---198222---appendix.html#cb156-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb156-2"><a href="pinenut-creek---198222---appendix.html#cb156-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb156-3"><a href="pinenut-creek---198222---appendix.html#cb156-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
+<span id="cb156-4"><a href="pinenut-creek---198222---appendix.html#cb156-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb156-5"><a href="pinenut-creek---198222---appendix.html#cb156-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-habitat-summary-198222">Table 5.25: </span>Summary of habitat details for PSCIS crossing 198222.
+<span id="tab:tab-habitat-summary-198222">Table 5.26: </span>Summary of habitat details for PSCIS crossing 198222.
 </caption>
 <thead>
 <tr>
@@ -1102,13 +1094,13 @@ Habitat Value
 Downstream
 </td>
 <td style="text-align:right;">
-–
+150
 </td>
 <td style="text-align:right;">
 8.1
 </td>
 <td style="text-align:right;">
-–
+5.4
 </td>
 <td style="text-align:right;">
 0.5
@@ -1120,7 +1112,7 @@ Downstream
 trace
 </td>
 <td style="text-align:left;">
-–
+medium
 </td>
 </tr>
 <tr>
@@ -1137,7 +1129,7 @@ Upstream
 13.1
 </td>
 <td style="text-align:right;">
-–
+5.7
 </td>
 <td style="text-align:right;">
 0.4
@@ -1155,10 +1147,10 @@ medium
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="pinenut-creek---198222---appendix.html#cb156-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
-<span id="cb156-2"><a href="pinenut-creek---198222---appendix.html#cb156-2" tabindex="-1"></a></span>
-<span id="cb156-3"><a href="pinenut-creek---198222---appendix.html#cb156-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="pinenut-creek---198222---appendix.html#cb157-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="pinenut-creek---198222---appendix.html#cb157-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb157-2"><a href="pinenut-creek---198222---appendix.html#cb157-2" tabindex="-1"></a></span>
+<span id="cb157-3"><a href="pinenut-creek---198222---appendix.html#cb157-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="pinenut-creek---198222---appendix.html#cb158-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198222-01"></span>
 <img src="Skeena2022_files/figure-html/photo-198222-01-1.png" alt="Typical habitat downstream of PSCIS crossing 198222." width="100%" />
 <p class="caption">
@@ -1166,10 +1158,10 @@ Figure 5.30: Typical habitat downstream of PSCIS crossing 198222.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="pinenut-creek---198222---appendix.html#cb158-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
-<span id="cb158-2"><a href="pinenut-creek---198222---appendix.html#cb158-2" tabindex="-1"></a></span>
-<span id="cb158-3"><a href="pinenut-creek---198222---appendix.html#cb158-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="pinenut-creek---198222---appendix.html#cb159-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="pinenut-creek---198222---appendix.html#cb159-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
+<span id="cb159-2"><a href="pinenut-creek---198222---appendix.html#cb159-2" tabindex="-1"></a></span>
+<span id="cb159-3"><a href="pinenut-creek---198222---appendix.html#cb159-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="pinenut-creek---198222---appendix.html#cb160-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198222-02"></span>
 <img src="Skeena2022_files/figure-html/photo-198222-02-1.png" alt="Typical habitat downstream of PSCIS crossing 198222." width="100%" />
 <p class="caption">
@@ -1177,15 +1169,15 @@ Figure 5.31: Typical habitat downstream of PSCIS crossing 198222.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="pinenut-creek---198222---appendix.html#cb160-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb160-2"><a href="pinenut-creek---198222---appendix.html#cb160-2" tabindex="-1"></a></span>
-<span id="cb160-3"><a href="pinenut-creek---198222---appendix.html#cb160-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb160-4"><a href="pinenut-creek---198222---appendix.html#cb160-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb160-5"><a href="pinenut-creek---198222---appendix.html#cb160-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="pinenut-creek---198222---appendix.html#cb161-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="pinenut-creek---198222---appendix.html#cb161-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb161-2"><a href="pinenut-creek---198222---appendix.html#cb161-2" tabindex="-1"></a></span>
-<span id="cb161-3"><a href="pinenut-creek---198222---appendix.html#cb161-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="pinenut-creek---198222---appendix.html#cb162-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb161-3"><a href="pinenut-creek---198222---appendix.html#cb161-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb161-4"><a href="pinenut-creek---198222---appendix.html#cb161-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb161-5"><a href="pinenut-creek---198222---appendix.html#cb161-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="pinenut-creek---198222---appendix.html#cb162-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<span id="cb162-2"><a href="pinenut-creek---198222---appendix.html#cb162-2" tabindex="-1"></a></span>
+<span id="cb162-3"><a href="pinenut-creek---198222---appendix.html#cb162-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="pinenut-creek---198222---appendix.html#cb163-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198222-03"></span>
 <img src="Skeena2022_files/figure-html/photo-198222-03-1.png" alt="Typical habitat upstream of PSCIS crossing 198222." width="100%" />
 <p class="caption">
@@ -1193,52 +1185,52 @@ Figure 5.32: Typical habitat upstream of PSCIS crossing 198222.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="pinenut-creek---198222---appendix.html#cb163-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb163-2"><a href="pinenut-creek---198222---appendix.html#cb163-2" tabindex="-1"></a></span>
-<span id="cb163-3"><a href="pinenut-creek---198222---appendix.html#cb163-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Collapsed bridge upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="pinenut-creek---198222---appendix.html#cb164-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="pinenut-creek---198222---appendix.html#cb164-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb164-2"><a href="pinenut-creek---198222---appendix.html#cb164-2" tabindex="-1"></a></span>
+<span id="cb164-3"><a href="pinenut-creek---198222---appendix.html#cb164-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Collapsed bridge upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="pinenut-creek---198222---appendix.html#cb165-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198222-04"></span>
 <img src="Skeena2022_files/figure-html/photo-198222-04-1.png" alt="Collapsed bridge upstream of PSCIS crossing 198222." width="100%" />
 <p class="caption">
 Figure 5.33: Collapsed bridge upstream of PSCIS crossing 198222.
 </p>
 </div>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="pinenut-creek---198222---appendix.html#cb165-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb165-2"><a href="pinenut-creek---198222---appendix.html#cb165-2" tabindex="-1"></a></span>
-<span id="cb165-3"><a href="pinenut-creek---198222---appendix.html#cb165-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb165-4"><a href="pinenut-creek---198222---appendix.html#cb165-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb165-5"><a href="pinenut-creek---198222---appendix.html#cb165-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="pinenut-creek---198222---appendix.html#cb166-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="pinenut-creek---198222---appendix.html#cb166-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb166-2"><a href="pinenut-creek---198222---appendix.html#cb166-2" tabindex="-1"></a></span>
-<span id="cb166-3"><a href="pinenut-creek---198222---appendix.html#cb166-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="pinenut-creek---198222---appendix.html#cb167-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb166-3"><a href="pinenut-creek---198222---appendix.html#cb166-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb166-4"><a href="pinenut-creek---198222---appendix.html#cb166-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb166-5"><a href="pinenut-creek---198222---appendix.html#cb166-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="pinenut-creek---198222---appendix.html#cb167-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb167-2"><a href="pinenut-creek---198222---appendix.html#cb167-2" tabindex="-1"></a></span>
+<span id="cb167-3"><a href="pinenut-creek---198222---appendix.html#cb167-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="pinenut-creek---198222---appendix.html#cb168-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198222-05"></span>
 <img src="Skeena2022_files/figure-html/photo-198222-05-1.png" alt="Typical habitat upstream of PSCIS crossing 198222." width="100%" />
 <p class="caption">
 Figure 5.34: Typical habitat upstream of PSCIS crossing 198222.
 </p>
 </div>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="pinenut-creek---198222---appendix.html#cb168-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb168-2"><a href="pinenut-creek---198222---appendix.html#cb168-2" tabindex="-1"></a></span>
-<span id="cb168-3"><a href="pinenut-creek---198222---appendix.html#cb168-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="pinenut-creek---198222---appendix.html#cb169-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="pinenut-creek---198222---appendix.html#cb169-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb169-2"><a href="pinenut-creek---198222---appendix.html#cb169-2" tabindex="-1"></a></span>
+<span id="cb169-3"><a href="pinenut-creek---198222---appendix.html#cb169-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="pinenut-creek---198222---appendix.html#cb170-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198222-06"></span>
 <img src="Skeena2022_files/figure-html/photo-198222-06-1.png" alt="Typical habitat upstream of PSCIS crossing 198222." width="100%" />
 <p class="caption">
 Figure 5.35: Typical habitat upstream of PSCIS crossing 198222.
 </p>
 </div>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="pinenut-creek---198222---appendix.html#cb170-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb170-2"><a href="pinenut-creek---198222---appendix.html#cb170-2" tabindex="-1"></a></span>
-<span id="cb170-3"><a href="pinenut-creek---198222---appendix.html#cb170-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb170-4"><a href="pinenut-creek---198222---appendix.html#cb170-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb170-5"><a href="pinenut-creek---198222---appendix.html#cb170-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="pinenut-creek---198222---appendix.html#cb171-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb171-2"><a href="pinenut-creek---198222---appendix.html#cb171-2" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="pinenut-creek---198222---appendix.html#cb171-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb171-4"><a href="pinenut-creek---198222---appendix.html#cb171-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb171-5"><a href="pinenut-creek---198222---appendix.html#cb171-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="pinenut-creek---198222---appendix.html#cb171-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb171-2"><a href="pinenut-creek---198222---appendix.html#cb171-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb171-3"><a href="pinenut-creek---198222---appendix.html#cb171-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="pinenut-creek---198222---appendix.html#cb172-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198225</span></span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="pinenut-creek---198222---appendix.html#cb172-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb172-2"><a href="pinenut-creek---198222---appendix.html#cb172-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb172-3"><a href="pinenut-creek---198222---appendix.html#cb172-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="pinenut-creek---198222---appendix.html#cb173-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198225</span></span></code></pre></div>
 </div>
 </div>
             </section>
