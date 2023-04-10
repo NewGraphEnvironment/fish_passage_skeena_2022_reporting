@@ -25,7 +25,7 @@ my_site <- 198215
 PSCIS crossing `r as.character(my_site)` is located on
 `r fpr::fpr_my_pscis_info()`. The site is located on `r fpr_my_pscis_info(col_pull = road_name)` (also known as Date Creek FSR), just outside the Gitxsan village of Kispiox. Crossing `r as.character(my_site)` was located
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Kispiox River. This crossing is the responsibility of the Ministry of Transportation and Infrastructure.
+upstream from the confluence with the Kispiox River. This crossing is the responsibility of the Ministry of Transportation and Infrastructure. The `chris_culvert_id` of this structure is 1524775.
 
 <br>
 
