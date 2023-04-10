@@ -7,6 +7,8 @@ source('scripts/packages.R')
 # relative path to the q project form (assuming we have same folder structure) -
 # use an absolute path if you have to but it is preferable to keep our relative paths the same so we can collab
 
+#--------------------import---------------------------
+
 # name the project directory we are pulling from
 dir_project <- 'bcfishpass_skeena_20220823-v225'
 
@@ -18,7 +20,7 @@ form_names <- list.files(path = paste0('../../gis/mergin/',
            full.names = T
            )
 
-form <- form_names %>%
+form_prep <- form_names %>%
   purrr::map(sf::st_read) %>%
   purrr::map(st_transform, crs = 3005) %>%
   purrr::map(poisspatial::ps_sfc_to_coords, X = 'long', Y = 'lat') %>%
@@ -29,12 +31,12 @@ form <- form_names %>%
   # project specific - this is pscis sites 152 and 9999 which were fake with weird coordinates. See https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/issues/27
   # filter(date != '2022-08-24' & date != '2022-08-25' & date != '2022-08-26') %>%
     sf::st_as_sf(coords = c("long", "lat"),
-                 crs = 3005, remove = F) %>%
+                 crs = 3005, remove = F)
     sf::st_write('data/inputs_extracted/mergin_backups/form_pscis_v225.gpkg', append=FALSE)
 
 
 # this is a table that cross references column names for pscis table and has the columns in the same order as the spreadsheet
-xref_names_pscis <- fpr::xref_names_pscis
+xref_names_pscis <- fpr::fpr_xref_pscis
 
 # get order of columns as per the excel template spreadsheet
 # this can be used as a select(all_of(name_pscis_sprd_ordered)) later
@@ -52,20 +54,85 @@ name_pscis_sprd_ordered <- fpr::xref_names_pscis %>%
 #   pull(bcdata)
 
 # see names that coincide between the xref table and what we have
-intersect(name_pscis_sprd_ordered, names(form_raw))
+intersect(name_pscis_sprd_ordered, names(form_prep))
 
 # see names that coincide between the xref table and what we have
-# intersect(name_pscis_bcdata_ordered, names(form))
+# intersect(name_pscis_bcdata_ordered, names(form_prep))
 
 # see which are different
-setdiff(name_pscis_sprd_ordered, names(form_raw))
+setdiff(name_pscis_sprd_ordered, names(form_prep))
 # order matters
-setdiff(names(form_raw), name_pscis_sprd_ordered)
+setdiff(names(form_prep), name_pscis_sprd_ordered)
+
+# if we include the site_id the above move gives us most of what we need
+# lets make a xref table of it
+
+moti_names <- setdiff(names(form_prep), name_pscis_sprd_ordered) %>%
+  enframe(name = NULL, value = 'spdsht') %>%
+  mutate(report = str_to_title(spdsht),
+         report = stringr::str_replace_all(report, '_', ' '),
+         report = stringr::str_replace_all(report, 'event affecting culvert', ''),
+         report = stringr::str_replace_all(report, 'id', 'ID'),
+         report = stringr::str_replace_all(report, 'Gps', 'GPS'),
+         report_include = case_when(
+    str_detect(spdsht,
+               'photo|long|lat|mergin|surveyor|gps|width|utm|time|source|camera|aggregated|rowid|geometry') ~ F,
+    T ~ T
+  ),
+  id_join = NA_integer_,
+  id_side = NA_integer_) %>%
+  filter(spdsht != 'stream_width_ratio_score')
+# filter(report_include == T)
+
+# burn out to csv so we can manually do the descriptions
+moti_names %>%
+  write_csv('data/inputs_raw/moti_climate.csv')
 
 
-form_prep1 <- form_raw %>%
+
+# --------------------moti climate change ---------------------------
+# we want to get our climate change risk information summarized for each site.
+# if we were to add a tag to the names or a xref tie that tells us if each column is part of this or not we would get ahead...
+
+##-------------------- moti correct chris_culvert_id-----------------------
+# one thing we definitely need to do it get the chris_culvert_id for each site as we used the wrong one on our forms. We should be able to cross ref the ids from bcdata
+# so let's try that first
+# the names must have changed so lets use the file in the mergin project as we know that one is the same
+
+# get_this <- bcdata::bcdc_tidy_resources('ministry-of-transportation-mot-culverts') %>%
+#   filter(bcdata_available == T)  %>%
+#   pull(package_id)
+#
+# dat <- bcdata::bcdc_get_data(get_this)
+#
+# moti_raw <- dat %>%
+#   purrr::set_names(nm = janitor::make_clean_names(names(dat)))
+#
+# # match our sites to ids
+# moti <- left_join(
+#   form_prep,
+#
+#   moti_raw %>% select(culvert_id, chris_culvert_id) %>% sf::st_drop_geometry(),
+#
+#   by = c('mot_culvert_id' = 'culvert_id')
+# )
+
+moti_raw <- sf::st_read('../../gis/mergin/bcfishpass_skeena_20220823/clipped_moti_culverts_sp.gpkg') %>%
+  sf::st_drop_geometry()
+
+moti <- left_join(
+  form_prep,
+
+  moti_raw %>% select(culvert_id, chris_culvert_id),
+
+  by = c('mot_culvert_id' = 'culvert_id')
+)
+
+##---------------------pscis clean only--------------------------
+form_prep1 <- form_prep %>%
   #split date time column into date and time
-  dplyr::mutate(date_time_start = lubridate::ymd_hms(date_time_start),
+  dplyr::mutate(date = lubridate::ymd_hms(date),
+                date_time_start = lubridate::ymd_hms(date_time_start),
                 survey_date = lubridate::date(date_time_start),
                 time = hms::as_hms(date_time_start)) %>%
   # filter out to get only the records newly created
