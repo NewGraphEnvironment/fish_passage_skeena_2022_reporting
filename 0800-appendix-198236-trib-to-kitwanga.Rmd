@@ -23,21 +23,13 @@ my_site <- 198236
 ## Site Location {.unnumbered}
 
 PSCIS crossing `r as.character(my_site)` is located on
-`r fpr::fpr_my_pscis_info()`, on the `r fpr_my_pscis_info(col_pull = road_name)`. This crossing was located
-`r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Kitwanga River. This river drains into Kitwanga Lake (a.k.a Kitwancool Lake or Gitanyow Lake). The underlying territory of this area belongs to the Gitanyow Nation, a First Nations community of the Gitxsan.  
+`r fpr::fpr_my_pscis_info()`, on the `r fpr_my_pscis_info(col_pull = road_name)` `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km upstream from the confluence with the Kitwanga River at a location 1.5km upstream of Kitwanga Lake (a.k.a Kitwancool Lake or Gitanyow Lake). There are two modelled crossing locations between the subject site and the Kitwanga River that have not yet been inventoried.  The first unasssessed crossing (modelled_crossing_id 8301996) is located on the `r fpr_my_pscis_info(col_pull = road_name)` 2.0km downstream of the subject site with the second a modelled crossing (modelled_crossing_id 8300438) on an unnamed road. Although field crews overlooked assessment of modelled crossing 8301996 they did attempt to access crossing 8300438 however this road had been deactivated with concrete blocks preventing all vehicle access including ATVs.  Review of aerial imagery indicates that the crossing structures (including 8300438) have been removed and fish access through this area is not likely hindered.
 
 <br>
 
 ## Background {.unnumbered}
 
-At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
-`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
-watershed area upstream of the crossing of approximately
-`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
-a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
-`r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
-\@ref(tab:tab-wshd-198236)). At the time of reporting, there was no fisheries information available for the areas upstream of crossing `r as.character(my_site)`. 
+At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a watershed area upstream of the crossing of approximately `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to `r fpr::fpr_my_wshd(col = 'elev_site')`m near the crossing (Table \@ref(tab:tab-wshd-198236)). At the time of reporting, there was no fisheries information available for the areas upstream of crossing `r as.character(my_site)`. 
 
 <br>
 
