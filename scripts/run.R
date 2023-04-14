@@ -12,7 +12,7 @@ rmarkdown::render_site(output_format = 'bookdown::gitbook',
 {
   # These files are included in the gitbook version already so we move them out of the build
   files_to_move <- list.files(pattern = ".Rmd$") %>%
-    stringr::str_subset(., '2200|2300|2400', negate = F) #move the attachments out
+    stringr::str_subset(., '2300', negate = F) #move the attachments out
   files_destination <- paste0('hold/', files_to_move)
 
   ##move the files
