@@ -89,6 +89,10 @@ knitr::write_bib(c(
 
 Modern civilization has a long journey ahead to acknowledge and address the historic and ongoing impacts of colonialism that have resulted in harm to the cultures and livelihoods living interconnected with our ecosystems for many thousands of years. 
 
+<br>
+
+The Society for Ecosytem Restoration in Northern British Columbia recognizes the Habitat Conservation Trust Foundation, BC Fish Passage Remediation Program and Ministry of Transportation and Infrastructure for making a significant financial contributions to supporting Skeena Watershed Fish Passage Restoration Planning. Partnerships are key to conserving BC’s wildlife, fish, and their habitats.
+
 
 
 ```{js, logo-header, echo = FALSE, eval= T}
