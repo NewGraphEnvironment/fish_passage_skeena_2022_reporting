@@ -5,8 +5,8 @@ preview_chapter('0100-intro.Rmd')
 ##go to the index.Rmd and change gitbook_on <- TRUE
 #################################################################################################
 
-rmarkdown::render_site(output_format = 'bookdown::gitbook',
-                       encoding = 'UTF-8')
+# rmarkdown::render_site(output_format = 'bookdown::gitbook',
+#                        encoding = 'UTF-8')
 
 
 {
