@@ -101,7 +101,7 @@ The Zymoetz River (known locally as the Copper River) watershed is an eighth ord
 
 <br>
 
-```{r hydrology-plot3, fig.cap = 'Hydrograph for Zymoetz River (Station #08EF005).', fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=T}
+```{r hydrology-plot3, fig.cap = 'Hydrograph for Zymoetz River (Station #08EF005).', fig.show="hold", eval=T}
 knitr::include_graphics("fig/hydrograph_08EF005.png")
 # knitr::include_graphics("fig/pixel.png")
 
@@ -117,11 +117,11 @@ knitr::include_graphics("fig/hydrology_stats_08EF005.png")
 
 ### Kispiox River
 
-The Kispiox River watershed is a seventh order stream that drains an area of 2,088km^2^ in a south east direction. It is a large tributary of the Skeena River, contributing approximately 9% of its flow. It flows 140km to the confluence of the Skeena River, near Kispiox Village. Elevations in the watershed range from 200m at the mouth to as high as 2090m on Kispiox Mountain. The mainstream of the Kispiox is fed mainly by glacier melt and high elevation snow melt. Swan and Stephens Lakes (located in the upper watershed) are important sockeye systems. Swan Lake drains via Club Lake into Stephens Lake which in turn flows via Stephens Creek into the mainstem of the Kispiox River. Some of the biggest threats to aquatic ecosystems in the Kispiox valley are reported as erosion, obstructions, sedimentation, and altered water yield. The upper third of the Kispiox watershed (upstream of the Nangeese River) is well protected from develpment by the Swan Lake Kispiox River Provincial Park and because it contains few roads with little forestry development [@gottesfeld_etal2002ConservingSkeena]. The Kispiox River has a mean annual discharge estimated at `r round(fasstr::calc_longterm_mean(station_number = "08EB004")$LTMAD,1)` m^3^/s at station 08EB004 located near Hazelton. Peak discharge happens in May and June as a result of the spring snowmelt (Figures \@ref(fig:hydrology-plot4) - \@ref(fig:hydrology-stats5)).
+The Kispiox River watershed is a seventh order stream that drains an area of 2,088km^2^ in a south east direction. It is a large tributary of the Skeena River, contributing approximately 9% of its flow. It flows 140km to the confluence of the Skeena River, near Kispiox Village. Elevations in the watershed range from 200m at the mouth to as high as 2090m on Kispiox Mountain. The mainstream of the Kispiox is fed mainly by glacier melt and high elevation snow melt. Swan and Stephens Lakes (located in the upper watershed) are important sockeye systems. Swan Lake drains via Club Lake into Stephens Lake which in turn flows via Stephens Creek into the mainstem of the Kispiox River. Some of the biggest threats to aquatic ecosystems in the Kispiox valley are reported as erosion, obstructions, sedimentation, and altered water yield. The upper third of the Kispiox watershed (upstream of the Nangeese River) is well protected from development by the Swan Lake Kispiox River Provincial Park and because it contains few roads with little forestry development [@gottesfeld_etal2002ConservingSkeena]. The Kispiox River has a mean annual discharge estimated at `r round(fasstr::calc_longterm_mean(station_number = "08EB004")$LTMAD,1)` m^3^/s at station 08EB004 located near Hazelton. Peak discharge happens in May and June as a result of the spring snowmelt (Figures \@ref(fig:hydrology-plot4) - \@ref(fig:hydrology-stats5)).
 
 <br>
 
-```{r hydrology-plot4, fig.cap = 'Hydrograph for Kispiox River near Hazelton (Station #08EB004).', fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=T}
+```{r hydrology-plot4, fig.cap = 'Hydrograph for Kispiox River near Hazelton (Station #08EB004).', fig.show="hold", eval=T}
 knitr::include_graphics("fig/hydrograph_08EB004.png")
 # knitr::include_graphics("fig/pixel.png")
 
