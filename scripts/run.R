@@ -35,7 +35,7 @@ rmarkdown::render_site(output_format = 'bookdown::gitbook',
 
 
 # define the _bookfile_name from _bookdown.yml
-filename_html <- 'Template'
+filename_html <- 'Skeena2022'
 
 {
 
@@ -67,3 +67,60 @@ filename_html <- 'Template'
   file.remove(paste0(getwd(), '/', filename_html, '.html'))
 
 }
+
+##########################################make Phase 1 appendix seperately only when updated
+#################################################################################################
+##we need a workflow to print the Phase 1 attachment
+
+
+files_to_move <- list.files(pattern = ".Rmd$") %>%
+  stringr::str_subset(., 'index|Skeena2021|0600', negate = T)
+files_destination <- paste0('hold/', files_to_move)
+
+##move the files
+mapply(file.rename, from = files_to_move, to = files_destination)
+
+
+##   then make our printable pdf
+rmarkdown::render_site(output_format = 'pagedown::html_paged', encoding = 'UTF-8')
+
+##  move it to the docs folder so that it can be in the same place as the report
+# file.rename('Elk2021.html', 'docs/Attachment_3_Phase_1_Data_and_Photos.html')
+
+##move the files from the hold file back to the main file
+mapply(file.rename, from = files_destination, to = files_to_move)
+
+#print the attachment to pdf with chrome print
+# openHTML('docs/Attachment_3_Phase_1_Data_and_Photos_prep.html')
+
+pagedown::chrome_print(
+  paste0(getwd(),'/', filename_html,'.html'),
+  output = paste0(getwd(),'/docs/Attachment_2_prep.pdf'),
+  timeout = 120
+)
+
+
+##now get rid of the first 10 pages
+length <- pdftools::pdf_length(paste0(getwd(), "/docs/Attachment_2_prep.pdf"))
+
+# this changes so let's define
+crop_this_many_pages <- 6
+
+# trim up the file.  We ditch the last page only when there are references.  In the case of the bulkley there are due to the yaml file
+pdftools::pdf_subset(paste0(getwd(), "/docs/Attachment_2_prep.pdf"),
+                     pages = (crop_this_many_pages + 1):(length - 1), output = paste0(getwd(), "/docs/Attachment_2.pdf"))
+
+##clean out the old files
+file.remove(paste0(getwd(), "/docs/Attachment_2_prep.pdf"))
+file.remove(paste0(getwd(),'/', filename_html,'.html'))
+
+##it is very important to shrink the size of the pdf so we donèt blow up our github repo.
+# We will set up ghostscript on the mac but for now we do manually.
+
+tools::compactPDF(paste0(getwd(), "/docs/Attachment_2.pdf"),
+                  gs_quality = 'ebook',
+                  # gs_cmd = "C:/Program Files/gs/gs9.56.1/bin/gswin64.exe"
+                  gs_cmd = "opt/homebrew/bin/gs"
+)
+
+
