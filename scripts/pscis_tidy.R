@@ -97,7 +97,7 @@ moti_names %>%
 ##-------------------- moti correct chris_culvert_id-----------------------
 # one thing we definitely need to do it get the chris_culvert_id for each site as we used the wrong one on our forms. We should be able to cross ref the ids from bcdata
 # so let's try that first
-# the names must have changed so lets use the file in the mergin project as we know that one is the same
+
 
 # get_this <- bcdata::bcdc_tidy_resources('ministry-of-transportation-mot-culverts') %>%
 #   filter(bcdata_available == T)  %>%
@@ -117,6 +117,7 @@ moti_names %>%
 #   by = c('mot_culvert_id' = 'culvert_id')
 # )
 
+# the names must have changed so lets use the file in the mergin project as we know that one is the same
 moti_raw <- sf::st_read('../../gis/mergin/bcfishpass_skeena_20220823/clipped_moti_culverts_sp.gpkg') %>%
   sf::st_drop_geometry()
 
