@@ -6,27 +6,23 @@
 # after the info is hand bombed in we need to copy the file into the permit directory with the proper name
 # copy report and attach
 
-
 source('scripts/functions.R')
 source('scripts/packages.R')
-source('scripts/private_info.R')
 source('scripts/tables.R')
 
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = dbname,
-  host = host,
-  port = port,
-  user = user,
-  password = password
+  dbname = Sys.getenv('PG_DB_DEV'),
+  host = Sys.getenv('PG_HOST_DEV'),
+  port = Sys.getenv('PG_PORT_DEV'),
+  user = Sys.getenv('PG_USER_DEV'),
+  password = Sys.getenv('PG_PASS_DEV')
 )
 
 dbGetQuery(conn,
            "SELECT column_name,data_type
            FROM information_schema.columns
-           WHERE table_name='fwa_streams_20k_50k'")
-
-
+           WHERE table_name='wdic_waterbody_route_line_svw'")
 
 wscodes <- dbGetQuery(conn,
                       "SELECT DISTINCT ON (stream_crossing_id)
@@ -54,7 +50,7 @@ b.match_type
 FROM bcfishpass.crossings a
 LEFT OUTER JOIN whse_basemapping.fwa_streams_20k_50k b
 ON a.linear_feature_id = b.linear_feature_id_20k
-WHERE a.watershed_group_code IN ('MORR', 'BULK')
+WHERE a.watershed_group_code IN ('MORR', 'BULK', 'ZYMO', 'KISP')
 ORDER BY a.stream_crossing_id, b.match_type;"
 )  %>%
   filter(stream_crossing_id %in% (pscis_phase2 %>% pull(pscis_crossing_id)))
@@ -71,22 +67,14 @@ wsc_join <- left_join(
   mutate(alias_corrected = NA_character_,
          waterbody_id = paste0('00000', watershed_group_code),
          waterbody_type = 'stream') %>%
-  ##add teh coords to df so we qa in hab wizartd
-  # mutate(watershed_code_50k = stringr::str_replace_all(watershed_code_50k, c('-00000'), ''),
-  #        watershed_code_50k = stringr::str_replace_all(watershed_code_50k, c('-0000'), ''),
-  #        watershed_code_50k = stringr::str_replace_all(watershed_code_50k, c('-000'), '')) %>%
+  # QA in QGIS using the wdic_waterbody_route_line_svw layer in postgres db, this layer comes from:
+  # https://catalogue.data.gov.bc.ca/dataset/wsa-stream-routes-50-000/resource/d694884b-97a6-4d34-9ece-263aa46974f5
   # here are some hand bomb corrections
-  mutate(watershed_code_50k = case_when(
-    site == 198042 ~ '460-242900-51500-00000-0000-0000-000-000-000-000-000-000',
-    site == 198016 ~ '460-600600-50800-46900-0000-0000-000-000-000-000-000-000',
-    alias_local_name == '197967_ds' ~ '460-000000-00000-00000-0000-0000-000-000-000-000-000-000',
-    alias_local_name == '197967_us' ~ '460-000000-00000-00000-0000-0000-000-000-000-000-000-000',
-    alias_local_name == '197967_us2' ~ '460-951600-00000-00000-0000-0000-000-000-000-000-000-000',
-    site == 198042 ~ '460-242900-51500-00000-0000-0000-000-000-000-000-000-000',
-    site == 124424 ~ '460-007300-39470-00000-0000-0000-000-000-000-000-000-000',
-    T ~ watershed_code_50k)) %>%
-  mutate(alias_corrected = case_when(
-    site == 197909 ~ '460-924300-00000-00000-0000-0000-000-000-000-000-000-000')) %>%
+  # mutate(watershed_code_50k = case_when(
+  #   site == 197974 ~ '460-829700-20600-00000-0000-0000-000-000-000-000-000-000',
+  #   site == 198066 ~ '460-517700-00000-00000-0000-0000-000-000-000-000-000-000',
+  #   site == 198116 ~ '460-007300-39470-00000-0000-0000-000-000-000-000-000-000',
+  #   T ~ watershed_code_50k)) %>%
   select(reference_number, alias_local_name, site, location, gazetted_name, alias_corrected, waterbody_type, waterbody_id, watershed_code_50k)
 
 
@@ -97,27 +85,16 @@ wsc_join %>%
 
 dbDisconnect(conn = conn)
 
-# in order to qa we need to compare to WHSE_FISH.WDIC_WATERBODY_ROUTE_LINE_SVW at https://catalogue.data.gov.bc.ca/dataset/wsa-stream-routes-50-000/resource/d694884b-97a6-4d34-9ece-263aa46974f5
+# now make a csv with the alias_local_name pasted to the comments so people can see which comments are linked to which site
+target_dir = paste0(getwd(), '/data/inputs_extracted/alias_local_name_relocate.csv')
 
-# now make a csv with the alias_local_name pasted to the comments so people can see which comm
-alias_local_name_relocate <- left_join(
-  habitat_confirmations %>% pluck("step_4_stream_site_data") %>% select(reference_number, comments),
-  wsc_join,
-  by = 'reference_number') %>%
-  mutate(comments_ammend = paste0('PSCIS stream_crossing_id ', site, ' ', location, '. ', comments)) %>%
-           select(reference_number, comments_ammend) %>%
-  tibble::rowid_to_column() %>%
-  mutate(rowid = rowid + 21)
+fpr_hab_alias_to_comments()
 
-# WATCH OUT HERE BECAUSE we have 'feature record only' events taht are not in the hab_site dataframe.  We need to account for that
+# WATCH OUT HERE BECAUSE we might have 'feature record only' events that are not in the hab_site dataframe.  We need to account for that
+# burn to the file so you can copy and paste to comments and erase alias_local_name AFTER after moving file to permit submission file .
 
-
-# burn to the file so you can copy and paste to comments and erase alias_local_name AFTER after moveing file to permit submission file .
-alias_local_name_relocate %>%
-  readr::write_csv(file = paste0(getwd(), '/data/inputs_extracted/alias_local_name_relocate.csv'), na = "")
-
-# copy the hab con file over to the permit folder
-permit_id = 'SM21-626611'
+# copy the hab con file over to the permit folder on OneDrive
+permit_id = 'SM22-757463'
 
 file.copy(from = 'data/habitat_confirmations.xls',
-          to = paste0('../../permit/submission/', permit_id, '_data.xls'))
+          to = paste0('C:/Users/matwi/OneDrive/Projects/repo/fish_passage_skeena_2022_reporting/permit_submission/', permit_id, '_data.xls'))
