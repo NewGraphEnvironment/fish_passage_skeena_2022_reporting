@@ -129,6 +129,18 @@ moti <- left_join(
   by = c('mot_culvert_id' = 'culvert_id')
 )
 
+# burn to a csv
+moti %>%
+
+
+  #sort data by date
+  arrange(date) %>%
+
+  readr::write_csv(paste0(
+    'data/dff/form_pscis_moti_',
+    format(lubridate::now(), "%Y%m%d"),
+    '.csv'))
+
 ##---------------------pscis clean only--------------------------
 form_prep1 <- form_prep %>%
   #split date time column into date and time
