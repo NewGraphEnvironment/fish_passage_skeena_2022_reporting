@@ -202,7 +202,7 @@ fpr_table_fish_site()
 <br>
 
 ```{r tab-fish-dens-8530, eval=T}
-fpr_table_fish_density(scroll = gitbook_on)
+fpr_table_fish_density()
 
 ```
 
