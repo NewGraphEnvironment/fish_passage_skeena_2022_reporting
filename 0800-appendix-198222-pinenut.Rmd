@@ -25,9 +25,9 @@ my_site <- 198222
 PSCIS crossing `r as.character(my_site)` is located on
 `r fpr_my_pscis_info(col_pull = road_name)`, on
 `r fpr::fpr_my_pscis_info()`, approximately 15km north east of the small community of Glen Vowell, BC.
-Crossing `r as.character(my_site)` was located
+Crossing `r as.character(my_site)` was located on the east side of the Skeena River, approximately
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Skeena River.
+upstream from the confluence.
 
 <br>
 
@@ -66,6 +66,12 @@ provided in map attachment
 
 ```{r tab-culvert-bcfp-198222, eval = T}
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
+```
+
+<br>
+
+```{r lidar-pinenut, fig.cap = 'Lidar generated digital elevation model of Pinenut Creek at Babine Slide FSR (using elevation data from 2019).',eval=T}
+knitr::include_graphics("fig/lidar_pinenut.png")
 ```
 
 <br>
@@ -116,7 +122,7 @@ migration corridor containing habitat suitable for spawning and rearing.
 
 ## Fish Sampling {.unnumbered}
 
-To assess potential impacts of the culvert on fisheries values in the stream, minnowtrapping was conducted upstream and downstream of the crossing.  One `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish was captured upstream with `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish captured downstream. Only Dolly Varden were captured.
+To assess potential impacts of the culvert on fisheries values in the stream, minnowtrapping was conducted upstream and downstream of the crossing. Two traps were set downstream of the crossing and two were set upstream; traps were left overnight. `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` dolly varden was captured upstream and `r tab_fish_summary %>% filter(site_id == paste0(my_site, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` dolly varden were captured downstream `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198222-07) - \\@ref(fig:photo-198222-08)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198222-u03))."))` 
 
 <br>
 
@@ -263,6 +269,38 @@ grid::grid.raster(jpeg::readJPEG(my_photo2))
 ```
 
 ```{r photo-198222-u02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+```{r photo-198222-07-prep}
+my_photo1 = fpr::fpr_photo_pull_by_str(str_to_pull = '_mt1_')
+
+my_caption1 = paste0('Dolly Varden captured downstream of PSCIS crossing ', my_site, '.')
+```
+
+```{r photo-198222-07, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+```{r photo-198222-08-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_mt2_')
+
+my_caption2 = paste0('Dolly Varden captured upstream of PSCIS crossing ', my_site, '.')
+
+```
+
+```{r photo-198222-08, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-198222-u03, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
 
 my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
 
