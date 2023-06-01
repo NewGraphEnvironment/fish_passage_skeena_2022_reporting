@@ -10,7 +10,8 @@ editor_options:
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
 source('scripts/packages.R')
 source('scripts/tables.R')
-
+source('scripts/moti_climate.R')
+source('scripts/functions.R')
 ```
 
 ```{r  load-data-198217}
@@ -67,6 +68,18 @@ knitr::include_graphics("fig/lidar_198217_sik-e-dakh.png")
 ```
 
 <br>
+
+## Climate Change Risk Assessment
+
+```{r tab-moti-198217, eval = T}
+fpr_table_moti()
+```
+
+<br>
+
+```{r tab-moti-198217-comments, eval = T}
+fpr_table_moti_comments()
+```
 
 ## Stream Characteristics at Crossings {.unnumbered}
 

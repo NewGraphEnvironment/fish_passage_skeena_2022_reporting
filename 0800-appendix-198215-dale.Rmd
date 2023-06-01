@@ -10,7 +10,8 @@ editor_options:
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
 source('scripts/packages.R')
 source('scripts/tables.R')
-
+source('scripts/moti_climate.R')
+source('scripts/functions.R')
 ```
 
 ```{r  load-data-198215}
@@ -69,6 +70,18 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 ```
 
 <br>
+
+## Climate Change Risk Assessment
+
+```{r tab-moti-198215, eval = T}
+fpr_table_moti() 
+```
+
+<br>
+
+```{r tab-moti-198215-comments, eval = T}
+fpr_table_moti_comments()
+```
 
 ## Stream Characteristics at Crossing {.unnumbered}
 
