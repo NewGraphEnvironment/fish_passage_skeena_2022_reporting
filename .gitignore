@@ -5,7 +5,7 @@ _publish.R
 _book
 _bookdown_files
 rsconnect
-data/inputs_extracted/*
+#data/inputs_extracted/*
 !data/inputs_extracted/mergin_backups
 data/~$*
 scripts/private_info.R
