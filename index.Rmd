@@ -73,7 +73,8 @@ font_set <- 9
 ```{r}
 source('scripts/packages.R')
 source('scripts/tables.R')
-
+source('scripts/moti_climate.R')
+source('scripts/functions.R')
 ```
 
 
