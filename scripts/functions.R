@@ -112,7 +112,7 @@ fpr_table_moti_comments <- function(dat = tab_moti_phase2,
     rename('Condition' = condition_notes,
            'Climate' = climate_notes) %>%
     #rename('Priority' = priority_notes) %>%
-    pivot_longer(cols = Condition:Climate, names_to = " ", values_to = "Comments") %>%
+    pivot_longer(cols = Condition:Climate, names_to = "Category", values_to = "Comments") %>%
     filter(pscis_crossing_id == site) %>%
     select(-pscis_crossing_id)
 
