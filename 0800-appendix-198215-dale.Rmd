@@ -73,6 +73,8 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 ## Climate Change Risk Assessment
 
+Preliminary climate change risk assessment data is presented in Tables \@ref(tab:tab-moti-198215) - \@ref(tab:tab-moti-198215-comments.
+
 ```{r tab-moti-198215, eval = T}
 fpr_table_moti() 
 ```
