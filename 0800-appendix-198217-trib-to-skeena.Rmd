@@ -71,7 +71,7 @@ knitr::include_graphics("fig/lidar_198217_sik-e-dakh.png")
 
 ## Climate Change Risk Assessment
 
-Preliminary climate change risk assessment data is presented in Tables \@ref(tab:tab-moti-198217) - \@ref(tab:tab-moti-198217-comments.
+Preliminary climate change risk assessment data for PSCIS site 198217 on  `r fpr_my_pscis_info(site = my_site2, col_pull = road_name)` is presented in Tables \@ref(tab:tab-moti-198217) - \@ref(tab:tab-moti-198217-comments).
 
 ```{r tab-moti-198217, eval = T}
 fpr_table_moti()
