@@ -233,6 +233,12 @@ tab_cost_rd_mult_report %>%
 
 <br>
 
+## Climate Change Risk Assessment
+
+In collaboration with the Ministry of Transportation and Infrastructure (MoTi), a new climate change replacement program aims to prioritize vulnerable culverts for replacement (pers. comm Sean Wong, 2022). Data will be collected in regards to culvert condition, vulnerability, priority. These parameters will be given a priority index and ranked. An overall rank is given to each culvert to help determine its priority for proceeding to replacement. This project is still in its early stages and will likely change and improve going forward. 
+
+<br>
+
 ## Habitat Confirmation Assessments
 
 Following fish passage assessments, habitat confirmations were completed in accordance with procedures outlined in the document “A Checklist for Fish Habitat Confirmation Prior to the Rehabilitation of a Stream Crossing” [@confirmation_checklist_2011]. The main objective of the field surveys was to document upstream habitat quantity and quality and to determine if any other obstructions exist above or below the crossing.  Habitat value was assessed based on channel morphology, flow characteristics (perennial, intermittent, ephemeral), the presence/absence of deep  pools, un-embedded  boulders, substrate, woody debris, undercut banks, aquatic vegetation and overhanging riparian vegetation. Criteria used to rank habitat value was based on guidelines in @confirmation_checklist_2011 (Table \@ref(tab:tab-hab-value)). 
