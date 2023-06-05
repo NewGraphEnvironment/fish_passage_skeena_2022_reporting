@@ -125,7 +125,7 @@ map %>%
 <br>
 
 ## Climate Change Risk Assessment
-Preliminary climate change risk assessment data for Ministry of Transportation and Infrastructure sites is presented below. Phase 1 sites are contained in Table \@ref(tab:tab-moti-climate-phase1), and Phase 2 sites are in Table \@ref(tab:tab-moti-climate-phase2).
+Preliminary climate change risk assessment data for Ministry of Transportation and Infrastructure sites is presented below. Phase 1 sites are contained in Table \@ref(tab:tab-moti-climate-phase1), and Phase 2 sites are in Table \@ref(tab:tab-moti-climate-phase2).  Raw data is provided [here](https://github.com/NewGraphEnvironment/fish_passage_bulkley_2022_reporting/tree/main/data/moti_climate_tidied_hand.csv). 
 
 ```{r tab-moti-climate-phase1}
 source('scripts/moti_climate.R')
