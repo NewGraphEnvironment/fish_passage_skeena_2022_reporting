@@ -49,10 +49,10 @@ names(moti_data_cleaned)
 xref_moti_climate %>% pull(report)
 
 # test to see the order is right - set_names seems risky perhaps... maybe its fine
-# try <- tibble(
-#   spdsht = names(moti_data_cleaned),
-#   report = xref_moti_climate %>% pull(report)
-# )
+try <- tibble(
+  spdsht = names(moti_data_cleaned),
+  report = xref_moti_climate %>% pull(report)
+)
 
 # all good
 
@@ -72,6 +72,13 @@ tab_moti_prep <- left_join(
   mutate(condition_rank = erosion_issues + embankment_fill_issues + blockage_issues) %>%
   mutate(vulnerability_rank = condition_rank + climate_change_flood_risk) %>%
   mutate(overall_rank = vulnerability_rank + priority_rank)
+
+# burn to a csv to make changes in a reasonably quick manner.  Copy file and use it to read in
+tab_moti_prep %>%
+write_csv('data/inputs_extracted/tab_moti_prep_20230605.csv')
+
+# read it back in cleaned up
+tab_moti_prep <- read_csv(file = 'data/inputs_raw/moti_climate_tidied_hand.csv')
 
 # make table for phase 1 sites to insert into report
 tab_moti_phase1 <- tab_moti_prep %>%
