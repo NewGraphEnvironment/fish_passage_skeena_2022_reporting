@@ -66,7 +66,12 @@ tab_moti_prep <- left_join(
     is.na(stream_crossing_id) ~ as.integer(pscis_crossing_id),
     T ~ stream_crossing_id)) %>%
   select(-pscis_crossing_id, pscis_crossing_id = stream_crossing_id) %>%
-  relocate(pscis_crossing_id)
+  relocate(pscis_crossing_id) %>%
+  # have to add erosion to the condition rank, have to update every added rank field unfortunately (except priority rank)
+  # can remove this chunk in future when math is updated in mergin form template
+  mutate(condition_rank = erosion_issues + embankment_fill_issues + blockage_issues) %>%
+  mutate(vulnerability_rank = condition_rank + climate_change_flood_risk) %>%
+  mutate(overall_rank = vulnerability_rank + priority_rank)
 
 # make table for phase 1 sites to insert into report
 tab_moti_phase1 <- tab_moti_prep %>%

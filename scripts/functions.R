@@ -45,10 +45,10 @@ xref_moti_climate_names <- tibble::tribble(
                              "erosion_issues",                                                                                      "Erosion (scale 1 low - 5 high)",         NA,     9L,     1L,
                      "embankment_fill_issues",                                                                  "Embankment fill issues 1 (low) 2 (medium) 3 (high)",         NA,     2L,     1L,
                             "blockage_issues",                                                                      "Blockage Issues 1 (0-30%) 2 (>30-75%) 3 (>75%)",         NA,     3L,     1L,
-                             "condition_rank",                                                                              "Condition Rank = embankment + blockage",         NA,     4L,     1L,
+                             "condition_rank",                                                                    "Condition Rank = embankment + blockage + erosion",         NA,     4L,     1L,
                             "condition_notes",                                                                "Describe details and rational for condition rankings",         NA,     NA,     NA,
    "likelihood_flood_event_affecting_culvert",                                                     "Likelihood Flood Event Affecting Culvert (scale 1 low - 5 high)",         NA,     8L,     1L,
-  "consequence_flood_event_affecting_culvert",                                                    "Consequence Flood Event Affecting Culvert (scale 1 low - 5 high)",         NA,     4L,     1L,
+  "consequence_flood_event_affecting_culvert",                                                    "Consequence Flood Event Affecting Culvert (scale 1 low - 5 high)",         NA,     5L,     1L,
                   "climate_change_flood_risk",                           "Climate Change Flood Risk (likelihood x consequence) 1-6 (low) 6-12 (medium) 10-25 (high)",         NA,     6L,     1L,
                          "vulnerability_rank",                                                                  "Vulnerability Rank = Condition Rank + Climate Rank",         NA,     7L,     1L,
                               "climate_notes",                                                             "Describe details and rational for climate risk rankings",         NA,     NA,     NA,
@@ -67,11 +67,12 @@ fpr_table_moti <- function(dat = tab_moti_phase2,
                            xref_table = xref_moti_climate_names,
                            site = my_site,
                            ...){
+  df <- dat %>% filter(pscis_crossing_id == site)
   # build left side of table
   tab_results_left <- xref_table %>%
     filter(id_side == 1)
 
-  tab_pull_left <- dat %>%
+  tab_pull_left <- df %>%
     select(pull(tab_results_left, spdsht)) %>%
     t() %>%
     as.data.frame() %>%
@@ -83,7 +84,7 @@ fpr_table_moti <- function(dat = tab_moti_phase2,
   tab_results_right <- xref_table %>%
     filter(id_side == 2)
 
-  tab_pull_right <- dat %>%
+  tab_pull_right <- df %>%
     select(pull(tab_results_right, spdsht)) %>%
     t() %>%
     as.data.frame() %>%
@@ -108,24 +109,17 @@ fpr_table_moti_comments <- function(dat = tab_moti_phase2,
                            site = my_site,
                            ...){
   tab_comments <- dat %>%
-    select(pscis_crossing_id, condition_notes, climate_notes) %>%
+    select(pscis_crossing_id, condition_notes, climate_notes, priority_notes) %>%
     rename('Condition' = condition_notes,
-           'Climate' = climate_notes) %>%
-    #rename('Priority' = priority_notes) %>%
-    pivot_longer(cols = Condition:Climate, names_to = "Category", values_to = "Comments") %>%
+           'Climate' = climate_notes,
+           'Priority' = priority_notes) %>%
+    pivot_longer(cols = Condition:Priority, names_to = "Category", values_to = "Comments") %>%
     filter(pscis_crossing_id == site) %>%
     select(-pscis_crossing_id)
 
   tab_comments %>%
     fpr_kable(caption_text = paste0('Details and rational for climate risk rankings'), scroll = F)
 }
-
-#
-# tab <- tab_moti_phase2 %>%
-#   select(pscis_crossing_id, condition_notes, climate_notes, priority_notes) %>%
-#   purrr::set_names(nm = xref_moti_climate %>% pull(report))
-#   pivot_longer(cols = condition_notes:priority_notes, names_to = " ", values_to = "comments") %>%
-#   select(-pscis_crossing_id)
 
 
 

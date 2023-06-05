@@ -87,7 +87,7 @@ fpr_table_moti_comments()
 
 PSCIS crossing `r as.character(my_site)` was embedded, backwatered and ranked as `r fpr::fpr_my_pscis_info(col_pull = barrier_result)`
 to upstream fish passage (Table \@ref(tab:tab-culvert-198216)). There were two culverts side by side, and both of them had trash racks on the
-inlet side that could be a barrier to adult coho. The trash rack had grid sizes of approximately 13cm by 13cm (shown in Figure \@ref(fig:photo-198216-rack)).
+inlet side that could be a barrier to adult coho. The trash rack had grid sizes of approximately 13cm by 13cm.
 
 <br>
 
