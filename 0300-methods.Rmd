@@ -235,9 +235,20 @@ tab_cost_rd_mult_report %>%
 
 ## Climate Change Risk Assessment
 
-In collaboration with the Ministry of Transportation and Infrastructure (MoTi), a new climate change replacement program aims to prioritize vulnerable culverts for replacement (pers. comm Sean Wong, 2022). Data will be collected in regards to culvert condition, vulnerability, priority. These parameters will be given a priority index and ranked. An overall rank is given to each culvert to help determine its priority for proceeding to replacement. This project is still in its early stages and will likely change and improve going forward. 
+In collaboration with the Ministry of Transportation and Infrastructure (MoTi), a new climate change replacement program aims to prioritize vulnerable culverts for replacement (pers. comm Sean Wong, 2022) based on data collected and ranked related to three categories - culvert condition, vulnerability and priority. Within the "condition" risk category - data was collected and crossings were ranked based on erosion, embankment and blockage issues.  The "climate" risk category included ranked assessments of the likelihood of both a flood event affecting the culvert as well as the consequence of a flood event affecting the culvert.  Within the "priority" category the following factors were ranked - traffic volume, community access, cost, constructability, fish bearing status and environmental impacts (Table \@ref(tab:tab-moti-params)). This project is still in its early stages with methodology changes likely going forward. 
 
 <br>
+
+```{r tab-moti-params}
+xref_moti_climate_names %>% 
+  slice(7:nrow(xref_moti_climate)) %>% 
+  select(spdsht, report) %>% 
+  rename(Parameter = spdsht, Description = report) %>% 
+  fpr::fpr_kable(caption_text = 'Climate change data collected at MoTi culvert sites', scroll = gitbook_on)
+  
+```
+
+
 
 ## Habitat Confirmation Assessments
 
