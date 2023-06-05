@@ -1272,8 +1272,184 @@ Rail
 </div>
 <div id="climate-change-risk-assessment" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Climate Change Risk Assessment<a href="methods.html#climate-change-risk-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In collaboration with the Ministry of Transportation and Infrastructure (MoTi), a new climate change replacement program aims to prioritize vulnerable culverts for replacement (pers. comm Sean Wong, 2022). Data will be collected in regards to culvert condition, vulnerability, priority. These parameters will be given a priority index and ranked. An overall rank is given to each culvert to help determine its priority for proceeding to replacement. This project is still in its early stages and will likely change and improve going forward.</p>
+<p>In collaboration with the Ministry of Transportation and Infrastructure (MoTi), a new climate change replacement program aims to prioritize vulnerable culverts for replacement (pers. comm Sean Wong, 2022) based on data collected and ranked related to three categories - culvert condition, vulnerability and priority. Within the “condition” risk category - data was collected and crossings were ranked based on erosion, embankment and blockage issues. The “climate” risk category included ranked assessments of the likelihood of both a flood event affecting the culvert as well as the consequence of a flood event affecting the culvert. Within the “priority” category the following factors were ranked - traffic volume, community access, cost, constructability, fish bearing status and environmental impacts (Table <a href="methods.html#tab:tab-moti-params">3.8</a>). This project is still in its early stages with methodology changes likely going forward.</p>
 <p><br></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="methods.html#cb36-1" tabindex="-1"></a>xref_moti_climate_names <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="methods.html#cb36-2" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">7</span><span class="sc">:</span><span class="fu">nrow</span>(xref_moti_climate)) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href="methods.html#cb36-3" tabindex="-1"></a>  <span class="fu">select</span>(spdsht, report) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-4"><a href="methods.html#cb36-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Parameter =</span> spdsht, <span class="at">Description =</span> report) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-5"><a href="methods.html#cb36-5" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="st">&#39;Climate change data collected at MoTi culvert sites&#39;</span>, <span class="at">scroll =</span> gitbook_on)</span></code></pre></div>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab-moti-params">Table 3.8: </span>Climate change data collected at MoTi culvert sites
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Parameter
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+erosion_issues
+</td>
+<td style="text-align:left;">
+Erosion (scale 1 low - 5 high)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+embankment_fill_issues
+</td>
+<td style="text-align:left;">
+Embankment fill issues 1 (low) 2 (medium) 3 (high)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+blockage_issues
+</td>
+<td style="text-align:left;">
+Blockage Issues 1 (0-30%) 2 (&gt;30-75%) 3 (&gt;75%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+condition_rank
+</td>
+<td style="text-align:left;">
+Condition Rank = embankment + blockage + erosion
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+condition_notes
+</td>
+<td style="text-align:left;">
+Describe details and rational for condition rankings
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+likelihood_flood_event_affecting_culvert
+</td>
+<td style="text-align:left;">
+Likelihood Flood Event Affecting Culvert (scale 1 low - 5 high)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+consequence_flood_event_affecting_culvert
+</td>
+<td style="text-align:left;">
+Consequence Flood Event Affecting Culvert (scale 1 low - 5 high)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+climate_change_flood_risk
+</td>
+<td style="text-align:left;">
+Climate Change Flood Risk (likelihood x consequence) 1-6 (low) 6-12 (medium) 10-25 (high)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vulnerability_rank
+</td>
+<td style="text-align:left;">
+Vulnerability Rank = Condition Rank + Climate Rank
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+climate_notes
+</td>
+<td style="text-align:left;">
+Describe details and rational for climate risk rankings
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+traffic_volume
+</td>
+<td style="text-align:left;">
+Traffic Volume 1 (low) 5 (medium) 10 (high)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+community_access
+</td>
+<td style="text-align:left;">
+Community Access - Scale - 1 (high - multiple road access) 5 (medium - some road access) 10 (low - one road access)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cost
+</td>
+<td style="text-align:left;">
+Cost (scale: 1 high - 10 low)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+constructability
+</td>
+<td style="text-align:left;">
+Constructibility (scale: 1 difficult -10 easy)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fish_bearing
+</td>
+<td style="text-align:left;">
+Fish Bearing 10 (Yes) 0 (No) - see maps for fish points
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+environmental_impacts
+</td>
+<td style="text-align:left;">
+Environmental Impacts (scale: 1 high -10 low)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+priority_rank
+</td>
+<td style="text-align:left;">
+Priority Rank = traffic volume + community access + cost + constructability + fish bearing + environmental impacts
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+overall_rank
+</td>
+<td style="text-align:left;">
+Overall Rank = Vulnerability Rank + Priority Rank
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+priority_notes
+</td>
+<td style="text-align:left;">
+Describe details and rational for priority rankings
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="habitat-confirmation-assessments" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Habitat Confirmation Assessments<a href="methods.html#habitat-confirmation-assessments" class="anchor-section" aria-label="Anchor link to header"></a></h2>

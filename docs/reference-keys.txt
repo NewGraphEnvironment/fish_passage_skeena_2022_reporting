@@ -19,12 +19,13 @@ tab:tab-hab-value
 tab:tab-barrier-scoring
 tab:tab-barrier-result
 tab:tab-cost-mult
+tab:tab-moti-params
 fig:map-interactive
 tab:tab-moti-climate-phase1
 tab:tab-moti-climate-phase2
 tab:cost-est-phase-1
 tab:tab-overview
-tab:unnamed-chunk-9
+tab:unnamed-chunk-10
 tab:tab-habitat-summary
 tab:tab-wshd-sum-all
 fig:plot-model-all

@@ -271,11 +271,11 @@ upstream of crossing 8530, and has an area of 67ha.
 According to historical records, dolly varden and cutthroat trout have
 been known to reside in Sandstone Lake.</p>
 <p><br></p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="sandstone-creek---8530---appendix.html#cb237-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb237-2"><a href="sandstone-creek---8530---appendix.html#cb237-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&#39;Elev Min&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb237-3"><a href="sandstone-creek---8530---appendix.html#cb237-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb237-4"><a href="sandstone-creek---8530---appendix.html#cb237-4" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb237-5"><a href="sandstone-creek---8530---appendix.html#cb237-5" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="sandstone-creek---8530---appendix.html#cb238-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb238-2"><a href="sandstone-creek---8530---appendix.html#cb238-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&#39;Elev Min&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb238-3"><a href="sandstone-creek---8530---appendix.html#cb238-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb238-4"><a href="sandstone-creek---8530---appendix.html#cb238-4" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb238-5"><a href="sandstone-creek---8530---appendix.html#cb238-5" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-wshd-8530">Table 5.41: </span>Summary of derived upstream watershed statistics for PSCIS crossing 8530.
@@ -356,7 +356,7 @@ Table <a href="sandstone-creek---8530---appendix.html#tab:tab-culvert-bcfp-8530"
 provided in map attachment
 <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/zymo/archive/2022-09-06/FishPassage_093L.121.pdf">093L.121</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="sandstone-creek---8530---appendix.html#cb238-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="sandstone-creek---8530---appendix.html#cb239-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
@@ -670,7 +670,7 @@ All Spawning Rearing (km)
 </table>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="sandstone-creek---8530---appendix.html#cb239-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/lidar_sandstone.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="sandstone-creek---8530---appendix.html#cb240-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/lidar_sandstone.png&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:lidar-sandstone"></span>
 <img src="fig/lidar_sandstone.png" alt="Lidar generated digital elevation model of Sandstone Creek at McDonell FSR (using elevation data from 2018)." width="100%" />
 <p class="caption">
@@ -690,7 +690,7 @@ passage according to the provincial protocol <span class="citation">(MoE 2011b)<
 was 7.4 and conductivity was
 90uS/cm.</p>
 <p><br></p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="sandstone-creek---8530---appendix.html#cb240-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="sandstone-creek---8530---appendix.html#cb241-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
 <table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-culvert-8530">Table 5.43: </span>Summary of fish passage assessment for PSCIS crossing 8530.
@@ -953,16 +953,16 @@ Fix Span / Diameter
 </tfoot>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="sandstone-creek---8530---appendix.html#cb241-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
-<span id="cb241-2"><a href="sandstone-creek---8530---appendix.html#cb241-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
-<span id="cb241-3"><a href="sandstone-creek---8530---appendix.html#cb241-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
-<span id="cb241-4"><a href="sandstone-creek---8530---appendix.html#cb241-4" tabindex="-1"></a><span class="co">#fpr::fpr_my_priority_info()</span></span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="sandstone-creek---8530---appendix.html#cb242-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
+<span id="cb242-2"><a href="sandstone-creek---8530---appendix.html#cb242-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
+<span id="cb242-3"><a href="sandstone-creek---8530---appendix.html#cb242-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
+<span id="cb242-4"><a href="sandstone-creek---8530---appendix.html#cb242-4" tabindex="-1"></a><span class="co">#fpr::fpr_my_priority_info()</span></span></code></pre></div>
 </div>
 <div id="stream-characteristics-downstream-6" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Downstream<a href="sandstone-creek---8530---appendix.html#stream-characteristics-downstream-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed downstream from crossing 8530 for 275m
 (Figures <a href="sandstone-creek---8530---appendix.html#fig:photo-8530-01">5.55</a> - <a href="sandstone-creek---8530---appendix.html#fig:photo-8530-02">5.56</a>).
-Total cover amount was rated as abundant with boulders dominant. Cover was also present as small woody debris, large woody debris, undercut banks, deep pools, and overhanging vegetation.The dominant substrate was large rock/bedrock with cobbles sub-dominant.The average channel width was 4m, the average wetted width was 3.2m, and the average gradient was 2.8%. There was good flow at the time
+The average channel width was 4m, the average wetted width was 3.2m, and the average gradient was 2.8%.Total cover amount was rated as abundant with boulders dominant. Cover was also present as small woody debris, large woody debris, undercut banks, deep pools, and overhanging vegetation.The dominant substrate was large rock/bedrock with cobbles sub-dominant. There was good flow at the time
 of survey. Riparian vegetation was healthy, providing plenty of shade
 and cover. There were small packets of gravel suitable for spawning.
 Large woody debris jams and cascades were present that
@@ -978,7 +978,7 @@ salmonid rearing and spawning.</p>
 <h2>Stream Characteristics Upstream<a href="sandstone-creek---8530---appendix.html#stream-characteristics-upstream-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed upstream from crossing 8530 for 600m
 (Figures <a href="sandstone-creek---8530---appendix.html#fig:photo-8530-03">5.57</a> - <a href="sandstone-creek---8530---appendix.html#fig:photo-8530-06">5.60</a>).
-The dominant substrate was cobbles with gravels sub-dominant.The average channel width was 3.8m, the average wetted width was 2.3m, and the average gradient was 3.2%.Total cover amount was rated as moderate with small woody debris dominant. Cover was also present as large woody debris, undercut banks, and overhanging vegetation. There was abundant cover from
+Total cover amount was rated as moderate with small woody debris dominant. Cover was also present as large woody debris, undercut banks, and overhanging vegetation.The average channel width was 3.8m, the average wetted width was 2.3m, and the average gradient was 3.2%.The dominant substrate was cobbles with gravels sub-dominant. There was abundant cover from
 woody debris, overhanging veg and undercut banks at the time of survey.
 The channel was wide throughout with graveled areas suitable for
 spawning. There was trace amounts of deep pools suitable for
@@ -1025,10 +1025,10 @@ would be a key step in eliminating an outlet drop and reducing flow
 velocities at the highway crossing.</p>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="sandstone-creek---8530---appendix.html#cb242-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb242-2"><a href="sandstone-creek---8530---appendix.html#cb242-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb242-3"><a href="sandstone-creek---8530---appendix.html#cb242-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb242-4"><a href="sandstone-creek---8530---appendix.html#cb242-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="sandstone-creek---8530---appendix.html#cb243-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb243-2"><a href="sandstone-creek---8530---appendix.html#cb243-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb243-3"><a href="sandstone-creek---8530---appendix.html#cb243-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb243-4"><a href="sandstone-creek---8530---appendix.html#cb243-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-habitat-summary-8530">Table 5.44: </span>Summary of habitat details for PSCIS crossing 8530.
@@ -1126,7 +1126,7 @@ high
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="sandstone-creek---8530---appendix.html#cb243-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="sandstone-creek---8530---appendix.html#cb244-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-site-8530">Table 5.45: </span>Fish sampling site summary for 8530.
@@ -1277,7 +1277,7 @@ Open
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="sandstone-creek---8530---appendix.html#cb244-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="sandstone-creek---8530---appendix.html#cb245-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-dens-8530">Table 5.46: </span>Fish sampling density results summary for 8530.
@@ -1855,9 +1855,9 @@ FALSE
 </tfoot>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="sandstone-creek---8530---appendix.html#cb245-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
-<span id="cb245-2"><a href="sandstone-creek---8530---appendix.html#cb245-2" tabindex="-1"></a></span>
-<span id="cb245-3"><a href="sandstone-creek---8530---appendix.html#cb245-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="sandstone-creek---8530---appendix.html#cb246-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
+<span id="cb246-2"><a href="sandstone-creek---8530---appendix.html#cb246-2" tabindex="-1"></a></span>
+<span id="cb246-3"><a href="sandstone-creek---8530---appendix.html#cb246-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:plot-fish-box-8530"></span>
 <img src="Skeena2022_files/figure-html/plot-fish-box-8530-1.png" alt="Densites of fish (fish/100m2) captured upstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
@@ -1865,10 +1865,10 @@ Figure 5.54: Densites of fish (fish/100m2) captured upstream of PSCIS crossing 8
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="sandstone-creek---8530---appendix.html#cb246-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
-<span id="cb246-2"><a href="sandstone-creek---8530---appendix.html#cb246-2" tabindex="-1"></a></span>
-<span id="cb246-3"><a href="sandstone-creek---8530---appendix.html#cb246-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="sandstone-creek---8530---appendix.html#cb247-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="sandstone-creek---8530---appendix.html#cb247-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb247-2"><a href="sandstone-creek---8530---appendix.html#cb247-2" tabindex="-1"></a></span>
+<span id="cb247-3"><a href="sandstone-creek---8530---appendix.html#cb247-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="sandstone-creek---8530---appendix.html#cb248-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-01"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-01-1.png" alt="Typical habitat downstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
@@ -1876,10 +1876,10 @@ Figure 5.55: Typical habitat downstream of PSCIS crossing 8530.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="sandstone-creek---8530---appendix.html#cb248-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
-<span id="cb248-2"><a href="sandstone-creek---8530---appendix.html#cb248-2" tabindex="-1"></a></span>
-<span id="cb248-3"><a href="sandstone-creek---8530---appendix.html#cb248-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Large woody debris jam downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="sandstone-creek---8530---appendix.html#cb249-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="sandstone-creek---8530---appendix.html#cb249-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
+<span id="cb249-2"><a href="sandstone-creek---8530---appendix.html#cb249-2" tabindex="-1"></a></span>
+<span id="cb249-3"><a href="sandstone-creek---8530---appendix.html#cb249-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Large woody debris jam downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="sandstone-creek---8530---appendix.html#cb250-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-02"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-02-1.png" alt="Large woody debris jam downstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
@@ -1887,15 +1887,15 @@ Figure 5.56: Large woody debris jam downstream of PSCIS crossing 8530.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="sandstone-creek---8530---appendix.html#cb250-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb250-2"><a href="sandstone-creek---8530---appendix.html#cb250-2" tabindex="-1"></a></span>
-<span id="cb250-3"><a href="sandstone-creek---8530---appendix.html#cb250-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb250-4"><a href="sandstone-creek---8530---appendix.html#cb250-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb250-5"><a href="sandstone-creek---8530---appendix.html#cb250-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="sandstone-creek---8530---appendix.html#cb251-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="sandstone-creek---8530---appendix.html#cb251-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb251-2"><a href="sandstone-creek---8530---appendix.html#cb251-2" tabindex="-1"></a></span>
-<span id="cb251-3"><a href="sandstone-creek---8530---appendix.html#cb251-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="sandstone-creek---8530---appendix.html#cb252-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb251-3"><a href="sandstone-creek---8530---appendix.html#cb251-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb251-4"><a href="sandstone-creek---8530---appendix.html#cb251-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb251-5"><a href="sandstone-creek---8530---appendix.html#cb251-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="sandstone-creek---8530---appendix.html#cb252-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<span id="cb252-2"><a href="sandstone-creek---8530---appendix.html#cb252-2" tabindex="-1"></a></span>
+<span id="cb252-3"><a href="sandstone-creek---8530---appendix.html#cb252-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="sandstone-creek---8530---appendix.html#cb253-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-03"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-03-1.png" alt="Typical habitat upstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
@@ -1903,25 +1903,25 @@ Figure 5.57: Typical habitat upstream of PSCIS crossing 8530.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="sandstone-creek---8530---appendix.html#cb253-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb253-2"><a href="sandstone-creek---8530---appendix.html#cb253-2" tabindex="-1"></a></span>
-<span id="cb253-3"><a href="sandstone-creek---8530---appendix.html#cb253-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Area with suitable spawning gravels, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="sandstone-creek---8530---appendix.html#cb254-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="sandstone-creek---8530---appendix.html#cb254-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb254-2"><a href="sandstone-creek---8530---appendix.html#cb254-2" tabindex="-1"></a></span>
+<span id="cb254-3"><a href="sandstone-creek---8530---appendix.html#cb254-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Area with suitable spawning gravels, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="sandstone-creek---8530---appendix.html#cb255-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-04"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-04-1.png" alt="Area with suitable spawning gravels, upstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
 Figure 5.58: Area with suitable spawning gravels, upstream of PSCIS crossing 8530.
 </p>
 </div>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="sandstone-creek---8530---appendix.html#cb255-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb255-2"><a href="sandstone-creek---8530---appendix.html#cb255-2" tabindex="-1"></a></span>
-<span id="cb255-3"><a href="sandstone-creek---8530---appendix.html#cb255-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb255-4"><a href="sandstone-creek---8530---appendix.html#cb255-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb255-5"><a href="sandstone-creek---8530---appendix.html#cb255-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="sandstone-creek---8530---appendix.html#cb256-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="sandstone-creek---8530---appendix.html#cb256-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb256-2"><a href="sandstone-creek---8530---appendix.html#cb256-2" tabindex="-1"></a></span>
-<span id="cb256-3"><a href="sandstone-creek---8530---appendix.html#cb256-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="sandstone-creek---8530---appendix.html#cb257-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb256-3"><a href="sandstone-creek---8530---appendix.html#cb256-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb256-4"><a href="sandstone-creek---8530---appendix.html#cb256-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb256-5"><a href="sandstone-creek---8530---appendix.html#cb256-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="sandstone-creek---8530---appendix.html#cb257-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb257-2"><a href="sandstone-creek---8530---appendix.html#cb257-2" tabindex="-1"></a></span>
+<span id="cb257-3"><a href="sandstone-creek---8530---appendix.html#cb257-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="sandstone-creek---8530---appendix.html#cb258-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-05"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-05-1.png" alt="Typical habitat upstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
@@ -1929,26 +1929,26 @@ Figure 5.59: Typical habitat upstream of PSCIS crossing 8530.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="sandstone-creek---8530---appendix.html#cb258-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb258-2"><a href="sandstone-creek---8530---appendix.html#cb258-2" tabindex="-1"></a></span>
-<span id="cb258-3"><a href="sandstone-creek---8530---appendix.html#cb258-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="sandstone-creek---8530---appendix.html#cb259-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="sandstone-creek---8530---appendix.html#cb259-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb259-2"><a href="sandstone-creek---8530---appendix.html#cb259-2" tabindex="-1"></a></span>
+<span id="cb259-3"><a href="sandstone-creek---8530---appendix.html#cb259-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="sandstone-creek---8530---appendix.html#cb260-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-06"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-06-1.png" alt="Typical habitat upstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
 Figure 5.60: Typical habitat upstream of PSCIS crossing 8530.
 </p>
 </div>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="sandstone-creek---8530---appendix.html#cb260-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb260-2"><a href="sandstone-creek---8530---appendix.html#cb260-2" tabindex="-1"></a></span>
-<span id="cb260-3"><a href="sandstone-creek---8530---appendix.html#cb260-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb260-4"><a href="sandstone-creek---8530---appendix.html#cb260-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb260-5"><a href="sandstone-creek---8530---appendix.html#cb260-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="sandstone-creek---8530---appendix.html#cb261-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_ef1_&#39;</span>)</span>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="sandstone-creek---8530---appendix.html#cb261-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb261-2"><a href="sandstone-creek---8530---appendix.html#cb261-2" tabindex="-1"></a></span>
-<span id="cb261-3"><a href="sandstone-creek---8530---appendix.html#cb261-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Dolly Varden captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="sandstone-creek---8530---appendix.html#cb262-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb261-3"><a href="sandstone-creek---8530---appendix.html#cb261-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb261-4"><a href="sandstone-creek---8530---appendix.html#cb261-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb261-5"><a href="sandstone-creek---8530---appendix.html#cb261-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="sandstone-creek---8530---appendix.html#cb262-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_ef1_&#39;</span>)</span>
+<span id="cb262-2"><a href="sandstone-creek---8530---appendix.html#cb262-2" tabindex="-1"></a></span>
+<span id="cb262-3"><a href="sandstone-creek---8530---appendix.html#cb262-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Dolly Varden captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="sandstone-creek---8530---appendix.html#cb263-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-07"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-07-1.png" alt="Dolly Varden captured upstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
@@ -1956,21 +1956,21 @@ Figure 5.61: Dolly Varden captured upstream of PSCIS crossing 8530.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="sandstone-creek---8530---appendix.html#cb263-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_ef2_&#39;</span>)</span>
-<span id="cb263-2"><a href="sandstone-creek---8530---appendix.html#cb263-2" tabindex="-1"></a></span>
-<span id="cb263-3"><a href="sandstone-creek---8530---appendix.html#cb263-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Cutthroat trout captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="sandstone-creek---8530---appendix.html#cb264-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="sandstone-creek---8530---appendix.html#cb264-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_ef2_&#39;</span>)</span>
+<span id="cb264-2"><a href="sandstone-creek---8530---appendix.html#cb264-2" tabindex="-1"></a></span>
+<span id="cb264-3"><a href="sandstone-creek---8530---appendix.html#cb264-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Cutthroat trout captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="sandstone-creek---8530---appendix.html#cb265-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-8530-08"></span>
 <img src="Skeena2022_files/figure-html/photo-8530-08-1.png" alt="Cutthroat trout captured downstream of PSCIS crossing 8530." width="100%" />
 <p class="caption">
 Figure 5.62: Cutthroat trout captured downstream of PSCIS crossing 8530.
 </p>
 </div>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="sandstone-creek---8530---appendix.html#cb265-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb265-2"><a href="sandstone-creek---8530---appendix.html#cb265-2" tabindex="-1"></a></span>
-<span id="cb265-3"><a href="sandstone-creek---8530---appendix.html#cb265-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb265-4"><a href="sandstone-creek---8530---appendix.html#cb265-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb265-5"><a href="sandstone-creek---8530---appendix.html#cb265-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="sandstone-creek---8530---appendix.html#cb266-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb266-2"><a href="sandstone-creek---8530---appendix.html#cb266-2" tabindex="-1"></a></span>
+<span id="cb266-3"><a href="sandstone-creek---8530---appendix.html#cb266-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb266-4"><a href="sandstone-creek---8530---appendix.html#cb266-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb266-5"><a href="sandstone-creek---8530---appendix.html#cb266-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
 </div>
 </div>
