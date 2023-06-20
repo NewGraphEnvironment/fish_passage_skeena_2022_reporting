@@ -29,6 +29,8 @@ fpr_hab_alias_to_comments <- function(target = target_dir){
     write_csv(target_dir)
 }
 
+# MOTI ----------------
+
 # set up a table for the memos that contains the moti climate change data
 # make a tribble of the xref_moti_climate_template to make 2 columns in table
 # read in csv, then fpr_kable the data frame, run in rmd chunk, then copy and paste table using datapasta add in "paste as tribble"
@@ -121,7 +123,21 @@ fpr_table_moti_comments <- function(dat = tab_moti_phase2,
     fpr_kable(caption_text = paste0('Details and rational for climate risk rankings'), scroll = F)
 }
 
+# PSCIS Submissions -------------
 
+fpr_filter_list <- function(idx){
+  filestocopy_list[idx]
+}
+
+fpr_photo_change_name <- function(filenames_to_change){
+  gsub(filenames_to_change, pattern = path, replacement = targetdir)
+}
+
+fpr_copy_over_photos <- function(filescopy, filespaste){
+  file.copy(from=filescopy, to=filespaste,
+            overwrite = T,
+            copy.mode = TRUE)
+}
 
 
 
