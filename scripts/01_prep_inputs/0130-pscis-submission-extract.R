@@ -5,6 +5,10 @@
 source('scripts/packages.R')
 source('scripts/functions.R')
 
+
+
+
+
 name_repo <- 'fish_passage_skeena_2022_reporting'
 stub_from <- 'C:/Users/matwi/OneDrive'
 
@@ -240,3 +244,68 @@ file.copy(from = 'data/pscis_reassessments.xlsm',
 # https://apps.nrs.gov.bc.ca/ext/esf/submissionSearch.do?action=clear
 # user reference: 049_sern_skeena_20230111
 # submission id: 221983
+
+
+
+
+## ---------------------------start on function ---------------
+
+####################################
+
+
+test_fpr_photos_pscis <- function(name_repo = 'fish_passage_skeena_2022_reporting',
+                                  stub_to = '~/Dropbox',
+                                  path_from = 'data/photos',
+                                  workbook_name = 'pscis_phase2.xlsm'){
+
+  ##use the pscis spreadsheet to make the folders to copy the photos to
+  d <- fpr::fpr_import_pscis(workbook_name = workbook_name)
+
+  folderstocopy<- d$my_crossing_reference %>% as.character()
+
+  path_to_photos <- paste0(path_from, folderstocopy)
+
+  #!!!!!!!!!!!!!!!!!!!!!!not done properly yet
+  ##here we transfer just the photos with labels over into the PSCIS directory where we will upload from to the gov interface
+  targetdir = paste0(stub_to, '/Projects/PSCIS/phasex_submissions/PSCIS_skeena_2022_phase1/')
+  dir.create(targetdir)
+
+  folderstocreate<- paste0(targetdir, folderstocopy)
+
+  ##create the folders
+  lapply(folderstocreate, dir.create)
+
+  filestocopy_list <- path_to_photos %>%
+    purrr::map(fpr::fpr_photo_paths_to_copy) %>%
+    purrr::set_names(basename(folderstocreate))
+
+  ##rename long names if necessary
+  photo_sort_tracking <- path_to_photos %>%
+    purrr::map(fpr::fpr_photo_document_all) %>%
+    purrr::set_names(folderstocopy) %>%
+    bind_rows(.id = 'folder') %>%
+    mutate(photo_name = str_squish(str_extract(value, "[^/]*$")),
+           photo_name_length = stringr::str_length(photo_name))
+
+  ###here we back up a csv that gives us the new location and name of the original JPG photos.
+  ## Not ideal becasue we did some sorting by hand without adding name of camera to the file name but a start on reproducability nonetheless
+
+  ##burn to csv
+  photo_sort_tracking %>%
+    readr::write_csv(file = paste0('data/photos/photo_sort_tracking_',  tools::file_path_sans_ext(workbook_name), '.csv'))
+
+  filestopaste_list <- filestocopy_list %>% fpr_photo_change_name(pattern = path_from)
+
+  ##!!!!!!!!!!!!!!!copy over the photos!!!!!!!!!!!!!!!!!!!!!!!
+  mapply(fpr_copy_over_photos,
+         filescopy =  filestocopy_list,
+         filespaste = filestopaste_list)
+
+  ##also move over the pscis file
+  file.copy(from = paste0('data/', workbook_name),
+            to = paste0(targetdir, workbook_name),
+            overwrite = T)
+}
+
+
+##################################
