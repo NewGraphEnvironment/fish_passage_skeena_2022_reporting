@@ -1,4 +1,5 @@
 my_road_class,my_road_surface,road_class_mult,road_surface_mult,cost_m_1000s_bridge,cost_embed_cv
+fsr,rough,1,1,25,50
 fsr,loose,1,1,25,50
 resource,loose,1,1,25,50
 permit,loose,1,1,25,50
