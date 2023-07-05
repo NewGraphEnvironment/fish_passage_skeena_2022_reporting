@@ -473,5 +473,11 @@ copy_over_photos <- function(filescopy, filespaste){
 mapply(copy_over_photos, filescopy =  filestocopy_list,
        filespaste = filestopaste_list)
 
+# Rename extra photos used for submission to bc gov portal  ------------------------------
 
+## import csv of untracked files, create list of files that need to be renamed
+untracked <- readr::read_csv(paste0('data/inputs_extracted/photos_to_rename.csv')) %>%
+  rename(file_name = 'On branch phase2') %>%
+  filter(str_detect(file_name, '_k_')) %>%
+  mutate(renamed = str_replace_all(file_name, '_k_', '_k_nm_'))
 
