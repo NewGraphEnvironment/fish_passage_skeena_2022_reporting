@@ -22,7 +22,7 @@ my_site <- 197379
 
 ## Site Location {.unnumbered}
 
-PSCIS crossing `r as.character(my_site)` is located on `r fpr::fpr_my_pscis_info()` 28km south-west of Houston, BC at approximately km 30 on the Morice-Owen Forest Service Road (FSR), approximately `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km upstream from the confluence with the Owen River. A habitat confirmation assessment was conducted at the site in 2021 with the site revisited in the summer of 2022 for fish sampling (electrofishing and tagging). At the time of reporting, the Huckleberry Multi-Use Site was located immediately south of the subject stream at a location of approximately 1.1km upstream of the FSR.  A remote workcamp, the site is reported as housing up to 800-1200 workers employed to construct TC Energy’s Coastal GasLink (CGL) pipeline project.  Water for the camp (150,000 litres/day) is trucked in from the District of Houston with with another 150,000 litres/day of effluent trucked back to Houston from disposal [@burnslakelakesdistrictnews2022CoastalGasLink].  
+PSCIS crossing `r as.character(my_site)` is located on `r fpr::fpr_my_pscis_info()` 28km south-west of Houston, BC at approximately km 21 on the Morice-Owen Forest Service Road (FSR), approximately `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km upstream from the confluence with the Owen River. A habitat confirmation assessment was conducted at the site in 2021 with the site revisited in the summer of 2022 for fish sampling (electrofishing and tagging). At the time of reporting, the Huckleberry Multi-Use Site was located immediately south of the subject stream at a location of approximately 1.1km upstream of the FSR.  A remote workcamp, the site is reported as housing up to 800-1200 workers employed to construct TC Energy’s Coastal GasLink (CGL) pipeline project.  Water for the camp (150,000 litres/day) is trucked in from the District of Houston with with another 150,000 litres/day of effluent trucked back to Houston from disposal [@burnslakelakesdistrictnews2022CoastalGasLink].  
 
 <br>
 
@@ -107,11 +107,7 @@ Crossing `r as.character(my_site)` on an unnamed tributary to Owen Creek was ass
 <br>
 
 There was `r fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_km)`km of habitat upstream of the culvert between the Morice-Owen FSR and the 8m high waterfall with habitat rated as `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)` value for coho, steelhead and resident rainbow/cuthrout rearing and spawning. Crossing `r as.character(my_site)` was ranked as a `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement. Of note, at the time of reporting, due to our prioritization work, a design for a replacement structure to more effectively facilitate upstream migration for all fish life stages and species was being developed by Mark Dewit from the Ministry of Forests. In addition to replacement of the culvert with a bridge, recommendations going forward include:
-
-  * Electrofishing and PIT tagging upstream and downstream of the FSR to provide insight into fish community composition, density, survival and movement.
-
-  * Acquisition of lidar data for areas to the west of current data available on LidarBC (includes area of water intake facilities) to help inform about the remnant channel locations.
+proceeding to design for replacement. Of note, at the time of reporting, due to our prioritization work, a design for a replacement structure to more effectively facilitate upstream migration for all fish life stages and species was being developed by Mark Dewit from the Ministry of Forests. 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
