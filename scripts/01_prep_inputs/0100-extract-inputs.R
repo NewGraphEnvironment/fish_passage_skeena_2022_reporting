@@ -382,7 +382,7 @@ fill_dpth <- 3
 ##assign a multiplier to determine the length of a bridge above the standard
 ##that you get when you go deeper
 ##standard bridge width - we go with 12 b/c not seeing 10s in the field
-brdg_wdth <- 10
+brdg_wdth <- 15
 
 ## define a channel width where the bridge should start to be more than  brdg_wdth much larger than the width
 # we are going to arbitrarily choose 5 m extra width
