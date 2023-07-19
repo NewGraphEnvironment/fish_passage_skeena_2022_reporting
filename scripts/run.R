@@ -76,7 +76,7 @@ filename_html <- 'Skeena2022'
 
 
 files_to_move <- list.files(pattern = ".Rmd$") %>%
-  stringr::str_subset(., 'index|Skeena2021|0600', negate = T)
+  stringr::str_subset(., 'index|Skeena2022|0600', negate = T)
 files_destination <- paste0('hold/', files_to_move)
 
 ##move the files
