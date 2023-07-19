@@ -156,8 +156,8 @@ Modelling indicates there is
 habitat upstream of crossing `r as.character(my_site)` suitable for steelhead rearing, with
 areas surveyed rated as
 `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
-value for rearing and spawning. Crossing
-`r as.character(my_site)` was ranked as a
+value for rearing and spawning. Although minnnow trapping is not considered a robust sampling method to definitively determine species composition - results indicated only dolly varden presence immediately adjacent to the crossing. Besides the drop at the outlet, crossing
+`r as.character(my_site)` was in good condition and backwatering of the pipe could be considered if cost of replacement precludes remdiation efforts.  Overall the site was ranked as a
 `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
 proceeding to design for replacement. 
 
