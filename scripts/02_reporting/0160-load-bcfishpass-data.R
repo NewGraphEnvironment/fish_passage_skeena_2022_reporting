@@ -16,15 +16,26 @@ source('scripts/packages.R')
 #   password = Sys.getenv('PG_PASS_BCBARRIERS')
 # )
 
-# these are the new server params.  they could change but we may as well use the same env variable names
+
+# these are the development server params
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = Sys.getenv('PG_DB_DO'),
-  host = Sys.getenv('PG_HOST_DO'),
-  port = Sys.getenv('PG_PORT'),
-  user = Sys.getenv('PG_USER_DO'),
-  password = Sys.getenv('PG_PASS_DO')
+  dbname = Sys.getenv('PG_DB_DEV'),
+  host = Sys.getenv('PG_HOST_DEV'),
+  port = Sys.getenv('PG_PORT_DEV'),
+  user = Sys.getenv('PG_USER_DEV'),
+  password = Sys.getenv('PG_PASS_DEV')
 )
+
+# these are the production server params.  they could change but we may as well use the same env variable names
+# conn <- DBI::dbConnect(
+#   RPostgres::Postgres(),
+#   dbname = Sys.getenv('PG_DB_DO'),
+#   host = Sys.getenv('PG_HOST_DO'),
+#   port = Sys.getenv('PG_PORT'),
+#   user = Sys.getenv('PG_USER_DO'),
+#   password = Sys.getenv('PG_PASS_DO')
+# )
 
 #
 # ##listthe schemas in the database
@@ -45,6 +56,14 @@ dbGetQuery(conn,
            FROM information_schema.columns
            WHERE table_name='map'")
 
+
+# get the crossings layer from aws until we get set up with a stable db.  file was downloaded from https://bcfishpass.s3.us-west-2.amazonaws.com/crossings.fgb (see dff-2022/background_layers.sh)
+# crossings <- sf::st_read('~/Downloads/crossings.fgb',
+#                      query = "select * from crossings WHERE watershed_group_code IN ('MORR', 'ZYMO', 'KISP')")
+#
+# bcfishpass <- crossings %>%
+#   distinct(aggregated_crossings_id, .keep_all = T) %>%
+#   sf::st_drop_geometry()
 
 #
 # dbGetQuery(conn,
@@ -103,16 +122,16 @@ CROSS JOIN LATERAL
 ##get all the data and save it as an sqlite database as a snapshot of what is happening.  we can always hopefully update it
 query <- "SELECT *
    FROM bcfishpass.crossings
-   WHERE watershed_group_code IN ('BULK', 'MORR', 'ZYMO', 'KISP')"
+   WHERE watershed_group_code IN ('MORR', 'ZYMO', 'KISP')"
 
 
 ##import and grab the coordinates - this is already done
-bcfishpass<- st_read(conn, query =  query) %>%
+bcfishpass<- sf::st_read(conn, query =  query) %>%
   # st_transform(crs = 26911) %>%  #before the coordinates were switched but now they look fine...
   # mutate(
   #        easting = sf::st_coordinates(.)[,1],
   #        northing = sf::st_coordinates(.)[,2]) %>%
-  st_drop_geometry() %>%
+  sf::st_drop_geometry() %>%
   mutate(downstream_route_measure = as.integer(downstream_route_measure))
   # dplyr::distinct(.keep_all = T) #needed to do this because there are duplicated outputs
 
@@ -130,7 +149,7 @@ bcfishpass_column_comments <- st_read(conn, query =  query) %>%
 # "SELECT * FROM bcfishpass.crossings
 #    WHERE stream_crossing_id = '124487'")
 
-dbDisconnect(conn = conn)
+DBI::dbDisconnect(conn = conn)
 
 
 ##join the modelled road data to our pscis submission info
@@ -170,29 +189,29 @@ xref_pscis_my_crossing_modelled <- dat %>%
 # burn to sqlite------------------
 ##my time format format(Sys.time(), "%Y%m%d-%H%M%S")
 # mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
-conn <- rws_connect("data/bcfishpass.sqlite")
-rws_list_tables(conn)
+conn <- readwritesqlite::rws_connect("data/bcfishpass.sqlite")
+readwritesqlite::rws_list_tables(conn)
 ##archive the last version for now
 bcfishpass_archive <- readwritesqlite::rws_read_table("bcfishpass", conn = conn)
-rws_drop_table("bcfishpass_archive", conn = conn) ##if it exists get rid of it - might be able to just change exists to T in next line
-rws_write(bcfishpass_archive, exists = F, delete = TRUE,
+# readwritesqlite::rws_drop_table("bcfishpass_archive", conn = conn) ##if it exists get rid of it - might be able to just change exists to T in next line
+readwritesqlite::rws_write(bcfishpass_archive, exists = F, delete = TRUE,
           conn = conn, x_name = paste0("bcfishpass_archive_", format(Sys.time(), "%Y-%m-%d")))
-rws_drop_table("bcfishpass", conn = conn) ##now drop the table so you can replace it
-rws_write(bcfishpass, exists = F, delete = TRUE,
+readwritesqlite::rws_drop_table("bcfishpass", conn = conn) ##now drop the table so you can replace it
+readwritesqlite::rws_write(bcfishpass, exists = F, delete = TRUE,
           conn = conn, x_name = "bcfishpass")
 # write in the xref
-rws_drop_table("xref_pscis_my_crossing_modelled", conn = conn) ##now drop the table so you can replace it
-rws_write(xref_pscis_my_crossing_modelled, exists = F, delete = TRUE,
+readwritesqlite::rws_drop_table("xref_pscis_my_crossing_modelled", conn = conn) ##now drop the table so you can replace it
+readwritesqlite::rws_write(xref_pscis_my_crossing_modelled, exists = F, delete = TRUE,
           conn = conn, x_name = "xref_pscis_my_crossing_modelled")
 # add the comments
 # bcfishpass_column_comments_archive <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
 # rws_write(bcfishpass_column_comments_archive, exists = F, delete = TRUE,
 #           conn = conn, x_name = paste0("bcfishpass_column_comments_archive_", format(Sys.time(), "%Y-%m-%d-%H%m")))
-rws_drop_table("bcfishpass_column_comments", conn = conn) ##now drop the table so you can replace it
-rws_write(bcfishpass_column_comments, exists = F, delete = TRUE,
+readwritesqlite::rws_drop_table("bcfishpass_column_comments", conn = conn) ##now drop the table so you can replace it
+readwritesqlite::rws_write(bcfishpass_column_comments, exists = F, delete = TRUE,
           conn = conn, x_name = "bcfishpass_column_comments")
-rws_list_tables(conn)
-rws_disconnect(conn)
+readwritesqlite::rws_list_tables(conn)
+readwritesqlite::rws_disconnect(conn)
 
 ##make a dataframe with our crossings that need a match
 match_this <- dat_joined %>%
@@ -249,4 +268,4 @@ rws_list_tables(conn)
 rws_write(bcfishpass_spawn_rear_model, exists = F, delete = TRUE,
           conn = conn, x_name = "bcfishpass_spawn_rear_model")
 rws_list_tables(conn)
-rws_disconnect(conn)
+readwritesqlite::rws_disconnect(conn)

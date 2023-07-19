@@ -649,30 +649,6 @@ SK Rearing (ha)
 Area of lakes upstream of point modelled as potential Sockeye rearing habitat
 </td>
 </tr>
-<tr>
-<td style="text-align:left;">
-All Spawning (km)
-</td>
-<td style="text-align:left;">
-Length of stream upstream of point modelled as potential spawning habitat for all modelled species (currently BT,CH,CO,SK,ST,WCT)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-All Rearing (km)
-</td>
-<td style="text-align:left;">
-Length of stream upstream of point and below any additional upstream barriers, modelled as potential spawning habitat for all modelled species (currently BT,CH,CO,SK,ST,WCT)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-All Spawning Rearing (km)
-</td>
-<td style="text-align:left;">
-Length of all spawning and rearing habitat upstream of point
-</td>
-</tr>
 </tbody>
 <tfoot>
 <tr>
@@ -993,7 +969,7 @@ barrier
 <p><br></p>
 <p>Cost estimates for structure replacement with bridges and embedded culverts were generated based on the channel width, slope of the culvert, depth of fill, road class and road surface type. Road details were sourced from <span class="citation">FLNRORD (2020b)</span> and <span class="citation">FLNRORD (2020a)</span> through <code>bcfishpass</code>. Interviews with Phil MacDonald, Engineering Specialist FLNR - Kootenay, Steve Page, Area Engineer - FLNR - Northern Engineering Group and Matt Hawkins - MoTi - Design Supervisor for Highway Design and Survey - Nelson were utilized to helped refine estimates.</p>
 <p><br></p>
-<p>Base costs for installation of bridges on forest service roads and permit roads with surfaces specified in provincial GIS road layers as rough and loose was estimated at $12500/linear m and assumed that the road could be closed during construction and a minimum bridge span of 10m. For streams with channel widths &lt;2m, embedded culverts were reported as an effective solution with total installation costs estimated at $25k/crossing (pers. comm. Phil MacDonald, Steve Page). For larger streams (&gt;6m), span width increased proportionally to the size of the stream (ex. for an 8m wide stream a 12m wide span was prescribed). For crossings with large amounts of fill (&gt;3m), the replacement bridge span was increased by an additional 3m for each 1m of fill &gt;3m to account for cutslopes to the stream at a 1.5:1 ratio. To account for road type, a multiplier table was also generated to estimate incremental cost increases with costs estimated for structure replacement on paved surfaces, railways and arterial/highways costing up to 20 times more than forest service roads due to expenses associate with design/engineering requirements, traffic control and paving. The cost multiplier table (Table <a href="methods.html#tab:tab-cost-mult">3.7</a>) should be considered very approximate with refinement recommended for future projects.</p>
+<p>Base costs for installation of bridges on forest service roads and permit roads with surfaces specified in provincial GIS road layers as rough and loose was estimated at $25000/linear m and assumed that the road could be closed during construction and a minimum bridge span of 15m. For streams with channel widths &lt;2m, embedded culverts were reported as an effective solution with total installation costs estimated at $50k/crossing (pers. comm. Phil MacDonald, Steve Page) adjusted for inflation. For larger streams (&gt;6m), span width increased proportionally to the size of the stream (ex. for an 8m wide stream a 12m wide span was prescribed). For crossings with large amounts of fill (&gt;3m), the replacement bridge span was increased by an additional 3m for each 1m of fill &gt;3m to account for cutslopes to the stream at a 1.5:1 ratio. To account for road type, a multiplier table was also generated to estimate incremental cost increases with costs estimated for structure replacement on paved surfaces, railways and arterial/highways costing up to 20 times more than forest service roads due to expenses associate with design/engineering requirements, traffic control and paving. The cost multiplier table (Table <a href="methods.html#tab:tab-cost-mult">3.7</a>) should be considered very approximate with refinement recommended for future projects.</p>
 <p><br></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="methods.html#cb35-1" tabindex="-1"></a>tab_cost_rd_mult_report <span class="sc">%&gt;%</span></span>
 <span id="cb35-2"><a href="methods.html#cb35-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="st">&#39;Cost multiplier table based on road class and surface type.&#39;</span>, <span class="at">scroll =</span> F)</span></code></pre></div>
