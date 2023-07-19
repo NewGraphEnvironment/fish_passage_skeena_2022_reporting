@@ -46,7 +46,7 @@ description: "Skeena Fish Passage Planning 2022"
 
 ```{r switch-gitbook-html, echo=FALSE}
 gitbook_on <- TRUE
-# gitbook_on <- FALSE  ##we just need turn  this on and off to switch between gitbook and pdf via paged.js
+gitbook_on <- FALSE  ##we just need turn  this on and off to switch between gitbook and pdf via paged.js
 
 ```
 
@@ -92,7 +92,7 @@ Modern civilization has a long journey ahead to acknowledge and address the hist
 
 <br>
 
-The Society for Ecosytem Restoration in Northern British Columbia recognizes the Habitat Conservation Trust Foundation, BC Fish Passage Remediation Program and Ministry of Transportation and Infrastructure for making a significant financial contributions to supporting Skeena Watershed Fish Passage Restoration Planning. Partnerships are key to conserving BC’s wildlife, fish, and their habitats.
+The Society for Ecosystem Restoration in Northern British Columbia recognizes the Habitat Conservation Trust Foundation, BC Fish Passage Remediation Program and Ministry of Transportation and Infrastructure for making a significant financial contributions to supporting Skeena Watershed Fish Passage Restoration Planning. Partnerships are key to conserving BC’s wildlife, fish, and their habitats.
 
 
 
