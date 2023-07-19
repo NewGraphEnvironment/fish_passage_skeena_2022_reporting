@@ -23,7 +23,7 @@ my_site <- 8530
 ## Site Location {.unnumbered}
 
 PSCIS crossing `r as.character(my_site)` is located on
-`r fpr::fpr_my_pscis_info()` approximately 5km west of the town of
+`r fpr::fpr_my_pscis_info()` approximately 35km west of the town of
 Smithers, on `r fpr_my_pscis_info(col_pull = road_name)`. This crossing is located approximately 650m upstream from the confluence with the Zymoetz River.
 
 <br>
@@ -153,20 +153,15 @@ moderate rearing potential.
 
 Electrofishing was conducted with results summarised in Tables
 \@ref(tab:tab-fish-site-8530) - \@ref(tab:tab-fish-dens-8530) and Figure
-\@ref(fig:plot-fish-box-8530). Dolly varden and cutthroat trout were caught both downstream and upstream of the culvert, while rainbow trout were only caught upstream `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-8530-07) - \\@ref(fig:photo-8530-08)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-8530-u01))."))` 
+\@ref(fig:plot-fish-box-8530). Dolly varden and cutthroat trout were caught both downstream and upstream of the culvert, while rainbow trout were only caught upstream `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-8530-07) - \\@ref(fig:photo-8530-08)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-8530-u01))."))` There was some uncertainty as to whether some fish were hybrids of rainbowe and ctthrout.  Fish over 60mm in length were tagged with passive integrated transponders with tag ID and asssociated data located [here](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/raw/main/data/habitat_confirmations.xls). 
 
 <br>
 
 ## Structure Remediation and Cost Estimate {.unnumbered}
 
-Should restoration/maintenance activities proceed, replacement of PSCIS
-crossing `r as.character(my_site)` with a bridge
-(`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m
-span) is recommended. The cost of the work is estimated at
-\$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost
-benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear
-m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)`
-m^2^/\$1000.
+Should restoration/maintenance activities proceed, replacement of PSCIS crossing `r as.character(my_site)` with a bridge
+(`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m span) is recommended. The cost of the work is estimated at
+\$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)` m^2^/\$1000.
 
 <br>
 
@@ -174,17 +169,17 @@ m^2^/\$1000.
 
 There was
 `r fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_km)`km of
-habitat modelled upstream of crossing `r as.character(my_site)` with
+habitat modelled upstream of crossing `r as.character(my_site)` modelled as potential steelhead rearing habitat with
 areas surveyed rated as
 `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
-value for salmonid rearing and spawning. Crossing
+value for salmonid rearing and spawning. Additionally, Sandstone Lake upstream provides habitat and flow moderating values to the sytem.  Crossing
 `r as.character(my_site)` was ranked as a
 `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
 proceeding to design for replacement. Sandstone Creek is a large system
 with habitat suitable for numerous species including cutthroat and dolly
-varden. Development of a plan to replace the crossing with a bridge
-would be a key step in eliminating an outlet drop and reducing flow
-velocities at the highway crossing.
+varden. Although habitat has modeled as suitable for steelhead and coho, presence of anadromous species was not confirmed through sampling. Nevertheless, replacement the crossing with a bridge
+would eliminate the outlet drop and reduce flow
+velocities at the road crossing.
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 

@@ -141,9 +141,9 @@ m^2^/\$1000.
 
 ## Conclusion {.unnumbered}
 
-The BC freshwater atlas streamline indicates the stream gradient was greater than 9% below the location of the dams. After surveying the stream, measurements indicate the average gradient was below the 8% cutoff which determines accessible steelhead habitat. Therefore, there was an estimated 0.8km of habitat suitable for steelhead rearing. Areas surveyed were rated as `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
-value for salmonid rearing and spawning. `r as.character(my_site)` was ranked as a
-`r fpr::fpr_my_priority_info(col_pull = priority)` priority for proceeding to design for replacement. Electrofishing upstream of the culvert is recommended to provide insight into fish community composition and density.
+The BC freshwater atlas streamline indicates the stream gradient of the segment upstream of the FSR was 7.5% which coincides approximately with stream measurements.  This value is very near the 7.4% cutoff for modelling steelhead high value rearing habitat so we estimated 0.8km of habitat suitable for steelhead rearing  to a point where mapping indicates gradients increase to 11%. Areas surveyed were rated as `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
+value for salmonid rearing and spawning. Although there was no dam structure located where indicated in provincial data layers, Dale Creek watershed does provide the community of Kispiox with domestic water so another dam may be present farther upstream.  The site was ranked as a
+`r fpr::fpr_my_priority_info(col_pull = priority)` priority for proceeding to design for replacement. Electrofishing upstream and downstream of the culvert could be conducted to to provide insight into fish community composition and density to help further inform prioritization.
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
