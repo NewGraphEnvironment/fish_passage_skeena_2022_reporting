@@ -10,7 +10,7 @@ source('scripts/tables.R')
 bcfishpass_phase2_clean <- bcfishpass_phase2 %>%
   filter(stream_order != 1)
 
-bcfishpass_phase2 %>%
+bcfishpass_phase2_1st_order %>%
   filter(stream_order == 1)
 #
 # conn <- DBI::dbConnect(
