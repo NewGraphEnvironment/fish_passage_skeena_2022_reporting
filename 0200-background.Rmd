@@ -175,9 +175,9 @@ Kispiox River salmon are a important food source and cultural symbol for the Git
 
 <br>
 
-#### Fish Species
+### Fish Species
 
-Fish species recorded in the Bulkley River and Morice River watershed groups are detailed in Table \@ref(tab:fiss-species-table) [@data_fish_obs]. Coastal cutthrout trout and bull trout are considered of special concern (blue-listed) provincially. Summaries of some of the Skeena and Bulkley River fish species life history, biology, stock status, and traditional use are documented in @schell2003BriefOverview, @wilson_rabnett2007FishPassage, @gottesfeld_etal2002ConservingSkeena and @officeofthewetsuweten2013Wetsuwet. @wilson_rabnett2007FishPassage discuss chinook, pink, sockeye, coho, steelhead and indigenous freshwater Bulkley River fish stocks within the context of key lower and upper Bulkley River habitats such as the Suskwa River, Station Creek, Harold Price Creek, Telkwa River and Buck Creek. Key areas within the upper Bulkley River watershed with high fishery values, documented in @schell2003BriefOverview, are the upper Bulkley mainstem, Buck Creek, Dungate Creek, Barren Creek, McQuarrie Creek, Byman Creek, Richfield Creek, Johnny David Creek, Aitken Creek and Emerson Creek.
+Fish species recorded in the Morice, Zymoetz and Kispiox Rivers watershed groups are detailed in Table \@ref(tab:fiss-species-table) [@data_fish_obs]. Coastal cutthrout trout and bull trout are considered of special concern (blue-listed) provincially. Summaries of some of the Skeena fish species life history, biology, stock status, and traditional use are documented in @schell2003BriefOverview, @wilson_rabnett2007FishPassage, @gottesfeld_etal2002ConservingSkeena and @officeofthewetsuweten2013Wetsuwet. @wilson_rabnett2007FishPassage discuss chinook, pink, sockeye, coho, steelhead and indigenous freshwater Bulkley River fish stocks within the context of key lower and upper Bulkley River habitats such as the Suskwa River, Station Creek, Harold Price Creek, Telkwa River and Buck Creek. Key areas within the upper Bulkley River watershed with high fishery values, documented in @schell2003BriefOverview, are the upper Bulkley mainstem, Buck Creek, Dungate Creek, Barren Creek, McQuarrie Creek, Byman Creek, Richfield Creek, Johnny David Creek, Aitken Creek and Emerson Creek.
 
 <br>
 
@@ -207,23 +207,22 @@ Summaries of historical fish observations in the Bulkley River and Morice River 
 
 ```{r fiss-species-table}
 fiss_species_table <- readr::read_csv(paste0(getwd(), '/data/inputs_extracted/fiss_species_table.csv'))
-  # filter(`Species Code` != 'CT') %>% 
-# fiss_species_table %>%  
-#   my_kable(caption_text = 'Fish species recorded in the Bulkley River and Morice River watershed groups.')
-# 
-# 
-# if(gitbook_on){
-# fiss_species_table %>% 
-#   fpr::fpr_kable(caption_text = 'Fish species recorded in the Bulkley River and Morice River watershed groups.')
-# } else fiss_species_table[1:41, ] %>% 
-#   fpr::fpr_kable(caption_text = 'Fish species recorded in the Bulkley River and Morice River watershed groups.', scroll = F)
-# 
-# if(identical(gitbook_on, FALSE)){fiss_species_table[42:nrow(fiss_species_table), ] %>% 
-#   fpr::fpr_kable(scroll = F)}
 
 fiss_species_table %>% 
-  fpr::fpr_kable(caption_text = 'Fish species recorded in the Bulkley River and Morice River watershed groups.', scroll = gitbook_on)
-
+  fpr::fpr_kable(caption_text = 'Fish species recorded in the Morice River, Zymoetz River, and Kispiox River watershed groups.', 
+                 footnote_text = 'COSEWIC abbreviations : 
+                 SC - Special concern 
+                 DD - Data deficient
+                 NAR - Not at risk
+                 E - Endangered
+                 T - Threatened
+                 
+                 BC List definitions : 
+                 Yellow - Species that is apparently secure 
+                 Blue - Species that is of special concern
+                 Exotic - Species that have been moved beyond their natural range as a result of human activity
+                 ',
+                 scroll = gitbook_on)
 ```
 
 <br>
