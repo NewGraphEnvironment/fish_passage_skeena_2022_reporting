@@ -20,11 +20,11 @@ source('scripts/packages.R')
 # these are the development server params
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = Sys.getenv('PG_DB_DEV'),
-  host = Sys.getenv('PG_HOST_DEV'),
-  port = Sys.getenv('PG_PORT_DEV'),
-  user = Sys.getenv('PG_USER_DEV'),
-  password = Sys.getenv('PG_PASS_DEV')
+  dbname = Sys.getenv('PG_DB_SHARE'),
+  host = Sys.getenv('PG_HOST_SHARE'),
+  port = Sys.getenv('PG_PORT_SHARE'),
+  user = Sys.getenv('PG_USER_SHARE'),
+  password = Sys.getenv('PG_PASS_SHARE')
 )
 
 # these are the production server params.  they could change but we may as well use the same env variable names
@@ -122,7 +122,7 @@ CROSS JOIN LATERAL
 ##get all the data and save it as an sqlite database as a snapshot of what is happening.  we can always hopefully update it
 query <- "SELECT *
    FROM bcfishpass.crossings
-   WHERE watershed_group_code IN ('MORR', 'ZYMO', 'KISP')"
+   WHERE watershed_group_code IN ('MORR', 'ZYMO', 'KISP', 'KLUM')"
 
 
 ##import and grab the coordinates - this is already done
@@ -148,6 +148,15 @@ bcfishpass_column_comments <- st_read(conn, query =  query) %>%
 # porphyryr <- st_read(conn, query =
 # "SELECT * FROM bcfishpass.crossings
 #    WHERE stream_crossing_id = '124487'")
+
+# get the pscis data
+query <- "SELECT p.*, wsg.watershed_group_code
+   FROM whse_fish.pscis_assessment_svw p
+   INNER JOIN whse_basemapping.fwa_watershed_groups_poly wsg
+ON ST_Intersects(wsg.geom,p.geom)
+WHERE wsg.watershed_group_code IN ('MORR', 'ZYMO', 'KISP', 'KLUM');"
+
+pscis <- st_read(conn, query =  query)
 
 DBI::dbDisconnect(conn = conn)
 
@@ -203,6 +212,8 @@ readwritesqlite::rws_write(bcfishpass, exists = F, delete = TRUE,
 readwritesqlite::rws_drop_table("xref_pscis_my_crossing_modelled", conn = conn) ##now drop the table so you can replace it
 readwritesqlite::rws_write(xref_pscis_my_crossing_modelled, exists = F, delete = TRUE,
           conn = conn, x_name = "xref_pscis_my_crossing_modelled")
+rws_write(pscis, exists = F, delete = TRUE,
+          conn = conn, x_name = "pscis")
 # add the comments
 # bcfishpass_column_comments_archive <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
 # rws_write(bcfishpass_column_comments_archive, exists = F, delete = TRUE,
