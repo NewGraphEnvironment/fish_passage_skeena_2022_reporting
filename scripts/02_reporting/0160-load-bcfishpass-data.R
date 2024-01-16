@@ -17,7 +17,7 @@ source('scripts/packages.R')
 # )
 
 
-# these are the development server params
+# these are the shared server params
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
   dbname = Sys.getenv('PG_DB_SHARE'),
@@ -51,10 +51,10 @@ dbGetQuery(conn,
   filter(table_name %ilike% 'prec')
 # # # # # #
 # # # # # # ##list column names in a table
-dbGetQuery(conn,
-           "SELECT column_name,data_type
+test <- dbGetQuery(conn,
+           "SELECT column_name
            FROM information_schema.columns
-           WHERE table_name='map'")
+           WHERE table_name='crossings'")
 
 
 # get the crossings layer from aws until we get set up with a stable db.  file was downloaded from https://bcfishpass.s3.us-west-2.amazonaws.com/crossings.fgb (see dff-2022/background_layers.sh)
@@ -122,15 +122,12 @@ CROSS JOIN LATERAL
 ##get all the data and save it as an sqlite database as a snapshot of what is happening.  we can always hopefully update it
 query <- "SELECT *
    FROM bcfishpass.crossings
-   WHERE watershed_group_code IN ('MORR', 'ZYMO', 'KISP', 'KLUM')"
+   WHERE watershed_group_code IN ('MORR', 'ZYMO', 'KISP', 'KLUM', 'BABR')"
+
 
 
 ##import and grab the coordinates - this is already done
-bcfishpass<- sf::st_read(conn, query =  query) %>%
-  # st_transform(crs = 26911) %>%  #before the coordinates were switched but now they look fine...
-  # mutate(
-  #        easting = sf::st_coordinates(.)[,1],
-  #        northing = sf::st_coordinates(.)[,2]) %>%
+sf::st_read(conn, query =  query)
   sf::st_drop_geometry() %>%
   mutate(downstream_route_measure = as.integer(downstream_route_measure))
   # dplyr::distinct(.keep_all = T) #needed to do this because there are duplicated outputs

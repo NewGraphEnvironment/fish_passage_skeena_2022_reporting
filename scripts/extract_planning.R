@@ -37,7 +37,7 @@ planning <- left_join(
         image_view_url),
 
     by = c('aggregated_crossings_id' = 'stream_crossing_id')) %>%
-    mutate(map_link = paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_', dbm_mof_50k_grid, '.pdf')) %>%
+    mutate(map_link = paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/klum/archive/2022-09-06/FishPassage_', dbm_mof_50k_grid, '.pdf')) %>%
     mutate(my_review = TRUE) %>%
     dplyr::select(aggregated_crossings_id,
            my_review,
@@ -52,7 +52,7 @@ planning <- left_join(
 
 ) %>%
   filter(watershed_group_code == 'KLUM') %>%
-  filter(st_rearing_km > 0.1) %>%
+  filter(st_rearing_km > 0.3) %>%
   filter(crossing_type_code != 'OBS') %>%
   filter(barrier_status == 'POTENTIAL'|barrier_status == 'BARRIER') %>%
   filter(is.na(pscis_status) | (pscis_status != 'HABITAT CONFIRMATION' &
@@ -83,7 +83,8 @@ planning %>%
 
 
 
-
+test <- bcfishpass %>%
+  filter(watershed_group_code == 'BABR')
 
 
 
