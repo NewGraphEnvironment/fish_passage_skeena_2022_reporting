@@ -349,7 +349,7 @@ knitr::include_graphics("fig/fish_histogram.png")
 
 ```{r tab-fish-site-summary}
 tab_fish_sites_sum %>% 
-  fpr::fpr_kable(caption_text = 'Summary of electrofishing sites.')
+  fpr::fpr_kable(caption_text = 'Summary of electrofishing sites.', scroll = F)
 ```
 
 <br>
