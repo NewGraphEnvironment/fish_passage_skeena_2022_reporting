@@ -29,13 +29,11 @@ pkgs_cran <- c(
   'ggdark',
   'geojsonio',
   'pdftools',
-  'xlsx',
   'pagedown',
   'crosstalk',
   'DT',
   'fishbc',
   'chron',
-  'remotes',
   'roxygen2',
   'devtools'
 
@@ -58,8 +56,8 @@ pkgs_all <- c(pkgs_cran,
 
 
 # install or upgrade all the packages with pak
-lapply(pkgs_all,
-       pak::pkg_install, dependencies = TRUE)
+# lapply(pkgs_all,
+#        pak::pkg_install, dependencies = TRUE, ask = FALSE)
 
 # load all the packages
 

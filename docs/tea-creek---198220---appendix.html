@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tea Creek - 198220 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022</title>
   <meta name="description" content="Skeena Fish Passage Planning 2022" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tea Creek - 198220 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022" />
   <meta property="og:type" content="book" />
@@ -52,16 +52,16 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script>
-<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.1.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
 <link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
 <script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
@@ -169,6 +169,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -260,7 +264,7 @@ upstream from the confluence with the Kitwanga River. PSCIS crossing 198200 on M
 <p>At crossing 198220, Tea Creek is a fourth order stream with a
 watershed area upstream of the crossing of approximately 52.2km<sup>2</sup>. The elevation of the watershed ranges from
 a maximum of 1141m to 251m near the crossing (Table
-<a href="tea-creek---198220---appendix.html#tab:tab-wshd-198220">5.20</a>). Upstream of crossing 198220, have previously
+<a href="tea-creek---198220---appendix.html#tab:tab-wshd-198220">5.20</a>). Upstream of crossing 198220, cutthroat trout, coho salmon, rainbow trout, steelhead, and dolly varden have previously
 been recorded <span class="citation">(MoE 2020b; Norris 2022)</span>. Steelhead use of the system upstream of the highway was confirmed by a local landowner who reported historic spawning in the tributary to Tea Creek that flows into the stream just below Moore Road and PSCIS crossing 198200.</p>
 <p><br></p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="tea-creek---198220---appendix.html#cb139-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
@@ -399,7 +403,7 @@ ST Lake Reservoir (ha)
 ST Wetland (ha)
 </td>
 <td style="text-align:right;">
-40.8
+47.7
 </td>
 <td style="text-align:right;">
 1.4
@@ -511,13 +515,13 @@ CH Spawning (km)
 CH Rearing (km)
 </td>
 <td style="text-align:right;">
-10.9
+7.5
 </td>
 <td style="text-align:right;">
 7.2
 </td>
 <td style="text-align:right;">
-66
+96
 </td>
 </tr>
 <tr>
@@ -539,13 +543,13 @@ CO Spawning (km)
 CO Rearing (km)
 </td>
 <td style="text-align:right;">
-17.5
+18.2
 </td>
 <td style="text-align:right;">
 7.2
 </td>
 <td style="text-align:right;">
-41
+40
 </td>
 </tr>
 <tr>
@@ -553,13 +557,13 @@ CO Rearing (km)
 CO Rearing (ha)
 </td>
 <td style="text-align:right;">
-0.0
+24.1
 </td>
 <td style="text-align:right;">
 0.0
 </td>
 <td style="text-align:right;">
-–
+0
 </td>
 </tr>
 <tr>
@@ -595,7 +599,7 @@ SK Rearing (km)
 SK Rearing (ha)
 </td>
 <td style="text-align:right;">
-0.0
+–
 </td>
 <td style="text-align:right;">
 0.0
@@ -1611,7 +1615,7 @@ Fix Span / Diameter
 <h2>Stream Characteristics Downstream<a href="tea-creek---198220---appendix.html#stream-characteristics-downstream-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed downstream from crossing 198220 for 400m
 (Figures <a href="tea-creek---198220---appendix.html#fig:photo-198220-01">5.26</a> - <a href="tea-creek---198220---appendix.html#fig:photo-198220-02">5.27</a>).
-The dominant substrate was gravels with cobbles sub-dominant.The average channel width was 5.4m, the average wetted width was 3.2m, and the average gradient was 3%.Total cover amount was rated as moderate with boulders dominant. Cover was also present as small woody debris, undercut banks, and overhanging vegetation. There was boulder cover and gravels throughout the survey but very few pools. The
+Total cover amount was rated as moderate with boulders dominant. Cover was also present as small woody debris, undercut banks, and overhanging vegetation.The dominant substrate was gravels with cobbles sub-dominant.The average channel width was 5.4m, the average wetted width was 3.2m, and the average gradient was 3%. There was boulder cover and gravels throughout the survey but very few pools. The
 habitat was rated as high value for
 salmonid rearing and spawning.</p>
 </div>
@@ -1619,7 +1623,7 @@ salmonid rearing and spawning.</p>
 <h2>Stream Characteristics Upstream<a href="tea-creek---198220---appendix.html#stream-characteristics-upstream-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed upstream from crossing 198220 for 600m
 (Figures <a href="tea-creek---198220---appendix.html#fig:photo-198220-03">5.28</a> - <a href="tea-creek---198220---appendix.html#fig:photo-198220-06">5.31</a>).
-The dominant substrate was cobbles with gravels sub-dominant.Total cover amount was rated as moderate with small woody debris dominant. Cover was also present as large woody debris, boulders, undercut banks, and overhanging vegetation.The average channel width was 4.2m, the average wetted width was 2.8m, and the average gradient was 3.9%. Only a few areas contained gravels suitable for spawning. The channel was wide throughout with a lot of woody debris. There were large amounts of undercut banks that provided cover, but very few deep pools. Some steep eroding banks were seen in a few locations on the survey. Juvenile fish were spotted, in the culvert on Moore Road. Overall, the habitat was rated as medium value as an important migration corridor containing suitable spawning habitat and having moderate rearing potential.</p>
+The dominant substrate was cobbles with gravels sub-dominant.The average channel width was 4.2m, the average wetted width was 2.8m, and the average gradient was 3.9%.Total cover amount was rated as moderate with small woody debris dominant. Cover was also present as large woody debris, boulders, undercut banks, and overhanging vegetation. Only a few areas contained gravels suitable for spawning. The channel was wide throughout with a lot of woody debris. There were large amounts of undercut banks that provided cover, but very few deep pools. Some steep eroding banks were seen in a few locations on the survey. Juvenile fish were spotted, in the culvert on Moore Road. Overall, the habitat was rated as medium value as an important migration corridor containing suitable spawning habitat and having moderate rearing potential.</p>
 <p><br></p>
 </div>
 <div id="structure-remediation-and-cost-estimate-2" class="section level2 unnumbered hasAnchor">
