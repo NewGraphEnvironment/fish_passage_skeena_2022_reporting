@@ -121,6 +121,17 @@ hab_fish_indiv <- full_join(
   mutate(site_id = paste0(site, '_', location))
 
 
+# make a summary table for fish sampling data
+tab_fish_summary <- hab_fish_indiv %>%
+  group_by(site_id,
+           ef,
+           sampling_method,
+           species_code) %>% ##added sampling method!
+  summarise(count_fish = n()) %>%
+  arrange(site_id, species_code, ef)
+
+#rename so we can use with updated data
+tab_fish_summary_updated <- tab_fish_summary
 
 
 # this will be joined to the abundance estimates and the confidence intervals
@@ -200,6 +211,9 @@ fish_abund <- left_join(
          density_100m2 = round(catch/area_m2 * 100,1)) %>%
   tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F)
 
+# Rename so we can call fpr_table_fish_density() and fpr_plot_fish_box() with updated data
+fish_abund_updated <- fish_abund
+
 
 
 ## Needed for fpr_table_fish_site()
@@ -227,4 +241,7 @@ rm(fish_abund_prep,
   fish_abund_prep3,
   fish_nfc_tag
 )
+
+# Rename so we can call fpr_table_fish_site() with updated data
+tab_fish_sites_sum_updated <- tab_fish_sites_sum
 
