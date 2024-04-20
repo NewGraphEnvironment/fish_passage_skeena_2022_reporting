@@ -220,11 +220,9 @@ knitr::include_graphics(my_photo, dpi = NA)
 ## Fish Sampling {.unnumbered}
 
 Electrofishing was conducted at crossing `r as.character(my_site2)` in 2023 with results summarised in Tables \@ref(tab:tab-fish-site-198217) - \@ref(tab:tab-fish-dens-198217) and Figure
-\@ref(fig:plot-fish-box-198217). A total of `r tab_fish_summary_updated %>% filter(site_id == paste0(my_site2, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured upstream and 
+\@ref(fig:plot-fish-box-198217). A total of `r tab_fish_summary_updated %>% filter(site_id == paste0(my_site2, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured upstream and `r tab_fish_summary_updated %>% filter(site_id == paste0(my_site2, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured downstream `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198217-07) - \\@ref(fig:photo-198217-08) - \\@ref(fig:photo-198217-09)).")}else(knitr::asis_output("(Figures \\@ref(fig:photo-198217-u01) - \\@ref(fig:photo-198217-u02))."))`
 
-<!-- `r tab_fish_summary_updated %>% filter(site_id == paste0(my_site2, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured downstream `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-197379-07) - \\@ref(fig:photo-197379-08)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-197379-u01))."))` -->
-
-<!-- Although coho, dolly varden, rainbow trout and cutthrout trout (rainbow and cutthrout were potentially hybrd rainbow/cutthrout) parr (likely 1 year old fish) were captured downstream of the crossing, only rainbow trout and cutthrout trout were captured upstream. As noted, the stream was mostly dry at the time of electrofishing, with fish concentrated in pools. All fish over 60mm that were captured were tagged with Passive Integrated Transponders (PIT tags) with data stored [here](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/blob/main/data/habitat_confirmations.xls). -->
+<!-- Although dolly varden and cutthrout trout parr (likely 1 year old fish) were captured downstream of the crossing, only cutthrout trout were captured upstream. All fish over 60mm that were captured were tagged with Passive Integrated Transponders (PIT tags) with data stored [here](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/blob/main/data/habitat_confirmations.xls). -->
 
 
 ## Structure Remediation and Cost Estimate {.unnumbered}
@@ -396,4 +394,58 @@ my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
 knitr::include_graphics(my_photo1)
 knitr::include_graphics("fig/pixel.png")
 knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+```{r photo-198217-07-prep}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site2, dir_photos = "data/photos/", str_to_pull = '_ct_us')
+
+my_caption1 = paste0('Cutthroat trout captured upstream of PSCIS crossing ', my_site2, '.')
+
+```
+
+```{r photo-198217-07, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-198217-08-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site2, dir_photos = "data/photos/", str_to_pull = '_dv_ds')
+
+my_caption2 = paste0('Dolly Varden captured downstream of PSCIS crossing ', my_site2, '.')
+
+```
+
+```{r photo-198217-08, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+<br>
+
+```{r photo-198217-09-prep}
+my_photo3 = fpr::fpr_photo_pull_by_str(site = my_site2, dir_photos = "data/photos/", str_to_pull = '_ct_ds')
+
+my_caption3 = paste0('Cutthroat trout captured downstream of PSCIS crossing ', my_site2, '.')
+
+```
+
+```{r photo-198217-09, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo3))
+```
+
+```{r photo-198217-u01, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- my_caption1
+knitr::include_graphics(my_photo1)
+```
+
+```{r photo-198217-u02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption2, ' Right: ', my_caption3)
+
+knitr::include_graphics(my_photo2)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo3)
 ```
