@@ -263,7 +263,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197379-08-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_ef2_')
 
-my_caption2 = paste0('Cutthroat captured upstream of PSCIS crossing ', my_site, '.')
+my_caption2 = paste0('Cutthroat trout captured upstream of PSCIS crossing ', my_site, '.')
 
 ```
 
