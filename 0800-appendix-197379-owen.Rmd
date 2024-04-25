@@ -251,7 +251,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-197379-07-prep}
 my_photo1 = fpr::fpr_photo_pull_by_str(str_to_pull = '_ef1_')
 
-my_caption1 = paste0('Coho trout captured downstream of PSCIS crossing ', my_site, '.')
+my_caption1 = paste0('Coho captured downstream of PSCIS crossing ', my_site, '.')
 ```
 
 ```{r photo-197379-07, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
