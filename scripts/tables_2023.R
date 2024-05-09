@@ -76,49 +76,49 @@ hab_fish_collect_info <- habitat_confirmations %>%
 hab_fish_indiv <- full_join(
   select(hab_fish_indiv_prep3,
          reference_number,
-         sampling_method,
-         method_number,
-         haul_number_pass_number,
+         alias_local_name,
          species_code,
          length_mm,
          weight_g),
   select(hab_fish_collect_info,
          reference_number,
          local_name,
-         temperature_c:model, ##added date_in:time_out
-         comments
-  ),
+         sampling_method:model,
+         date_in:time_out, ##added date_in:time_out because we did minnow traps
+         comments),
   by = c(
     "reference_number",
-    # 'alias_local_name' = 'local_name',
-    "sampling_method",
-    "method_number",
-    "haul_number_pass_number")
-) %>%
-  mutate(species_code = as.character(species_code)) %>%
+    'alias_local_name' = 'local_name')
+) |>
+  rename(local_name = alias_local_name) |>
+  mutate(species_code = as.character(species_code)) |>
   mutate(species_code = case_when(
     is.na(species_code) ~ 'NFC',
     T ~ species_code)
-  ) %>%
-  mutate(species_code = as.factor(species_code)) %>%
+  ) |>
+  mutate(species_code = as.factor(species_code)) |>
   mutate(life_stage = case_when(  ##this section comes from the histogram below - we include here so we don't need to remake the df
     length_mm <= 65 ~ 'fry',
     length_mm > 65 & length_mm <= 110 ~ 'parr',
     length_mm > 110 & length_mm <= 140 ~ 'juvenile',
     length_mm > 140 ~ 'adult',
     T ~ NA_character_
-  ),
-  life_stage = case_when(
-    species_code %in% c('L', 'SU', 'LSU') ~ NA_character_,
-    T ~ life_stage
-  ))%>%
+  )) |>
+  mutate(life_stage = case_when(
+    str_detect(species_code, 'L|SU|LSU') ~ NA_character_,
+    TRUE ~ life_stage)) |>
+  mutate(comments = case_when(
+    str_detect(species_code, 'L|SU|LSU') & is.na(comments) ~
+      'Not salmonids so no life stage specified.',
+    T ~ comments))|>
   mutate(life_stage = fct_relevel(life_stage,
                                   'fry',
                                   'parr',
                                   'juvenile',
-                                  'adult')) %>%
-  tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F) %>%
+                                  'adult')) |>
+  tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F) |>
   mutate(site_id = paste0(site, '_', location))
+
 
 
 # make a summary table for fish sampling data
@@ -131,7 +131,7 @@ tab_fish_summary <- hab_fish_indiv %>%
   arrange(site_id, species_code, ef)
 
 #rename so we can use with updated data
-tab_fish_summary_updated <- tab_fish_summary
+tab_fish_summary_2023 <- tab_fish_summary
 
 
 # this will be joined to the abundance estimates and the confidence intervals
@@ -212,7 +212,7 @@ fish_abund <- left_join(
   tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F)
 
 # Rename so we can call fpr_table_fish_density() and fpr_plot_fish_box() with updated data
-fish_abund_updated <- fish_abund
+fish_abund_2023 <- fish_abund
 
 
 
@@ -243,5 +243,5 @@ rm(fish_abund_prep,
 )
 
 # Rename so we can call fpr_table_fish_site() with updated data
-tab_fish_sites_sum_updated <- tab_fish_sites_sum
+tab_fish_sites_sum_2023 <- tab_fish_sites_sum
 
