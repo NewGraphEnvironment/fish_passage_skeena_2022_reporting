@@ -7,7 +7,7 @@ pkgs_cran <- c(
   'janitor',
   'leafem',
   'leaflet',
-  'kableExtra',
+  # 'kableExtra',
   'httr',
   'RPostgres',
   # 'RPostgreSQL',
@@ -30,8 +30,6 @@ pkgs_cran <- c(
   'geojsonio',
   'pdftools',
   'pagedown',
-  'crosstalk',
-  'DT',
   'fishbc',
   'chron',
   'roxygen2',
@@ -48,7 +46,8 @@ pkgs_cran <- c(
 pkgs_gh <- c(#'Envirometrix/plotKML',  #plot kml needed to go ahead of other packages for some reason and wants to reinstall everytime.... not sure why. hash out for nowpoissonconsulting/fwapgr",
   'poissonconsulting/poisspatial',
   'poissonconsulting/fwapgr',
-  "newgraphenvironment/fpr"
+  "newgraphenvironment/fpr",
+  "haozhu233/kableExtra"
 )
 
 pkgs_all <- c(pkgs_cran,
