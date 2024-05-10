@@ -109,8 +109,8 @@ hab_fish_indiv <- full_join(
     T ~ NA_character_
   ),
   life_stage = case_when(
-    species_code %in% c('L', 'SU', 'LSU') ~ NA_character_,
-    T ~ life_stage
+    stringr::str_detect(species_code, 'L|SU|LSU') ~ NA_character_,
+    TRUE ~ life_stage
   ))%>%
   mutate(life_stage = fct_relevel(life_stage,
                                   'fry',
@@ -119,6 +119,8 @@ hab_fish_indiv <- full_join(
                                   'adult')) %>%
   tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F) %>%
   mutate(site_id = paste0(site, '_', location))
+
+
 
 
 # make a summary table for fish sampling data
@@ -131,7 +133,7 @@ tab_fish_summary <- hab_fish_indiv %>%
   arrange(site_id, species_code, ef)
 
 #rename so we can use with updated data
-tab_fish_summary_updated <- tab_fish_summary
+tab_fish_summary_2023 <- tab_fish_summary
 
 
 # this will be joined to the abundance estimates and the confidence intervals
@@ -212,7 +214,7 @@ fish_abund <- left_join(
   tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F)
 
 # Rename so we can call fpr_table_fish_density() and fpr_plot_fish_box() with updated data
-fish_abund_updated <- fish_abund
+fish_abund_2023 <- fish_abund
 
 
 
@@ -243,5 +245,5 @@ rm(fish_abund_prep,
 )
 
 # Rename so we can call fpr_table_fish_site() with updated data
-tab_fish_sites_sum_updated <- tab_fish_sites_sum
+tab_fish_sites_sum_2023 <- tab_fish_sites_sum
 
