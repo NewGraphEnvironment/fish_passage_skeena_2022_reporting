@@ -1,6 +1,9 @@
 ## Scripts to update and add data from the recent sampling year.
 ## Creating objects needed for fpr_table_fish_site(), fpr_table_fish_density() and fpr_plot_fish_box()
 ## so that we can add tables with most recent data to the report.
+## copy select 2023 photo directories from shared server to repo so we can include in report. photo file name changes
+## occurring on shared server only
+
 
 source("scripts/packages.R")
 
@@ -246,4 +249,24 @@ rm(fish_abund_prep,
 
 # Rename so we can call fpr_table_fish_site() with updated data
 tab_fish_sites_sum_2023 <- tab_fish_sites_sum
+
+#-----photos------------------------------------------------------------------------------------------
+## copy select 2023 photo directories from shared server to repo so we can include in report. photo file name changes
+# make list of directories to transfer
+
+
+dir_2023_photos_stub = "~/Library/CloudStorage/OneDrive-Personal/Projects/2023_data/skeena/photos/"
+dir_2023_photos <- c("198225", "198217", "198215")
+
+dir_repo_photos_stub = "data/2023/photos/"
+
+# create the directory
+fs::dir_create(dir_repo_photos_stub)
+
+# copy the directories with purrr::map
+purrr::map(dir_2023_photos,
+           ~fs::dir_copy(paste0(dir_2023_photos_stub, .x),
+                         paste0(dir_repo_photos_stub, .x),
+           overwrite = TRUE))
+
 
