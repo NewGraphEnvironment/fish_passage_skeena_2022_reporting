@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tributary to Kitwanga River - 198236 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022</title>
   <meta name="description" content="Skeena Fish Passage Planning 2022" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tributary to Kitwanga River - 198236 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022" />
   <meta property="og:type" content="book" />
@@ -52,6 +52,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
@@ -59,9 +61,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
 <script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
@@ -227,6 +229,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="tributary-to-kitwanga-river---198236---appendix.html"><a href="tributary-to-kitwanga-river---198236---appendix.html"><i class="fa fa-check"></i>Tributary to Kitwanga River - 198236 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="sandstone-creek---8530---appendix.html"><a href="sandstone-creek---8530---appendix.html"><i class="fa fa-check"></i>Sandstone Creek - 8530 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="report-change-log.html"><a href="report-change-log.html"><i class="fa fa-check"></i>Report Change Log</a></li>
 <li class="chapter" data-level="" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i>Session Info</a></li>
 <li class="chapter" data-level="" data-path="attachment-1---maps.html"><a href="attachment-1---maps.html"><i class="fa fa-check"></i><strong>Attachment 1 - Maps</strong></a></li>
 <li class="chapter" data-level="" data-path="attachment-2---habitat-assessment-data.html"><a href="attachment-2---habitat-assessment-data.html"><i class="fa fa-check"></i><strong>Attachment 2 - Habitat Assessment Data</strong></a></li>
@@ -261,15 +264,15 @@ Tributary to Kitwanga River, on the Kitwancool Branch 2 FSR 4.3km upstream from 
 </div>
 <div id="background-7" class="section level2 unnumbered hasAnchor">
 <h2>Background<a href="tributary-to-kitwanga-river---198236---appendix.html#background-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>At crossing 198236, Tributary to Kitwanga River is a third order stream with a watershed area upstream of the crossing of approximately 4.8km<sup>2</sup>. The elevation of the watershed ranges from a maximum of 1760m to 449m near the crossing (Table <a href="tributary-to-kitwanga-river---198236---appendix.html#tab:tab-wshd-198236">5.37</a>). At the time of reporting, there was no fisheries information available for the areas upstream of crossing 198236.</p>
+<p>At crossing 198236, Tributary to Kitwanga River is a third order stream with a watershed area upstream of the crossing of approximately 4.8km<sup>2</sup>. The elevation of the watershed ranges from a maximum of 1760m to 449m near the crossing (Table <a href="tributary-to-kitwanga-river---198236---appendix.html#tab:tab-wshd-198236">5.41</a>). At the time of reporting, there was no fisheries information available for the areas upstream of crossing 198236.</p>
 <p><br></p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb216-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb216-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb216-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb216-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb216-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb216-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb216-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb232-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb232-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb232-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb232-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb232-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb232-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb232-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-wshd-198236">Table 5.37: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198236.
+<span id="tab:tab-wshd-198236">Table 5.41: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198236.
 </caption>
 <thead>
 <tr>
@@ -340,15 +343,15 @@ SE
 <p><br></p>
 <p>PSCIS stream crossing 198236 was ranked as a moderate
 priority for follow up by the Society for Ecosystem Restoration in Northern BC. A Fish Habitat Assessment Procedure was completed at this site in 2008 by members of the Skeena Fisheries Commission. At the time of assessment, it was concluded that the culvert presented a velocity barrier to juveniles. The habitat upstream was modelled at 8%. A summary of habitat modelling outputs is presented in Table
-<a href="tributary-to-kitwanga-river---198236---appendix.html#tab:tab-culvert-bcfp-198236">5.38</a>. A map of the watershed is provided in
+<a href="tributary-to-kitwanga-river---198236---appendix.html#tab:tab-culvert-bcfp-198236">5.42</a>. A map of the watershed is provided in
 map attachment
 <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/kisp/archive/2022-09-06/FishPassage_103P.115.pdf">103P.115</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb217-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb233-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-bcfp-198236">Table 5.38: </span>Summary of fish habitat modelling for PSCIS crossing 198236.
+<span id="tab:tab-culvert-bcfp-198236">Table 5.42: </span>Summary of fish habitat modelling for PSCIS crossing 198236.
 </caption>
 <thead>
 <tr>
@@ -623,17 +626,17 @@ SK Rearing (ha)
 un-embedded, non-backwatered and ranked as a
 barrier
 barrier to upstream fish passage according to the provincial protocol
-<span class="citation">(MoE 2011b)</span> (Table <a href="tributary-to-kitwanga-river---198236---appendix.html#tab:tab-culvert-198236">5.39</a>). There
+<span class="citation">(MoE 2011b)</span> (Table <a href="tributary-to-kitwanga-river---198236---appendix.html#tab:tab-culvert-198236">5.43</a>). There
 was low flow through both culverts at the time of survey. Water temperature was
 8<span class="math inline">\(^\circ\)</span>C,
 pH was 8.3 and
 conductivity was
 149uS/cm.</p>
 <p><br></p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb218-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
-<table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb234-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-198236">Table 5.39: </span>Summary of fish passage assessment for PSCIS crossing 198236.
+<span id="tab:tab-culvert-198236">Table 5.43: </span>Summary of fish passage assessment for PSCIS crossing 198236.
 </caption>
 <thead>
 <tr>
@@ -893,33 +896,33 @@ Fix Span / Diameter
 </tfoot>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb219-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
-<span id="cb219-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb219-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
-<span id="cb219-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb219-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
+<span id="cb235-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
+<span id="cb235-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
 </div>
 <div id="stream-characteristics-downstream-5" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Downstream<a href="tributary-to-kitwanga-river---198236---appendix.html#stream-characteristics-downstream-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed downstream from crossing 198236 for 200m
-(Figures <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-01">5.47</a> - <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-02">5.48</a>).
-Total cover amount was rated as moderate with overhanging vegetation dominant. Cover was also present as small woody debris.The dominant substrate was cobbles with gravels sub-dominant.The average channel width was 3.8m, the average wetted width was 2.3m, and the average gradient was 2.4%. There was abundant overhanging vegetation and a lot of downed trees. The stream mainly consisted of gravels and cobbles. There were infrequent shallow pools suitable for rearing. The
+(Figures <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-01">5.51</a> - <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-02">5.52</a>).
+The average channel width was 3.8m, the average wetted width was 2.3m, and the average gradient was 2.4%.The dominant substrate was cobbles with gravels sub-dominant.Total cover amount was rated as moderate with overhanging vegetation dominant. Cover was also present as small woody debris. There was abundant overhanging vegetation and a lot of downed trees. The stream mainly consisted of gravels and cobbles. There were infrequent shallow pools suitable for rearing. The
 habitat was rated as high value for
 salmonid rearing and spawning.</p>
 </div>
 <div id="stream-characteristics-upstream-5" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Upstream<a href="tributary-to-kitwanga-river---198236---appendix.html#stream-characteristics-upstream-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed upstream from crossing 198236 for 500m
-(Figures <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-03">5.49</a> - <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-06">5.52</a>).
+(Figures <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-03">5.53</a> - <a href="tributary-to-kitwanga-river---198236---appendix.html#fig:photo-198236-06">5.56</a>).
 Total cover amount was rated as moderate with undercut banks dominant. Cover was also present as small woody debris, large woody debris, deep pools, and overhanging vegetation.The dominant substrate was gravels with cobbles sub-dominant.The average channel width was 3m, the average wetted width was 2.6m, and the average gradient was 5.8%. There were abundant gravels suitable for resident and anadromous salmonid spawning. There were frequent deep pools due to large woody debris in the canyon that was not logged. Overall, the habitat was rated as
 high value.</p>
 <p><br></p>
 </div>
-<div id="structure-remediation-and-cost-estimate-5" class="section level2 unnumbered hasAnchor">
-<h2>Structure Remediation and Cost Estimate<a href="tributary-to-kitwanga-river---198236---appendix.html#structure-remediation-and-cost-estimate-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="structure-remediation-and-cost-estimate-4" class="section level2 unnumbered hasAnchor">
+<h2>Structure Remediation and Cost Estimate<a href="tributary-to-kitwanga-river---198236---appendix.html#structure-remediation-and-cost-estimate-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Should restoration/maintenance activities proceed, replacement of PSCIS
 crossing 198236 with a bridge
 (15m
 span) is recommended. The cost of the work is estimated at
-$375,000 for a cost
+$450,000 for a cost
 benefit of 0 linear
 m/$1000 and 0
 m<sup>2</sup>/$1000.</p>
@@ -936,14 +939,14 @@ value for salmonid rearing and spawning. Crossing 198236 was ranked as a
 moderate priority for proceeding to design for replacement.</p>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb220-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb220-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb220-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb220-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb220-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
-<span id="cb220-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb220-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb220-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb220-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb236-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb236-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
+<span id="cb236-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb236-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-habitat-summary-198236">Table 5.40: </span>Summary of habitat details for PSCIS crossing 198236.
+<span id="tab:tab-habitat-summary-198236">Table 5.44: </span>Summary of habitat details for PSCIS crossing 198236.
 </caption>
 <thead>
 <tr>
@@ -1038,91 +1041,91 @@ high
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb221-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
-<span id="cb221-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb221-2" tabindex="-1"></a></span>
-<span id="cb221-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb221-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb222-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb237-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb237-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb237-2" tabindex="-1"></a></span>
+<span id="cb237-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb237-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb238-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198236-01"></span>
 <img src="Skeena2022_files/figure-html/photo-198236-01-1.png" alt="Typical habitat downstream of PSCIS crossing 198236." width="100%" />
 <p class="caption">
-Figure 5.47: Typical habitat downstream of PSCIS crossing 198236.
+Figure 5.51: Typical habitat downstream of PSCIS crossing 198236.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb223-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
-<span id="cb223-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb223-2" tabindex="-1"></a></span>
-<span id="cb223-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb223-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb224-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb239-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
+<span id="cb239-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb239-2" tabindex="-1"></a></span>
+<span id="cb239-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb239-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb240-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198236-02"></span>
 <img src="Skeena2022_files/figure-html/photo-198236-02-1.png" alt="Typical habitat downstream of PSCIS crossing 198236." width="100%" />
 <p class="caption">
-Figure 5.48: Typical habitat downstream of PSCIS crossing 198236.
+Figure 5.52: Typical habitat downstream of PSCIS crossing 198236.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb225-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb225-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb225-2" tabindex="-1"></a></span>
-<span id="cb225-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb225-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb225-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb225-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb225-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb225-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb226-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
-<span id="cb226-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb226-2" tabindex="-1"></a></span>
-<span id="cb226-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb226-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb227-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb241-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb241-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb241-2" tabindex="-1"></a></span>
+<span id="cb241-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb241-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb241-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb241-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb241-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb241-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb242-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<span id="cb242-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb242-2" tabindex="-1"></a></span>
+<span id="cb242-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb242-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb243-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198236-03"></span>
 <img src="Skeena2022_files/figure-html/photo-198236-03-1.png" alt="Typical habitat upstream of PSCIS crossing 198236." width="100%" />
 <p class="caption">
-Figure 5.49: Typical habitat upstream of PSCIS crossing 198236.
+Figure 5.53: Typical habitat upstream of PSCIS crossing 198236.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb228-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb228-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb228-2" tabindex="-1"></a></span>
-<span id="cb228-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb228-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb229-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb244-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb244-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb244-2" tabindex="-1"></a></span>
+<span id="cb244-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb244-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb245-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198236-04"></span>
 <img src="Skeena2022_files/figure-html/photo-198236-04-1.png" alt="Typical habitat upstream of PSCIS crossing 198236." width="100%" />
 <p class="caption">
-Figure 5.50: Typical habitat upstream of PSCIS crossing 198236.
+Figure 5.54: Typical habitat upstream of PSCIS crossing 198236.
 </p>
 </div>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb230-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb230-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb230-2" tabindex="-1"></a></span>
-<span id="cb230-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb230-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb230-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb230-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb230-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb230-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb246-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb246-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb246-2" tabindex="-1"></a></span>
+<span id="cb246-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb246-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb246-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb246-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb246-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb246-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb231-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
-<span id="cb231-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb231-2" tabindex="-1"></a></span>
-<span id="cb231-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb231-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb232-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb247-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb247-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb247-2" tabindex="-1"></a></span>
+<span id="cb247-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb247-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb248-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198236-05"></span>
 <img src="Skeena2022_files/figure-html/photo-198236-05-1.png" alt="Typical habitat upstream of PSCIS crossing 198236." width="100%" />
 <p class="caption">
-Figure 5.51: Typical habitat upstream of PSCIS crossing 198236.
+Figure 5.55: Typical habitat upstream of PSCIS crossing 198236.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb233-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb233-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb233-2" tabindex="-1"></a></span>
-<span id="cb233-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb233-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb234-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb249-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb249-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb249-2" tabindex="-1"></a></span>
+<span id="cb249-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb249-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb250-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198236-06"></span>
 <img src="Skeena2022_files/figure-html/photo-198236-06-1.png" alt="Typical habitat upstream of PSCIS crossing 198236." width="100%" />
 <p class="caption">
-Figure 5.52: Typical habitat upstream of PSCIS crossing 198236.
+Figure 5.56: Typical habitat upstream of PSCIS crossing 198236.
 </p>
 </div>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb235-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-2" tabindex="-1"></a></span>
-<span id="cb235-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb235-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb235-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb235-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb251-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb251-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb251-2" tabindex="-1"></a></span>
+<span id="cb251-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb251-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb251-4"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb251-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb251-5"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb251-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb236-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb236-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb236-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb237-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">8530</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb252-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb252-2"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb252-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb252-3"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb252-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="tributary-to-kitwanga-river---198236---appendix.html#cb253-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">8530</span></span></code></pre></div>
 </div>
 </div>
             </section>

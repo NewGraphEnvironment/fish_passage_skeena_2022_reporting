@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Sterritt creek - 198225 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022</title>
   <meta name="description" content="Skeena Fish Passage Planning 2022" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Sterritt creek - 198225 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022" />
   <meta property="og:type" content="book" />
@@ -52,6 +52,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
@@ -59,9 +61,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
 <script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
@@ -227,6 +229,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="tributary-to-kitwanga-river---198236---appendix.html"><a href="tributary-to-kitwanga-river---198236---appendix.html"><i class="fa fa-check"></i>Tributary to Kitwanga River - 198236 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="sandstone-creek---8530---appendix.html"><a href="sandstone-creek---8530---appendix.html"><i class="fa fa-check"></i>Sandstone Creek - 8530 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="report-change-log.html"><a href="report-change-log.html"><i class="fa fa-check"></i>Report Change Log</a></li>
 <li class="chapter" data-level="" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i>Session Info</a></li>
 <li class="chapter" data-level="" data-path="attachment-1---maps.html"><a href="attachment-1---maps.html"><i class="fa fa-check"></i><strong>Attachment 1 - Maps</strong></a></li>
 <li class="chapter" data-level="" data-path="attachment-2---habitat-assessment-data.html"><a href="attachment-2---habitat-assessment-data.html"><i class="fa fa-check"></i><strong>Attachment 2 - Habitat Assessment Data</strong></a></li>
@@ -268,15 +271,16 @@ watershed area upstream of the crossing of approximately
 14.4km<sup>2</sup>. The elevation of the watershed ranges from
 a maximum of 2296m to
 470m near the crossing (Table
-<a href="sterritt-creek---198225---appendix.html#tab:tab-wshd-198225">5.33</a>). At the time of reporting, there was no fisheries information available for the areas upstream of crossing 198225.</p>
+<a href="sterritt-creek---198225---appendix.html#tab:tab-wshd-198225">5.37</a>). At the time of reporting, there was no fisheries information available for the areas upstream of crossing 198225.</p>
 <p><br></p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="sterritt-creek---198225---appendix.html#cb194-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb194-2"><a href="sterritt-creek---198225---appendix.html#cb194-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb194-3"><a href="sterritt-creek---198225---appendix.html#cb194-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb194-4"><a href="sterritt-creek---198225---appendix.html#cb194-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<p>The stream was initially assessed on September 23, 2022, with much of this memo drafted then including recommendations for follow up fish sampling. The site was revisited on September 21, 2024. Results from the 2023 site visit is also now included in this updated report.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="sterritt-creek---198225---appendix.html#cb210-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb210-2"><a href="sterritt-creek---198225---appendix.html#cb210-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb210-3"><a href="sterritt-creek---198225---appendix.html#cb210-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb210-4"><a href="sterritt-creek---198225---appendix.html#cb210-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-wshd-198225">Table 5.33: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198225.
+<span id="tab:tab-wshd-198225">Table 5.37: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198225.
 </caption>
 <thead>
 <tr>
@@ -344,15 +348,15 @@ SW
 </table>
 <p><br></p>
 <p>A summary of habitat modelling outputs is presented in Table
-<a href="sterritt-creek---198225---appendix.html#tab:tab-culvert-bcfp-198225">5.34</a>. A map of the watershed is provided in
+<a href="sterritt-creek---198225---appendix.html#tab:tab-culvert-bcfp-198225">5.38</a>. A map of the watershed is provided in
 map attachment
 <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/kisp/archive/2022-09-06/FishPassage_093M.111.pdf">093M.111</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="sterritt-creek---198225---appendix.html#cb195-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="sterritt-creek---198225---appendix.html#cb211-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-bcfp-198225">Table 5.34: </span>Summary of fish habitat modelling for PSCIS crossing 198225.
+<span id="tab:tab-culvert-bcfp-198225">Table 5.38: </span>Summary of fish habitat modelling for PSCIS crossing 198225.
 </caption>
 <thead>
 <tr>
@@ -626,7 +630,7 @@ SK Rearing (ha)
 <p>At the time of the survey, PSCIS crossing 198225 was
 un-embedded, non-backwatered and ranked as a
 barrier to upstream fish passage according to the provincial protocol
-<span class="citation">(MoE 2011b)</span> (Table <a href="sterritt-creek---198225---appendix.html#tab:tab-culvert-198225">5.35</a>). There
+<span class="citation">(MoE 2011b)</span> (Table <a href="sterritt-creek---198225---appendix.html#tab:tab-culvert-198225">5.39</a>). There
 was high flow through the culvert at the time of survey. A deep
 outlet pool (2m) and a large outlet drop (2m) indicate that the
 culvert may be undersized. Water temperature was
@@ -635,10 +639,10 @@ pH was 7.9 and
 conductivity was
 46uS/cm.</p>
 <p><br></p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="sterritt-creek---198225---appendix.html#cb196-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
-<table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="sterritt-creek---198225---appendix.html#cb212-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-198225">Table 5.35: </span>Summary of fish passage assessment for PSCIS crossing 198225.
+<span id="tab:tab-culvert-198225">Table 5.39: </span>Summary of fish passage assessment for PSCIS crossing 198225.
 </caption>
 <thead>
 <tr>
@@ -898,59 +902,41 @@ Fix Span / Diameter
 </tfoot>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="sterritt-creek---198225---appendix.html#cb197-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
-<span id="cb197-2"><a href="sterritt-creek---198225---appendix.html#cb197-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
-<span id="cb197-3"><a href="sterritt-creek---198225---appendix.html#cb197-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="sterritt-creek---198225---appendix.html#cb213-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
+<span id="cb213-2"><a href="sterritt-creek---198225---appendix.html#cb213-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
+<span id="cb213-3"><a href="sterritt-creek---198225---appendix.html#cb213-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
 </div>
 <div id="stream-characteristics-downstream-4" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Downstream<a href="sterritt-creek---198225---appendix.html#stream-characteristics-downstream-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The stream was surveyed downstream from crossing 198225 for 260m
-(Figures <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-01">5.41</a> - <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-02">5.42</a>).
-Total cover amount was rated as trace with large woody debris dominant. Cover was also present as small woody debris, boulders, and undercut banks.The dominant substrate was large rock/bedrock with cobbles sub-dominant.The average channel width was 7.5m, the average wetted width was 5.6m, and the average gradient was 5.6%. There was an abundance of large woody debris that created deep pools, diverted water flow, and created natural steps. The
-habitat was rated as medium value for
-salmonid rearing.</p>
+<p>The stream was surveyed downstream from crossing 198225 for 260m in 2022
+(Figures <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-01">5.45</a> - <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-02">5.46</a>).
+The average channel width was 7.5m, the average wetted width was 5.6m, and the average gradient was 5.6%.Total cover amount was rated as trace with large woody debris dominant. Cover was also present as small woody debris, boulders, and undercut banks.The dominant substrate was large rock/bedrock with cobbles sub-dominant. Large woody debris was noted as abundant creating deep pools and small cascade steps. The habitat was rated as medium value for salmonid rearing.</p>
+<p><br></p>
+<p>As noted above, the site was revisited in 2023 with intent to conduct electrofishing - however, before sampling was conducted surveyors observed a 2 - 3m high near vertical cascade flowing over bedrock into the small culvert outlet pool immediately below the FSR so it was decided to not proceed with electrofishing.</p>
 </div>
 <div id="stream-characteristics-upstream-4" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Upstream<a href="sterritt-creek---198225---appendix.html#stream-characteristics-upstream-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed upstream from crossing 198225 for 500m
-(Figures <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-03">5.43</a> - <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-06">5.46</a>).
-The average channel width was 12.2m, the average wetted width was 5.5m, and the average gradient was 4.4%.Total cover amount was rated as abundant with large woody debris dominant. Cover was also present as small woody debris.The dominant substrate was cobbles with gravels sub-dominant. This stream has the potential to be fish bearing but the gradient is steep. The bank full depth is very high, with a measured average of 0.8m. There was an abundance of large woody debris that provided functionality to the stream habitat by diverting flow and providing cover. The habitat was rated as
+(Figures <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-03">5.47</a> - <a href="sterritt-creek---198225---appendix.html#fig:photo-198225-06">5.50</a>).
+The average channel width was 12.2m, the average wetted width was 5.5m, and the average gradient was 4.4%.The dominant substrate was cobbles with gravels sub-dominant.Total cover amount was rated as abundant with large woody debris dominant. Cover was also present as small woody debris. This stream has the potential to be fish bearing but the gradient is steep. The bank full depth is very high, with a measured average of 0.8m. There was an abundance of large woody debris that provided functionality to the stream habitat by diverting flow and providing cover. The habitat was rated as
 medium value as an important
 migration corridor containing suitable rearing habitat.</p>
 <p><br></p>
 </div>
-<div id="structure-remediation-and-cost-estimate-4" class="section level2 unnumbered hasAnchor">
-<h2>Structure Remediation and Cost Estimate<a href="sterritt-creek---198225---appendix.html#structure-remediation-and-cost-estimate-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Should restoration/maintenance activities proceed, replacement of PSCIS
-crossing 198225 with a bridge
-(15m
-span) is recommended. The cost of the work is estimated at
-$375,000 for a cost
-benefit of 3440 linear
-m/$1000 and 6364
-m<sup>2</sup>/$1000.</p>
-<p><br></p>
-</div>
 <div id="conclusion-4" class="section level2 unnumbered hasAnchor">
 <h2>Conclusion<a href="sterritt-creek---198225---appendix.html#conclusion-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There was
-1.3km of
-habitat modelled upstream of crossing 198225 with
-areas surveyed rated as
-medium
-value for salmonid rearing and spawning. 198225 was ranked as a
-moderate priority for proceeding to design for replacement. Electrofishing upstream and downstream of the culvert is recommended to provide insight into fish community
-composition and density which may justify a higher priority for site remediation.</p>
+<p>As field surveys in the summer of 2023 confirmed a natural barrier (2 - 3m high near vertical cascade flowing over bedrock) immediately adjacent to the outlet of
+the crossing, replacement of the culvert
+with a bridge would not facilitate upstream fish migration so is not recommended.</p>
 <p><br></p>
-<p><br></p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="sterritt-creek---198225---appendix.html#cb198-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb198-2"><a href="sterritt-creek---198225---appendix.html#cb198-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb198-3"><a href="sterritt-creek---198225---appendix.html#cb198-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
-<span id="cb198-4"><a href="sterritt-creek---198225---appendix.html#cb198-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb198-5"><a href="sterritt-creek---198225---appendix.html#cb198-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="sterritt-creek---198225---appendix.html#cb214-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb214-2"><a href="sterritt-creek---198225---appendix.html#cb214-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb214-3"><a href="sterritt-creek---198225---appendix.html#cb214-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
+<span id="cb214-4"><a href="sterritt-creek---198225---appendix.html#cb214-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb214-5"><a href="sterritt-creek---198225---appendix.html#cb214-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-habitat-summary-198225">Table 5.36: </span>Summary of habitat details for PSCIS crossing 198225.
+<span id="tab:tab-habitat-summary-198225">Table 5.40: </span>Summary of habitat details for PSCIS crossing 198225.
 </caption>
 <thead>
 <tr>
@@ -1045,91 +1031,91 @@ medium
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="sterritt-creek---198225---appendix.html#cb199-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
-<span id="cb199-2"><a href="sterritt-creek---198225---appendix.html#cb199-2" tabindex="-1"></a></span>
-<span id="cb199-3"><a href="sterritt-creek---198225---appendix.html#cb199-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="sterritt-creek---198225---appendix.html#cb200-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="sterritt-creek---198225---appendix.html#cb215-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb215-2"><a href="sterritt-creek---198225---appendix.html#cb215-2" tabindex="-1"></a></span>
+<span id="cb215-3"><a href="sterritt-creek---198225---appendix.html#cb215-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="sterritt-creek---198225---appendix.html#cb216-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198225-01"></span>
 <img src="Skeena2022_files/figure-html/photo-198225-01-1.png" alt="Typical habitat downstream of PSCIS crossing 198225." width="100%" />
 <p class="caption">
-Figure 5.41: Typical habitat downstream of PSCIS crossing 198225.
+Figure 5.45: Typical habitat downstream of PSCIS crossing 198225.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="sterritt-creek---198225---appendix.html#cb201-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
-<span id="cb201-2"><a href="sterritt-creek---198225---appendix.html#cb201-2" tabindex="-1"></a></span>
-<span id="cb201-3"><a href="sterritt-creek---198225---appendix.html#cb201-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="sterritt-creek---198225---appendix.html#cb202-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="sterritt-creek---198225---appendix.html#cb217-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
+<span id="cb217-2"><a href="sterritt-creek---198225---appendix.html#cb217-2" tabindex="-1"></a></span>
+<span id="cb217-3"><a href="sterritt-creek---198225---appendix.html#cb217-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="sterritt-creek---198225---appendix.html#cb218-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198225-02"></span>
 <img src="Skeena2022_files/figure-html/photo-198225-02-1.png" alt="Typical habitat downstream of PSCIS crossing 198225." width="100%" />
 <p class="caption">
-Figure 5.42: Typical habitat downstream of PSCIS crossing 198225.
+Figure 5.46: Typical habitat downstream of PSCIS crossing 198225.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="sterritt-creek---198225---appendix.html#cb203-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb203-2"><a href="sterritt-creek---198225---appendix.html#cb203-2" tabindex="-1"></a></span>
-<span id="cb203-3"><a href="sterritt-creek---198225---appendix.html#cb203-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb203-4"><a href="sterritt-creek---198225---appendix.html#cb203-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb203-5"><a href="sterritt-creek---198225---appendix.html#cb203-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="sterritt-creek---198225---appendix.html#cb204-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
-<span id="cb204-2"><a href="sterritt-creek---198225---appendix.html#cb204-2" tabindex="-1"></a></span>
-<span id="cb204-3"><a href="sterritt-creek---198225---appendix.html#cb204-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="sterritt-creek---198225---appendix.html#cb205-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="sterritt-creek---198225---appendix.html#cb219-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb219-2"><a href="sterritt-creek---198225---appendix.html#cb219-2" tabindex="-1"></a></span>
+<span id="cb219-3"><a href="sterritt-creek---198225---appendix.html#cb219-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb219-4"><a href="sterritt-creek---198225---appendix.html#cb219-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb219-5"><a href="sterritt-creek---198225---appendix.html#cb219-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="sterritt-creek---198225---appendix.html#cb220-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<span id="cb220-2"><a href="sterritt-creek---198225---appendix.html#cb220-2" tabindex="-1"></a></span>
+<span id="cb220-3"><a href="sterritt-creek---198225---appendix.html#cb220-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="sterritt-creek---198225---appendix.html#cb221-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198225-03"></span>
 <img src="Skeena2022_files/figure-html/photo-198225-03-1.png" alt="Typical habitat upstream of PSCIS crossing 198225." width="100%" />
 <p class="caption">
-Figure 5.43: Typical habitat upstream of PSCIS crossing 198225.
+Figure 5.47: Typical habitat upstream of PSCIS crossing 198225.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="sterritt-creek---198225---appendix.html#cb206-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb206-2"><a href="sterritt-creek---198225---appendix.html#cb206-2" tabindex="-1"></a></span>
-<span id="cb206-3"><a href="sterritt-creek---198225---appendix.html#cb206-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="sterritt-creek---198225---appendix.html#cb207-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="sterritt-creek---198225---appendix.html#cb222-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb222-2"><a href="sterritt-creek---198225---appendix.html#cb222-2" tabindex="-1"></a></span>
+<span id="cb222-3"><a href="sterritt-creek---198225---appendix.html#cb222-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="sterritt-creek---198225---appendix.html#cb223-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198225-04"></span>
 <img src="Skeena2022_files/figure-html/photo-198225-04-1.png" alt="Typical habitat upstream of PSCIS crossing 198225." width="100%" />
 <p class="caption">
-Figure 5.44: Typical habitat upstream of PSCIS crossing 198225.
+Figure 5.48: Typical habitat upstream of PSCIS crossing 198225.
 </p>
 </div>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="sterritt-creek---198225---appendix.html#cb208-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb208-2"><a href="sterritt-creek---198225---appendix.html#cb208-2" tabindex="-1"></a></span>
-<span id="cb208-3"><a href="sterritt-creek---198225---appendix.html#cb208-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb208-4"><a href="sterritt-creek---198225---appendix.html#cb208-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb208-5"><a href="sterritt-creek---198225---appendix.html#cb208-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="sterritt-creek---198225---appendix.html#cb224-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb224-2"><a href="sterritt-creek---198225---appendix.html#cb224-2" tabindex="-1"></a></span>
+<span id="cb224-3"><a href="sterritt-creek---198225---appendix.html#cb224-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb224-4"><a href="sterritt-creek---198225---appendix.html#cb224-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb224-5"><a href="sterritt-creek---198225---appendix.html#cb224-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="sterritt-creek---198225---appendix.html#cb209-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
-<span id="cb209-2"><a href="sterritt-creek---198225---appendix.html#cb209-2" tabindex="-1"></a></span>
-<span id="cb209-3"><a href="sterritt-creek---198225---appendix.html#cb209-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="sterritt-creek---198225---appendix.html#cb210-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="sterritt-creek---198225---appendix.html#cb225-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb225-2"><a href="sterritt-creek---198225---appendix.html#cb225-2" tabindex="-1"></a></span>
+<span id="cb225-3"><a href="sterritt-creek---198225---appendix.html#cb225-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="sterritt-creek---198225---appendix.html#cb226-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198225-05"></span>
 <img src="Skeena2022_files/figure-html/photo-198225-05-1.png" alt="Typical habitat upstream of PSCIS crossing 198225." width="100%" />
 <p class="caption">
-Figure 5.45: Typical habitat upstream of PSCIS crossing 198225.
+Figure 5.49: Typical habitat upstream of PSCIS crossing 198225.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="sterritt-creek---198225---appendix.html#cb211-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb211-2"><a href="sterritt-creek---198225---appendix.html#cb211-2" tabindex="-1"></a></span>
-<span id="cb211-3"><a href="sterritt-creek---198225---appendix.html#cb211-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="sterritt-creek---198225---appendix.html#cb212-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="sterritt-creek---198225---appendix.html#cb227-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb227-2"><a href="sterritt-creek---198225---appendix.html#cb227-2" tabindex="-1"></a></span>
+<span id="cb227-3"><a href="sterritt-creek---198225---appendix.html#cb227-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="sterritt-creek---198225---appendix.html#cb228-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198225-06"></span>
 <img src="Skeena2022_files/figure-html/photo-198225-06-1.png" alt="Typical habitat upstream of PSCIS crossing 198225." width="100%" />
 <p class="caption">
-Figure 5.46: Typical habitat upstream of PSCIS crossing 198225.
+Figure 5.50: Typical habitat upstream of PSCIS crossing 198225.
 </p>
 </div>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="sterritt-creek---198225---appendix.html#cb213-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb213-2"><a href="sterritt-creek---198225---appendix.html#cb213-2" tabindex="-1"></a></span>
-<span id="cb213-3"><a href="sterritt-creek---198225---appendix.html#cb213-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb213-4"><a href="sterritt-creek---198225---appendix.html#cb213-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb213-5"><a href="sterritt-creek---198225---appendix.html#cb213-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="sterritt-creek---198225---appendix.html#cb229-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb229-2"><a href="sterritt-creek---198225---appendix.html#cb229-2" tabindex="-1"></a></span>
+<span id="cb229-3"><a href="sterritt-creek---198225---appendix.html#cb229-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb229-4"><a href="sterritt-creek---198225---appendix.html#cb229-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb229-5"><a href="sterritt-creek---198225---appendix.html#cb229-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="sterritt-creek---198225---appendix.html#cb214-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb214-2"><a href="sterritt-creek---198225---appendix.html#cb214-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb214-3"><a href="sterritt-creek---198225---appendix.html#cb214-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="sterritt-creek---198225---appendix.html#cb215-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198236</span></span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="sterritt-creek---198225---appendix.html#cb230-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb230-2"><a href="sterritt-creek---198225---appendix.html#cb230-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb230-3"><a href="sterritt-creek---198225---appendix.html#cb230-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="sterritt-creek---198225---appendix.html#cb231-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198236</span></span></code></pre></div>
 </div>
 </div>
             </section>

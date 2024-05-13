@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Tea Creek - 198220 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022</title>
   <meta name="description" content="Skeena Fish Passage Planning 2022" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Tea Creek - 198220 - Appendix | Skeena Watershed Fish Passage Restoration Planning 2022" />
   <meta property="og:type" content="book" />
@@ -52,6 +52,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
@@ -59,9 +61,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
 <script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
 <link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
@@ -227,6 +229,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="tributary-to-kitwanga-river---198236---appendix.html"><a href="tributary-to-kitwanga-river---198236---appendix.html"><i class="fa fa-check"></i>Tributary to Kitwanga River - 198236 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="sandstone-creek---8530---appendix.html"><a href="sandstone-creek---8530---appendix.html"><i class="fa fa-check"></i>Sandstone Creek - 8530 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="report-change-log.html"><a href="report-change-log.html"><i class="fa fa-check"></i>Report Change Log</a></li>
 <li class="chapter" data-level="" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i>Session Info</a></li>
 <li class="chapter" data-level="" data-path="attachment-1---maps.html"><a href="attachment-1---maps.html"><i class="fa fa-check"></i><strong>Attachment 1 - Maps</strong></a></li>
 <li class="chapter" data-level="" data-path="attachment-2---habitat-assessment-data.html"><a href="attachment-2---habitat-assessment-data.html"><i class="fa fa-check"></i><strong>Attachment 2 - Habitat Assessment Data</strong></a></li>
@@ -264,16 +267,16 @@ upstream from the confluence with the Kitwanga River. PSCIS crossing 198200 on M
 <p>At crossing 198220, Tea Creek is a fourth order stream with a
 watershed area upstream of the crossing of approximately 52.2km<sup>2</sup>. The elevation of the watershed ranges from
 a maximum of 1141m to 251m near the crossing (Table
-<a href="tea-creek---198220---appendix.html#tab:tab-wshd-198220">5.20</a>). Upstream of crossing 198220, cutthroat trout, coho salmon, rainbow trout, steelhead, and dolly varden have previously
+<a href="tea-creek---198220---appendix.html#tab:tab-wshd-198220">5.24</a>). Upstream of crossing 198220, cutthroat trout, coho salmon, rainbow trout, steelhead, and dolly varden have previously
 been recorded <span class="citation">(MoE 2020b; Norris 2022)</span>. Steelhead use of the system upstream of the highway was confirmed by a local landowner who reported historic spawning in the tributary to Tea Creek that flows into the stream just below Moore Road and PSCIS crossing 198200.</p>
 <p><br></p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="tea-creek---198220---appendix.html#cb139-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb139-2"><a href="tea-creek---198220---appendix.html#cb139-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb139-3"><a href="tea-creek---198220---appendix.html#cb139-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb139-4"><a href="tea-creek---198220---appendix.html#cb139-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="tea-creek---198220---appendix.html#cb155-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb155-2"><a href="tea-creek---198220---appendix.html#cb155-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb155-3"><a href="tea-creek---198220---appendix.html#cb155-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb155-4"><a href="tea-creek---198220---appendix.html#cb155-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-wshd-198220">Table 5.20: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198220.
+<span id="tab:tab-wshd-198220">Table 5.24: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198220.
 </caption>
 <thead>
 <tr>
@@ -344,14 +347,14 @@ SSW
 <p><br></p>
 <p>PSCIS stream crossing 198220 was ranked as a high priority for follow up by the Society for Ecosystem Restoration in
 Northern BC due to the large size of the stream, with many species confirmed upstream. A summary of habitat modelling outputs is presented
-in Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-bcfp-198220">5.21</a>. A map of the watershed is provided in map attachment
+in Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-bcfp-198220">5.25</a>. A map of the watershed is provided in map attachment
 <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/kisp/archive/2022-09-06/FishPassage_103P.105.pdf">103P.105</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="tea-creek---198220---appendix.html#cb140-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="tea-creek---198220---appendix.html#cb156-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-bcfp-198220">Table 5.21: </span>Summary of fish habitat modelling for PSCIS crossing 198220.
+<span id="tab:tab-culvert-bcfp-198220">Table 5.25: </span>Summary of fish habitat modelling for PSCIS crossing 198220.
 </caption>
 <thead>
 <tr>
@@ -622,11 +625,11 @@ SK Rearing (ha)
 </div>
 <div id="climate-change-risk-assessment-4" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Climate Change Risk Assessment<a href="tea-creek---198220---appendix.html#climate-change-risk-assessment-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Preliminary climate change risk assessment data is presented in Tables <a href="tea-creek---198220---appendix.html#tab:tab-moti-198220">5.22</a> - <a href="tea-creek---198220---appendix.html#tab:tab-moti-198220-comments">5.23</a>.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="tea-creek---198220---appendix.html#cb141-1" tabindex="-1"></a><span class="fu">fpr_table_moti</span>()</span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<p>Preliminary climate change risk assessment data is presented in Tables <a href="tea-creek---198220---appendix.html#tab:tab-moti-198220">5.26</a> - <a href="tea-creek---198220---appendix.html#tab:tab-moti-198220-comments">5.27</a>.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="tea-creek---198220---appendix.html#cb157-1" tabindex="-1"></a><span class="fu">fpr_table_moti</span>()</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-moti-198220">Table 5.22: </span>Summary of climate change risk assessment for PSCIS crossing 198220.
+<span id="tab:tab-moti-198220">Table 5.26: </span>Summary of climate change risk assessment for PSCIS crossing 198220.
 </caption>
 <thead>
 <tr>
@@ -760,10 +763,10 @@ Overall Rank = Vulnerability Rank + Priority Rank
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="tea-creek---198220---appendix.html#cb142-1" tabindex="-1"></a><span class="fu">fpr_table_moti_comments</span>()</span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="tea-creek---198220---appendix.html#cb158-1" tabindex="-1"></a><span class="fu">fpr_table_moti_comments</span>()</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-moti-198220-comments">Table 5.23: </span>Details and rational for climate risk rankings
+<span id="tab:tab-moti-198220-comments">Table 5.27: </span>Details and rational for climate risk rankings
 </caption>
 <thead>
 <tr>
@@ -807,19 +810,19 @@ Structure is located on major highway with large amounts of fill. Replacement wo
 <h2>Stream Characteristics at Crossing<a href="tea-creek---198220---appendix.html#stream-characteristics-at-crossing-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At the time of the survey, PSCIS crossing 198220 was un-embedded, non-backwatered and ranked as a
 barrier to upstream fish passage according to the provincial protocol
-<span class="citation">(MoE 2011b)</span> (Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-198220">5.24</a>). There was low flow through the culvert at the time of survey. Water temperature was
+<span class="citation">(MoE 2011b)</span> (Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-198220">5.28</a>). There was low flow through the culvert at the time of survey. Water temperature was
 11.6<span class="math inline">\(^\circ\)</span>C, pH was 8.4 and
 conductivity was 291uS/cm.</p>
 <p><br></p>
 <p>PSCIS culvert 198200 culvert located on Moore Road approximately 220m upstream from the highway had a natural streambed and was ranked as
-passable to all species and life stages at the time of survey (Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-8300012">5.25</a>). Although this crossing was incorrectly recorded as a closed bottom structure in 2022, the crossing was more likely an open bottomed pipe arch as noted in <span class="citation">Sweeting (n.d.)</span>.</p>
+passable to all species and life stages at the time of survey (Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-8300012">5.29</a>). Although this crossing was incorrectly recorded as a closed bottom structure in 2022, the crossing was more likely an open bottomed pipe arch as noted in <span class="citation">Sweeting (n.d.)</span>.</p>
 <p><br></p>
-<p>PSCIS crossing 198201 located on Moore Road approximately 350m east of crossing 198200 was assessed and ranked as passable at the time of survey (Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-8300917">5.26</a>). There were two culverts side by side, with both embedded and non backwatered within a channel noted as 2.1m wide. Fish (up to 20cm in length) were observed within the culverts.</p>
+<p>PSCIS crossing 198201 located on Moore Road approximately 350m east of crossing 198200 was assessed and ranked as passable at the time of survey (Table <a href="tea-creek---198220---appendix.html#tab:tab-culvert-8300917">5.30</a>). There were two culverts side by side, with both embedded and non backwatered within a channel noted as 2.1m wide. Fish (up to 20cm in length) were observed within the culverts.</p>
 <p><br></p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="tea-creek---198220---appendix.html#cb143-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
-<table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="tea-creek---198220---appendix.html#cb159-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-198220">Table 5.24: </span>Summary of fish passage assessment for PSCIS crossing 198220.
+<span id="tab:tab-culvert-198220">Table 5.28: </span>Summary of fish passage assessment for PSCIS crossing 198220.
 </caption>
 <thead>
 <tr>
@@ -1080,10 +1083,10 @@ Fix Span / Diameter
 </table></li>
 </ul>
 <p><br></p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="tea-creek---198220---appendix.html#cb144-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>(<span class="at">dat =</span> pscis_phase1, <span class="at">site =</span> my_site2, <span class="at">site_photo_id =</span> my_site2, <span class="at">col_filter =</span> my_crossing_reference)</span></code></pre></div>
-<table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="tea-creek---198220---appendix.html#cb160-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>(<span class="at">dat =</span> pscis_phase1, <span class="at">site =</span> my_site2, <span class="at">site_photo_id =</span> my_site2, <span class="at">col_filter =</span> my_crossing_reference)</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-8300012">Table 5.25: </span>Summary of fish passage assessment for PSCIS crossing 8300012.
+<span id="tab:tab-culvert-8300012">Table 5.29: </span>Summary of fish passage assessment for PSCIS crossing 8300012.
 </caption>
 <thead>
 <tr>
@@ -1344,10 +1347,10 @@ Fix Span / Diameter
 </table></li>
 </ul>
 <p><br></p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="tea-creek---198220---appendix.html#cb145-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>(<span class="at">dat =</span> pscis_phase1, <span class="at">site =</span> my_site3, <span class="at">site_photo_id =</span> my_site3, <span class="at">col_filter =</span> my_crossing_reference)</span></code></pre></div>
-<table class="table table-condensed" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="tea-creek---198220---appendix.html#cb161-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>(<span class="at">dat =</span> pscis_phase1, <span class="at">site =</span> my_site3, <span class="at">site_photo_id =</span> my_site3, <span class="at">col_filter =</span> my_crossing_reference)</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-8300917">Table 5.26: </span>Summary of fish passage assessment for PSCIS crossing 8300917.
+<span id="tab:tab-culvert-8300917">Table 5.30: </span>Summary of fish passage assessment for PSCIS crossing 8300917.
 </caption>
 <thead>
 <tr>
@@ -1607,23 +1610,23 @@ Fix Span / Diameter
 </tfoot>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="tea-creek---198220---appendix.html#cb146-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
-<span id="cb146-2"><a href="tea-creek---198220---appendix.html#cb146-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
-<span id="cb146-3"><a href="tea-creek---198220---appendix.html#cb146-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="tea-creek---198220---appendix.html#cb162-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
+<span id="cb162-2"><a href="tea-creek---198220---appendix.html#cb162-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
+<span id="cb162-3"><a href="tea-creek---198220---appendix.html#cb162-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
 </div>
 <div id="stream-characteristics-downstream-2" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Downstream<a href="tea-creek---198220---appendix.html#stream-characteristics-downstream-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed downstream from crossing 198220 for 400m
-(Figures <a href="tea-creek---198220---appendix.html#fig:photo-198220-01">5.26</a> - <a href="tea-creek---198220---appendix.html#fig:photo-198220-02">5.27</a>).
-Total cover amount was rated as moderate with boulders dominant. Cover was also present as small woody debris, undercut banks, and overhanging vegetation.The dominant substrate was gravels with cobbles sub-dominant.The average channel width was 5.4m, the average wetted width was 3.2m, and the average gradient was 3%. There was boulder cover and gravels throughout the survey but very few pools. The
+(Figures <a href="tea-creek---198220---appendix.html#fig:photo-198220-01">5.30</a> - <a href="tea-creek---198220---appendix.html#fig:photo-198220-02">5.31</a>).
+The average channel width was 5.4m, the average wetted width was 3.2m, and the average gradient was 3%.The dominant substrate was gravels with cobbles sub-dominant.Total cover amount was rated as moderate with boulders dominant. Cover was also present as small woody debris, undercut banks, and overhanging vegetation. There was boulder cover and gravels throughout the survey but very few pools. The
 habitat was rated as high value for
 salmonid rearing and spawning.</p>
 </div>
 <div id="stream-characteristics-upstream-2" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Upstream<a href="tea-creek---198220---appendix.html#stream-characteristics-upstream-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed upstream from crossing 198220 for 600m
-(Figures <a href="tea-creek---198220---appendix.html#fig:photo-198220-03">5.28</a> - <a href="tea-creek---198220---appendix.html#fig:photo-198220-06">5.31</a>).
-The dominant substrate was cobbles with gravels sub-dominant.The average channel width was 4.2m, the average wetted width was 2.8m, and the average gradient was 3.9%.Total cover amount was rated as moderate with small woody debris dominant. Cover was also present as large woody debris, boulders, undercut banks, and overhanging vegetation. Only a few areas contained gravels suitable for spawning. The channel was wide throughout with a lot of woody debris. There were large amounts of undercut banks that provided cover, but very few deep pools. Some steep eroding banks were seen in a few locations on the survey. Juvenile fish were spotted, in the culvert on Moore Road. Overall, the habitat was rated as medium value as an important migration corridor containing suitable spawning habitat and having moderate rearing potential.</p>
+(Figures <a href="tea-creek---198220---appendix.html#fig:photo-198220-03">5.32</a> - <a href="tea-creek---198220---appendix.html#fig:photo-198220-06">5.35</a>).
+The average channel width was 4.2m, the average wetted width was 2.8m, and the average gradient was 3.9%.Total cover amount was rated as moderate with small woody debris dominant. Cover was also present as large woody debris, boulders, undercut banks, and overhanging vegetation.The dominant substrate was cobbles with gravels sub-dominant. Only a few areas contained gravels suitable for spawning. The channel was wide throughout with a lot of woody debris. There were large amounts of undercut banks that provided cover, but very few deep pools. Some steep eroding banks were seen in a few locations on the survey. Juvenile fish were spotted, in the culvert on Moore Road. Overall, the habitat was rated as medium value as an important migration corridor containing suitable spawning habitat and having moderate rearing potential.</p>
 <p><br></p>
 </div>
 <div id="structure-remediation-and-cost-estimate-2" class="section level2 unnumbered hasAnchor">
@@ -1633,8 +1636,8 @@ crossing 198220 with a bridge
 (30.5m
 span) is recommended. The cost of the work is estimated at
 $22,875,000 for a cost
-benefit of 849 linear
-m/$1000 and 2122.4
+benefit of 0.8 linear
+m/$1000 and 2.1
 m<sup>2</sup>/$1000.</p>
 <p><br></p>
 </div>
@@ -1651,14 +1654,14 @@ proceeding to design for replacement. Electrofishing upstream and
 downstream of the culvert is recommended to provide insight into fish density and migration patterns.</p>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="tea-creek---198220---appendix.html#cb147-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb147-2"><a href="tea-creek---198220---appendix.html#cb147-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb147-3"><a href="tea-creek---198220---appendix.html#cb147-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
-<span id="cb147-4"><a href="tea-creek---198220---appendix.html#cb147-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb147-5"><a href="tea-creek---198220---appendix.html#cb147-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="tea-creek---198220---appendix.html#cb163-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb163-2"><a href="tea-creek---198220---appendix.html#cb163-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb163-3"><a href="tea-creek---198220---appendix.html#cb163-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
+<span id="cb163-4"><a href="tea-creek---198220---appendix.html#cb163-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb163-5"><a href="tea-creek---198220---appendix.html#cb163-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-habitat-summary-198220">Table 5.27: </span>Summary of habitat details for PSCIS crossing 198220.
+<span id="tab:tab-habitat-summary-198220">Table 5.31: </span>Summary of habitat details for PSCIS crossing 198220.
 </caption>
 <thead>
 <tr>
@@ -1753,92 +1756,92 @@ medium
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="tea-creek---198220---appendix.html#cb148-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
-<span id="cb148-2"><a href="tea-creek---198220---appendix.html#cb148-2" tabindex="-1"></a></span>
-<span id="cb148-3"><a href="tea-creek---198220---appendix.html#cb148-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="tea-creek---198220---appendix.html#cb149-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="tea-creek---198220---appendix.html#cb164-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb164-2"><a href="tea-creek---198220---appendix.html#cb164-2" tabindex="-1"></a></span>
+<span id="cb164-3"><a href="tea-creek---198220---appendix.html#cb164-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="tea-creek---198220---appendix.html#cb165-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198220-01"></span>
 <img src="Skeena2022_files/figure-html/photo-198220-01-1.png" alt="Typical habitat downstream of PSCIS crossing 198220." width="100%" />
 <p class="caption">
-Figure 5.26: Typical habitat downstream of PSCIS crossing 198220.
+Figure 5.30: Typical habitat downstream of PSCIS crossing 198220.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="tea-creek---198220---appendix.html#cb150-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
-<span id="cb150-2"><a href="tea-creek---198220---appendix.html#cb150-2" tabindex="-1"></a></span>
-<span id="cb150-3"><a href="tea-creek---198220---appendix.html#cb150-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="tea-creek---198220---appendix.html#cb151-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="tea-creek---198220---appendix.html#cb166-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
+<span id="cb166-2"><a href="tea-creek---198220---appendix.html#cb166-2" tabindex="-1"></a></span>
+<span id="cb166-3"><a href="tea-creek---198220---appendix.html#cb166-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="tea-creek---198220---appendix.html#cb167-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198220-02"></span>
 <img src="Skeena2022_files/figure-html/photo-198220-02-1.png" alt="Typical habitat downstream of PSCIS crossing 198220." width="100%" />
 <p class="caption">
-Figure 5.27: Typical habitat downstream of PSCIS crossing 198220.
+Figure 5.31: Typical habitat downstream of PSCIS crossing 198220.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="tea-creek---198220---appendix.html#cb152-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb152-2"><a href="tea-creek---198220---appendix.html#cb152-2" tabindex="-1"></a></span>
-<span id="cb152-3"><a href="tea-creek---198220---appendix.html#cb152-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb152-4"><a href="tea-creek---198220---appendix.html#cb152-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb152-5"><a href="tea-creek---198220---appendix.html#cb152-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="tea-creek---198220---appendix.html#cb153-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
-<span id="cb153-2"><a href="tea-creek---198220---appendix.html#cb153-2" tabindex="-1"></a></span>
-<span id="cb153-3"><a href="tea-creek---198220---appendix.html#cb153-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="tea-creek---198220---appendix.html#cb154-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="tea-creek---198220---appendix.html#cb168-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb168-2"><a href="tea-creek---198220---appendix.html#cb168-2" tabindex="-1"></a></span>
+<span id="cb168-3"><a href="tea-creek---198220---appendix.html#cb168-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb168-4"><a href="tea-creek---198220---appendix.html#cb168-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb168-5"><a href="tea-creek---198220---appendix.html#cb168-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="tea-creek---198220---appendix.html#cb169-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<span id="cb169-2"><a href="tea-creek---198220---appendix.html#cb169-2" tabindex="-1"></a></span>
+<span id="cb169-3"><a href="tea-creek---198220---appendix.html#cb169-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="tea-creek---198220---appendix.html#cb170-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198220-03"></span>
 <img src="Skeena2022_files/figure-html/photo-198220-03-1.png" alt="Typical habitat upstream of PSCIS crossing 198220." width="100%" />
 <p class="caption">
-Figure 5.28: Typical habitat upstream of PSCIS crossing 198220.
+Figure 5.32: Typical habitat upstream of PSCIS crossing 198220.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="tea-creek---198220---appendix.html#cb155-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb155-2"><a href="tea-creek---198220---appendix.html#cb155-2" tabindex="-1"></a></span>
-<span id="cb155-3"><a href="tea-creek---198220---appendix.html#cb155-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="tea-creek---198220---appendix.html#cb156-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="tea-creek---198220---appendix.html#cb171-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb171-2"><a href="tea-creek---198220---appendix.html#cb171-2" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="tea-creek---198220---appendix.html#cb171-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="tea-creek---198220---appendix.html#cb172-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198220-04"></span>
 <img src="Skeena2022_files/figure-html/photo-198220-04-1.png" alt="Typical habitat upstream of PSCIS crossing 198220." width="100%" />
 <p class="caption">
-Figure 5.29: Typical habitat upstream of PSCIS crossing 198220.
+Figure 5.33: Typical habitat upstream of PSCIS crossing 198220.
 </p>
 </div>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="tea-creek---198220---appendix.html#cb157-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb157-2"><a href="tea-creek---198220---appendix.html#cb157-2" tabindex="-1"></a></span>
-<span id="cb157-3"><a href="tea-creek---198220---appendix.html#cb157-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb157-4"><a href="tea-creek---198220---appendix.html#cb157-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb157-5"><a href="tea-creek---198220---appendix.html#cb157-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="tea-creek---198220---appendix.html#cb173-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb173-2"><a href="tea-creek---198220---appendix.html#cb173-2" tabindex="-1"></a></span>
+<span id="cb173-3"><a href="tea-creek---198220---appendix.html#cb173-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb173-4"><a href="tea-creek---198220---appendix.html#cb173-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb173-5"><a href="tea-creek---198220---appendix.html#cb173-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="tea-creek---198220---appendix.html#cb158-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
-<span id="cb158-2"><a href="tea-creek---198220---appendix.html#cb158-2" tabindex="-1"></a></span>
-<span id="cb158-3"><a href="tea-creek---198220---appendix.html#cb158-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="tea-creek---198220---appendix.html#cb159-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="tea-creek---198220---appendix.html#cb174-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb174-2"><a href="tea-creek---198220---appendix.html#cb174-2" tabindex="-1"></a></span>
+<span id="cb174-3"><a href="tea-creek---198220---appendix.html#cb174-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="tea-creek---198220---appendix.html#cb175-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198220-05"></span>
 <img src="Skeena2022_files/figure-html/photo-198220-05-1.png" alt="Typical habitat upstream of PSCIS crossing 198220." width="100%" />
 <p class="caption">
-Figure 5.30: Typical habitat upstream of PSCIS crossing 198220.
+Figure 5.34: Typical habitat upstream of PSCIS crossing 198220.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="tea-creek---198220---appendix.html#cb160-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb160-2"><a href="tea-creek---198220---appendix.html#cb160-2" tabindex="-1"></a></span>
-<span id="cb160-3"><a href="tea-creek---198220---appendix.html#cb160-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="tea-creek---198220---appendix.html#cb161-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="tea-creek---198220---appendix.html#cb176-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb176-2"><a href="tea-creek---198220---appendix.html#cb176-2" tabindex="-1"></a></span>
+<span id="cb176-3"><a href="tea-creek---198220---appendix.html#cb176-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="tea-creek---198220---appendix.html#cb177-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198220-06"></span>
 <img src="Skeena2022_files/figure-html/photo-198220-06-1.png" alt="Typical habitat upstream of PSCIS crossing 198220." width="100%" />
 <p class="caption">
-Figure 5.31: Typical habitat upstream of PSCIS crossing 198220.
+Figure 5.35: Typical habitat upstream of PSCIS crossing 198220.
 </p>
 </div>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="tea-creek---198220---appendix.html#cb162-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb162-2"><a href="tea-creek---198220---appendix.html#cb162-2" tabindex="-1"></a></span>
-<span id="cb162-3"><a href="tea-creek---198220---appendix.html#cb162-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb162-4"><a href="tea-creek---198220---appendix.html#cb162-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb162-5"><a href="tea-creek---198220---appendix.html#cb162-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="tea-creek---198220---appendix.html#cb178-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb178-2"><a href="tea-creek---198220---appendix.html#cb178-2" tabindex="-1"></a></span>
+<span id="cb178-3"><a href="tea-creek---198220---appendix.html#cb178-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb178-4"><a href="tea-creek---198220---appendix.html#cb178-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb178-5"><a href="tea-creek---198220---appendix.html#cb178-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="tea-creek---198220---appendix.html#cb163-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb163-2"><a href="tea-creek---198220---appendix.html#cb163-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb163-3"><a href="tea-creek---198220---appendix.html#cb163-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span>
-<span id="cb163-4"><a href="tea-creek---198220---appendix.html#cb163-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/functions.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="tea-creek---198220---appendix.html#cb164-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198222</span></span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="tea-creek---198220---appendix.html#cb179-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb179-2"><a href="tea-creek---198220---appendix.html#cb179-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb179-3"><a href="tea-creek---198220---appendix.html#cb179-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span>
+<span id="cb179-4"><a href="tea-creek---198220---appendix.html#cb179-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/functions.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="tea-creek---198220---appendix.html#cb180-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198222</span></span></code></pre></div>
 </div>
 </div>
             </section>
