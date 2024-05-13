@@ -33,7 +33,7 @@ map <- leaflet(height=500, width=780) %>%
   addProviderTiles("Esri.WorldImagery", group = "ESRI Aerial") %>% 
   addPolygons(data = wshd_study_areas, color = "#F29A6E", weight = 1, smoothFactor = 0.5,
               opacity = 1.0, fillOpacity = 0,
-              fillColor = "#F29A6E", label = 'Bulkley River') %>%
+              fillColor = "#F29A6E", label = wshd_study_areas$watershed_group_name) %>%
   addPolygons(data = wshds, color = "#0859C6", weight = 1, smoothFactor = 0.5,
               opacity = 1.0, fillOpacity = 0.25,
               fillColor = "#00DBFF",
@@ -214,7 +214,7 @@ During 2022 field assessments, habitat confirmation assessments were conducted a
 
 <br>
 
-As collaborative decision making was ongoing at the time of reporting, site prioritization can be considered preliminary.  In total, `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english()` crossings were rated as moderate priorities, and `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as low priorities. Results are summarized in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:map-interactive) and ")}`Tables \@ref(tab:tab-overview) - \@ref(fig:plot-fish-all) with raw habitat and fish sampling data included in digital format [here](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/blob/main/data/habitat_confirmations.xls).  A summary of preliminary modelling results illustrating the quantity of chinook, coho and steelhead spawning and rearing habitat potentially available upstream of each crossing as estimated by measured/modelled channel width and upstream accessible stream length are presented in Figure \@ref(fig:plot-model-all). Detailed information for each site assessed with Phase 2 assessments (including maps) are presented within site specific appendices to this document.
+As collaborative decision making was ongoing at the time of reporting, site prioritization can be considered preliminary.  In total, `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english()` crossings were rated as moderate priorities, and `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as low priorities. Results are summarized in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:map-interactive) - \\@ref(fig:plot-fish-all) and ")}`Tables \@ref(tab:tab-overview) - \@ref(tab:tab-wshd-sum-all) with raw habitat and fish sampling data included in digital format [here](https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/blob/main/data/habitat_confirmations.xls).  A summary of preliminary modelling results illustrating the quantity of chinook, coho and steelhead spawning and rearing habitat potentially available upstream of each crossing as estimated by measured/modelled channel width and upstream accessible stream length are presented in Figure \@ref(fig:plot-model-all). Detailed information for each site assessed with Phase 2 assessments (including maps) are presented within site specific appendices to this document.
 
 `r if(gitbook_on){knitr::asis_output("")} else knitr::asis_output("<br><br><br><br>")`
 
@@ -224,7 +224,7 @@ As collaborative decision making was ongoing at the time of reporting, site prio
 ```{r tab-overview, eval = T}
 table_phase2_overview <- function(dat, caption_text = '', font = font_set, scroll = TRUE){
   dat2 <- dat %>%
-    kable(caption = caption_text, booktabs = T) %>%
+    kable(caption = caption_text, booktabs = T, label = NA) %>%
     kableExtra::kable_styling(c("condensed"),
                               full_width = T,
                               font_size = font) %>%
@@ -257,8 +257,10 @@ fpr::fpr_table_cv_summary(dat = pscis_phase2) %>%
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
 
-```{r cost-est-phase-2, eval = F}
-tab_cost_est_phase2_report %>%
+```{r cost-est-phase-2, eval = TRUE}
+tab_cost_est_phase2_report |> 
+  # remove STerritt since it has natural barrier so not recommended for replacemnt
+  dplyr::filter(`PSCIS ID` != 198225) |> 
   fpr::fpr_kable(caption_text = 'Cost benefit analysis for Phase 2 assessments. Steelhead rearing model used (total length of stream segments <7.5% gradient)',
                  scroll = gitbook_on)
 
