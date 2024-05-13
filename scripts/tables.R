@@ -607,7 +607,7 @@ tab_fish_sites_sum <- left_join(
     distinct(),
 
   by = 'local_name'
-) %>%
+) |>
   mutate(area_m2 = round(ef_length_m * ef_width_m,1)) %>%
   select(site = local_name, passes = pass_total, ef_length_m, ef_width_m, area_m2, enclosure)
 
@@ -1147,11 +1147,13 @@ tab_cost_est_prep4 <- left_join(
   tab_cost_est_prep3,
   select(
     filter(habitat_confirmations_priorities, location == 'us'),
+
     site, upstream_habitat_length_m),
+
   by = c('pscis_crossing_id' = 'site')
 ) %>%
-  mutate(cost_net = round(upstream_habitat_length_m * 1000/cost_est_1000s, 1),
-         cost_area_net = round((upstream_habitat_length_m * 1000 * downstream_channel_width_meters * 0.5)/cost_est_1000s, 1)) ##this is a triangle area!
+  mutate(cost_net = round(upstream_habitat_length_m * 1000/(cost_est_1000s * 1000), 1),
+         cost_area_net = round((upstream_habitat_length_m * 1000 * downstream_channel_width_meters * 0.5)/(cost_est_1000s * 1000), 1)) ##this is a triangle area!
 
 tab_cost_est_prep5 <- left_join(
   tab_cost_est_prep4,
