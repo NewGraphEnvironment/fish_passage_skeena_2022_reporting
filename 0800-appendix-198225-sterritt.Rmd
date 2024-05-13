@@ -40,6 +40,8 @@ a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 
 <br>
 
+The stream was initially assessed on September 23, 2022, with much of this memo drafted then including recommendations for follow up fish sampling. The site was revisited on September 21, 2024. Results from the 2023 site visit is also now included in this updated report.
+
 ```{r tab-wshd-198225, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
@@ -95,11 +97,14 @@ hab_site %>% filter(site == my_site & location == 'us') %>% pull(comments)
 
 ## Stream Characteristics Downstream {.unnumbered}
 
-`r fpr_my_survey_dist(loc = 'ds')`
+`r fpr_my_survey_dist(loc = 'ds')` in 2022 
 `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198225-01) - \\@ref(fig:photo-198225-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198225-d01))."))`
-`r fpr_my_habitat_paragraph(loc = 'ds')` There was an abundance of large woody debris that created deep pools, diverted water flow, and created natural steps. The
-habitat was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
-salmonid rearing.
+`r fpr_my_habitat_paragraph(loc = 'ds')` Large woody debris was noted as abundant creating deep pools and small cascade steps. The habitat was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for salmonid rearing.
+
+<br>
+
+As noted above, the site was revisited in 2023 with intent to conduct electrofishing - however, before sampling was conducted surveyors observed a 2 - 3m high near vertical cascade flowing over bedrock into the small culvert outlet pool immediately below the FSR so it was decided to not proceed with electrofishing.
+
 
 ## Stream Characteristics Upstream {.unnumbered}
 
@@ -111,31 +116,11 @@ migration corridor containing suitable rearing habitat.
 
 <br>
 
-## Structure Remediation and Cost Estimate {.unnumbered}
-
-Should restoration/maintenance activities proceed, replacement of PSCIS
-crossing `r as.character(my_site)` with a bridge
-(`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m
-span) is recommended. The cost of the work is estimated at
-\$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost
-benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear
-m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)`
-m^2^/\$1000.
-
-<br>
-
 ## Conclusion {.unnumbered}
 
-There was
-`r fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_km)`km of
-habitat modelled upstream of crossing `r as.character(my_site)` with
-areas surveyed rated as
-`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
-value for salmonid rearing and spawning. `r as.character(my_site)` was ranked as a
-`r fpr::fpr_my_priority_info(col_pull = priority)` priority for proceeding to design for replacement. Electrofishing upstream and downstream of the culvert is recommended to provide insight into fish community
-composition and density which may justify a higher priority for site remediation.
-
-`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+As field surveys in the summer of 2023 confirmed a natural barrier (2 - 3m high near vertical cascade flowing over bedrock) immediately adjacent to the outlet of
+the crossing, replacement of the culvert
+with a bridge would not facilitate upstream fish migration so is not recommended.
 
 <br>
 

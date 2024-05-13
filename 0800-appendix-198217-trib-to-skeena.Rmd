@@ -128,7 +128,7 @@ my_caption1 = paste0('Trash rack on inlet side of PSCIS crossing ', my_site, '.'
 ```
 
 ```{r photo-198216-rack, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
+knitr::include_graphics(my_photo1)
 ```
 
 <br>
@@ -143,7 +143,7 @@ The area downstream of crossing `r as.character(my_site)` consisted of open wetl
 ## Stream Characteristics Upstream of `r as.character(my_site)` and Downstream of `r as.character(my_site2)`  {.unnumbered}
 
 `r fpr_my_survey_dist(loc = 'ds', sit = my_site2)` to crossing `r as.character(my_site)` 
-`r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198217-01) - \\@ref(fig:photo-198217-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198217-d02))."))`
+`r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198217-01) - \\@ref(fig:photo-198217-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198217-d01))."))`
 `r fpr_my_habitat_paragraph(loc = 'ds', sit = my_site2)` The area surveyed was mostly wetland habitat, with
 three large beaver dams spaced evenly along surveyed length. Multiple channels were present after the first beaver dam, separated by heavily vegetated banks. There was muddy bed material with some fines and
 gravels but nothing bigger. More gravels were present closer to crossing
@@ -168,20 +168,22 @@ hab_site %>% filter(site == my_site2 & location == 'us3') %>% pull(comments)
 
 ```
 
-Three sections of stream were surveyed. The first section was surveyed upstream of crossing `r as.character(my_site2)` for `r fpr_my_priority_info(sit = my_site2, loc = 'us', col_pull = 'length_surveyed')`m `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198217-03) - \\@ref(fig:photo-198217-06)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198217-d01))."))` `r fpr_my_habitat_paragraph(loc = 'us', sit = my_site2)` Abundant gravels were present
-suitable for coho, steelhead, and rainbow spawning. Multiple large beaver dams were present within the area surveyed. The upstream end of site was adjacent to a beaver dam complex. The habitat was rated as `r fpr::fpr_my_priority_info(loc = 'us', sit = my_site2)` value for salmonid rearing and spawning.
+Three sections of stream upstream of `r fpr_my_pscis_info(site = my_site2, col_pull = road_name)` were surveyed. Two were located within the main drainage for the watershed with the third located within a smaller tributary to the mainstream that entered the system on the upstream side of a large beaver impounded area approximately 260m upstream of the road.  
 
 <br>
 
-The second section was surveyed on an upstream tributary to the main stream for `r fpr_my_priority_info(sit = my_site2, loc = 'us2', col_pull = 'length_surveyed')`m. `r fpr_my_habitat_paragraph(loc = 'us2', sit = my_site2)` There was extensive beaver activity in this section. This was a steeper, smaller stream with extensive areas of gravel suitable for resident and anadronous salmonids. Multiple small steps from large and small woody debris with heights ranging from 20-40cm were present at the time of survey. The stream was surrounded by an old growth riparian forest. The habitat was
-rated as `r fpr::fpr_my_priority_info(loc = 'us2', sit = my_site2)` value for salmonid
-rearing and spawning. 
+The first section of stream surveyed began in the main drainage for the watershed immediately upstream of crossing `r as.character(my_site2)` for `r fpr_my_priority_info(sit = my_site2, loc = 'us', col_pull = 'length_surveyed')`m `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198217-03) - \\@ref(fig:photo-198217-04)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-198217-d02))."))` `r fpr_my_habitat_paragraph(loc = 'us', sit = my_site2)` Abundant gravels were present suitable for coho, steelhead, and rainbow spawning. Multiple large beaver dams were present within the area surveyed with the upstream end of the site  adjacent to a beaver dam complex. The habitat was rated as `r fpr::fpr_my_priority_info(loc = 'us', sit = my_site2)` value for salmonid rearing and spawning.
 
 <br>
 
-The third section was surveyed on a tributary to the mainstem for `r fpr_my_priority_info(sit = my_site2, loc = 'us3', col_pull = 'length_surveyed')`m. `r fpr_my_habitat_paragraph(loc = 'us3', sit = my_site2)` This is a major contributing tributary to downstream flow. Abundant gravels were present suitable for spawning. There were sporadic pools suitable for juvenile coho and steelhead overwintering. The mature old growth mixed riparian provided a stable channel and large woody debris. Wildlife trails were found throughout the forest. The habitat was
-rated as `r fpr::fpr_my_priority_info(loc = 'us3', sit = my_site2)` value for salmonid
+The second section of mainstem was surveyed for `r fpr_my_priority_info(sit = my_site2, loc = 'us3', col_pull = 'length_surveyed')`m with the downstream end of the area surveyed located approximately 360m upstream of `r fpr_my_pscis_info(site = my_site2, col_pull = road_name)`. `r fpr_my_habitat_paragraph(loc = 'us3', sit = my_site2)`  Abundant gravels were noted as present and suitable for spawning coho and other smaller resident salmonids. There were sporadic pools suitable for juvenile coho and steelhead overwintering and the mature old growth mixed riparian provided a stable channel with abundant large woody debris. Wildlife trails were found throughout the forest and the habitat was rated as `r fpr::fpr_my_priority_info(loc = 'us3', sit = my_site2)` value for salmonid
 rearing and spawning.
+
+<br>
+
+The third section of stream surveyed was located on a smaller tributary that enters the main drainage in the watershed at the location of a large beaver impounded wetland. The surveyed site length was `r fpr_my_priority_info(sit = my_site2, loc = 'us2', col_pull = 'length_surveyed')`m. `r fpr_my_habitat_paragraph(loc = 'us2', sit = my_site2)` Multiple small steps from large and small woody debris with heights ranging from 20-40cm were present at the time of survey. The stream was surrounded by an old growth riparian forest and habitat was
+rated as `r fpr::fpr_my_priority_info(loc = 'us2', sit = my_site2)` value for juvenile salmonid
+rearing.  Habitat present likely provides areas of habitat suitable for spawning of resident salmonids but the smaller size of the stream is not likely suitable for adult anadromous salmonid spawning. 
 
 ```{r ortho-198216, eval = identical(gitbook_on, TRUE)}
 model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/744a9804752947d9ba769e53b8c9deec/" scrolling="no" title="Maps Made Easy" width="100%" height="600" frameBorder ="0"></iframe>'
@@ -220,39 +222,52 @@ knitr::include_graphics(my_photo, dpi = NA)
 ## Fish Sampling {.unnumbered}
 
 In 2023, crossing `r as.character(my_site2)` was revisited and electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-198217) - \@ref(tab:tab-fish-dens-198217) and Figure
-\@ref(fig:plot-fish-box-198217). A total of `r tab_fish_summary_2023 %>% filter(site_id == paste0(my_site2, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured upstream and `r tab_fish_summary_2023%>% filter(site_id == paste0(my_site2, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured downstream `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198217-07) - \\@ref(fig:photo-198217-08)).")}else(knitr::asis_output("(Figures \\@ref(fig:photo-198217-u01))."))` Dolly varden and cutthroat trout were captured downstream of the crossing, but only cutthroat trout were captured upstream. All fish captured with a fork length greater than 60mm were tagged with Passive Integrated Transponders (PIT tags) with data stored [here](`r paste0(params$repo_url, "blob/main/data/2023/habitat_confirmations.xls")`).
+\@ref(fig:plot-fish-box-198217). A total of `r tab_fish_summary_2023 %>% filter(site_id == paste0(my_site2, '_us')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured upstream and `r tab_fish_summary_2023%>% filter(site_id == paste0(my_site2, '_ds')) %>% group_by(site_id) %>% janitor::adorn_totals() %>% filter(site_id == 'Total') %>% pull(count_fish)` fish were captured downstream `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-198217-07) - \\@ref(fig:photo-198217-08)).")}else(knitr::asis_output("(Figures \\@ref(fig:photo-198217-d04))."))` Cutthroat trout were captured downstream of the crossing, and dolly varden and cutthroat trout were captured downstream. All fish captured with a fork length greater than 60mm were tagged with Passive Integrated Transponders (PIT tags) with data stored [here](`r paste0(params$repo_url, "blob/main/data/2023/habitat_confirmations.xls")`).
 
 <br>
 
 ## Structure Remediation and Cost Estimate {.unnumbered}
 
-Although replacement of PSCIS crossing `r as.character(my_site2)` with a bridge (`r fpr::fpr_my_pscis_info(site = my_site2, col_pull = recommended_diameter_or_span_meters)`m span with a cost estimated at \$300,000) is tentatively recommended, conditions within the greater watershed should be assessed more comprehensively first to determine how the channel alignment and wetland configuration/capacity (between Water Tower Road and the Skeena River) have been impacted by the installation of roads and Sik-E-Dakh community infrastructure as alternative options may provide greater restoration actions.
+Although replacement of PSCIS crossing `r as.character(my_site2)` with a bridge (`r fpr::fpr_my_pscis_info(site = my_site2, col_pull = recommended_diameter_or_span_meters)`m span with a cost estimated at \$375,000) is tentatively recommended. However,as alternative options may provide greater restoration actions (ex. relocation of the crossing structure), conditions within the greater watershed should be assessed more comprehensively first to determine how the channel alignment and wetland configuration/capacity (between Water Tower Road and the Skeena River) have been impacted by the installation of roads and Sik-E-Dakh community infrastructure.
 
 <br>
 
 ## Conclusion and Recommendations {.unnumbered}
 
-There was more than `r fpr::fpr_my_priority_info(sit = my_site2, col_pull= upstream_habitat_length_km)`km of habitat modelled upstream of crossing `r as.character(my_site2)` with gradients less than 10%.  Areas surveyed rated as `r fpr::fpr_my_priority_info(sit = my_site2, loc = 'us', col_pull = hab_value)` value for coho rearing and spawning. In collaboration with the local Sik-E-Dakh community, a plan to gather local knowledge, provide educational opportunities for local community members and eventually rehabilitate this system is being layed out by the Gitksan Watershed Authorities. Recommendations going forward include:
+There was more than `r fpr::fpr_my_priority_info(sit = my_site2, col_pull= upstream_habitat_length_km)`km of habitat modelled upstream of crossing `r as.character(my_site2)` with gradients less than 10%.  Habitat within areas surveyed rated as `r fpr::fpr_my_priority_info(sit = my_site2, loc = 'us', col_pull = hab_value)` value for coho rearing and spawning. At the time of 2024 reporting, in collaboration with the local Sik-E-Dakh community, a plan to gather local knowledge, provide educational opportunities for local community members and eventually rehabilitate this system was underway - led by the Gitksan Watershed Authorities. Additionally, in 2023 Gitskan Watershed Authorities acquired Salmon Restoration and Innovation Fund dollars to facilitate the physical works to replace the crossings on `r fpr_my_pscis_info(site = my_site2, col_pull = road_name)`. An engineering design was completed for this site in 2023 by Onsite Engineering with funding provided through SERNbc and replacement of the crossing is scheduled for the summer of 2024.
+
+<br>
+
+Recommendations from reporting conducted in 2023 are included below with updates from 2024 include in red where applicable:
 
   * If it can be located, conduct an assessment of modelled crossing 8301266, located approximately 375m further up Water Tower Road from crossing 198217. During the assessment, survey upstream and downstream (several hundred meters if possible) to try to determine if (and how much) water flows where this stream segment has been mapped in the freshwater atlas of BC.
   
+  <span style="color:red">Update 2024: Survey crews from Onsite engineering attempted to locate modelled crossing 8301266 in the summer of 2023.  The crossing was not located and is not likely present.</span>
+  
   * As the extent/duration of seasonal dewatering could decrease and the amount of rearing habitat available increased by encouraging water retention in beaver influenced wetland areas, an inventory of beaver dams, analysis of the watershed with the beaver restoration assessment tool and wetland mapping is recommended. Additionally, we recommend engaging with Ministry of Transportation and Infrastructure representatives and contractors to understand site constraints, road maintenance issues and explore the possibility of increasing water storage within the wetland areas located upstream and downstream of the highway.
+  
 
-  * Electrofishing and PIT tagging upstream and downstream of crossing `r as.character(my_site2)` (including within the northern tributary that feeds the drinking water intake facility) is recommended to provide insight into fish community composition, density, survival and movement.
+  * Electrofishing and PIT tagging within the main drainage of the watershed upstream and downstream of crossing `r as.character(my_site2)` is recommended to provide insight into fish community composition, density, survival and movement.
+  
+  <span style="color:red">Update 2024: Baseline assessemnt work conducted in the summer of 2023 with results presented within this memo.  Fish over 60mm were tagged with PIT tags so that their movement and health can be tracked as part of effectiveness monitoring at the site.</span>
 
   * Acquisition of lidar data for areas to the west of current data available on LidarBC (includes area of water intake facilities) to provide information about potential channel and wetland locations.  Analysis of this data could provide insight into historic channel dredging/redirections and inform restoration actions.
+  
+  <span style="color:red">Update 2024: Lidar data was acquired in summer of 2023 and loaded to collaborative QGIS project hosted on cloud server (Mergin Maps). Review of data provided no indication of historic channel dredging/redirections and indicates that - as expected - the mapped location of main flow in the watershed is erroneous in the BC freshwater atlas.</span>
 
   * Acquisition of temperature data at points likely to contain water all year long (ex. outlet of culverts and upstream of culvert on water tower road). Acquire data for the entire growing season and include areas from main north channel to elevations where coho are expected to populate. The growing season can be defined as per @coleman_fausch2007ColdSummer, which delineate the beginning as the first day of the week that average stream temperatures exceed 5$^\circ$C in the spring and the end as the last day of the week that average stream temperature drops below 4$^\circ$C. 
 
   * Delineation of reaches and acquisition of habitat data incorporating Fish Habitat Assessment Procedures [@johnston_slaney1996FishHabitat] within all reaches expected to be populated by coho. An adaptation of assessments (ex. degree of channel incision and percentage of floodplain utilized by the stream) developed to informed low-tech process-based restoration activities (beaver dam analogues and post assisted log structures) could be incorporated into FHAP assessments as per @wheaton_etal2019LowTechProcessBased.
 
   * Acquire high resolution RGB imagery for the entire area from the confluence to above the water intake infrastructure. Include areas on the west side of the highway where there is the remnant channel on the south of water tower culverts and wetland areas to the north.
+  
+   <span style="color:red">Update 2024: High resolution imagery was collected at the same time as lidar data acquisition for the same area surveyed with lidar (primarily upstream of the highway to above the water intake facility) data acquired in summmer of 2023 and loaded to collaborative QGIS project hosted on cloud server (Mergin Maps). Review of data provided no indication of historic channel dredging/redirections and indicates that - as expected - the mapped location of main flow in the watershed is erroneous in the BC freshwater atlas.</span>
 
   * Coho spawner surveys to coincide with known spawning timing in neighbouring systems.
 
-  * Snorkel and/or gopro surveys of plunge pool areas below culverts at times of steelhead and coho migrations to scope for adults attempting to ascend the watershed.
+  * Snorkel and/or go pro surveys of plunge pool areas below culverts at times of steelhead and coho migrations to scope for adults attempting to ascend the watershed.
 
-  * Overall outreach program to gather historic fisheries information for the system and to scope for knowledge regarding alterations to the subject stream tradgectory/floodplain. Through this process of two way education, Kispiox valley residents and restoration practitioners could learn/teach about the role of beavers in local watershed health as well as the history of impacts to aquatic values due to road, community, and ranch development in the area.
+  * Overall outreach program to gather historic fisheries information for the system and to scope for knowledge regarding alterations to the subject stream trajectory/floodplain. Through this process of two way education, Kispiox valley residents and restoration practitioners could learn/teach about the role of beavers in local watershed health as well as the history of impacts to aquatic values due to road, community, and ranch development in the area.
 
 * Acquisition of hydrometric information in accordance with the Manual of British Columbia Hydrometric Standards [@resourcesinformationstandardscommittee2018ManualBritish] to build stage discharge curves for the watershed so the relationships between fish life history timings, physical habitat suitability, temperature and flows can be better understood.
 
@@ -302,7 +317,7 @@ my_caption1 = paste0('Typical habitat downstream of PSCIS crossing ', my_site2, 
 ```
 
 ```{r photo-198217-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
+knitr::include_graphics(my_photo1)
 ```
 
 <br>
@@ -314,7 +329,7 @@ my_caption2 = paste0('Typical habitat downstream of PSCIS crossing ', my_site2, 
 ```
 
 ```{r photo-198217-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo2))
+knitr::include_graphics(my_photo2)
 
 ```
 
@@ -336,7 +351,7 @@ my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site2, '.
 ```
 
 ```{r photo-198217-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
+knitr::include_graphics(my_photo1)
 ```
 
 <br>
@@ -349,7 +364,7 @@ my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site2, '.
 ```
 
 ```{r photo-198217-04, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo2))
+knitr::include_graphics(my_photo2)
 ```
 
 ```{r photo-198217-d02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
@@ -363,30 +378,30 @@ knitr::include_graphics(my_photo2)
 
 <br>
 
-```{r photo-198217-05-prep}
+```{r photo-198217-05-prep, , eval = F}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site2, str_to_pull = '_u3_')
 
 my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site2, '.')
 ```
 
-```{r photo-198217-05, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
+```{r photo-198217-05, fig.cap= my_caption1, out.width = photo_width,eval = F}
+knitr::include_graphics(my_photo1)
 ```
 
 <br>
 
-```{r photo-198217-06-prep}
+```{r photo-198217-06-prep, eval = F}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site2, str_to_pull = '_u4_')
 
-my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site2, '.')
+my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site2, ' within smaller southern tributary to the main stream.')
 
 ```
 
-```{r photo-198217-06, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo2))
+```{r photo-198217-06, fig.cap= my_caption2, out.width = photo_width, eval = F}
+knitr::include_graphics(my_photo2)
 ```
 
-```{r photo-198217-d04, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+```{r photo-198217-d04, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval = F}
 
 my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
 
@@ -405,7 +420,7 @@ my_caption1 = paste0('Cutthroat trout captured upstream of PSCIS crossing ', my_
 ```
 
 ```{r photo-198217-07, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
+knitr::include_graphics(my_photo1)
 ```
 
 <br>
@@ -413,17 +428,17 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-198217-08-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site2, dir_photos = "data/photos/", str_to_pull = '_dv_ds')
 
-my_caption2 = paste0('Dolly Varden captured downstream of PSCIS crossing ', my_site2, '.')
+my_caption2 = paste0('Dolly varden captured downstream of PSCIS crossing ', my_site2, '.')
 
 ```
 
 ```{r photo-198217-08, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo2))
+knitr::include_graphics(my_photo2)
 ```
 
 <br>
 
-```{r photo-198217-u01, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+```{r photo-198217-d05, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
 
 my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
 
