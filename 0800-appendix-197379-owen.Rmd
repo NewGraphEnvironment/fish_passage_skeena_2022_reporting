@@ -109,8 +109,7 @@ The site was revisited in 2023 to resample to build the state of knowledge relat
 Should restoration/maintenance activities proceed, replacement of PSCIS
 crossing `r as.character(my_site)` with a bridge
 (`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m
-span) is recommended. The cost of the work is estimated at
-\$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost
+span) is recommended. The cost of the work was estimated by Mark Dewit (Ministry of Forest Area Engineer) at \$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost
 benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear
 m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)`
 m^2^/\$1000 with the relatively high costs of the work predicted primarily related to the large amount of road fill present at the site, the large width of the two lane FSR and the subsequent significant excavation required to install the large replacement structure.
