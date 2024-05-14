@@ -1,28 +1,16 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
-  markdown: 
-    wrap: 72
----
-
-```{r setup-197379, eval = F}
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
-source('scripts/packages.R')
-source('scripts/tables.R')
-
-```
-
 ```{r  load-data-197379}
 my_site <- 197379
-
 ```
 
 `r fpr::fpr_appendix_title()`
 
 ## Site Location {.unnumbered}
 
-PSCIS crossing `r as.character(my_site)` is located on `r fpr::fpr_my_pscis_info()` 28km south-west of Houston, BC at approximately km 29.8 on the Morice-Owen Forest Service Road (FSR), approximately `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km upstream from the confluence with the Owen River.  At the time of reporting in 2023, the Huckleberry Multi-Use Site was located immediately south of the subject stream at a location of approximately 1.1km upstream of the FSR.  A remote workcamp, the site is reported as housing up to 800-1200 workers employed to construct TC Energy’s Coastal GasLink (CGL) pipeline project.  Water for the camp (150,000 litres/day) was trucked in from the District of Houston with with another 150,000 litres/day of effluent trucked back to Houston from disposal [@burnslakelakesdistrictnews2022CoastalGasLink].  This memo was originally drafted in 2023 but has been updated in the spring of 2024 with new information.
+PSCIS crossing `r as.character(my_site)` is located on `r fpr::fpr_my_pscis_info()` 28km south-west of Houston, BC at approximately km 29.8 on the Morice-Owen Forest Service Road (FSR), approximately `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km upstream from the confluence with the Owen River.  The stream is known locally as Alvin Creek, draining Alvin Lake however the naming convention is not documented for either the stream or the lake within the freshwater atlas of BC. 
+
+<br>
+
+At the time of reporting in 2023, the Huckleberry Multi-Use Site was located immediately south of the subject stream at a location of approximately 1.1km upstream of the FSR.  A remote workcamp, the site is reported as housing up to 800-1200 workers employed to construct TC Energy’s Coastal GasLink (CGL) pipeline project.  Water for the camp (150,000 litres/day) was trucked in from the District of Houston with with another 150,000 litres/day of effluent trucked back to Houston from disposal [@burnslakelakesdistrictnews2022CoastalGasLink].  This memo was originally drafted in 2023 but has been updated in the spring of 2024 with new information.
 
 <br>
 
