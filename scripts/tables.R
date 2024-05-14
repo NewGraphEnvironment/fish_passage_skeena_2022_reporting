@@ -39,10 +39,10 @@ pscis_all_prep <- pscis_list %>%
 conn <- readwritesqlite::rws_connect("data/bcfishpass.sqlite")
 readwritesqlite::rws_list_tables(conn)
 bcfishpass_phase2 <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
-  filter(stream_crossing_id %in%
+  dplyr::filter(stream_crossing_id %in%
            (pscis_phase2 %>%
               pull(pscis_crossing_id))) %>%
-  filter(!is.na(stream_crossing_id))
+  dplyr::filter(!is.na(stream_crossing_id))
 bcfishpass <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
   mutate(ch_cm_co_pk_sk_network_km = round(ch_cm_co_pk_sk_network_km,2))
 # bcfishpass_archive <- readwritesqlite::rws_read_table("bcfishpass_archive_2022-03-02-1403", conn = conn)
@@ -60,7 +60,7 @@ wshds <- readwritesqlite::rws_read_table("wshds", conn = conn) %>%
 
 photo_metadata <- readwritesqlite::rws_read_table("photo_metadata", conn = conn)
 # # fiss_sum <- readwritesqlite::rws_read_table("fiss_sum", conn = conn)
-rws_disconnect(conn)
+readwritesqlite::rws_disconnect(conn)
 
 tab_cost_rd_mult <- readr::read_csv(paste0(getwd(), '/data/inputs_raw/tab_cost_rd_mult.csv'))
 
@@ -117,7 +117,7 @@ pscis_all_sf <- pscis_all_sf %>%
 #          road_class, road_name_full, road_surface, file_type_description, forest_file_id,
 #          client_name, client_name_abb, map_label, owner_name, admin_area_abbreviation,
 #          steelhead_network_km, steelhead_belowupstrbarriers_network_km, distance) %>%
-#   # filter(distance < 100) %>% ## we need to screen out the crossings that are not matched well
+#   # dplyr::filter(distance < 100) %>% ## we need to screen out the crossings that are not matched well
 #   select(pscis_crossing_id, my_crossing_reference:admin_area_abbreviation, steelhead_network_km, steelhead_belowupstrbarriers_network_km)
 
 
@@ -135,7 +135,7 @@ tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
     `Bridge $K/10m` = cost_m_1000s_bridge,
     `Streambed Simulation $K` = cost_embed_cv
   ) %>%
-  filter(!is.na(Class)) %>%
+  dplyr::filter(!is.na(Class)) %>%
   mutate(Class =case_when(
     Class == 'fsr' ~ str_to_upper(Class),
     T ~ stringr::str_to_title(Class)),
@@ -153,14 +153,14 @@ tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
 #   mutate(pscis_crossing_id = case_when(!is.na(stream_crossing_id) ~ stream_crossing_id,
 #                                        T ~ pscis_crossing_id)) %>%
 #   select(-stream_crossing_id)
-#   # filter(distance < 100)
+#   # dplyr::filter(distance < 100)
 #  HACK bottom hashout for now!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 # priorities phase 1 ------------------------------------------------------
 ##uses habitat value to initially screen but then refines based on what are likely not barriers to most most the time
 phase1_priorities <- pscis_all %>%
-  filter(!source %ilike% 'phase2') %>%
+  dplyr::filter(!source %ilike% 'phase2') %>%
   select(aggregated_crossings_id, pscis_crossing_id, my_crossing_reference, utm_zone:northing, habitat_value, barrier_result, source) %>%
   mutate(priority_phase1 = case_when(habitat_value == 'High' & barrier_result != 'Passable' ~ 'high',
                                      habitat_value == 'Medium' & barrier_result != 'Passable' ~ 'mod',
@@ -177,7 +177,7 @@ phase1_priorities <- pscis_all %>%
 
 ##turn spreadsheet into list of data frames
 pscis_phase1_for_tables <- pscis_all %>%
-  filter(source %ilike% 'phase1') %>%
+  dplyr::filter(source %ilike% 'phase1') %>%
   arrange(pscis_crossing_id)
 
 
@@ -202,7 +202,7 @@ tab_photo_url <- list.files(path = paste0(getwd(), '/data/photos/'), full.names 
   mutate(value = as.integer(value)) %>%  ##need this to sort
   dplyr::arrange(value)  %>%
   mutate(photo = paste0('![](data/photos/', value, '/crossing_all.JPG)')) %>%
-  filter(value %in% pscis_phase1_for_tables$my_crossing_reference)  %>% ##we don't want all the photos - just the phase 1 photos for this use case!!!
+  dplyr::filter(value %in% pscis_phase1_for_tables$my_crossing_reference)  %>% ##we don't want all the photos - just the phase 1 photos for this use case!!!
   left_join(., xref_pscis_my_crossing_modelled, by = c('value' = 'external_crossing_reference'))  %>% ##we need to add the pscis id so that we can sort the same
   arrange(stream_crossing_id) %>%
   select(-value) %>%
@@ -290,7 +290,7 @@ hab_fish_collect_map_prep <- habitat_confirmations %>%
 hab_loc2 <- hab_loc %>%
   tidyr::separate(alias_local_name, into = c('site', 'location', 'ef'), remove = F) %>%
   mutate(site_id = paste0(site, location)) %>%
-  filter(str_detect(alias_local_name, 'ef|198222|mt')) ##filter ef and mt sites
+  dplyr::filter(str_detect(alias_local_name, 'ef|198222|mt')) ##filter ef and mt sites
 
 
 # test to see what we get at each site
@@ -327,7 +327,7 @@ hab_fish_collect_map_prep3 <- left_join(
 )
   # this time we ditch the nfc because we don't want it to look like sites are non-fish bearing.  Its a multipass thing
   # WATCH THIS IN THE FUTURE
-  # filter(species_code != 'NFC')
+  # dplyr::filter(species_code != 'NFC')
 
 # need to make an array for mapping the hab_fish_collect files
 # this gives a list column vs an array.  prob easier to use postgres and postgis to make the array
@@ -361,7 +361,7 @@ hab_features <- left_join(
   habitat_confirmations %>%
     purrr::pluck("step_4_stream_site_data") %>%
     select(reference_number,local_name, feature_type:utm_northing) %>%
-    filter(!is.na(feature_type)),
+    dplyr::filter(!is.na(feature_type)),
 
   fpr::fpr_xref_obstacles,
 
@@ -470,7 +470,7 @@ fish_abund_prep <- hab_fish_indiv %>%
            species_code,
            life_stage,
            ef_seconds) %>% ##added sampling method!
-  filter(sampling_method == 'electrofishing') %>%
+  dplyr::filter(sampling_method == 'electrofishing') %>%
   summarise(catch = n()) %>%
   arrange(site_id, species_code, ef) %>%
   # ungroup() %>%
@@ -504,7 +504,7 @@ fish_nfc_tag<- fish_abund_prep2 %>%
   ) %>%
   select(local_name, species_code, life_stage, haul_number_pass_number, pass_total, nfc_pass) %>%
   arrange(desc(haul_number_pass_number)) %>%
-  # filter(nfc_pass == T) %>%
+  # dplyr::filter(nfc_pass == T) %>%
   distinct(local_name, species_code, life_stage, .keep_all = T) %>%
   select(-haul_number_pass_number, -pass_total)
 
@@ -518,7 +518,7 @@ fish_nfc_tag<- fish_abund_prep2 %>%
 # ) %>%
 #   tidyr::fill(nfc_pass, .direction = 'up')
 
-  # filter(!is.na(nfc_pass)) %>%
+  # dplyr::filter(!is.na(nfc_pass)) %>%
 
   # mutate(nfc_pass = case_when(
   #   species_code != 'NFC' ~ 'TRUE',
@@ -560,10 +560,10 @@ fish_abund <- left_join(
 # only run depletion estimates when there are site/species events with more than 1 pass and all passes have fish.
 # otherwise just add the counts together for the abundance
 # fish_deplet_prep <- fish_abund_prep3 %>%
-#   filter(is.na(abundance)) %>%
+#   dplyr::filter(is.na(abundance)) %>%
 #   # at least three passes
 #   group_by(id) %>%
-#   filter( n() > 2 )
+#   dplyr::filter( n() > 2 )
 #
 #
 # fish_abund_prep_ls <-  fish_deplet_prep %>%
@@ -631,7 +631,7 @@ rm(
 
 
 # hab_fish_dens <- hab_fish_indiv %>%
-#   filter(sampling_method == 'electrofishing') %>% ##added this since we now have mt data as well!!
+#   dplyr::filter(sampling_method == 'electrofishing') %>% ##added this since we now have mt data as well!!
 #   mutate(area = round(ef_length_m * ef_width_m),0) %>%
 #   group_by(local_name, method_number, haul_number_pass_number, ef_length_m, ef_width_m, ef_seconds, area, species_code, life_stage) %>%
 #   summarise(fish_total = length(life_stage)) %>%
@@ -649,7 +649,7 @@ habitat_confirmations_priorities <- readr::read_csv(
   file = "./data/habitat_confirmations_priorities.csv",
   #this is not necessary but we will leave.
   locale = readr::locale(encoding = "UTF-8")) %>%
-  filter(!alias_local_name %like% 'ef' &
+  dplyr::filter(!alias_local_name %like% 'ef' &
            ##ditch the ef sites and the toboggan site that is passable
            !alias_local_name %like% '198042') %>% ##ditch the ef sites and the toboggan site that is passable
   # tidyr::separate(local_name, into = c('site', 'location'), remove = F) %>%
@@ -663,11 +663,11 @@ hab_site_priorities_prep <- left_join(
   select(hab_site, reference_number, alias_local_name, site, utm_zone:utm_northing),
   by = 'reference_number'
 ) %>%
-  filter(!local_name %like% '_ds' &
+  dplyr::filter(!local_name %like% '_ds' &
            # ends in a number
            !local_name %like% '\\d$') %>%
   select(-local_name) %>%
-  filter(!is.na(priority))  ##this is how we did it before.  changed it to get a start on it
+  dplyr::filter(!is.na(priority))  ##this is how we did it before.  changed it to get a start on it
 
 hab_site_priorities <- left_join(
   hab_site_priorities_prep %>%
@@ -950,7 +950,7 @@ tab_overview_prep1 <- pscis_phase2 %>%
   select(pscis_crossing_id, stream_name, road_name, road_tenure, easting, northing, habitat_value)
 
 tab_overview_prep2 <- habitat_confirmations_priorities %>%
-  filter(location == 'us') %>%
+  dplyr::filter(location == 'us') %>%
   select(site, species_codes, upstream_habitat_length_m, priority, comments) %>%
   mutate(upstream_habitat_length_km = round(upstream_habitat_length_m/1000,1))
 
@@ -981,8 +981,8 @@ rm(tab_overview_prep1, tab_overview_prep2)
 
 tab_hab_summary <- left_join(
   hab_site %>%
-    #filter out minnow trap sites because we did not do habitat surveys on these
-    filter(!alias_local_name %like% 'mt') %>%
+    #dplyr::filter out minnow trap sites because we did not do habitat surveys on these
+    dplyr::filter(!alias_local_name %like% 'mt') %>%
     select(alias_local_name,
            site,
            location,
@@ -1119,7 +1119,7 @@ tab_cost_est_phase1_prep <- left_join(
          cost_est_1000s,
          st_network_km,
          cost_gross, cost_area_gross, source) %>%
-  filter(barrier_result != 'Unknown' & barrier_result != 'Passable')
+  dplyr::filter(barrier_result != 'Unknown' & barrier_result != 'Passable')
 
 # too_far_away <- tab_cost_est %>% filter(distance > 100) %>% ##after review all crossing match!!!!! Baren rail is the hwy but that is fine. added source, distance, crossing_id above
 #   filter(source %like% 'phase2')
@@ -1139,25 +1139,31 @@ tab_cost_est_phase1 <- tab_cost_est_phase1_prep %>%
     `Habitat Upstream (km)` = st_network_km,
     `Cost Benefit (m / $K)` = cost_gross,
     `Cost Benefit (m2 / $K)` = cost_area_gross) %>%
-  filter(!source %like% 'phase2') %>%
+  dplyr::filter(!source %like% 'phase2') %>%
   select(-source)
 
 ## phase2 --------------------
 tab_cost_est_prep4 <- left_join(
   tab_cost_est_prep3,
   select(
-    filter(habitat_confirmations_priorities, location == 'us'),
+    dplyr::filter(habitat_confirmations_priorities, location == 'us'),
 
     site, upstream_habitat_length_m),
 
   by = c('pscis_crossing_id' = 'site')
 ) %>%
+  # custom alteration to the cost estimate for 197379 owen trib
+  mutate(cost_est_1000s = case_when(
+    pscis_crossing_id == 197379 ~ 800,
+    T ~ cost_est_1000s
+  )) |>
   mutate(cost_net = round(upstream_habitat_length_m * 1000/(cost_est_1000s * 1000), 1),
          cost_area_net = round((upstream_habitat_length_m * 1000 * downstream_channel_width_meters * 0.5)/(cost_est_1000s * 1000), 1)) ##this is a triangle area!
 
+
 tab_cost_est_prep5 <- left_join(
   tab_cost_est_prep4,
-  select(hab_site %>% filter(
+  select(hab_site %>% dplyr::filter(
     !alias_local_name %like% 'ds' &
       !alias_local_name %like% 'ef' &
       !alias_local_name %like% '\\d$'),
@@ -1168,8 +1174,8 @@ tab_cost_est_prep5 <- left_join(
 
 ##add the priority info
 tab_cost_est_phase2 <- tab_cost_est_prep5 %>%
-  filter(source %like% 'phase2') %>%
-  filter(barrier_result != 'Unknown' & barrier_result != 'Passable') %>%
+  dplyr::filter(source %like% 'phase2') %>%
+  dplyr::filter(barrier_result != 'Unknown' & barrier_result != 'Passable') %>%
   select(pscis_crossing_id,
          stream_name,
          road_name,
@@ -1186,7 +1192,7 @@ tab_cost_est_phase2 <- tab_cost_est_prep5 %>%
 
 tab_cost_est_phase2_report <- tab_cost_est_phase2 %>%
   dplyr::arrange(pscis_crossing_id) %>%
-  # filter(source %like% 'phase2') %>%
+  # dplyr::filter(source %like% 'phase2') %>%
   rename(`PSCIS ID` = pscis_crossing_id,
          Stream = stream_name,
          Road = road_name,
@@ -1209,10 +1215,10 @@ rm(tab_cost_est_prep, tab_cost_est_prep2,
 hab_loc_prep <- left_join(
   hab_loc %>%
     tidyr::separate(alias_local_name, into = c('site', 'location', 'ef'), remove = F) %>%
-    filter(!alias_local_name %ilike% 'ef' &
+    dplyr::filter(!alias_local_name %ilike% 'ef' &
              location == 'us') %>%
     mutate(site = as.integer(site)),
-  select(filter(habitat_confirmations_priorities, location == 'us'),
+  select(dplyr::filter(habitat_confirmations_priorities, location == 'us'),
          site, priority, comments),
   by = 'site'
 )
@@ -1222,7 +1228,7 @@ hab_loc_prep <- left_join(
 ###please note that the photos are only in those files ecause they are referenced in other parts
 #of the document
 tab_hab_map <- left_join(
-  tab_cost_est_phase2 %>% filter(source %like% 'phase2'),
+  tab_cost_est_phase2 %>% dplyr::filter(source %like% 'phase2'),
   hab_loc_prep %>% select(site, priority, utm_easting, utm_northing, comments),
   by = c('pscis_crossing_id' = 'site')
 )  %>%
