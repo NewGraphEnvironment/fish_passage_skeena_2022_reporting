@@ -6,7 +6,7 @@ my_site <- 197379
 
 ## Site Location {.unnumbered}
 
-PSCIS crossing `r as.character(my_site)` is located on `r fpr::fpr_my_pscis_info()` 28km south-west of Houston, BC at approximately km 29.8 on the Morice-Owen Forest Service Road (FSR), approximately `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km upstream from the confluence with the Owen River.  The stream is known locally as Alvin Creek, draining Alvin Lake however the naming convention is not documented for either the stream or the lake within the freshwater atlas of BC. 
+PSCIS crossing `r as.character(my_site)` is located on `r fpr::fpr_my_pscis_info()` 28km south-west of Houston, BC at approximately km 29.8 on the Morice-Owen Forest Service Road (FSR), approximately `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km upstream from the confluence with the Owen River.  The stream is known locally as Alvin Creek, draining Alvin Lake however the naming convention is not documented for either the stream or the lake within the freshwater atlas of BC. This memo was previously titled "Tributary to Owen Creek - 197379".
 
 <br>
 
