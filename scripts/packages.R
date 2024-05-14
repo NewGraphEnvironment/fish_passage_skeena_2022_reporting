@@ -1,6 +1,5 @@
 pkgs_cran <- c(
   # 'raster', #load this dog before dplyr yo
-  'tidyverse',
   'readwritesqlite',
   'sf',
   'readxl',
@@ -33,8 +32,8 @@ pkgs_cran <- c(
   'fishbc',
   'chron',
   'roxygen2',
-  'devtools'
-
+  'devtools',
+  'tidyverse'
   # 'analogsea',
   # 'here'
   # rgl,
@@ -43,6 +42,7 @@ pkgs_cran <- c(
   # gert  ##to track git moves
   ##leafpop I think
 )
+
 pkgs_gh <- c(#'Envirometrix/plotKML',  #plot kml needed to go ahead of other packages for some reason and wants to reinstall everytime.... not sure why. hash out for nowpoissonconsulting/fwapgr",
   'poissonconsulting/poisspatial',
   'poissonconsulting/fwapgr',
