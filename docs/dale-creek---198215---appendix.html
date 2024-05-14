@@ -279,10 +279,10 @@ for the area upstream of crossing 198215 <span class="citation">(MoE 2020b; Norr
 <p><br></p>
 <p>The culverts and stream were initially assessed on September 9, 2022 and rated as moderate priority for proceeding to design for replacement, with a recommendation to conduct electrofishing to further inform prioritization. The site was revisited September 21, 2023 and electrofishing was conducted upstream and downstream of the crossing to provide insight into fish community composition and density, with results included in this report.</p>
 <p><br></p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="dale-creek---198215---appendix.html#cb82-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb82-2"><a href="dale-creek---198215---appendix.html#cb82-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb82-3"><a href="dale-creek---198215---appendix.html#cb82-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb82-4"><a href="dale-creek---198215---appendix.html#cb82-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="dale-creek---198215---appendix.html#cb81-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-2"><a href="dale-creek---198215---appendix.html#cb81-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb81-3"><a href="dale-creek---198215---appendix.html#cb81-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb81-4"><a href="dale-creek---198215---appendix.html#cb81-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-wshd-198215">Table 5.7: </span>Summary of derived upstream watershed statistics for PSCIS crossing 198215.
@@ -357,7 +357,7 @@ E
 map attachment
 <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/kisp/archive/2022-09-06/FishPassage_093M.106.pdf">093M.106</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="dale-creek---198215---appendix.html#cb83-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="dale-creek---198215---appendix.html#cb82-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
@@ -633,7 +633,7 @@ SK Rearing (ha)
 <div id="climate-change-risk-assessment-2" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Climate Change Risk Assessment<a href="dale-creek---198215---appendix.html#climate-change-risk-assessment-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Preliminary climate change risk assessment data for the site is presented in Tables <a href="dale-creek---198215---appendix.html#tab:tab-moti-198215">5.9</a> - <a href="dale-creek---198215---appendix.html#tab:tab-moti-198215-comments">5.10</a>.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="dale-creek---198215---appendix.html#cb84-1" tabindex="-1"></a><span class="fu">fpr_table_moti</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="dale-creek---198215---appendix.html#cb83-1" tabindex="-1"></a><span class="fu">fpr_table_moti</span>() </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-moti-198215">Table 5.9: </span>Summary of climate change risk assessment for PSCIS crossing 198215.
@@ -770,7 +770,7 @@ Overall Rank = Vulnerability Rank + Priority Rank
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="dale-creek---198215---appendix.html#cb85-1" tabindex="-1"></a><span class="fu">fpr_table_moti_comments</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="dale-creek---198215---appendix.html#cb84-1" tabindex="-1"></a><span class="fu">fpr_table_moti_comments</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-moti-198215-comments">Table 5.10: </span>Details and rational for climate risk rankings
@@ -824,7 +824,7 @@ pH was 8.3 and
 conductivity was
 164uS/cm.</p>
 <p><br></p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="dale-creek---198215---appendix.html#cb86-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="dale-creek---198215---appendix.html#cb85-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_cv_summary_memo</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-culvert-198215">Table 5.11: </span>Summary of fish passage assessment for PSCIS crossing 198215.
@@ -1087,15 +1087,15 @@ Fix Span / Diameter
 </tfoot>
 </table></li>
 </ul>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="dale-creek---198215---appendix.html#cb87-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
-<span id="cb87-2"><a href="dale-creek---198215---appendix.html#cb87-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
-<span id="cb87-3"><a href="dale-creek---198215---appendix.html#cb87-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="dale-creek---198215---appendix.html#cb86-1" tabindex="-1"></a><span class="do">##this is useful to get some comments for the report</span></span>
+<span id="cb86-2"><a href="dale-creek---198215---appendix.html#cb86-2" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;ds&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span>
+<span id="cb86-3"><a href="dale-creek---198215---appendix.html#cb86-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(site <span class="sc">==</span> my_site <span class="sc">&amp;</span> location <span class="sc">==</span> <span class="st">&#39;us&#39;</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(comments)</span></code></pre></div>
 </div>
 <div id="stream-characteristics-downstream-1" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Downstream<a href="dale-creek---198215---appendix.html#stream-characteristics-downstream-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The stream was surveyed downstream from crossing 198215 for 60m to the confluence with the Kispiox River
 (Figures <a href="dale-creek---198215---appendix.html#fig:photo-198215-01">5.11</a> - <a href="dale-creek---198215---appendix.html#fig:photo-198215-02">5.12</a>).
-Total cover amount was rated as trace with boulders dominant. Cover was also present as large woody debris and overhanging vegetation.The average channel width was 5.3m, the average wetted width was 2.1m, and the average gradient was 11%.The dominant substrate was cobbles with gravels sub-dominant. This stretch of stream was steep with one lock block step approximately 30m downstream of the culvert that was approximately 1m in height, which could block upstream migration for non adult fish species. It is thought that the lock blocks were likely originally placed in this location to backwater the site, minimize the culvert outlet drop and facilitate upstream fish passage. The habitat was rated as medium value for salmonid rearing and spawning.</p>
+The average channel width was 5.3m, the average wetted width was 2.1m, and the average gradient was 11%.The dominant substrate was cobbles with gravels sub-dominant.Total cover amount was rated as trace with boulders dominant. Cover was also present as large woody debris and overhanging vegetation. This stretch of stream was steep with one lock block step approximately 30m downstream of the culvert that was approximately 1m in height, which could block upstream migration for non adult fish species. It is thought that the lock blocks were likely originally placed in this location to backwater the site, minimize the culvert outlet drop and facilitate upstream fish passage. The habitat was rated as medium value for salmonid rearing and spawning.</p>
 </div>
 <div id="stream-characteristics-upstream-1" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Upstream<a href="dale-creek---198215---appendix.html#stream-characteristics-upstream-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1128,11 +1128,11 @@ m<sup>2</sup>/$1000 with the relatively high costs of the work predicted primari
 <p>Following the 2022 survey, the site was ranked as moderate priority for proceeding to design for replacement, with a recommendation to conduct electrofishing to help further inform prioritization. As also noted above, the site was revisited in September of 2023 with electrofishing conducted upstream and downstream of the crossing. Cutthroat trout and rainbow trout were captured upstream of with cuthroat, rainbow and dolly varden captured downstream. All fish over 60mm in size were tagged with PIT tags so that their movement and health can be tracked over time to help inform prioritization and effectiveness monitoring should restoration activities advance.</p>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="dale-creek---198215---appendix.html#cb88-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb88-2"><a href="dale-creek---198215---appendix.html#cb88-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb88-3"><a href="dale-creek---198215---appendix.html#cb88-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
-<span id="cb88-4"><a href="dale-creek---198215---appendix.html#cb88-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb88-5"><a href="dale-creek---198215---appendix.html#cb88-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="dale-creek---198215---appendix.html#cb87-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb87-2"><a href="dale-creek---198215---appendix.html#cb87-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb87-3"><a href="dale-creek---198215---appendix.html#cb87-3" tabindex="-1"></a>  <span class="co"># select(-Site) %&gt;% </span></span>
+<span id="cb87-4"><a href="dale-creek---198215---appendix.html#cb87-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb87-5"><a href="dale-creek---198215---appendix.html#cb87-5" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-habitat-summary-198215">Table 5.12: </span>Summary of habitat details for PSCIS crossing 198215.
@@ -1230,7 +1230,7 @@ medium
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="dale-creek---198215---appendix.html#cb89-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>(<span class="at">dat =</span> tab_fish_sites_sum_2023, <span class="at">sit =</span> my_site)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="dale-creek---198215---appendix.html#cb88-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>(<span class="at">dat =</span> tab_fish_sites_sum_2023, <span class="at">sit =</span> my_site)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-site-198215">Table 5.13: </span>Fish sampling site summary for 198215.
@@ -1381,7 +1381,7 @@ Open
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="dale-creek---198215---appendix.html#cb90-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>(<span class="at">dat =</span> fish_abund_2023, <span class="at">sit =</span> my_site)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="dale-creek---198215---appendix.html#cb89-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>(<span class="at">dat =</span> fish_abund_2023, <span class="at">sit =</span> my_site)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; color: black; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-dens-198215">Table 5.14: </span>Fish sampling density results summary for 198215.
@@ -1839,9 +1839,9 @@ FALSE
 </tfoot>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="dale-creek---198215---appendix.html#cb91-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
-<span id="cb91-2"><a href="dale-creek---198215---appendix.html#cb91-2" tabindex="-1"></a></span>
-<span id="cb91-3"><a href="dale-creek---198215---appendix.html#cb91-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>(<span class="at">dat =</span> fish_abund_2023, <span class="at">sit =</span> my_site) </span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="dale-creek---198215---appendix.html#cb90-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
+<span id="cb90-2"><a href="dale-creek---198215---appendix.html#cb90-2" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="dale-creek---198215---appendix.html#cb90-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>(<span class="at">dat =</span> fish_abund_2023, <span class="at">sit =</span> my_site) </span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:plot-fish-box-198215"></span>
 <img src="Skeena2022_files/figure-html/plot-fish-box-198215-1.png" alt="Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
@@ -1849,10 +1849,10 @@ Figure 5.10: Densites of fish (fish/100m2) captured upstream and downstream of P
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="dale-creek---198215---appendix.html#cb92-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
-<span id="cb92-2"><a href="dale-creek---198215---appendix.html#cb92-2" tabindex="-1"></a></span>
-<span id="cb92-3"><a href="dale-creek---198215---appendix.html#cb92-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="dale-creek---198215---appendix.html#cb93-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="dale-creek---198215---appendix.html#cb91-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb91-2"><a href="dale-creek---198215---appendix.html#cb91-2" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="dale-creek---198215---appendix.html#cb91-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="dale-creek---198215---appendix.html#cb92-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-01"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-01-1.png" alt="Typical habitat downstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
@@ -1860,10 +1860,10 @@ Figure 5.11: Typical habitat downstream of PSCIS crossing 198215.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="dale-creek---198215---appendix.html#cb94-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
-<span id="cb94-2"><a href="dale-creek---198215---appendix.html#cb94-2" tabindex="-1"></a></span>
-<span id="cb94-3"><a href="dale-creek---198215---appendix.html#cb94-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Lock block step downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="dale-creek---198215---appendix.html#cb95-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="dale-creek---198215---appendix.html#cb93-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_d2_&#39;</span>)</span>
+<span id="cb93-2"><a href="dale-creek---198215---appendix.html#cb93-2" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="dale-creek---198215---appendix.html#cb93-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Lock block step downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="dale-creek---198215---appendix.html#cb94-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-02"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-02-1.png" alt="Lock block step downstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
@@ -1871,15 +1871,15 @@ Figure 5.12: Lock block step downstream of PSCIS crossing 198215.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="dale-creek---198215---appendix.html#cb96-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="dale-creek---198215---appendix.html#cb95-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb95-2"><a href="dale-creek---198215---appendix.html#cb95-2" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="dale-creek---198215---appendix.html#cb95-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb95-4"><a href="dale-creek---198215---appendix.html#cb95-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb95-5"><a href="dale-creek---198215---appendix.html#cb95-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="dale-creek---198215---appendix.html#cb96-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
 <span id="cb96-2"><a href="dale-creek---198215---appendix.html#cb96-2" tabindex="-1"></a></span>
-<span id="cb96-3"><a href="dale-creek---198215---appendix.html#cb96-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb96-4"><a href="dale-creek---198215---appendix.html#cb96-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb96-5"><a href="dale-creek---198215---appendix.html#cb96-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="dale-creek---198215---appendix.html#cb97-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
-<span id="cb97-2"><a href="dale-creek---198215---appendix.html#cb97-2" tabindex="-1"></a></span>
-<span id="cb97-3"><a href="dale-creek---198215---appendix.html#cb97-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="dale-creek---198215---appendix.html#cb98-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb96-3"><a href="dale-creek---198215---appendix.html#cb96-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="dale-creek---198215---appendix.html#cb97-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-03"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-03-1.png" alt="Typical habitat upstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
@@ -1887,26 +1887,26 @@ Figure 5.13: Typical habitat upstream of PSCIS crossing 198215.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="dale-creek---198215---appendix.html#cb99-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb99-2"><a href="dale-creek---198215---appendix.html#cb99-2" tabindex="-1"></a></span>
-<span id="cb99-3"><a href="dale-creek---198215---appendix.html#cb99-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="dale-creek---198215---appendix.html#cb100-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="dale-creek---198215---appendix.html#cb98-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb98-2"><a href="dale-creek---198215---appendix.html#cb98-2" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="dale-creek---198215---appendix.html#cb98-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="dale-creek---198215---appendix.html#cb99-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-04"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-04-1.png" alt="Typical habitat upstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
 Figure 5.14: Typical habitat upstream of PSCIS crossing 198215.
 </p>
 </div>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="dale-creek---198215---appendix.html#cb101-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb101-2"><a href="dale-creek---198215---appendix.html#cb101-2" tabindex="-1"></a></span>
-<span id="cb101-3"><a href="dale-creek---198215---appendix.html#cb101-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb101-4"><a href="dale-creek---198215---appendix.html#cb101-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb101-5"><a href="dale-creek---198215---appendix.html#cb101-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="dale-creek---198215---appendix.html#cb100-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb100-2"><a href="dale-creek---198215---appendix.html#cb100-2" tabindex="-1"></a></span>
+<span id="cb100-3"><a href="dale-creek---198215---appendix.html#cb100-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb100-4"><a href="dale-creek---198215---appendix.html#cb100-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb100-5"><a href="dale-creek---198215---appendix.html#cb100-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="dale-creek---198215---appendix.html#cb102-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
-<span id="cb102-2"><a href="dale-creek---198215---appendix.html#cb102-2" tabindex="-1"></a></span>
-<span id="cb102-3"><a href="dale-creek---198215---appendix.html#cb102-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Location of old historic dam, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="dale-creek---198215---appendix.html#cb103-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="dale-creek---198215---appendix.html#cb101-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb101-2"><a href="dale-creek---198215---appendix.html#cb101-2" tabindex="-1"></a></span>
+<span id="cb101-3"><a href="dale-creek---198215---appendix.html#cb101-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Location of old historic dam, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="dale-creek---198215---appendix.html#cb102-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-05"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-05-1.png" alt="Location of old historic dam, upstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
@@ -1914,25 +1914,25 @@ Figure 5.15: Location of old historic dam, upstream of PSCIS crossing 198215.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="dale-creek---198215---appendix.html#cb104-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb104-2"><a href="dale-creek---198215---appendix.html#cb104-2" tabindex="-1"></a></span>
-<span id="cb104-3"><a href="dale-creek---198215---appendix.html#cb104-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="dale-creek---198215---appendix.html#cb105-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="dale-creek---198215---appendix.html#cb103-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb103-2"><a href="dale-creek---198215---appendix.html#cb103-2" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="dale-creek---198215---appendix.html#cb103-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="dale-creek---198215---appendix.html#cb104-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-06"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-06-1.png" alt="Typical habitat upstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
 Figure 5.16: Typical habitat upstream of PSCIS crossing 198215.
 </p>
 </div>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="dale-creek---198215---appendix.html#cb106-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="dale-creek---198215---appendix.html#cb105-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb105-2"><a href="dale-creek---198215---appendix.html#cb105-2" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="dale-creek---198215---appendix.html#cb105-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb105-4"><a href="dale-creek---198215---appendix.html#cb105-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb105-5"><a href="dale-creek---198215---appendix.html#cb105-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="dale-creek---198215---appendix.html#cb106-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">dir_photos =</span> <span class="st">&quot;data/photos/&quot;</span>, <span class="at">str_to_pull =</span> <span class="st">&#39;_ct_us&#39;</span>)</span>
 <span id="cb106-2"><a href="dale-creek---198215---appendix.html#cb106-2" tabindex="-1"></a></span>
-<span id="cb106-3"><a href="dale-creek---198215---appendix.html#cb106-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb106-4"><a href="dale-creek---198215---appendix.html#cb106-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb106-5"><a href="dale-creek---198215---appendix.html#cb106-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="dale-creek---198215---appendix.html#cb107-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">dir_photos =</span> <span class="st">&quot;data/photos/&quot;</span>, <span class="at">str_to_pull =</span> <span class="st">&#39;_ct_us&#39;</span>)</span>
-<span id="cb107-2"><a href="dale-creek---198215---appendix.html#cb107-2" tabindex="-1"></a></span>
-<span id="cb107-3"><a href="dale-creek---198215---appendix.html#cb107-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Cutthroat trout captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="dale-creek---198215---appendix.html#cb108-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb106-3"><a href="dale-creek---198215---appendix.html#cb106-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Cutthroat trout captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="dale-creek---198215---appendix.html#cb107-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-07"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-07-1.png" alt="Cutthroat trout captured upstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
@@ -1940,10 +1940,10 @@ Figure 5.17: Cutthroat trout captured upstream of PSCIS crossing 198215.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="dale-creek---198215---appendix.html#cb109-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">dir_photos =</span> <span class="st">&quot;data/photos/&quot;</span>, <span class="at">str_to_pull =</span> <span class="st">&#39;_rb_us&#39;</span>)</span>
-<span id="cb109-2"><a href="dale-creek---198215---appendix.html#cb109-2" tabindex="-1"></a></span>
-<span id="cb109-3"><a href="dale-creek---198215---appendix.html#cb109-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Rainbow trout captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="dale-creek---198215---appendix.html#cb110-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="dale-creek---198215---appendix.html#cb108-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">dir_photos =</span> <span class="st">&quot;data/photos/&quot;</span>, <span class="at">str_to_pull =</span> <span class="st">&#39;_rb_us&#39;</span>)</span>
+<span id="cb108-2"><a href="dale-creek---198215---appendix.html#cb108-2" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="dale-creek---198215---appendix.html#cb108-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Rainbow trout captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="dale-creek---198215---appendix.html#cb109-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-198215-08"></span>
 <img src="Skeena2022_files/figure-html/photo-198215-08-1.png" alt="Rainbow trout captured upstream of PSCIS crossing 198215." width="100%" />
 <p class="caption">
@@ -1951,19 +1951,19 @@ Figure 5.18: Rainbow trout captured upstream of PSCIS crossing 198215.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="dale-creek---198215---appendix.html#cb111-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb111-2"><a href="dale-creek---198215---appendix.html#cb111-2" tabindex="-1"></a></span>
-<span id="cb111-3"><a href="dale-creek---198215---appendix.html#cb111-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb111-4"><a href="dale-creek---198215---appendix.html#cb111-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb111-5"><a href="dale-creek---198215---appendix.html#cb111-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="dale-creek---198215---appendix.html#cb110-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb110-2"><a href="dale-creek---198215---appendix.html#cb110-2" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="dale-creek---198215---appendix.html#cb110-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb110-4"><a href="dale-creek---198215---appendix.html#cb110-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb110-5"><a href="dale-creek---198215---appendix.html#cb110-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="dale-creek---198215---appendix.html#cb112-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb112-2"><a href="dale-creek---198215---appendix.html#cb112-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb112-3"><a href="dale-creek---198215---appendix.html#cb112-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span>
-<span id="cb112-4"><a href="dale-creek---198215---appendix.html#cb112-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/moti_climate.R&#39;</span>)</span>
-<span id="cb112-5"><a href="dale-creek---198215---appendix.html#cb112-5" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/functions.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="dale-creek---198215---appendix.html#cb113-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198216</span></span>
-<span id="cb113-2"><a href="dale-creek---198215---appendix.html#cb113-2" tabindex="-1"></a>my_site2 <span class="ot">&lt;-</span> <span class="dv">198217</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="dale-creek---198215---appendix.html#cb111-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb111-2"><a href="dale-creek---198215---appendix.html#cb111-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb111-3"><a href="dale-creek---198215---appendix.html#cb111-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span>
+<span id="cb111-4"><a href="dale-creek---198215---appendix.html#cb111-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/moti_climate.R&#39;</span>)</span>
+<span id="cb111-5"><a href="dale-creek---198215---appendix.html#cb111-5" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/functions.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="dale-creek---198215---appendix.html#cb112-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">198216</span></span>
+<span id="cb112-2"><a href="dale-creek---198215---appendix.html#cb112-2" tabindex="-1"></a>my_site2 <span class="ot">&lt;-</span> <span class="dv">198217</span></span></code></pre></div>
 </div>
 </div>
             </section>
