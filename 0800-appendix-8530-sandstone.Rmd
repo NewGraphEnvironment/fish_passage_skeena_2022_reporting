@@ -24,7 +24,7 @@ my_site <- 8530
 
 PSCIS crossing `r as.character(my_site)` is located on
 `r fpr::fpr_my_pscis_info()` approximately 35km west of the town of
-Smithers, on `r fpr_my_pscis_info(col_pull = road_name)`. This crossing is located approximately 650m upstream from the confluence with the Zymoetz River.
+Smithers, on `r fpr_my_pscis_info(col_pull = road_name)`. This crossing is located approximately 650m upstream from the confluence with the Zymoetz River.  This crossing is the responsibility of the Ministry of Forests.
 
 <br>
 
