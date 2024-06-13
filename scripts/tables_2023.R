@@ -9,12 +9,6 @@ source("scripts/packages.R")
 
 year = "2023"
 file <- "habitat_confirmations.xls"
-move_from <- paste0("~/Projects/repo/fish_passage_skeena_2023_reporting/data/", file)
-move_to <- paste0("data/", year)
-
-
-##move the file over from the 2023 repo
-file.copy(from = move_from, to = move_to, overwrite = TRUE)
 
 
 ## Prep needed to make objects
