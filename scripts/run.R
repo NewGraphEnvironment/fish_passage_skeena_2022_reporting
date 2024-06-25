@@ -1,16 +1,16 @@
 preview_chapter('0100-intro.Rmd')
 
 
+
 #################################################################################################
 ##go to the index.Rmd and change gitbook_on <- TRUE
 #################################################################################################
 
-# rmarkdown::render_site(output_format = 'bookdown::gitbook',
-#                        encoding = 'UTF-8')
-
 # if you need to update after renaming photos to keep and add to map, or if you added new photos....
 source('scripts/02_reporting/0180-photos-extract-metadata.R')
-
+## move the file over from the 2023 repo, you must have the 2023 Skeena repo cloned to your computer.
+fs::file_copy("~/Projects/repo/fish_passage_skeena_2023_reporting/data/habitat_confirmations.xls",
+              "data/2023/habitat_confirmations.xls", overwrite = TRUE)
 
 
 {

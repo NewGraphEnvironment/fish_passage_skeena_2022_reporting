@@ -16,7 +16,7 @@ author: |
 
 date: |
  |
- | Version 0.1.1 `r format(Sys.Date(), "%Y-%m-%d")`
+ | Version 0.1.2 `r format(Sys.Date(), "%Y-%m-%d")`
 toc-title: Table of Contents
 site: bookdown::bookdown_site
 output: 
@@ -25,6 +25,7 @@ output:
             in_header: header.html
 params:
  repo_url: 'https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting/'
+ update_packages: FALSE
 nocite: |
   @busch_etal2013LandscapeLevelModel, 
   @woll_etal2017SalmonEcological,

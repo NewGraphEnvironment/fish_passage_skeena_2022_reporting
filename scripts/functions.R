@@ -143,7 +143,7 @@ fpr_copy_over_photos <- function(filescopy, filespaste){
 news_to_appendix <- function(
     md_name = "NEWS.md",
     rmd_name = "2090-report-change-log.Rmd",
-    appendix_title = "# Report Change Log") {
+    appendix_title = "# Changelog") {
 
   # Read and modify the contents of the markdown file
   news_md <- readLines(md_name)

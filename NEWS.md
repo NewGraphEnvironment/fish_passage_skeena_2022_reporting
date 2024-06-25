@@ -1,3 +1,10 @@
+# fish_passage_skeena_2022_reporting v0.1.2 (20240625)
+
+- update 198236 - Tributray to Kitwanga River to give estimate of habitat under 8% gradient upstream.
+- add second level TOC on click
+- update packages conditionally
+
+
 # fish_passage_skeena_2022_reporting v0.1.1 (20240513)
 
 - Update "Alvin Creek" memo (Tributary to Owen Creek - 197379) to include 2023 sampling attempt and brief detail of Bii Wenii recovery/restoration initiative.  Correct the road km to 29.8. Update fish species list to include all species observed in 2023. Include cost estimate section with estimate of cost updated by hand to align with Marc Dewit's estimate. Add link to newly titled memo in old html document so links to the memo are not broken.
