@@ -1,5 +1,5 @@
 bookdown::gitbook:
-  toc_depth: 1
+  toc_depth: 2
   css: style.css
   config:
     toc:
@@ -7,6 +7,7 @@ bookdown::gitbook:
         <li><a href="./">Fish Passage Planning Skeena 2022</a></li>
       after: |
         <li><a href="https://github.com/NewGraphEnvironment/fish_passage_skeena_2022_reporting" target="blank">Scripts and Data</a></li>
+      ollapse: section
     download: ["Skeena2022.pdf", "Skeena2022.html"]
     fontsettings:
       theme: night
