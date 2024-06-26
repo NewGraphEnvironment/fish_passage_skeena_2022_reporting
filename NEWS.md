@@ -3,6 +3,8 @@
 - update 198236 - Tributray to Kitwanga River to give estimate of habitat under 8% gradient upstream.
 - add second level TOC on click
 - update packages conditionally
+- update results sections headers
+- move climate change results to end
 
 
 # fish_passage_skeena_2022_reporting v0.1.1 (20240513)
